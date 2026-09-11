@@ -10,9 +10,33 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace LauSetup {
+// Windows' default disabled text can turn nearly black on a dark control.
+// Keep real Enabled semantics and paint only the disabled appearance ourselves.
+public sealed class ReadableButton:Button {
+    protected override void OnPaint(PaintEventArgs e) {
+        if(Enabled){base.OnPaint(e);return;}
+        Color background=Color.FromArgb(35,47,64),text=Color.FromArgb(196,207,223);
+        using(var fill=new SolidBrush(background))e.Graphics.FillRectangle(fill,ClientRectangle);
+        using(var border=new Pen(Color.FromArgb(114,133,157)))e.Graphics.DrawRectangle(border,0,0,Math.Max(0,Width-1),Math.Max(0,Height-1));
+        TextRenderer.DrawText(e.Graphics,Text,Font,ClientRectangle,text,background,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis);
+    }
+}
+public sealed class ReadableCheckBox:CheckBox {
+    protected override void OnPaint(PaintEventArgs e) {
+        if(Enabled){base.OnPaint(e);return;}
+        Color background=Parent==null?BackColor:Parent.BackColor,text=Color.FromArgb(196,207,223);
+        using(var fill=new SolidBrush(background))e.Graphics.FillRectangle(fill,ClientRectangle);
+        int size=Math.Max(14,Font.Height-1),left=2,top=(Height-size)/2;
+        using(var fill=new SolidBrush(Color.FromArgb(35,47,64)))e.Graphics.FillRectangle(fill,left,top,size,size);
+        using(var pen=new Pen(Color.FromArgb(154,173,197)))e.Graphics.DrawRectangle(pen,left,top,size,size);
+        if(Checked)using(var pen=new Pen(text,2F))e.Graphics.DrawLines(pen,new[]{new Point(left+3,top+size/2),new Point(left+size/2,top+size-4),new Point(left+size-3,top+3)});
+        var bounds=new Rectangle(left+size+8,0,Math.Max(0,Width-left-size-8),Height);
+        TextRenderer.DrawText(e.Graphics,Text,Font,bounds,text,background,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
+    }
+}
 public sealed class SetupForm:Form {
     readonly Catalog catalog;
-    readonly Color ink=Color.FromArgb(235,240,249),muted=Color.FromArgb(155,171,194),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
+    readonly Color ink=Color.FromArgb(241,245,251),muted=Color.FromArgb(190,204,224),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
     TextBox folder;Label detected,download,status;CheckBox cons,spells,maps;Button browse,install,restore,cancel;ProgressBar progress;
     ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly;
     public SetupForm(Catalog catalog) {
@@ -38,15 +62,15 @@ public sealed class SetupForm:Form {
         restore=Button("Restore previous install",false);restore.Width=205;restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);bottom.Controls.Add(actions);
         progress=new ProgressBar{Dock=DockStyle.Fill,Maximum=1000,Visible=false,Margin=new Padding(0,8,0,8)};bottom.Controls.Add(progress);
         status=Label("",10,FontStyle.Regular,ink);status.Padding=new Padding(0,6,0,0);bottom.Controls.Add(status);
-        bottom.Controls.Add(Label("Automatic backups. Existing addons and personal settings are preserved.",9,FontStyle.Regular,muted));
-        bottom.Controls.Add(Label("Release 3.0.4 Lau  •  Windows 10 / 11  •  Existing build 12340 required",9,FontStyle.Regular,muted));grid.Controls.Add(bottom);
+        bottom.Controls.Add(Label("Automatic backups. Existing addons and personal settings are preserved.",10,FontStyle.Regular,muted));
+        bottom.Controls.Add(Label("Release 3.0.4 Lau  •  Windows 10 / 11  •  Existing build 12340 required",10,FontStyle.Regular,muted));grid.Controls.Add(bottom);
         cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;status.Text="Please wait for this operation to finish, or use Cancel.";}};
         AcceptButton=install;
     }
     Label Label(string text,float size,FontStyle style,Color color) { return new Label{Text=text,Font=new Font("Segoe UI",size,style),ForeColor=color,Dock=DockStyle.Fill,AutoEllipsis=false,Margin=new Padding(0),TextAlign=ContentAlignment.MiddleLeft}; }
-    Button Button(string text,bool primary) { var b=new Button{Text=text,Height=40,FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font("Segoe UI",10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(53,71,94);return b; }
-    CheckBox Check(string text,bool check) { return new CheckBox{Text=text,Checked=check,Dock=DockStyle.Fill,AutoSize=false,Margin=new Padding(0),Padding=new Padding(0,2,0,2),ForeColor=ink}; }
+    Button Button(string text,bool primary) { var b=new ReadableButton{Text=text,Height=40,FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font("Segoe UI",10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);return b; }
+    CheckBox Check(string text,bool check) { return new ReadableCheckBox{Text=text,Checked=check,Dock=DockStyle.Fill,AutoSize=false,Margin=new Padding(0),Padding=new Padding(0,2,0,2),ForeColor=ink}; }
     async void Choose(object sender,EventArgs args) {
         using(var dialog=new FolderBrowserDialog{Description="Select your World of Warcraft folder (the folder containing WoW.exe).",ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
             if(dialog.ShowDialog(this)!=DialogResult.OK)return;
@@ -125,7 +149,17 @@ public sealed class SetupForm:Form {
         catch(Exception ex){status.Text=ex.Message;}finally{SetBusy(false);}
     }
     void SetBusy(bool value) { busy=value;browse.Enabled=!value;cons.Enabled=!value&&!recoveryOnly;spells.Enabled=!value&&!recoveryOnly&&client!=null&&client.Hd;maps.Enabled=!value&&!recoveryOnly&&client!=null&&!client.MapsInstalled;install.Enabled=!value&&plan!=null&&plan.Operations.Count>0;restore.Enabled=false;if(!value&&client!=null)try{restore.Enabled=Transaction.Journals(client.Root).Any(f=>new[]{"STAGING","COMMITTING","RESTORING","RECOVERY_REQUIRED","INSTALLED"}.Contains(Transaction.Status(f)));if(Transaction.Pending(client.Root)!=null)install.Enabled=false;}catch(Exception ex){install.Enabled=false;status.Text=ex.Message;} }
-    internal void Preview(string output) { folder.Text=@"D:\Games\World of Warcraft";detected.Text="English (US)  ·  HD models detected  ·  Build 12340";spells.Checked=true;spells.Enabled=true;download.Text="Download up to 472.4 MB  ·  Existing maps kept";status.Text="Ready. A verified backup is created before any game files change.";install.Enabled=true;CreateControl();ShowInTaskbar=false;Location=new Point(-32000,-32000);Show();PerformLayout();Application.DoEvents();using(var bitmap=new Bitmap(Width,Height)){DrawToBitmap(bitmap,new Rectangle(0,0,Width,Height));bitmap.Save(output,System.Drawing.Imaging.ImageFormat.Png);}Close(); }
+    internal void Preview(string output,string state="ready") {
+        if(state!="initial"){
+            folder.Text=@"D:\Games\World of Warcraft";detected.Text="English (US)  ·  HD models detected  ·  Build 12340";spells.Checked=true;spells.Enabled=true;
+            download.Text="Download up to 472.4 MB  ·  Existing maps kept";status.Text="Ready. A verified backup is created before any game files change.";install.Enabled=true;
+        }
+        if(state=="busy"){SetBusy(true);cancel.Visible=true;progress.Visible=true;progress.Value=420;status.Text="Downloading spell visuals  ·  84.0 MB / 200.0 MB";}
+        CreateControl();ShowInTaskbar=false;Location=new Point(-32000,-32000);Show();PerformLayout();Application.DoEvents();
+        using(var bitmap=new Bitmap(Width,Height)){DrawToBitmap(bitmap,new Rectangle(0,0,Width,Height));bitmap.Save(output,System.Drawing.Imaging.ImageFormat.Png);}
+        // Preview does not perform an installation and must not trip the busy-close guard.
+        busy=false;Close();
+    }
     public static string FormatSize(long bytes){return bytes>=1000000000?(bytes/1000000000.0).ToString("0.00")+" GB":(bytes/1000000.0).ToString("0.0")+" MB";}
     public static string Language(string locale){switch(locale){case "enUS":return "English (US)";case "deDE":return "Deutsch";case "frFR":return "Français";case "esES":return "Español (España)";case "esMX":return "Español (México)";case "koKR":return "한국어";case "ruRU":return "Русский";case "zhCN":return "简体中文";case "zhTW":return "繁體中文";default:return locale;}}
     static string Friendly(string id){return id=="Maps"?"maps and minimap":id.StartsWith("Y-")?"spell indicators":id.Contains("Q-")?"loading screens and regional artwork":id=="Executable"?"the compatible game executable":"spell visuals";}
@@ -135,7 +169,7 @@ public static class Program {
         try {
             Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);var catalog=Catalog.Embedded();
             using(var form=new SetupForm(catalog)) {
-                if(args.Length==2&&args[0]=="--render-preview"){form.Preview(Path.GetFullPath(args[1]));return 0;}
+                if((args.Length==2||args.Length==3)&&args[0]=="--render-preview"){form.Preview(Path.GetFullPath(args[1]),args.Length==3?args[2]:"ready");return 0;}
                 Application.Run(form);return 0;
             }
         }catch(Exception ex){MessageBox.Show(ex.Message,"Lau Setup",MessageBoxButtons.OK,MessageBoxIcon.Error);return 1;}

@@ -17,6 +17,8 @@ The GitHub migration additionally pins the repository, release tag and file name
 
 An independent review of the migration found that Python optimization could remove publishing checks written as assertions. Upload, catalog-refresh and release-gate checks now raise explicit exceptions. The uploader also resolves each source and requires it to remain directly inside the payload directory. Publishing guard tests pass under `python -O` for file paths, sizes, hashes and remote URL/digest tampering.
 
-Latest complete regression suite: `reports/tests-20260911-154011/results.json`; 38 test groups passed, including 108 actual fixture install/restore combinations, all commit/restore interruption points, path/junction/hardlink protection, process and file locks, corruption/drift, HTTP range handling, cancellation, offline assembly, and GUI install/restore using the real versioned executable.
+Latest complete regression suite: `reports/tests-20260911-200603/results.json`; 38 test groups passed, including 108 actual fixture install/restore combinations, all commit/restore interruption points, path/junction/hardlink protection, process and file locks, corruption/drift, HTTP range handling, cancellation, offline assembly, and GUI install/restore using the real versioned executable.
 
-Publication checks, final binary metadata and full native runtime results are separate release gates. See WORK.md for their current status.
+The 1.0.1 UI review covers brighter supporting text, larger footer text and custom disabled-control painting. Native Enabled semantics remain in place; only disabled appearance is drawn manually. The initial, ready and busy Windows previews were visually inspected. Core.cs, Downloader.cs and all game payloads remain byte-identical to v1.0.0. Its game/network evidence is retained; the Windows regression suite is rerun for this update. The Wine feasibility probe did not pass form construction and does not establish platform support.
+
+Publication checks and final binary metadata are separate gates. See the release VALIDATION.json for evidence scope, including which checks were retained from the unchanged game baseline.

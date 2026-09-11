@@ -6,6 +6,8 @@ Last Modified By: Neil Mitchell
 
 Small Windows installer for the Lau 3.0.4 Q/S/Y upgrade. The user selects an existing WoW 3.3.5a build 12340 folder, confirms visual options, and installs. See START-HERE.txt for the user instructions.
 
+Installer 1.0.1 improves contrast for supporting text and disabled controls, and increases footer text size. Game payloads and installation behavior are unchanged. Linux/Wine and macOS are not yet supported; see [platform feasibility and the required checks](PLATFORM-FEASIBILITY.md).
+
 **[Download LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)**
 
 1. Close World of Warcraft.
