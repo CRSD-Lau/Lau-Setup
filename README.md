@@ -4,11 +4,13 @@ Author: Neil Mitchell
 Creator: Neil Mitchell  
 Last Modified By: Neil Mitchell
 
-Small Windows installer for the Lau 3.0.4 Q/S/Y upgrade. The user selects an existing WoW 3.3.5a build 12340 folder, confirms visual options, and installs. See START-HERE.txt for the user instructions.
+Small Windows and Wine installer for the Lau 3.0.4 Q/S/Y upgrade. Select an existing WoW 3.3.5a build 12340 folder, confirm visual options, and install. See START-HERE.txt for Windows instructions and [the Wine guide](wine/README.txt) for Linux.
 
-Installer 1.0.1 improves contrast for supporting text and disabled controls, and increases footer text size. Game payloads and installation behavior are unchanged. Linux/Wine and macOS are not yet supported; see [platform feasibility and the required checks](PLATFORM-FEASIBILITY.md).
+Installer 1.1.0 adds Wine 11 / Wine Mono 10.4.1 support through a Linux launcher with host process, path and locking checks. It also uses the release site's W-and-shield icon for the executable and window, selects fonts available on Wine, and checks Windows .NET Framework 4.8 before opening setup. Game payloads remain unchanged. Lutris, Proton and macOS integration are outside this release.
 
 **[Download LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)**
+
+**[Download LauSetup-Wine.zip for Linux](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** — extract it and run `WINEPREFIX="/path/to/existing/prefix" sh LauSetup.sh`. Requires Wine 11.0, Wine Mono 10.4.1, a 64-bit prefix and Python 3.9+. Use the supplied launcher; direct Wine execution refuses client operations without its Linux safety helper. Close every WoW instance across all prefixes.
 
 1. Close World of Warcraft.
 2. Download and open **LauSetup.exe**, then choose your WoW folder.
@@ -18,7 +20,7 @@ Start WoW and type `/pyversion` to confirm the edition. Enhanced Consecration is
 
 The base download is about 472 MB for an English HD client with new spell visuals, or 259 MB for a non-HD client. Optional maps add a larger download. The installer displays the amount for your chosen language and options before installation. No manual archive placement or renaming is needed.
 
-The public deliverable is LauSetup.exe. It has an embedded, immutable catalog and uses the installed .NET Framework 4.8 runtime. No administrator privilege, full client, personal UI, account credentials, analytics, remote scripts, or runtime toolchain is bundled. The installer interface is in English; the game keeps its detected language.
+The Windows download uses the installed .NET Framework 4.8 runtime and offers Microsoft's official download page when it is missing. The Wine bundle uses Wine Mono and includes a small Python standard-library safety helper. Runtime installers are not bundled. No administrator privilege, full client, personal UI, account credentials or analytics are included. The installer interface is English; game content retains all nine supported client locales.
 
 ## Build and verification
 
@@ -47,4 +49,4 @@ Restore refuses files changed by another update and keeps the backup for manual 
 
 ## Release boundaries
 
-The installer is unsigned. It has been built and exercised on the current Windows host; runtime game checks use isolated Docker/Wine clients. Native file/hash/text checks and sampled visual inspection are recorded separately. They do not certify every zone, encounter, third-party client modification, or Windows configuration. Existing manual Google Drive releases remain available. New installer builds are published only after their public-download and native-runtime gates pass.
+The installer is unsigned. Windows and Wine installer tests, sampled GUI checks and the retained game-data baseline are recorded separately in VALIDATION.json. Wine 1.1.0 checks use Wine 11.0 / Wine Mono 10.4.1 and local Docker overlay storage; the nested-mount test mocks device identity because that container cannot create mounts. These checks do not certify every Linux distribution/filesystem, display scale, encounter or third-party client modification. Existing manual Google Drive releases remain available; new raw-file uploads are deferred while rate limited.

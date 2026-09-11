@@ -1,5 +1,9 @@
 LAU SETUP — RELEASE 3.0.4
 
+Windows: download LauSetup.exe.
+Linux/Wine: download LauSetup-Wine.zip and follow its README.txt.
+Wine requires the supplied Linux launcher; do not run the EXE directly.
+
 1. Close World of Warcraft.
 2. Open LauSetup.exe and choose your WoW folder.
 3. Choose your visuals and click Install upgrade.

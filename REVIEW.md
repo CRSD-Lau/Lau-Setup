@@ -22,3 +22,34 @@ Latest complete regression suite: `reports/tests-20260911-200603/results.json`; 
 The 1.0.1 UI review covers brighter supporting text, larger footer text and custom disabled-control painting. Native Enabled semantics remain in place; only disabled appearance is drawn manually. The initial, ready and busy Windows previews were visually inspected. Core.cs, Downloader.cs and all game payloads remain byte-identical to v1.0.0. Its game/network evidence is retained; the Windows regression suite is rerun for this update. The Wine feasibility probe did not pass form construction and does not establish platform support.
 
 Publication checks and final binary metadata are separate gates. See the release VALIDATION.json for evidence scope, including which checks were retained from the unchanged game baseline.
+
+## Installer 1.1.0
+
+The Wine implementation followed a three-opinion Council and two peer reviews.
+It keeps the C# transaction engine and requires a live authenticated Linux
+helper for Wine path inspection, host process checks and cross-prefix locking.
+The helper rejects links, ambiguous casing, restricted process visibility and
+unsupported filesystems. Wine drive mappings are accepted only after native
+target inspection. The process policy conservatively requires all WoW
+instances to be closed. Repeated checks reduce races; they do not lock out
+unrelated programs or eliminate hostile concurrent filesystem changes.
+
+The focused implementation review found nested mount coverage and lock release
+after a root rename gaps. Both were fixed: managed paths and their nearest
+existing ancestors must stay on the client's local filesystem, and release
+uses the saved native path and token without requiring the root to still exist.
+The corresponding native tests pass.
+
+Free-space checks now query the actual Linux cache and client filesystems,
+instead of Wine's mapped drive root. Actual Wine download and install tests
+with zero reported free space reject the operation and preserve original files.
+
+Validation includes 38 groups on Windows and 38 on Wine, 15 native helper tests,
+8 Wine safety cases including two prefixes and helper loss after a move, a
+fresh anonymous GitHub install/rollback under Wine, and a normal-user launcher
+and fixture transaction. The W-and-shield ICO is copied byte for byte from the
+existing release site's favicon. UI snapshots cover initial, ready and busy
+states; the Windows prerequisite branch was reviewed and the installed-runtime
+path exercised. No Windows machine lacking .NET was modified for a test.
+The final code also repeats core installation and exact rollback with the
+previously downloaded and rehashed GitHub payload bytes.

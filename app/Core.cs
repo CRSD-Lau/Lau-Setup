@@ -14,6 +14,51 @@ using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
 namespace LauSetup {
+// Wine translates Windows paths, but its process and lock namespaces are per-prefix.
+// Require the supervised Linux helper for native inspection; never silently downgrade.
+public static class WineHost {
+    [DllImport("ntdll.dll",CallingConvention=CallingConvention.Cdecl)] static extern IntPtr wine_get_version();
+    [DllImport("kernel32.dll",CharSet=CharSet.Unicode,CallingConvention=CallingConvention.Cdecl)] static extern IntPtr wine_get_unix_file_name(string path);
+    [DllImport("kernel32.dll")] static extern IntPtr GetProcessHeap();
+    [DllImport("kernel32.dll")] static extern bool HeapFree(IntPtr heap,uint flags,IntPtr memory);
+    public static readonly bool Active=Detect();
+    sealed class HostLease { public string Token,NativePath; }
+    static readonly Dictionary<string,HostLease> leases=new Dictionary<string,HostLease>(StringComparer.OrdinalIgnoreCase);
+    static bool Detect(){try{return wine_get_version()!=IntPtr.Zero;}catch(EntryPointNotFoundException){return false;}}
+    static string Native(string path) {
+        string mapped=Path.GetFullPath(path);var suffix=new List<string>();
+        IntPtr value=wine_get_unix_file_name(mapped);
+        // New backup/staging directories do not exist yet. Map their nearest
+        // existing ancestor, then let native no-follow checks inspect the suffix.
+        while(value==IntPtr.Zero){string parent=Path.GetDirectoryName(mapped);if(String.IsNullOrEmpty(parent))throw new IOException("Wine could not map this folder to Linux: "+path);suffix.Insert(0,Path.GetFileName(mapped));mapped=parent;value=wine_get_unix_file_name(mapped);}
+        try{var bytes=new List<byte>();for(int i=0;i<32768;i++){byte b=Marshal.ReadByte(value,i);if(b==0){string result=Encoding.UTF8.GetString(bytes.ToArray());return suffix.Count==0?result:result.TrimEnd('/')+"/"+String.Join("/",suffix);}bytes.Add(b);}throw new IOException("Wine path is too long.");}
+        finally{HeapFree(GetProcessHeap(),0,value);}
+    }
+    static Dictionary<string,object> Request(string operation,string path,string lease=null) {
+        int port;string secret=Environment.GetEnvironmentVariable("LAU_WINE_GUARD_TOKEN");
+        if(!Int32.TryParse(Environment.GetEnvironmentVariable("LAU_WINE_GUARD_PORT"),out port)||port<1||port>65535||String.IsNullOrEmpty(secret))
+            throw new IOException("On Linux, start Lau Setup using the supplied Wine launcher. Its host safety checks are required.");
+        try {
+            var request=(System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://127.0.0.1:"+port+"/guard");
+            request.Proxy=null;request.Method="POST";request.AllowAutoRedirect=false;request.Timeout=10000;request.ReadWriteTimeout=10000;
+            request.ServicePoint.Expect100Continue=false;
+            request.Headers["X-Lau-Token"]=secret;request.ContentType="application/json";
+            byte[] body=Encoding.UTF8.GetBytes(Json.Text(new{operation,path=operation=="release"?path:Native(path),lease}));request.ContentLength=body.Length;
+            using(var output=request.GetRequestStream())output.Write(body,0,body.Length);
+            using(var response=request.GetResponse())using(var reader=new StreamReader(response.GetResponseStream())) {
+                var result=Json.Parse<Dictionary<string,object>>(reader.ReadToEnd());
+                if(!result.ContainsKey("ok")||!(result["ok"] is bool)||(bool)result["ok"]==false)
+                    throw new IOException(result.ContainsKey("error")?result["error"].ToString():"Invalid Linux safety response.");
+                return result;
+            }
+        }catch(System.Net.WebException error){throw new IOException("The Linux safety helper is unavailable. Reopen the Wine launcher; any pending backup will remain available for recovery.",error);}
+    }
+    public static void PathCheck(string path){if(Active)Request("path",path);}
+    public static void Check(string root){if(Active){HostLease lease;lock(leases)leases.TryGetValue(root,out lease);Request("check",root,lease==null?null:lease.Token);}}
+    public static long AvailableBytes(string root){if(!Active)return new DriveInfo(Path.GetPathRoot(root)).AvailableFreeSpace;HostLease lease;lock(leases)leases.TryGetValue(root,out lease);return Convert.ToInt64(Request("space",root,lease==null?null:lease.Token)["availableBytes"]);}
+    public static void Acquire(string root){if(Active){lock(leases){if(leases.ContainsKey(root))throw new IOException("Another installer may be using this client.");var result=Request("acquire",root);leases.Add(root,new HostLease{Token=result["lease"].ToString(),NativePath=result["path"].ToString()});}}}
+    public static void Release(string root){if(Active){HostLease lease;lock(leases){if(!leases.TryGetValue(root,out lease))return;leases.Remove(root);}try{Request("release",lease.NativePath,lease.Token);}catch(IOException){/* Launcher owns final lock cleanup if its channel has failed. */}}}
+}
 public sealed class Part { public string Sha256; public long Bytes; public string Url; public string FileName; }
 public sealed class Asset { public string Id; public string Sha256; public long Bytes; public List<Part> Parts; }
 public sealed class Catalog {
@@ -86,9 +131,13 @@ public static class SafePaths {
     }
     public static void Plain(string path) {
         string full=Path.GetFullPath(path);
+        WineHost.PathCheck(full);
         foreach(string part in full.Substring(Path.GetPathRoot(full).Length).Split('\\')) if(part.EndsWith(".") || part.EndsWith(" ")) throw new IOException("Folder names ending in a dot or space are not supported.");
         string walk=full;
         while(!String.IsNullOrEmpty(walk)) {
+            // Wine's drive root itself is a dosdevices mapping. The host helper has
+            // already checked its native target and every real path component.
+            if(WineHost.Active && walk.Equals(Path.GetPathRoot(full),StringComparison.OrdinalIgnoreCase))break;
             if(File.Exists(walk)||Directory.Exists(walk)) if((File.GetAttributes(walk)&FileAttributes.ReparsePoint)!=0) throw new IOException("Linked folders are not supported: "+walk);
             walk=Path.GetDirectoryName(walk);
         }
@@ -136,6 +185,7 @@ public static class Client {
         return new ClientInfo{Root=root,Locale=locale,Hd=rootF,NewSpells=rootF&&s,MapsInstalled=Hash.Matches(SafePaths.Under(root,@"Data\patch-m.mpq"),catalog.Get("Maps").Sha256,catalog.Get("Maps").Bytes)};
     }
     public static void AssertClosed(string root) {
+        WineHost.Check(root);
         foreach(var p in Process.GetProcesses()) {
             using(p) {
                 string name;try{name=p.ProcessName;}catch{continue;}
@@ -183,12 +233,12 @@ public sealed class ClientLease:IDisposable {
     readonly string root;FileStream stream;
     ClientLease(string root,FileStream stream){this.root=root;this.stream=stream;}
     public static ClientLease Acquire(string root){
-        root=SafePaths.Root(root);string state=Transaction.StateRoot(root);Directory.CreateDirectory(state);
-        try{return new ClientLease(root,new FileStream(SafePaths.Under(state,"installer.lock"),FileMode.OpenOrCreate,FileAccess.ReadWrite,FileShare.None));}
-        catch(IOException e){throw new IOException("Another installer may be using this client. Close it and try again.",e);}
+        root=SafePaths.Root(root);WineHost.Acquire(root);
+        try{string state=Transaction.StateRoot(root);Directory.CreateDirectory(state);return new ClientLease(root,new FileStream(SafePaths.Under(state,"installer.lock"),FileMode.OpenOrCreate,FileAccess.ReadWrite,FileShare.None));}
+        catch{WineHost.Release(root);throw;}
     }
-    public void Assert(string selected){if(stream==null||!root.Equals(SafePaths.Root(selected),StringComparison.OrdinalIgnoreCase))throw new IOException("The client operation lock is no longer held.");}
-    public void Dispose(){if(stream!=null){stream.Dispose();stream=null;}}
+    public void Assert(string selected){if(stream==null||!root.Equals(SafePaths.Root(selected),StringComparison.OrdinalIgnoreCase))throw new IOException("The client operation lock is no longer held.");WineHost.Check(root);}
+    public void Dispose(){if(stream!=null){stream.Dispose();stream=null;WineHost.Release(root);}}
 }
 public sealed class Transaction {
     readonly Catalog catalog;readonly Action<string> report;readonly Action<string> guard;
@@ -218,7 +268,7 @@ public sealed class Transaction {
         string state=StateRoot(plan.Root);Directory.CreateDirectory(state);
         {
             if(plan.Operations.Count==0){report("This release is already installed.");return null;}
-            if(new DriveInfo(Path.GetPathRoot(plan.Root)).AvailableFreeSpace<plan.StageBytes+256L*1024*1024)throw new IOException("Not enough free space to stage this update safely.");
+            if(WineHost.AvailableBytes(plan.Root)<plan.StageBytes+256L*1024*1024)throw new IOException("Not enough free space to stage this update safely.");
             var seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach(var op in plan.Operations) {
                 if(!seen.Add(op.Relative))throw new IOException("Duplicate install destination.");

@@ -23,8 +23,8 @@ public sealed class ReadableButton:Button {
 }
 public sealed class ReadableCheckBox:CheckBox {
     protected override void OnPaint(PaintEventArgs e) {
-        if(Enabled){base.OnPaint(e);return;}
-        Color background=Parent==null?BackColor:Parent.BackColor,text=Color.FromArgb(196,207,223);
+        if(Enabled&&!WineHost.Active){base.OnPaint(e);return;}
+        Color background=Parent==null?BackColor:Parent.BackColor,text=Enabled?ForeColor:Color.FromArgb(196,207,223);
         using(var fill=new SolidBrush(background))e.Graphics.FillRectangle(fill,ClientRectangle);
         int size=Math.Max(14,Font.Height-1),left=2,top=(Height-size)/2;
         using(var fill=new SolidBrush(Color.FromArgb(35,47,64)))e.Graphics.FillRectangle(fill,left,top,size,size);
@@ -32,15 +32,26 @@ public sealed class ReadableCheckBox:CheckBox {
         if(Checked)using(var pen=new Pen(text,2F))e.Graphics.DrawLines(pen,new[]{new Point(left+3,top+size/2),new Point(left+size/2,top+size-4),new Point(left+size-3,top+3)});
         var bounds=new Rectangle(left+size+8,0,Math.Max(0,Width-left-size-8),Height);
         TextRenderer.DrawText(e.Graphics,Text,Font,bounds,text,background,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
+        if(Enabled&&Focused&&ShowFocusCues)ControlPaint.DrawFocusRectangle(e.Graphics,bounds,text,background);
     }
 }
 public sealed class SetupForm:Form {
+    static readonly string UiFont=ChooseFont();
+    static string ChooseFont() {
+        using(var fonts=new System.Drawing.Text.InstalledFontCollection()) {
+            var names=fonts.Families.Select(f=>f.Name).ToArray();
+            foreach(string candidate in WineHost.Active?new[]{"Liberation Sans","DejaVu Sans","Tahoma","Arial"}:new[]{"Segoe UI","Tahoma","Liberation Sans","DejaVu Sans","Arial"})
+                if(names.Contains(candidate,StringComparer.OrdinalIgnoreCase))return candidate;
+        }
+        throw new InvalidOperationException("No supported interface font was found. Install Liberation Sans fonts in your Wine environment, then reopen Lau Setup.");
+    }
     readonly Catalog catalog;
     readonly Color ink=Color.FromArgb(241,245,251),muted=Color.FromArgb(190,204,224),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
     TextBox folder;Label detected,download,status;CheckBox cons,spells,maps;Button browse,install,restore,cancel;ProgressBar progress;
     ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly;
     public SetupForm(Catalog catalog) {
-        this.catalog=catalog;Text="Lau Setup";Font=new Font("Segoe UI",10F);ForeColor=ink;BackColor=Color.FromArgb(12,20,33);ClientSize=new Size(820,630);MinimumSize=new Size(770,665);StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
+        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(12,20,33);ClientSize=new Size(820,630);MinimumSize=new Size(770,665);StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
+        using(var icon=typeof(SetupForm).Assembly.GetManifestResourceStream("LauSetup.Icon.ico"))if(icon!=null)Icon=new Icon(icon);
         var grid=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(34,25,34,24),ColumnCount=1,RowCount=10};Controls.Add(grid);
         foreach(int h in new[]{39,42,28,44,52,45,45,45,43,1})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
         grid.Controls.Add(Label("LAU  /  WRATH VISUAL UPGRADE",18,FontStyle.Bold,ink));
@@ -63,13 +74,13 @@ public sealed class SetupForm:Form {
         progress=new ProgressBar{Dock=DockStyle.Fill,Maximum=1000,Visible=false,Margin=new Padding(0,8,0,8)};bottom.Controls.Add(progress);
         status=Label("",10,FontStyle.Regular,ink);status.Padding=new Padding(0,6,0,0);bottom.Controls.Add(status);
         bottom.Controls.Add(Label("Automatic backups. Existing addons and personal settings are preserved.",10,FontStyle.Regular,muted));
-        bottom.Controls.Add(Label("Release 3.0.4 Lau  •  Windows 10 / 11  •  Existing build 12340 required",10,FontStyle.Regular,muted));grid.Controls.Add(bottom);
+        bottom.Controls.Add(Label("Release 3.0.4 Lau  •  "+(WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11")+"  •  Existing build 12340 required",10,FontStyle.Regular,muted));grid.Controls.Add(bottom);
         cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;status.Text="Please wait for this operation to finish, or use Cancel.";}};
         AcceptButton=install;
     }
-    Label Label(string text,float size,FontStyle style,Color color) { return new Label{Text=text,Font=new Font("Segoe UI",size,style),ForeColor=color,Dock=DockStyle.Fill,AutoEllipsis=false,Margin=new Padding(0),TextAlign=ContentAlignment.MiddleLeft}; }
-    Button Button(string text,bool primary) { var b=new ReadableButton{Text=text,Height=40,FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font("Segoe UI",10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);return b; }
+    Label Label(string text,float size,FontStyle style,Color color) { return new Label{Text=text,Font=new Font(UiFont,size,style),ForeColor=color,Dock=DockStyle.Fill,AutoEllipsis=false,Margin=new Padding(0),TextAlign=ContentAlignment.MiddleLeft}; }
+    Button Button(string text,bool primary) { var b=new ReadableButton{Text=text,Height=40,FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font(UiFont,10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);return b; }
     CheckBox Check(string text,bool check) { return new ReadableCheckBox{Text=text,Checked=check,Dock=DockStyle.Fill,AutoSize=false,Margin=new Padding(0),Padding=new Padding(0,2,0,2),ForeColor=ink}; }
     async void Choose(object sender,EventArgs args) {
         using(var dialog=new FolderBrowserDialog{Description="Select your World of Warcraft folder (the folder containing WoW.exe).",ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
@@ -167,12 +178,20 @@ public sealed class SetupForm:Form {
 public static class Program {
     [STAThread] public static int Main(string[] args) {
         try {
+            if(!WineHost.Active) {
+                object release=Microsoft.Win32.Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full","Release",null);
+                if(release==null||Convert.ToInt32(release)<528040) {
+                    if(MessageBox.Show("Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?","Install .NET Framework 4.8",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
+                        Process.Start(new ProcessStartInfo("https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48"){UseShellExecute=true});
+                    return 2;
+                }
+            }
             Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);var catalog=Catalog.Embedded();
             using(var form=new SetupForm(catalog)) {
                 if((args.Length==2||args.Length==3)&&args[0]=="--render-preview"){form.Preview(Path.GetFullPath(args[1]),args.Length==3?args[2]:"ready");return 0;}
                 Application.Run(form);return 0;
             }
-        }catch(Exception ex){MessageBox.Show(ex.Message,"Lau Setup",MessageBoxButtons.OK,MessageBoxIcon.Error);return 1;}
+        }catch(Exception ex){while(ex is TypeInitializationException&&ex.InnerException!=null)ex=ex.InnerException;MessageBox.Show(ex.Message,"Lau Setup",MessageBoxButtons.OK,MessageBoxIcon.Error);return 1;}
     }
     }
 }

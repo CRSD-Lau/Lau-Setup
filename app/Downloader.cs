@@ -20,7 +20,7 @@ public sealed class Downloader {
         string target=SafePaths.Under(cache,asset.Sha256+".asset");
         if(Hash.Matches(target,asset.Sha256,asset.Bytes)){progress(new TransferProgress{Name=asset.Id,Received=asset.Bytes,Total=asset.Bytes});return target;}
         if(File.Exists(target))File.Delete(target);
-        if(new DriveInfo(Path.GetPathRoot(cache)).AvailableFreeSpace<asset.Bytes*2+128L*1024*1024)throw new IOException("Not enough free space for this download and verification.");
+        if(WineHost.AvailableBytes(cache)<asset.Bytes*2+128L*1024*1024)throw new IOException("Not enough free space for this download and verification.");
         long previous=0;var files=new List<string>();
         foreach(var part in asset.Parts) {
             token.ThrowIfCancellationRequested();long prefix=previous;

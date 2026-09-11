@@ -5,6 +5,11 @@ Creator: Neil Mitchell
 Last Modified By: Neil Mitchell  
 Assessment date: 2026-09-11
 
+Update: the user selected Wine only. Installer 1.1.0 now provides the tested
+Wine 11 / Wine Mono 10.4.1 launcher described in [the Wine guide](wine/README.txt).
+The Wine 8 probe and recommendations below are preserved as historical assessment.
+Lutris, Proton and macOS integration remain out of scope.
+
 Lau Setup 1.0.1 remains a Windows installer. Linux through Wine is the recommended next compatibility target. This assessment does not certify installation on Linux or macOS. The earlier 63 Docker/Wine cases exercised the game data, not this installer.
 
 | Option | Recommendation | What it means for Lau Setup |
