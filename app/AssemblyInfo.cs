@@ -1,0 +1,11 @@
+using System.Reflection;
+[assembly: AssemblyTitle("Lau Setup")]
+[assembly: AssemblyDescription("Wrath 3.3.5a visual upgrade installer. Author, creator and modifier: Neil Mitchell.")]
+[assembly: AssemblyCompany("Neil Mitchell")]
+[assembly: AssemblyProduct("Lau Setup")]
+[assembly: AssemblyCopyright("Neil Mitchell")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyMetadata("Author", "Neil Mitchell")]
+[assembly: AssemblyMetadata("Creator", "Neil Mitchell")]
+[assembly: AssemblyMetadata("LastModifiedBy", "Neil Mitchell")]

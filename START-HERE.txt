@@ -1,0 +1,48 @@
+LAU SETUP — RELEASE 3.0.4
+
+1. Close World of Warcraft.
+2. Open LauSetup.exe and choose your WoW folder.
+3. Choose your visuals and click Install upgrade.
+
+Start WoW and type /pyversion after installation.
+
+The installer detects your client language and HD model configuration.
+Enhanced Consecration is selected by default. Uncheck it for the stock
+appearance; the spell itself still works. New spell visuals require an
+existing compatible HD model client. Upgraded maps/minimap are optional.
+
+You need an existing WoW 3.3.5a client, build 12340, on Windows 10 or 11.
+This download is an upgrade, not a complete client or language pack.
+The required compatible WoW.exe is installed automatically.
+
+No manual patch copying or renaming is needed. Do not download the entire
+shared data release. The app downloads only the files needed for your selection.
+
+Backups and resumable downloads stay in LauSetupBackups inside your WoW
+folder, outside Data. To undo the update, close WoW, reopen LauSetup.exe,
+choose the same folder, and click Restore previous install. Recovery also
+works if an interrupted update left WoW.exe temporarily missing.
+
+Your addons, SavedVariables, fonts, login artwork, realm settings, and
+unrelated patches are preserved. No Pizza Warriors branding, personal
+ElvUI setup, LoginUI, account data, or full game client is bundled.
+
+Downloads come from GitHub Releases; no GitHub account is needed.
+If a download stops, retry later. Verified files
+are reused and partial downloads resume. Game files are changed only after
+all required downloads have passed verification. Keep LauSetupBackups if
+the app reports that recovery is needed.
+
+This installer is unsigned, so Windows may display an unknown-publisher
+warning. Use the supplied checksum to verify your download. It does not
+require disabling Windows security or installing Python/PowerShell tools.
+The .NET Framework 4.8 runtime is required.
+
+Once this installer has added the map upgrade, it keeps that upgrade during
+edition changes. Use Restore previous install to undo the map installation.
+
+Credits: Andre (Patch-Y baselines), Loriendal and Trimitor (HD foundation),
+Project Reforged contributors (HD artwork), Blizzard (original artwork and
+localized text), Lau (adaptation, compatibility, indicators, testing).
+
+Author / Creator / Last Modified By: Neil Mitchell
