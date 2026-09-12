@@ -41,3 +41,7 @@ Each of the six Y archives changes three M2 members and the !PYAndre TOC, and ad
 The new textures preserve the existing opaque 8×8 DXT1 BLP2 format and all four mip levels. Only the RGB565 endpoint changes: light blue decodes as (120,216,248,255), red as (248,68,40,255). Quantization is inherent to the existing texture format. Both Halion models use the same red texture. Consecration and model-edition choices remain independent.
 
 Update decisions compare actual SHA-256 and size, not release labels or timestamps. Regression tests modify one byte without changing file size or timestamp in each Y placement, require exactly one repair operation, verify the repaired hash, then restore the previous release. An old EXE embeds the old catalog, so upgrading requires downloading the new EXE/ZIP first.
+
+## 3.0.7 Halion radius / Setup 1.1.3
+
+Promotes exact test-v2 bytes for `Spells/PW_HalionMeteor_Ground.m2`, `Spells/PW_HalionMeteor_Ring.m2` and their `00.skin` files. Mesh X/Y coordinates are 1.5 times 3.0.6. Z/UVs/normals and animation/particle tracks are preserved. Model bounds (offset 160), sequence bounds (sequence +32), and skin submesh bounds (submesh +20) reflect the enlarged geometry. TOC version changes from 3.0.6 to 3.0.7. Exactly five existing members change per edition; no added or removed members. Test v3 geometry is excluded. Coldflame and all other members match 3.0.6. User relayed tester acceptance of v2; broad encounter certification is not claimed.

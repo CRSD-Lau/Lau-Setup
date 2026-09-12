@@ -1,3 +1,29 @@
+# Lau Setup 1.1.3 · Game release 3.0.7 Lau
+
+## Larger Halion meteor-fire warnings
+
+Promotes tester-approved **test v2**: Halion's red ground-marker radius is **50% larger than release 3.0.6**, around trails and landing fire. Test v3 is not included. Coldflame, colors, animation tracks, native flames, Consecration and the Sindragosa/Rotface cones are unchanged. All six editions and nine client languages are supported.
+
+The tester confirmed v2 after correcting an unupdated patch. This is a visual warning buffer, not a change to server damage or a certification of every position or encounter.
+
+## Update with the new installer
+
+Download **LauSetup.exe** or **LauSetup-Wine.zip** from this release first. Close WoW, select the same client and visuals, then click **Install upgrade**. Old installers retain old catalogs. `/pyversion` reports **3.0.7 Lau**.
+
+Existing 3.0.6 and test v2 users receive the update. Setup compares actual file hashes, including one-byte changes with unchanged size and timestamp; only exact current files count as already installed. Backups and Restore previous install remain available.
+
+Windows requires .NET Framework 4.8. Wine users extract all four files and run `LauSetup.sh` as a normal user with the supported existing Wine/Mono prefix. No runtime installers are bundled.
+
+## Validation
+
+Windows and Wine installer regression, six-edition upgrades, repeat detection, one-byte checks, rollback and public-download checks are recorded in VALIDATION.json. The Halion models and skins are byte-identical to test v2. Only their geometry/bounds and the version TOC differ from 3.0.6; Coldflame and other archive members are unchanged.
+
+[Website changelog and installation help](https://wrath-multilingual-hd.vercel.app/#changelog)
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+---
+
 # Lau Setup 1.1.2 · Game release 3.0.6 Lau
 
 ## Blue Coldflame, red meteor fire
