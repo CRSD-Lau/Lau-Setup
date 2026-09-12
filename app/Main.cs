@@ -74,7 +74,7 @@ public sealed class SetupForm:Form {
         progress=new ProgressBar{Dock=DockStyle.Fill,Maximum=1000,Visible=false,Margin=new Padding(0,8,0,8)};bottom.Controls.Add(progress);
         status=Label("",10,FontStyle.Regular,ink);status.Padding=new Padding(0,6,0,0);bottom.Controls.Add(status);
         bottom.Controls.Add(Label("Automatic backups. Existing addons and personal settings are preserved.",10,FontStyle.Regular,muted));
-        bottom.Controls.Add(Label("Release 3.0.7 Lau  •  "+(WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11")+"  •  Existing build 12340 required",10,FontStyle.Regular,muted));grid.Controls.Add(bottom);
+        bottom.Controls.Add(Label("Release 3.0.8 Lau  •  "+(WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11")+"  •  Existing build 12340 required",10,FontStyle.Regular,muted));grid.Controls.Add(bottom);
         cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;status.Text="Please wait for this operation to finish, or use Cancel.";}};
         AcceptButton=install;
@@ -116,7 +116,7 @@ public sealed class SetupForm:Form {
         try {
             bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;
             plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));
-            download.Text=plan.Operations.Count==0?"Your selected release 3.0.7 is already installed.":"Download up to "+FormatSize(plan.DownloadBytes)+"  ·  "+(plan.Maps?"Upgraded maps included":"Existing maps kept");
+            download.Text=plan.Operations.Count==0?"Your selected release 3.0.8 is already installed.":"Download up to "+FormatSize(plan.DownloadBytes)+"  ·  "+(plan.Maps?"Upgraded maps included":"Existing maps kept");
             install.Text=plan.Operations.Count==0?"Already installed":"Install upgrade";
             status.Text=Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":"Ready. A verified backup is created before any game files change.";
         }catch(Exception ex){plan=null;status.Text=ex.Message;}finally{SetBusy(false);}

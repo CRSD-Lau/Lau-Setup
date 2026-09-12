@@ -1,3 +1,31 @@
+# Lau Setup 1.1.4 · Game release 3.0.8 Lau
+
+## All breath and Slime Spray warnings are now 90°
+
+Following Warmane tester confirmation, Halion (both realms), Saviana Ragefire, Sartharion, ICC Rimefang and Rotface Slime Spray now use **90° total cones**, matching Sindragosa's existing 90° warning. This applies to all six editions and nine client languages, including the existing normal/heroic spell mappings.
+
+Only cone width changes. Range, animation timing, native spell effects and spell tables are preserved. The approved 50% larger Halion meteor-fire radius, light blue Coldflame, colors and Consecration are unchanged. These are visual warning buffers; server damage and mechanics are unchanged. Uneven terrain can still clip flat cones.
+
+## Updating
+
+Download **LauSetup.exe** or **LauSetup-Wine.zip** from this release first. Close WoW, select the same client and visuals, then click **Install upgrade**. Old installers retain their old catalogs. Check `/pyversion` for **3.0.8 Lau**.
+
+Setup verifies actual SHA-256 hashes, so previous releases and even one-byte changes with unchanged size and timestamp are detected. Only exact current files count as already installed. Backups and Restore previous install remain available.
+
+Windows requires .NET Framework 4.8. Wine users extract all four files and run `LauSetup.sh` as a normal user with the supported existing Wine/Mono prefix. Runtime installers are not bundled.
+
+## Validation
+
+See VALIDATION.json for Windows and Wine regression, six-edition upgrades from 3.0.7, repeat detection, one-byte checks, rollback and public-download checks. Geometry checks verify 90° cones, preserved range, valid bounds and triangle winding in every edition. Exactly eleven existing archive members change: five models, their five skins and the version TOC. All other members are byte-identical to 3.0.7.
+
+The width decision follows reported Warmane testing. This release is not an every-encounter or exact server-boundary certification.
+
+[Website changelog and installation help](https://wrath-multilingual-hd.vercel.app/#changelog)
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+---
+
 # Lau Setup 1.1.3 · Game release 3.0.7 Lau
 
 ## Larger Halion meteor-fire warnings

@@ -45,3 +45,9 @@ Update decisions compare actual SHA-256 and size, not release labels or timestam
 ## 3.0.7 Halion radius / Setup 1.1.3
 
 Promotes exact test-v2 bytes for `Spells/PW_HalionMeteor_Ground.m2`, `Spells/PW_HalionMeteor_Ring.m2` and their `00.skin` files. Mesh X/Y coordinates are 1.5 times 3.0.6. Z/UVs/normals and animation/particle tracks are preserved. Model bounds (offset 160), sequence bounds (sequence +32), and skin submesh bounds (submesh +20) reflect the enlarged geometry. TOC version changes from 3.0.6 to 3.0.7. Exactly five existing members change per edition; no added or removed members. Test v3 geometry is excluded. Coldflame and all other members match 3.0.6. User relayed tester acceptance of v2; broad encounter certification is not claimed.
+
+## 3.0.8 all cones / Setup 1.1.4
+
+All six editions use 90 degree total fan geometry. Legacy model filenames and all DBC rows remain unchanged to preserve spell routing. Changes: PW_White_Fan60_60yd_Glowing (Halion both realms), PW_White_Fan60_30yd_Glowing (Saviana), PW_White_Fan60_100y_Glowing (ICC Rimefang), and PW_Rotface_SlimeSpray_Fan25_Room (Rotface) widen from 60 to 90; PW_White_Fan82_60yd_Glowing (Sartharion) widens from 82 to 90. PW_White_Fan75_60yd_Glowing (Sindragosa) is already 90 and is byte-identical.
+
+For each modified model, only vertex XY (48-byte vertex stride) and bounds change. Angle about +X scales by 90/old-angle; each vertex radius and Z are preserved. Model bounds at offset 160, sequence bounds at sequence+32, and skin submesh bounds at submesh+20 are updated. UVs, normals, animation and particle tracks remain unchanged. Ten model/skin members and two version strings in the TOC change per edition; no members are added or removed. All other members, including Halion meteor-fire test-v2 geometry and Coldflame, match 3.0.7 byte for byte.

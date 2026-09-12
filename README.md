@@ -16,13 +16,13 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.3 · Game release 3.0.7 Lau · Nine client languages**
+**Installer 1.1.4 · Game release 3.0.8 Lau · Nine client languages**
 
-## Color-coded raid circles
+## 90° breath and Slime Spray warnings
 
-**3.0.7 Lau:** promotes tester-approved v2 with a 50% larger Halion meteor-fire warning radius. Light blue Coldflame and all existing colors/motion are unchanged. The **90° Sindragosa** and **60° Rotface** warnings from 3.0.5 remain unchanged.
+**3.0.8 Lau:** all supported breath indicators and Rotface Slime Spray are **90° total**, following Warmane tester confirmation. Covers Halion in both realms, Saviana Ragefire, Sartharion, ICC Rimefang and Sindragosa. Range and animation timing are preserved. The approved larger Halion meteor-fire radius and light blue Coldflame are unchanged.
 
-**Already installed?** Download **Setup 1.1.3** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.7 Lau**. Old installers keep their old embedded catalog.
+**Already installed?** Download **Setup 1.1.4** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
 
 [Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
@@ -88,9 +88,9 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Release 1.1.3 passed **38 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. All six editions passed **3.0.6-to-3.0.7 upgrades, repeat installs, same-size/same-timestamp one-byte detection in both Y placements, and exact rollback** on both platforms. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
+Release 1.1.4 passed **38 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. All six editions passed **3.0.7-to-3.0.8 upgrades, repeat installs, same-size/same-timestamp one-byte detection in both Y placements, and exact rollback** on both platforms. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
 
-Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.6. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
+Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion meteor-fire geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.7. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
 
 Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
 

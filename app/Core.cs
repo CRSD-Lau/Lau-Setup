@@ -74,7 +74,7 @@ public sealed class Catalog {
         using(var r=new StreamReader(s)) return Load(r.ReadToEnd());
     }
     public void Validate() {
-        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7") || Locales==null || Assets==null || Assets.Count>64 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
+        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8") || Locales==null || Assets==null || Assets.Count>64 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
         foreach(string locale in Locales) if(!Regex.IsMatch(locale,@"^(enUS|deDE|frFR|esES|esMX|koKR|ruRU|zhCN|zhTW)$")) throw new InvalidDataException("Unsupported language.");
         foreach(var entry in Assets) {
             var a=entry.Value;
@@ -91,7 +91,7 @@ public sealed class Catalog {
         foreach(var loc in Locales) { Get("LoadingQ-"+loc); Get("MapsQ-"+loc); }
         foreach(var mode in new[]{"Non-HD","HD-NewSpells-On","HD-NewSpells-Off"}) foreach(var cons in new[]{"On","Off"}) Get("Y-"+mode+"-Consecration-"+cons);
     }
-    public static bool ValidDownloadUrl(Part part) { return new[]{"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7"}.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
+    public static bool ValidDownloadUrl(Part part) { return new[]{"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8"}.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
     public Asset Get(string id) { Asset a; if(!Assets.TryGetValue(id,out a)) throw new InvalidDataException("Missing release component: "+id); return a; }
 }
 public static class Json {
