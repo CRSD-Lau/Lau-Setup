@@ -16,7 +16,13 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.0 · Game release 3.0.4 Lau · Nine client languages**
+**Installer 1.1.1 · Game release 3.0.5 Lau · Nine client languages**
+
+## Updated cone warnings
+
+Game release **3.0.5 Lau** widens Sindragosa from **75° to 90° total** and Rotface from **25° to 60° total** in all six editions. These are buffered visual warnings informed by Warmane footage and logs; server mechanics are unchanged.
+
+**Updating from 3.0.4?** Download the new EXE or Wine ZIP first, choose the same client and visuals, then install. Setup checks actual file hashes, updates the older patches and reports `/pyversion` as 3.0.5. Older downloaded installers retain their older embedded catalog. [Changelog](https://wrath-multilingual-hd.vercel.app/#changelog).
 
 ## Download
 
@@ -80,11 +86,11 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Release 1.1.0 passed **38 regression groups on Windows and 38 on Wine**, including 108 fixture install/restore combinations per platform. Additional checks cover native Linux paths and locks, low-space rejection, recovery, normal-user launch and real-payload installation/rollback. All six public release downloads were verified anonymously against the validated files.
+Release 1.1.1 passed **38 Windows regression groups**, including 108 locale/edition/map plans. All six editions passed actual **3.0.4-to-3.0.5 upgrade, repeat-install and exact rollback** checks. New payloads were downloaded anonymously and hash-verified; a core installation from GitHub and rollback also passed.
 
-The unchanged game files retain the earlier 63-case game baseline. Wine checks use **Wine 11.0 / Wine Mono 10.4.1** in an isolated environment; they do not certify every distribution, filesystem, display scale or encounter. Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
+The Wine launcher is unchanged and its ZIP contains the same rebuilt EXE. **Wine runtime evidence comes from 1.1.0** (Wine 11.0 / Mono 10.4.1, 38 groups and native safety checks); fresh Wine execution was unavailable for this update. Earlier game checks cover preserved files. The new cone geometry is statically verified and deliberately buffered, not newly certified against server damage boundaries.
 
-See the [published validation report](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json) for evidence and limitations.
+Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
 
 ## For contributors
 

@@ -2,8 +2,8 @@
   "Author": "Neil Mitchell",
   "Creator": "Neil Mitchell",
   "LastModifiedBy": "Neil Mitchell",
-  "Version": "3.0.4",
-  "InstallerVersion": "1.1.0",
+  "Version": "3.0.5",
+  "InstallerVersion": "1.1.1",
   "Locales": [
     "deDE",
     "enUS",
@@ -808,79 +808,79 @@
     },
     "Y-HD-NewSpells-Off-Consecration-On": {
       "Id": "Y-HD-NewSpells-Off-Consecration-On",
-      "Bytes": 47962717,
-      "Sha256": "f7f957633b831350114e2f7f804eba70cee583d78de4ee4b2519cb3c72ba1877",
+      "Bytes": 48433868,
+      "Sha256": "b08ac1ac9757545619e10c39f7580675c76a81a2403e3d4349888fe637546bf8",
       "Parts": [
         {
-          "Sha256": "f7f957633b831350114e2f7f804eba70cee583d78de4ee4b2519cb3c72ba1877",
-          "Bytes": 47962717,
-          "FileName": "f7f957633b831350114e2f7f804eba70cee583d78de4ee4b2519cb3c72ba1877.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/f7f957633b831350114e2f7f804eba70cee583d78de4ee4b2519cb3c72ba1877.bin"
+          "Sha256": "b08ac1ac9757545619e10c39f7580675c76a81a2403e3d4349888fe637546bf8",
+          "Bytes": 48433868,
+          "FileName": "b08ac1ac9757545619e10c39f7580675c76a81a2403e3d4349888fe637546bf8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/b08ac1ac9757545619e10c39f7580675c76a81a2403e3d4349888fe637546bf8.bin"
         }
       ]
     },
     "Y-HD-NewSpells-Off-Consecration-Off": {
       "Id": "Y-HD-NewSpells-Off-Consecration-Off",
-      "Bytes": 47962713,
-      "Sha256": "7b99a227fa647ed73882dc5add29d3fd4b1c5a323ddd6846798fcfb1146fd09d",
+      "Bytes": 48433862,
+      "Sha256": "8e72b680a4b85a12f7f5dee7fb30ce455e6071db3072da16bae75ff198866928",
       "Parts": [
         {
-          "Sha256": "7b99a227fa647ed73882dc5add29d3fd4b1c5a323ddd6846798fcfb1146fd09d",
-          "Bytes": 47962713,
-          "FileName": "7b99a227fa647ed73882dc5add29d3fd4b1c5a323ddd6846798fcfb1146fd09d.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/7b99a227fa647ed73882dc5add29d3fd4b1c5a323ddd6846798fcfb1146fd09d.bin"
+          "Sha256": "8e72b680a4b85a12f7f5dee7fb30ce455e6071db3072da16bae75ff198866928",
+          "Bytes": 48433862,
+          "FileName": "8e72b680a4b85a12f7f5dee7fb30ce455e6071db3072da16bae75ff198866928.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/8e72b680a4b85a12f7f5dee7fb30ce455e6071db3072da16bae75ff198866928.bin"
         }
       ]
     },
     "Y-HD-NewSpells-On-Consecration-On": {
       "Id": "Y-HD-NewSpells-On-Consecration-On",
-      "Bytes": 63951313,
-      "Sha256": "1a3c46180774a7fd4fe03f76d04b2a99d59bfd73ebe0011f4befa045a46888b4",
+      "Bytes": 64420054,
+      "Sha256": "d07a958d17f688e17e9fe31245b63a1ebcf28824a314bcbe3ff24cc1f7e6f269",
       "Parts": [
         {
-          "Sha256": "1a3c46180774a7fd4fe03f76d04b2a99d59bfd73ebe0011f4befa045a46888b4",
-          "Bytes": 63951313,
-          "FileName": "1a3c46180774a7fd4fe03f76d04b2a99d59bfd73ebe0011f4befa045a46888b4.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/1a3c46180774a7fd4fe03f76d04b2a99d59bfd73ebe0011f4befa045a46888b4.bin"
+          "Sha256": "d07a958d17f688e17e9fe31245b63a1ebcf28824a314bcbe3ff24cc1f7e6f269",
+          "Bytes": 64420054,
+          "FileName": "d07a958d17f688e17e9fe31245b63a1ebcf28824a314bcbe3ff24cc1f7e6f269.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/d07a958d17f688e17e9fe31245b63a1ebcf28824a314bcbe3ff24cc1f7e6f269.bin"
         }
       ]
     },
     "Y-HD-NewSpells-On-Consecration-Off": {
       "Id": "Y-HD-NewSpells-On-Consecration-Off",
-      "Bytes": 63951308,
-      "Sha256": "de2310c2eae932fe9327fc25b47f89e299ddcd3aeec14fcb345fa34e3c7f5574",
+      "Bytes": 64420050,
+      "Sha256": "b4f6c1de66d757fdd98630db4d203e1414789aecf237ea5d95fac633f880a2a3",
       "Parts": [
         {
-          "Sha256": "de2310c2eae932fe9327fc25b47f89e299ddcd3aeec14fcb345fa34e3c7f5574",
-          "Bytes": 63951308,
-          "FileName": "de2310c2eae932fe9327fc25b47f89e299ddcd3aeec14fcb345fa34e3c7f5574.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/de2310c2eae932fe9327fc25b47f89e299ddcd3aeec14fcb345fa34e3c7f5574.bin"
+          "Sha256": "b4f6c1de66d757fdd98630db4d203e1414789aecf237ea5d95fac633f880a2a3",
+          "Bytes": 64420050,
+          "FileName": "b4f6c1de66d757fdd98630db4d203e1414789aecf237ea5d95fac633f880a2a3.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/b4f6c1de66d757fdd98630db4d203e1414789aecf237ea5d95fac633f880a2a3.bin"
         }
       ]
     },
     "Y-Non-HD-Consecration-On": {
       "Id": "Y-Non-HD-Consecration-On",
-      "Bytes": 51146660,
-      "Sha256": "c23dbc4c04fa1fd4422ce86e240f75b3d1ec2c6d483fc5672dddecbd79b95627",
+      "Bytes": 51615213,
+      "Sha256": "b33fc7b52d02947520eae60ea8131728ae51e5a39781c6d9adf55551e7fbcd5f",
       "Parts": [
         {
-          "Sha256": "c23dbc4c04fa1fd4422ce86e240f75b3d1ec2c6d483fc5672dddecbd79b95627",
-          "Bytes": 51146660,
-          "FileName": "c23dbc4c04fa1fd4422ce86e240f75b3d1ec2c6d483fc5672dddecbd79b95627.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/c23dbc4c04fa1fd4422ce86e240f75b3d1ec2c6d483fc5672dddecbd79b95627.bin"
+          "Sha256": "b33fc7b52d02947520eae60ea8131728ae51e5a39781c6d9adf55551e7fbcd5f",
+          "Bytes": 51615213,
+          "FileName": "b33fc7b52d02947520eae60ea8131728ae51e5a39781c6d9adf55551e7fbcd5f.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/b33fc7b52d02947520eae60ea8131728ae51e5a39781c6d9adf55551e7fbcd5f.bin"
         }
       ]
     },
     "Y-Non-HD-Consecration-Off": {
       "Id": "Y-Non-HD-Consecration-Off",
-      "Bytes": 51146653,
-      "Sha256": "f94b2477c44c0510277597c1027d86ada2cc362f97d3bd520ed13d745dd1316b",
+      "Bytes": 51615203,
+      "Sha256": "688dc2d5d62a4fffacfeeb5a35cd30e6885f48daa1a3e8330b379edd3f8428a0",
       "Parts": [
         {
-          "Sha256": "f94b2477c44c0510277597c1027d86ada2cc362f97d3bd520ed13d745dd1316b",
-          "Bytes": 51146653,
-          "FileName": "f94b2477c44c0510277597c1027d86ada2cc362f97d3bd520ed13d745dd1316b.bin",
-          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/f94b2477c44c0510277597c1027d86ada2cc362f97d3bd520ed13d745dd1316b.bin"
+          "Sha256": "688dc2d5d62a4fffacfeeb5a35cd30e6885f48daa1a3e8330b379edd3f8428a0",
+          "Bytes": 51615203,
+          "FileName": "688dc2d5d62a4fffacfeeb5a35cd30e6885f48daa1a3e8330b379edd3f8428a0.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/688dc2d5d62a4fffacfeeb5a35cd30e6885f48daa1a3e8330b379edd3f8428a0.bin"
         }
       ]
     }

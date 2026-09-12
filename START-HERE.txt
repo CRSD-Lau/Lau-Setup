@@ -1,4 +1,4 @@
-LAU SETUP — RELEASE 3.0.4
+LAU SETUP — RELEASE 3.0.5
 
 Windows: download LauSetup.exe.
 Linux/Wine: download LauSetup-Wine.zip and follow its README.txt.
@@ -8,7 +8,9 @@ Wine requires the supplied Linux launcher; do not run the EXE directly.
 2. Open LauSetup.exe and choose your WoW folder.
 3. Choose your visuals and click Install upgrade.
 
-Start WoW and type /pyversion after installation.
+Updating from 3.0.4? Download the new installer first; old copies embed the old catalog.
+Select the same client and visuals. File-hash checks detect the changed patches.
+Start WoW and type /pyversion; it should report 3.0.5 Lau.
 
 The installer detects your client language and HD model configuration.
 Enhanced Consecration is selected by default. Uncheck it for the stock
