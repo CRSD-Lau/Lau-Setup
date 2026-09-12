@@ -13,7 +13,7 @@ def scale(raw,skin):
  for i in range(n):
   at=off+48*i;x,y,z=S.unpack_from('<3f',d,at)
   assert abs(z)<.1,'Expected ground marker geometry'
-  S.pack_into('<2f',d,at,x*1.5,y*1.5);allowed.update(range(at,at+8));vs.append((x*1.5,y*1.5,z))
+  S.pack_into('<2f',d,at,x*1.65,y*1.65);allowed.update(range(at,at+8));vs.append((x*1.65,y*1.65,z))
  bounds=[min(v[j] for v in vs) for j in range(3)]+[max(v[j] for v in vs) for j in range(3)]+[max(math.sqrt(sum(c*c for c in v)) for v in vs)+.001]
  count,offset=S.unpack_from('<2I',d,28)
  for at in [160]+[offset+i*64+32 for i in range(count)]:
@@ -47,7 +47,7 @@ def main():
   assert snapshot(target)==after
   data=target.read_bytes();digest=sha(data)
   catalog['Assets'][key]=dict(Id=key,Sha256=digest,Bytes=len(data),Parts=[dict(Sha256=digest,Bytes=len(data),FileName=digest+'.bin',Url=None)])
-  proof.append(dict(edition=key,changed=changed,radius_scale=1.5,radii=radii,coldflame_and_other_members_identical=True))
+  proof.append(dict(edition=key,changed=changed,radius_scale=1.65,radii=radii,coldflame_and_other_members_identical=True))
  catalog['PublicReady']=False
  (out/'catalog.json').write_text(json.dumps(catalog));(out/'baseline.json').write_text(json.dumps(prior))
  (out/'geometry-validation.json').write_text(json.dumps(dict(Author='Neil Mitchell',Creator='Neil Mitchell',LastModifiedBy='Neil Mitchell',results=proof,in_game='PENDING'),indent=2))

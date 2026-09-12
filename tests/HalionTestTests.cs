@@ -15,13 +15,15 @@ public class HalionTestTests {
    bool rejected=false;try{HalionTest.Plan(root,old,current);}catch(IOException){rejected=true;}Check(rejected,"One byte drift was ignored");File.Copy(Path.Combine(payload,id+".mpq"),first,true);
    HalionTest.Undo(root);foreach(var p in paths)Check(Hash.Matches(p,old.Get(id).Sha256,old.Get(id).Bytes),"Restore mismatch");
    bool noBackup=false;try{HalionTest.Undo(root);}catch(IOException){noBackup=true;}Check(noBackup,"Restore should not select unrelated backup");Check(File.ReadAllText(Path.Combine(root,"personal-sentinel.txt"))=="unchanged","Unrelated file changed");
-   // Testers already running v1 must receive v2 and restore their exact v1 bytes.
-   foreach(var p in paths)File.Copy(Path.Combine(a[4],id+".mpq"),p,true);
-   Check(HalionTest.Plan(root,old,current).Operations.Count==2,"V1 was mistaken for current test");HalionTest.Apply(root,payload);
-   Check(HalionTest.Apply(root,payload)==null,"V2 repeat was not no-op");HalionTest.Undo(root);
-   foreach(var p in paths)Check(Hash.FileHash(p)==HalionTest.V1()[id],"V1 rollback mismatch");
-   Console.WriteLine("PASS base + v1 upgrade/restore "+id);passed++;
+   foreach(var prior in a.Skip(4)){
+    string source=Path.Combine(prior,id+".mpq");string priorHash=Hash.FileHash(source);
+    foreach(var p in paths)File.Copy(source,p,true);
+    Check(HalionTest.Plan(root,old,current).Operations.Count==2,"Prior test was mistaken for current test");HalionTest.Apply(root,payload);
+    Check(HalionTest.Apply(root,payload)==null,"V3 repeat was not no-op");HalionTest.Undo(root);
+    foreach(var p in paths)Check(Hash.FileHash(p)==priorHash,"Prior test rollback mismatch");
+   }
+   Console.WriteLine("PASS base + v1 + v2 upgrade/restore "+id);passed++;
   }
-  Json.Save(Path.Combine(output,"validation.json"),new{Author="Neil Mitchell",Creator="Neil Mitchell",LastModifiedBy="Neil Mitchell",passed,apply_repeat_single_byte_rejection_restore=true,v1_upgrade_and_exact_restore=true});return 0;
+  Json.Save(Path.Combine(output,"validation.json"),new{Author="Neil Mitchell",Creator="Neil Mitchell",LastModifiedBy="Neil Mitchell",passed,apply_repeat_single_byte_rejection_restore=true,v1_and_v2_upgrade_and_exact_restore=true});return 0;
  }catch(Exception e){Console.Error.WriteLine(e);return 1;}}
 }
