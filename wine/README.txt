@@ -49,3 +49,9 @@ integration is included in this release.
 
 The installer interface is English. Client game data supports all nine
 existing locales and is selected from the detected game locale.
+
+Setup 1.1.5: New spell visuals off keeps Patch-S as .mpq.disabled next to
+its original path. A different disabled copy is never overwritten.
+To undo the complete install, use Restore previous install. For files
+already removed by older setup versions, recover them from those backups
+using Restore previous install before reinstalling. Keep LauSetupBackups.

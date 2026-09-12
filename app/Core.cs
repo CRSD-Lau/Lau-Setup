@@ -150,7 +150,8 @@ public static class SafePaths {
     }
     public static string Target(string root,string relative,string locale) {
         string expression=@"^(WoW\.exe|Data\\patch-[qmsy]\.mpq|Data\\"+Regex.Escape(locale)+@"\\patch-"+Regex.Escape(locale)+@"-[qmsy]\.mpq)$";
-        if(!Regex.IsMatch(relative,expression,RegexOptions.IgnoreCase)) throw new IOException("File is outside the install scope: "+relative);
+        string disabled=@"^(Data\\patch-s\.mpq\.disabled|Data\\"+Regex.Escape(locale)+@"\\patch-"+Regex.Escape(locale)+@"-s\.mpq\.disabled)$";
+        if(!Regex.IsMatch(relative,expression,RegexOptions.IgnoreCase)&&!Regex.IsMatch(relative,disabled,RegexOptions.IgnoreCase)) throw new IOException("File is outside the install scope: "+relative);
         return Under(root,relative);
     }
     public static void DirectoryFor(string file) { Plain(file); Directory.CreateDirectory(Path.GetDirectoryName(file)); }
@@ -196,7 +197,7 @@ public static class Client {
         }
     }
 }
-public sealed class Operation { public string Relative,AssetId,OldHash; public long OldBytes; public bool Existed; }
+public sealed class Operation { public string Relative,AssetId,OldHash,SourceRelative,SourceHash; public long OldBytes,SourceBytes; public bool Existed; }
 public sealed class InstallPlan {
     public string Root,Locale,Edition;public bool Maps;public List<Operation> Operations=new List<Operation>();
     public long DownloadBytes,StageBytes;
@@ -219,7 +220,21 @@ public sealed class InstallPlan {
         add(@"Data\patch-q.mpq",q);add(loc+"Q.MPQ",q);
         add(@"Data\patch-y.mpq","Y-"+edition);add(loc+"Y.MPQ","Y-"+edition);
         if(maps){add(@"Data\patch-m.mpq","Maps");add(loc+"M.MPQ",null);}
-        add(@"Data\patch-s.mpq",newSpells?"SpellAssets":null);add(loc+"S.MPQ",newSpells?"SpellTables":null);
+        if(newSpells){add(@"Data\patch-s.mpq","SpellAssets");add(loc+"S.MPQ","SpellTables");}
+        else foreach(string active in new[]{@"Data\patch-s.mpq",loc+"S.MPQ"}) {
+            string source=SafePaths.Target(plan.Root,active,plan.Locale);
+            if(!File.Exists(source))continue;
+            string digest=Hash.FileHash(source);long bytes=new FileInfo(source).Length;
+            if(bytes==0)throw new IOException("An empty Patch-S file needs checking: "+active);
+            string disabled=active+".disabled",target=SafePaths.Target(plan.Root,disabled,plan.Locale);
+            if(Directory.Exists(target)||File.Exists(target)&&!Hash.Matches(target,digest,bytes))throw new IOException("A different disabled Patch-S already exists. Keep both files and move or rename the disabled copy before retrying: "+disabled);
+            // Preserve an identical pre-existing disabled copy; never overwrite it.
+            if(!File.Exists(target)){
+                plan.Operations.Add(new Operation{Relative=disabled,SourceRelative=active,SourceHash=digest,SourceBytes=bytes});
+                plan.StageBytes=checked(plan.StageBytes+bytes);
+            }
+            add(active,null);
+        }
         foreach(var id in plan.Operations.Where(o=>o.AssetId!=null).Select(o=>o.AssetId).Distinct())plan.DownloadBytes=checked(plan.DownloadBytes+catalog.Get(id).Bytes);
         return plan;
     }
@@ -273,6 +288,12 @@ public sealed class Transaction {
             foreach(var op in plan.Operations) {
                 if(!seen.Add(op.Relative))throw new IOException("Duplicate install destination.");
                 var path=SafePaths.Target(plan.Root,op.Relative,plan.Locale);
+                if(op.SourceRelative!=null){
+                    if(op.AssetId!=null||op.Existed||!op.Relative.Equals(op.SourceRelative+".disabled",StringComparison.OrdinalIgnoreCase)||!op.SourceRelative.EndsWith("s.mpq",StringComparison.OrdinalIgnoreCase)||!Hash.Valid(op.SourceHash)||op.SourceBytes<=0)throw new IOException("Invalid disabled Patch-S operation.");
+                    var source=SafePaths.Target(plan.Root,op.SourceRelative,plan.Locale);
+                    if(!Hash.Matches(source,op.SourceHash,op.SourceBytes)||!plan.Operations.Any(x=>x.Relative.Equals(op.SourceRelative,StringComparison.OrdinalIgnoreCase)&&x.AssetId==null&&x.SourceRelative==null&&x.Existed&&x.OldHash==op.SourceHash&&x.OldBytes==op.SourceBytes))throw new IOException("Patch-S changed after the install was prepared.");
+                }
+                if(Directory.Exists(path))throw new IOException("An install destination is a directory: "+op.Relative);
                 if(op.Existed ? !Hash.Matches(path,op.OldHash,op.OldBytes) : File.Exists(path))throw new IOException("A game file changed after the install was prepared. Please choose the folder again.");
             }
             string dir=SafePaths.Under(state,@"transactions\"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fffffff")+"-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);
@@ -280,16 +301,19 @@ public sealed class Transaction {
             string record=SafePaths.Under(dir,"install.json");
             foreach(var op in plan.Operations) {
                 var a=op.AssetId==null?null:catalog.Get(op.AssetId);
-                journal.Files.Add(new JournalEntry{Relative=op.Relative,Existed=op.Existed,OldHash=op.OldHash,OldBytes=op.OldBytes,NewHash=a==null?null:a.Sha256,NewBytes=a==null?0:a.Bytes});
+                journal.Files.Add(new JournalEntry{Relative=op.Relative,Existed=op.Existed,OldHash=op.OldHash,OldBytes=op.OldBytes,NewHash=a==null?op.SourceHash:a.Sha256,NewBytes=a==null?op.SourceBytes:a.Bytes});
             }
             Json.Save(record,journal);
             try {
             foreach(var op in plan.Operations) {
                 token.ThrowIfCancellationRequested();var a=op.AssetId==null?null:catalog.Get(op.AssetId);
-                if(a!=null) {
-                    string src;if(!assets.TryGetValue(a.Id,out src)||!Hash.Matches(src,a.Sha256,a.Bytes))throw new IOException("Downloaded file verification failed.");
+                if(a!=null||op.SourceRelative!=null) {
+                    string src,expectedHash;long expectedBytes;
+                    if(a!=null){expectedHash=a.Sha256;expectedBytes=a.Bytes;if(!assets.TryGetValue(a.Id,out src))throw new IOException("Downloaded file verification failed.");}
+                    else {src=SafePaths.Target(plan.Root,op.SourceRelative,plan.Locale);expectedHash=op.SourceHash;expectedBytes=op.SourceBytes;}
+                    if(!Hash.Matches(src,expectedHash,expectedBytes))throw new IOException("Source file verification failed.");
                     string stage=SafePaths.Under(dir,@"staged\"+op.Relative);SafePaths.DirectoryFor(stage);File.Copy(src,stage);
-                    if(!Hash.Matches(stage,a.Sha256,a.Bytes))throw new IOException("Staged file verification failed.");
+                    if(!Hash.Matches(stage,expectedHash,expectedBytes))throw new IOException("Staged file verification failed.");
                 }
             }
             guard(plan.Root);token.ThrowIfCancellationRequested();
@@ -327,7 +351,7 @@ public sealed class Transaction {
     public Journal ReadBackup(string record) {
         Status(record);var j=Json.Parse<Journal>(File.ReadAllText(record));string root=SafePaths.Root(j.Root);
         string expected=SafePaths.Under(StateRoot(root),"transactions")+"\\";
-        if(!Path.GetFullPath(record).StartsWith(expected,StringComparison.OrdinalIgnoreCase)||!String.Equals(Path.GetDirectoryName(Path.GetDirectoryName(record))+"\\",expected,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(record)!="install.json"||!catalog.Locales.Contains(j.Locale)||j.Files==null||j.Files.Count>9||j.Files.Count==0)throw new IOException("Invalid backup record.");
+        if(!Path.GetFullPath(record).StartsWith(expected,StringComparison.OrdinalIgnoreCase)||!String.Equals(Path.GetDirectoryName(Path.GetDirectoryName(record))+"\\",expected,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(record)!="install.json"||!catalog.Locales.Contains(j.Locale)||j.Files==null||j.Files.Count>11||j.Files.Count==0)throw new IOException("Invalid backup record.");
         if(!new[]{"INSTALLED","STAGING","COMMITTING","RESTORING","RECOVERY_REQUIRED"}.Contains(j.Status))throw new IOException("This backup has already been restored or was not installed.");
         var seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach(var e in j.Files) {

@@ -1,3 +1,28 @@
+# Lau Setup 1.1.5 Hotfix - Keep disabled Patch-S files
+
+Turning off **New spell visuals** now preserves the root and active-locale Patch-S files beside their original locations as `.mpq.disabled`, rather than leaving them only in installer backups. Their bytes are verified before and after the change. WoW does not load the disabled filename.
+
+- A different existing `.disabled` copy blocks the install; it is never overwritten.
+- An identical disabled copy is reused and preserved.
+- Turning the option on installs the selected release's active S files and keeps disabled copies.
+- Repeat installs, rollback and interruption recovery cover both active and disabled paths.
+
+To re-enable a disabled file manually, close WoW and remove only the `.disabled` suffix. Do not overwrite a different active file. To undo the complete Lau installation, use **Restore previous install**; deleting only Patch-Y does not undo Q/M/executable or other changes. Manual file changes can cause managed rollback to stop on drift, so keep the backups.
+
+**Already affected by an older installer?** This update does not automatically extract old backups. Use Restore previous install to recover those files, working backwards through any stacked installs, before reinstalling with the new setup. Keep LauSetupBackups.
+
+Game release remains **3.0.8 Lau**. All MPQs are unchanged: 90-degree breaths/Slime Spray, approved +50% Halion meteor-fire radius and Coldflame are preserved. Download the new EXE or Wine ZIP for the installer fix.
+
+Windows and Wine validation is included in VALIDATION.json. Tests cover all nine locales, disabled-copy collisions, on/off transitions, repeated installation, interruption at every move/restore step, file drift and exact rollback. The fix does not claim new in-game encounter validation.
+
+[Raw six-edition Patch-Y ZIP (unchanged 3.0.8)](https://github.com/CRSD-Lau/Lau-Setup/releases/download/v1.1.4/Lau-Patch-Y-3.0.8-All-Editions.zip)
+
+[Installation help and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+---
+
 # Lau Setup 1.1.4 · Game release 3.0.8 Lau
 
 ## All breath and Slime Spray warnings are now 90°

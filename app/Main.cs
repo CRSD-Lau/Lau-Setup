@@ -118,7 +118,7 @@ public sealed class SetupForm:Form {
             plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));
             download.Text=plan.Operations.Count==0?"Your selected release 3.0.8 is already installed.":"Download up to "+FormatSize(plan.DownloadBytes)+"  ·  "+(plan.Maps?"Upgraded maps included":"Existing maps kept");
             install.Text=plan.Operations.Count==0?"Already installed":"Install upgrade";
-            status.Text=Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":"Ready. A verified backup is created before any game files change.";
+            status.Text=Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S will be kept as .mpq.disabled. Remove .disabled to restore it manually after removing Patch-Y. Backups are also kept.":"Ready. A verified backup is created before any game files change.");
         }catch(Exception ex){plan=null;status.Text=ex.Message;}finally{SetBusy(false);}
     }
     async void Install(object sender,EventArgs args) {
