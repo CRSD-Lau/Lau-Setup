@@ -220,7 +220,22 @@ public sealed class InstallPlan {
         add(@"Data\patch-q.mpq",q);add(loc+"Q.MPQ",q);
         add(@"Data\patch-y.mpq","Y-"+edition);add(loc+"Y.MPQ","Y-"+edition);
         if(maps){add(@"Data\patch-m.mpq","Maps");add(loc+"M.MPQ",null);}
-        if(newSpells){add(@"Data\patch-s.mpq","SpellAssets");add(loc+"S.MPQ","SpellTables");}
+        if(newSpells) {
+            foreach(var pair in new[]{new[]{@"Data\patch-s.mpq","SpellAssets"},new[]{loc+"S.MPQ","SpellTables"}}) {
+                string active=pair[0],disabled=active+".disabled";var asset=catalog.Get(pair[1]);
+                add(active,pair[1]);
+                string disabledPath=SafePaths.Target(plan.Root,disabled,plan.Locale);
+                if(Directory.Exists(disabledPath))throw new IOException("The disabled Patch-S destination is a directory: "+disabled);
+                if(File.Exists(disabledPath)) {
+                    var install=plan.Operations.FirstOrDefault(o=>o.Relative.Equals(active,StringComparison.OrdinalIgnoreCase));
+                    if(install!=null&&Hash.Matches(disabledPath,asset.Sha256,asset.Bytes)) {
+                        install.SourceRelative=disabled;install.SourceHash=asset.Sha256;install.SourceBytes=asset.Bytes;
+                    }
+                    // Transaction moves this copy into its verified before backup, including when active S already matches.
+                    add(disabled,null);
+                }
+            }
+        }
         else foreach(string active in new[]{@"Data\patch-s.mpq",loc+"S.MPQ"}) {
             string source=SafePaths.Target(plan.Root,active,plan.Locale);
             if(!File.Exists(source))continue;
@@ -245,7 +260,7 @@ public sealed class InstallPlan {
             }
             add(active,null);
         }
-        foreach(var id in plan.Operations.Where(o=>o.AssetId!=null).Select(o=>o.AssetId).Distinct())plan.DownloadBytes=checked(plan.DownloadBytes+catalog.Get(id).Bytes);
+        foreach(var id in plan.Operations.Where(o=>o.AssetId!=null&&o.SourceRelative==null).Select(o=>o.AssetId).Distinct())plan.DownloadBytes=checked(plan.DownloadBytes+catalog.Get(id).Bytes);
         return plan;
     }
 }
@@ -301,9 +316,10 @@ public sealed class Transaction {
                 if(op.SourceRelative!=null){
                     bool disable=op.SourceRelative.EndsWith("s.mpq",StringComparison.OrdinalIgnoreCase)&&op.Relative.Equals(op.SourceRelative+".disabled",StringComparison.OrdinalIgnoreCase);
                     bool archive=op.SourceRelative.EndsWith("s.mpq.disabled",StringComparison.OrdinalIgnoreCase)&&op.Relative.Equals(op.SourceRelative+"."+(op.SourceHash??"").Substring(0,Math.Min(12,(op.SourceHash??"").Length)),StringComparison.OrdinalIgnoreCase)&&!op.Existed;
-                    if(op.AssetId!=null||(!disable&&!archive)||!Hash.Valid(op.SourceHash)||op.SourceBytes<=0)throw new IOException("Invalid disabled Patch-S operation.");
+                    bool enable=op.AssetId!=null&&(op.AssetId=="SpellAssets"&&op.Relative.Equals(@"Data\patch-s.mpq",StringComparison.OrdinalIgnoreCase)||op.AssetId=="SpellTables"&&op.Relative.Equals(@"Data\"+plan.Locale+@"\patch-"+plan.Locale+"-S.MPQ",StringComparison.OrdinalIgnoreCase))&&op.SourceRelative.Equals(op.Relative+".disabled",StringComparison.OrdinalIgnoreCase)&&op.SourceHash==catalog.Get(op.AssetId).Sha256&&op.SourceBytes==catalog.Get(op.AssetId).Bytes;
+                    if((op.AssetId!=null&&!enable)||(!disable&&!archive&&!enable)||!Hash.Valid(op.SourceHash)||op.SourceBytes<=0)throw new IOException("Invalid disabled Patch-S operation.");
                     var source=SafePaths.Target(plan.Root,op.SourceRelative,plan.Locale);
-                    if(!Hash.Matches(source,op.SourceHash,op.SourceBytes)||!plan.Operations.Any(x=>x.Relative.Equals(op.SourceRelative,StringComparison.OrdinalIgnoreCase)&&x.AssetId==null&&x.Existed&&x.OldHash==op.SourceHash&&x.OldBytes==op.SourceBytes&&(disable?x.SourceRelative==null:x.SourceRelative!=null)))throw new IOException("Patch-S changed after the install was prepared.");
+                    if(!Hash.Matches(source,op.SourceHash,op.SourceBytes)||!plan.Operations.Any(x=>x.Relative.Equals(op.SourceRelative,StringComparison.OrdinalIgnoreCase)&&x.AssetId==null&&x.Existed&&x.OldHash==op.SourceHash&&x.OldBytes==op.SourceBytes&&(disable||enable?x.SourceRelative==null:x.SourceRelative!=null)))throw new IOException("Patch-S changed after the install was prepared.");
                 }
                 if(Directory.Exists(path))throw new IOException("An install destination is a directory: "+op.Relative);
                 if(op.Existed ? !Hash.Matches(path,op.OldHash,op.OldBytes) : File.Exists(path))throw new IOException("A game file changed after the install was prepared. Please choose the folder again.");
@@ -321,7 +337,7 @@ public sealed class Transaction {
                 token.ThrowIfCancellationRequested();var a=op.AssetId==null?null:catalog.Get(op.AssetId);
                 if(a!=null||op.SourceRelative!=null) {
                     string src,expectedHash;long expectedBytes;
-                    if(a!=null){expectedHash=a.Sha256;expectedBytes=a.Bytes;if(!assets.TryGetValue(a.Id,out src))throw new IOException("Downloaded file verification failed.");}
+                    if(a!=null&&op.SourceRelative==null){expectedHash=a.Sha256;expectedBytes=a.Bytes;if(!assets.TryGetValue(a.Id,out src))throw new IOException("Downloaded file verification failed.");}
                     else {src=SafePaths.Target(plan.Root,op.SourceRelative,plan.Locale);expectedHash=op.SourceHash;expectedBytes=op.SourceBytes;}
                     if(!Hash.Matches(src,expectedHash,expectedBytes))throw new IOException("Source file verification failed.");
                     string stage=SafePaths.Under(dir,@"staged\"+op.Relative);SafePaths.DirectoryFor(stage);File.Copy(src,stage);

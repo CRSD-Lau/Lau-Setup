@@ -133,7 +133,7 @@ public sealed class SetupForm:Form {
                 using(var lease=ClientLease.Acquire(current.Root)){
                 if(Transaction.Pending(current.Root)!=null)throw new IOException("An interrupted install needs restoring first.");
                 var files=new Dictionary<string,string>();var loader=new Downloader(cache,Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload"),p=>{p.Overall=done+p.Received;((IProgress<TransferProgress>)transfer).Report(p);});
-                foreach(var id in current.Operations.Where(o=>o.AssetId!=null).Select(o=>o.AssetId).Distinct()) {
+                foreach(var id in current.Operations.Where(o=>o.AssetId!=null&&o.SourceRelative==null).Select(o=>o.AssetId).Distinct()) {
                     cancellation.Token.ThrowIfCancellationRequested();
                     files[id]=loader.Fetch(catalog.Get(id),cancellation.Token);done+=catalog.Get(id).Bytes;
                 }
