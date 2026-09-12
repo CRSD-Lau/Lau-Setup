@@ -17,6 +17,7 @@ public static class RealPackageTests {
             string root=Path.Combine(output,"client");Directory.CreateDirectory(root);File.Copy(args[1],Path.Combine(root,"WoW.exe"));
             foreach(string path in new[]{@"Data\common.mpq",@"Data\enUS\locale-enUS.mpq",@"Data\patch-f.mpq",@"Data\enUS\patch-enUS-F.MPQ"})Put(root,path,"Isolated file-layout fixture; not a runnable game client.");
             Put(root,@"WTF\Config.wtf","SET locale \"enUS\"\r\n");Put(root,@"WTF\Account\SavedVariables\private.lua","PRESERVE");Put(root,@"Interface\AddOns\ElvUI\private.lua","PRESERVE");Put(root,@"Data\patch-z.mpq","PRESERVE");Put(root,@"Data\frFR\patch-frFR-Q.MPQ","PRESERVE");
+            Put(root,@"Data\patch-s.mpq.disabled","Older root S fixture - preserve");Put(root,@"Data\enUS\patch-enUS-S.MPQ.disabled","Older locale S fixture - preserve");
             var original=Snapshot(root);var records=new List<string>();var states=new List<Dictionary<string,string>>{original};
             foreach(var settings in (online||offlineCore)?new[]{new[]{true,true,false},new[]{false,true,false}}:new[]{new[]{true,true,false},new[]{true,true,true},new[]{false,false,true}}){
                 var info=Client.Inspect(root,c);var plan=InstallPlan.Build(info,c,settings[0],settings[1],settings[2]);string record;

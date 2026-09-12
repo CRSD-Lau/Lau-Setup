@@ -50,8 +50,14 @@ integration is included in this release.
 The installer interface is English. Client game data supports all nine
 existing locales and is selected from the detected game locale.
 
-Setup 1.1.5: New spell visuals off keeps Patch-S as .mpq.disabled next to
+Setup 1.1.6: New spell visuals off keeps Patch-S as .mpq.disabled next to
 its original path. A different disabled copy is never overwritten.
 To undo the complete install, use Restore previous install. For files
 already removed by older setup versions, recover them from those backups
 using Restore previous install before reinstalling. Keep LauSetupBackups.
+
+The current S file always becomes .mpq.disabled. If an older disabled
+copy exists, Setup first preserves it as .mpq.disabled.<12-character hash>. No manual rename
+is needed to switch options. Re-enabling manually requires removing
+.disabled and any following hash, with WoW closed and no different active
+file being overwritten. Use Restore previous install for managed rollback.

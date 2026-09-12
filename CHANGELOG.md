@@ -1,3 +1,27 @@
+# Lau Setup 1.1.6 Hotfix - Switch options with existing disabled Patch-S
+
+Fixes the 1.1.5 message "A different disabled Patch-S already exists" when turning New spell visuals off after an earlier install.
+
+Setup keeps both files automatically. The current S file always becomes `.mpq.disabled`. If a different older disabled copy is already there, Setup first preserves that older copy as `.mpq.disabled.<12-character hash>`. An identical saved copy is reused. Both versions are retained. A hash-named copy whose contents do not match the older file being preserved still stops the operation for inspection.
+
+This applies to root and active-locale S files, including the sequence **all three flags on -> New spell visuals off**, repeated switches and rollback. The map choice is retained.
+
+Download the new EXE or Wine ZIP and retry your selection. You do not need to delete or rename the existing disabled copy to resolve the ordinary collision shown by 1.1.5.
+
+To undo the full install, use **Restore previous install**. To manually re-enable a saved S file, close WoW and remove `.disabled` and any following hash, restoring its original `.mpq` filename. Never overwrite a different active file. Manual changes can stop managed rollback on file drift; keep your backups. Files removed by installers before 1.1.5 still need recovery through their backups.
+
+Game release remains **3.0.8 Lau** and every game payload is unchanged. All 90-degree cones, meteor-fire radius and Coldflame are preserved.
+
+Windows and Wine checks include 46 regression groups, all nine locales, existing disabled files, repeated on/off switches, tampered-copy protection, interruption recovery and exact rollback. Fresh public downloads are tested with real On/Off release files and an older disabled copy present. This is installer validation, not new in-game encounter validation.
+
+[Raw six-edition Patch-Y ZIP](https://github.com/CRSD-Lau/Lau-Setup/releases/download/v1.1.4/Lau-Patch-Y-3.0.8-All-Editions.zip)
+
+[Installation help and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+---
+
 # Lau Setup 1.1.5 Hotfix - Keep disabled Patch-S files
 
 Turning off **New spell visuals** now preserves the root and active-locale Patch-S files beside their original locations as `.mpq.disabled`, rather than leaving them only in installer backups. Their bytes are verified before and after the change. WoW does not load the disabled filename.

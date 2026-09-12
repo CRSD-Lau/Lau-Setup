@@ -55,3 +55,7 @@ For each modified model, only vertex XY (48-byte vertex stride) and bounds chang
 ## Setup 1.1.5 disabled Patch-S preservation
 
 Only root and active-locale S paths gain the .disabled suffix. Each disable creates a hash-pinned local staged copy before deactivating S; both paths are journaled, with at most eleven destinations. Rollback restores original active files and removes only newly created disabled copies. Pre-existing identical disabled copies remain outside the transaction and are preserved. Conflicting files or directories block planning. Re-enabling installs catalog S assets and does not consume the disabled copies. Existing journals remain readable. No arbitrary local source paths are accepted: each local copy must match its paired S deactivation operation.
+
+## Setup 1.1.6 disabled-copy collisions
+
+The current active S file always takes the plain .mpq.disabled name. Before replacing a different existing disabled file, Setup stages its bytes into a sibling ending in the first 12 characters of its SHA-256; full SHA-256 and length are checked before any reuse. This keeps names within the existing Windows path limits. Conflicting archive contents fail closed. The active S, plain disabled file, and newly created archival copy are journaled independently, with at most thirteen entries; rollback restores all originals. Local sources are restricted to paired S deactivation or disabled-file replacement operations. Old journals remain readable.

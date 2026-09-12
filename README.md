@@ -16,17 +16,17 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.5 · Game release 3.0.8 Lau · Nine client languages**
+**Installer 1.1.6 · Game release 3.0.8 Lau · Nine client languages**
 
 ## Patch-S stays recoverable
 
-**Setup 1.1.5 Hotfix:** turning off New spell visuals keeps Patch-S as `.mpq.disabled` beside its original path. Different existing disabled copies are never overwritten. Older installations can recover Patch-S through **Restore previous install**.
+**Setup 1.1.6 Hotfix:** turning off New spell visuals keeps Patch-S as `.mpq.disabled` beside its original path. The current file always receives the plain .mpq.disabled name; any older disabled copy is preserved under a short hash-suffixed name. Older installations can recover Patch-S through **Restore previous install**.
 
 ## 90° breath and Slime Spray warnings
 
 **3.0.8 Lau:** all supported breath indicators and Rotface Slime Spray are **90° total**, following Warmane tester confirmation. Covers Halion in both realms, Saviana Ragefire, Sartharion, ICC Rimefang and Sindragosa. Range and animation timing are preserved. The approved larger Halion meteor-fire radius and light blue Coldflame are unchanged.
 
-**Already installed?** Download **Setup 1.1.5** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
+**Already installed?** Download **Setup 1.1.6** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
 
 [Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
@@ -92,7 +92,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Release 1.1.5 passed **44 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. Game-release 3.0.8 previously passed six-edition upgrades and one-byte detection on both platforms; its payloads are unchanged. Setup 1.1.5 adds active/disabled Patch-S checks, collisions, interruption recovery and exact rollback. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
+Release 1.1.6 passed **46 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. Game-release 3.0.8 previously passed six-edition upgrades and one-byte detection on both platforms; its payloads are unchanged. Setup 1.1.6 also covers the all-flags-on to New Spells off sequence with older disabled copies, repeated switches and exact rollback. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion meteor-fire geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.7. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
 
