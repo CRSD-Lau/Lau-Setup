@@ -1,8 +1,8 @@
-> **PRIVATE TEST BRANCH — Halion radius +30% (Windows only)**
+> **PRIVATE TEST BRANCH — Halion radius +50% (test v2) (Windows only)**
 >
-> [Download the test installer](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/test-halion-radius-30-v1) · [Test instructions](HALION-TEST.md)
+> [Download the test installer](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/test-halion-radius-50-v2) · [Test instructions](HALION-TEST.md)
 >
-> Requires an existing original 3.0.6 installation. Extract the entire ZIP and run `LauSetup.exe` with WoW closed. Applies only the Halion marker experiment, preserves the installed edition, and includes restore. Coldflame is unchanged. In-game boundary testing is pending. The stable release is unchanged.
+> Requires an existing original 3.0.6 or test v1 installation. Extract the entire ZIP and run `LauSetup.exe` with WoW closed. Applies only the Halion marker experiment, preserves the installed edition, and includes restore. Coldflame is unchanged. In-game boundary testing is pending. The stable release is unchanged.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 <p align="center">
