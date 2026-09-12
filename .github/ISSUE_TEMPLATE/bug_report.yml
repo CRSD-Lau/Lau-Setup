@@ -1,0 +1,50 @@
+# Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell
+name: Bug report
+description: Report an installation, recovery or in-game visual issue.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Remove credentials, account details and personal paths. Do not upload your game client or WTF folder."
+  - type: input
+    id: version
+    attributes:
+      label: Installer version
+      placeholder: "For example: 1.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Windows 10
+        - Windows 11
+        - Linux / Wine
+        - Other / unsupported configuration
+    validations:
+      required: true
+  - type: input
+    id: wine
+    attributes:
+      label: Wine environment, if applicable
+      description: Distribution, Wine version, Wine Mono version and prefix architecture.
+  - type: input
+    id: client
+    attributes:
+      label: Client and selected visuals
+      description: Client locale, HD or original models, Consecration, new spells and maps selection.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, expected result, actual result and any error message.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots and in-game details
+      description: For game issues, include /pyversion output, boss or ability and difficulty. Remove personal information before attaching evidence.
