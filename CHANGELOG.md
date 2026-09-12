@@ -1,3 +1,36 @@
+# Lau Setup 1.1.2 · Game release 3.0.6 Lau
+
+## Blue Coldflame, red meteor fire
+
+- **Marrowgar Coldflame:** light blue circles with the existing inward glow and clockwise animation, including heroic.
+- **Halion meteor fire:** fire red circles around trails and landing fire with the existing clockwise animation.
+- All six HD/Non-HD editions and nine client languages. Native flames, durations, Consecration choices and the 90° Sindragosa / 60° Rotface cones are unchanged.
+
+[Animated color previews and full changelog](https://wrath-multilingual-hd.vercel.app/#changelog). The previews are illustrative mockups, not in-game recordings. Server damage and mechanics are unchanged; warning edges remain visual buffers.
+
+## Already installed? Download the new installer first
+
+Download **LauSetup.exe** or **LauSetup-Wine.zip** from this release. Close WoW, choose the same folder and visual settings, then click **Install upgrade**. Old downloaded installers keep their old embedded catalog.
+
+Setup hashes the actual files. Older 3.0.5 files are replaced; even a one-byte change with identical file size and timestamp is detected. Only exact new files are treated as already installed. `/pyversion` reports **3.0.6 Lau**. Backups and Restore previous install remain available.
+
+Wine users: extract all four files together and run `LauSetup.sh` as your normal user with your existing 64-bit Wine 11.0 / Mono 10.4.1 prefix. Python 3.9+ and local Linux storage are required. Windows needs .NET Framework 4.8. Runtimes are not bundled.
+
+## Fresh verification on Windows and Wine
+
+- 38 regression groups per platform, including 108 locale/edition/map plans each.
+- All six actual 3.0.5-to-3.0.6 upgrades, repeat no-op installs and exact rollback on both platforms.
+- One-byte same-size/same-timestamp changes detected and repaired independently in root and locale Y on both platforms.
+- Anonymous GitHub payload downloads, actual core installations and rollback on Windows and Wine.
+- 15 Linux host-safety tests and the exact four-file Wine launcher under a normal user; Windows form render checked.
+- Three marker M2 texture references and the version TOC changed per edition; two color textures added. All other members preserved byte for byte.
+
+These installer checks do not certify every Linux distribution or every in-game encounter. The executable remains unsigned. Detailed evidence, checksums and source are attached.
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+---
+
 # Lau Setup 1.1.1 · Game release 3.0.5 Lau
 
 ## Wider raid warnings

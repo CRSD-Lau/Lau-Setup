@@ -32,3 +32,12 @@ Restore refuses files changed by another update and keeps the backup for manual 
 ## Release boundaries
 
 The installer is unsigned. Windows and Wine installer tests, sampled GUI checks and the retained game-data baseline are recorded separately in VALIDATION.json. Wine 1.1.0 checks use Wine 11.0 / Wine Mono 10.4.1 and local Docker overlay storage; the nested-mount test mocks device identity because that container cannot create mounts. These checks do not certify every Linux distribution/filesystem, display scale, encounter or third-party client modification. Existing manual Google Drive releases remain available; new raw-file uploads are deferred while rate limited.
+
+
+## 3.0.6 color update / Setup 1.1.2
+
+Each of the six Y archives changes three M2 members and the !PYAndre TOC, and adds two BLP textures. `Spells/PW_Coldflame_Ground.m2` now references `Spells/PW_Coldflame_Blue.blp`; `Spells/PW_HalionMeteor_Ground.m2` and `Spells/PW_HalionMeteor_Ring.m2` reference `Spells/PW_Halion_Red.blp`. Only texture descriptor 4's filename length/offset changes in each original model; the new path is appended. Native particle textures (indices 0–3), skins, geometry, global animation tracks, bounds and DBC bytes are unchanged. The shared white texture remains unchanged for other indicators.
+
+The new textures preserve the existing opaque 8×8 DXT1 BLP2 format and all four mip levels. Only the RGB565 endpoint changes: light blue decodes as (120,216,248,255), red as (248,68,40,255). Quantization is inherent to the existing texture format. Both Halion models use the same red texture. Consecration and model-edition choices remain independent.
+
+Update decisions compare actual SHA-256 and size, not release labels or timestamps. Regression tests modify one byte without changing file size or timestamp in each Y placement, require exactly one repair operation, verify the repaired hash, then restore the previous release. An old EXE embeds the old catalog, so upgrading requires downloading the new EXE/ZIP first.

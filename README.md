@@ -16,13 +16,15 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.1 · Game release 3.0.5 Lau · Nine client languages**
+**Installer 1.1.2 · Game release 3.0.6 Lau · Nine client languages**
 
-## Updated cone warnings
+## Color-coded raid circles
 
-Game release **3.0.5 Lau** widens Sindragosa from **75° to 90° total** and Rotface from **25° to 60° total** in all six editions. These are buffered visual warnings informed by Warmane footage and logs; server mechanics are unchanged.
+**3.0.6 Lau:** light blue Coldflame circles and fire red Halion meteor circles, keeping their clockwise animation and Coldflame inward glow. The **90° Sindragosa** and **60° Rotface** warnings from 3.0.5 remain unchanged.
 
-**Updating from 3.0.4?** Download the new EXE or Wine ZIP first, choose the same client and visuals, then install. Setup checks actual file hashes, updates the older patches and reports `/pyversion` as 3.0.5. Older downloaded installers retain their older embedded catalog. [Changelog](https://wrath-multilingual-hd.vercel.app/#changelog).
+**Already installed?** Download **Setup 1.1.2** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.6 Lau**. Old installers keep their old embedded catalog.
+
+[Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
 ## Download
 
@@ -86,9 +88,9 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Release 1.1.1 passed **38 Windows regression groups**, including 108 locale/edition/map plans. All six editions passed actual **3.0.4-to-3.0.5 upgrade, repeat-install and exact rollback** checks. New payloads were downloaded anonymously and hash-verified; a core installation from GitHub and rollback also passed.
+Release 1.1.2 passed **38 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. All six editions passed **3.0.5-to-3.0.6 upgrades, repeat installs, same-size/same-timestamp one-byte detection in both Y placements, and exact rollback** on both platforms. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
 
-The Wine launcher is unchanged and its ZIP contains the same rebuilt EXE. **Wine runtime evidence comes from 1.1.0** (Wine 11.0 / Mono 10.4.1, 38 groups and native safety checks); fresh Wine execution was unavailable for this update. Earlier game checks cover preserved files. The new cone geometry is statically verified and deliberately buffered, not newly certified against server damage boundaries.
+Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Dedicated textures recolor the three marker models; all geometry, animation tracks, native fire and spell tables remain byte-identical. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
 
 Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
 
