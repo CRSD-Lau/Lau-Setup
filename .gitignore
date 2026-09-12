@@ -1,2 +1,4 @@
 dist/
 *.user
+package/
+reports/
