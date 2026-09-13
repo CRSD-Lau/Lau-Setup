@@ -13,7 +13,8 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">Latest release</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">Website &amp; gallery</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Report a problem</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Report a problem</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">Community roadmap</a>
 </p>
 
 ---

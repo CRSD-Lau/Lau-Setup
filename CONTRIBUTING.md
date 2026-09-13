@@ -4,6 +4,10 @@
 
 Thanks for helping improve installation and recovery for the Wrath community.
 
+## Community roadmap
+
+Follow the [Community roadmap](https://github.com/users/CRSD-Lau/projects/2) to see work as issues and pull requests automatically feed the board through **Backlog**, **Ready**, **In progress**, **Testing** and **Done**. **Testing** cards include acceptance checklists and collect the evidence needed to finish validation; use [Ideas](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas) to discuss proposals before filing an issue. [Release notes](https://github.com/CRSD-Lau/Lau-Setup/releases) remain the authority for what shipped in each version.
+
 ## Report a problem
 
 Use the [bug-report form](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose). Include the installer version, platform, client locale, selected visuals, expected behavior and steps to reproduce. For in-game issues, include `/pyversion`, the boss or ability, difficulty and a screenshot. Wine reports should include Wine and Wine Mono versions.
