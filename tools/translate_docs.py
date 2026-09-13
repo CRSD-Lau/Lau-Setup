@@ -260,12 +260,17 @@ def translate_prose(protected, locale, provider, translator, cache):
     """Keep protected spans and Markdown delimiters outside translated prose."""
     output = []
     for segment in PROSE_BOUNDARY.split(protected):
-        if not segment or PROSE_BOUNDARY.fullmatch(segment) or not re.search(r"[A-Za-z]{2}", segment):
+        if not segment or PROSE_BOUNDARY.fullmatch(segment) or (not re.search(r"[A-Za-z]{2}", segment) and not
+                (locale.get("omit_articles") and segment.strip().lower() in {"a", "an", "the"})):
             output.append(segment)
             continue
         leading = segment[:len(segment) - len(segment.lstrip())]
         trailing = segment[len(segment.rstrip()):]
         prose = segment.strip()
+        # Russian has no articles. A link boundary can isolate one in fallback.
+        if locale.get("omit_articles") and prose.lower() in {"a", "an", "the"}:
+            output.append(leading + trailing)
+            continue
         if len(prose) > 2000:
             split_at = prose.rfind(" ", 0, 1800)
             if split_at < 1:
