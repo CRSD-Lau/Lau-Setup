@@ -4,6 +4,8 @@
 
 [Back to Lau Setup](../README.md)
 
+> **First time installing?** Use [Start here](../START-HERE.txt). This reference is for build, recovery, and verification details.
+
 ## Build and verification
 
 Run `tools/build.ps1` on Windows with the .NET Framework compiler installed. The 1.2.0 source bundle includes the application, embedded catalog and translations, build/package scripts, documentation, and regression harnesses. `tools/test_localization.ps1` checks language resolution, saved preferences and live interface switching without a game installation. `tools/test.ps1 -ClientExecutable <path-to-WoW.exe>` runs transaction, download, path, process, recovery and GUI tests using isolated copies of an externally supplied build 12340 reference executable. The source bundle excludes that executable, game payloads and private source indexes. `tools/build.ps1 -Release` refuses a catalog that has not passed the publication gate.

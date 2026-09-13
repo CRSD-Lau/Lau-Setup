@@ -8,11 +8,37 @@ Last Modified By: Neil Mitchell
 Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 `LauSetup.sh`, `lau_wine.py`, `lau-languages.json`, and `README.txt`.
 
-On Windows, open `LauSetup.exe`. It needs .NET Framework 4.8 and is the native
-installer. On Linux, use an existing supported Wine prefix and run
-`WINEPREFIX="/absolute/path/to/prefix" sh LauSetup.sh`. Do not start the EXE
-directly under Wine: the shell launcher supplies the host process, filesystem,
-and cross-prefix locking guard.
+## Start here
+
+### Windows
+
+1. Close WoW completely. Right-click `LauSetup.zip`, choose **Extract All**,
+   and open the extracted `LauSetup` folder.
+2. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
+3. Choose **Choose folder…**, then select the folder that directly contains
+   `WoW.exe`, not its `Data` folder or a launcher folder.
+4. **Enhanced Consecration** starts on; **New spell visuals** needs detected
+   compatible HD models; **Upgrade maps and minimap** is optional. Choose
+   **Install upgrade** and wait for completion.
+5. If setup says **Already installed**, the selected files already match this
+   release and no game update is needed. Otherwise start WoW and type
+   `/pyversion`. To undo an installation, close WoW, reopen setup with the
+   same folder, and choose **Restore previous install**.
+
+### Linux / Wine
+
+Use the same ZIP, but first prepare the supported existing Wine environment
+listed below. Close every WoW instance in every prefix, extract the ZIP, and
+run `WINEPREFIX="/absolute/path/to/prefix" sh LauSetup.sh` from the extracted
+`LauSetup` folder. Never start the EXE directly under Wine: the shell launcher
+supplies the host process, filesystem, and cross-prefix locking guard. Once it
+opens setup, follow the same **Choose folder…**, option, and **Install upgrade**
+steps above.
+
+If Windows cannot find `LauSetup.exe`, open the extracted `LauSetup` folder;
+the file type should be **Application**. If setup rejects a folder, select the
+folder containing `WoW.exe` directly. If WoW is running, close it and retry.
+Windows uses the Microsoft .NET Framework 4.8 prompt when that runtime is missing.
 
 Linux still requires Wine 11.0, a 64-bit prefix with Wine Mono 10.4.1, Python
 3.9+, local Linux storage, visible host processes, and a normal non-root user.

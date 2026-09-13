@@ -2,11 +2,27 @@
 [English](../../../../README.md) · [Deutsch](../../de/README.md) · [Español (España)](../../es-ES/README.md) · [Español (México)](../README.md) · [Français](../../fr/README.md) · [한국어](../../ko/README.md) · [Русский](../../ru/README.md) · [简体中文](../../zh-CN/README.md) · [繁體中文](../../zh-TW/README.md) · [Português (Brasil)](../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Un solo ZIP incluye ahora el instalador de Windows y el iniciador para Linux/Wine. La interfaz sigue automáticamente el idioma del sistema operativo entre diez opciones; la elección manual se guarda. La versión 3.0.8 y los archivos del juego no cambian. No hay cambios en DBC.
 >
 > La actualización completa de las guías sigue pendiente por un HTTP 429 de Google. El texto anterior puede estar desactualizado; consulta la fuente inglesa actual y las notas 1.2.0. [English](../../../../wine/README.txt) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Descarga actual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows y Linux/Wine. Extrae la carpeta `LauSetup/` con cinco archivos: en Windows abre `LauSetup.exe`; en Linux/Wine ejecuta `LauSetup.sh`. Las instrucciones antiguas de abajo sobre ZIP Wine o EXE separados no se aplican a 1.2.0.
 
+
+<!-- BEGINNER-120-STEPS -->
+## Primeros pasos
+
+1. Cierre WoW por completo.
+2. Descargue solo `LauSetup.zip`. En Windows: clic derecho, **Extraer todo**, abra `LauSetup` y haga doble clic en `LauSetup.exe`.
+3. Extraiga `LauSetup.zip`. Mantenga juntos los cinco archivos de `LauSetup/`: `LauSetup.exe`, `LauSetup.sh`, `lau_wine.py`, `lau-languages.json` y `README.txt`.
+4. **Idioma de la interfaz** solo cambia el texto de Setup: Automático sigue el sistema y guarda la elección; no cambia los nueve idiomas del juego.
+5. **Consagración mejorada** está activada por defecto. Los nuevos efectos requieren modelos HD compatibles detectados; mapas/minimapa son opcionales.
+6. Elija **Instalar actualización**, espere sin cerrar Setup, inicie WoW y escriba `/pyversion`. Para restaurar, cierre WoW, use la misma carpeta y elija **Restaurar instalación anterior**.
+
+### Linux/Wine
+
+Use el mismo ZIP solo con un prefijo Wine 64-bit existente, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, fuentes documentadas y almacenamiento Linux local. Extraiga y ejecute `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`; nunca ejecute el EXE directamente en Wine.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Traducción automática. [Fuente en inglés](../../../../wine/README.txt). Si la redacción difiere, la fuente en inglés tiene autoridad.
@@ -16,7 +32,7 @@ Author / Creator / Last Modified By: Neil Mitchell
 
 1. Utilice un cliente WoW 3.3.5a existente de compilación 12340 en un sistema de archivos Linux local.
 2. Cierre todas las instancias de WoW, incluidos los juegos con otros prefijos Wine.
-3. Extraiga este ZIP. Mantenga los cuatro archivos juntos.
+3. Extraiga `LauSetup.zip`. Mantenga juntos los cinco archivos de `LauSetup/`: `LauSetup.exe`, `LauSetup.sh`, `lau_wine.py`, `lau-languages.json` y `README.txt`.
 4. Abra una terminal en la carpeta extraída y ejecute:
 
 ```sh
@@ -62,8 +78,7 @@ cheques. Esta no es una certificación de cada distribución, sistema de archivo
 escala de visualización, versión Wine o encuentro de juego. Sin Lutris, Proton o macOS
 La integración está incluida en esta versión.
 
-La interfaz del instalador es en inglés. Los datos del juego del cliente son compatibles con los nueve
-configuraciones regionales existentes y se selecciona de la configuración regional del juego detectada.
+La interfaz del instalador sigue automáticamente el idioma del sistema entre diez opciones; la elección manual se guarda. Los datos del juego del cliente siguen admitiendo nueve configuraciones regionales y siguen la configuración regional detectada del juego.
 
 Configuración 1.1.7: Las nuevas imágenes de hechizos desactivadas mantienen a Patch-S como .mpq.disabled junto a
 su camino original. Una copia deshabilitada diferente nunca se sobrescribe.

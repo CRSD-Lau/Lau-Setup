@@ -5,18 +5,28 @@ Game data remains Lau 3.0.8. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 
-Windows
-Open LauSetup.exe. It is the native installer and requires .NET Framework 4.8.
+## Start here on Linux / Wine
 
-Linux with Wine
-1. Use an existing WoW 3.3.5a build 12340 client on a local Linux filesystem.
-2. Close every WoW instance, including games in other Wine prefixes.
-3. In the extracted LauSetup folder, run:
+1. Download `LauSetup.zip` and extract it. Keep the five files in its
+   `LauSetup/` folder together.
+2. Before starting, use an existing WoW 3.3.5a build 12340 client on local
+   Linux storage, and close every WoW instance in every Wine prefix.
+3. Your existing environment must have Wine 11.0, Wine Mono 10.4.1, a 64-bit
+   prefix, Python 3.9+, and the fonts listed below. Lau Setup does not create
+   or repair these prerequisites.
+4. In the extracted `LauSetup` folder, run:
 
    WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
-4. Choose the existing game folder and install. Automatic backups and Restore
-   previous install remain available.
+5. In Lau Setup, choose **Choose folder…** and select the game folder that
+   directly contains `WoW.exe`, not its `Data` folder. Select your options,
+   choose **Install upgrade**, and wait for completion. **Enhanced
+   Consecration** starts on; **New spell visuals** needs detected compatible HD
+   models; **Upgrade maps and minimap** is optional. If setup says **Already
+   installed**, the selected files already match this release and no game
+   update is needed.
+6. Start WoW and type `/pyversion`. To undo an installation, close WoW, reopen
+   setup with the same game folder, and choose **Restore previous install**.
 
 Linux requirements and limits
 - Wine 11.0, an existing 64-bit prefix, and Wine Mono 10.4.1 in that prefix.
@@ -38,6 +48,11 @@ Always use LauSetup.sh on Linux. Starting LauSetup.exe directly under Wine
 refuses client operations because it lacks the host path, process, and
 cross-prefix lock guard. Keep WoW closed until Setup completes. The guard
 reduces races but cannot stop another program launched afterward.
+
+If the launcher cannot start, confirm that `LauSetup.exe`, `lau_wine.py`, and
+`lau-languages.json` are still in the extracted `LauSetup` folder. If it says
+WoW is running, close every WoW instance in every prefix and retry. If it
+rejects your game folder, select the folder that directly contains `WoW.exe`.
 
 Interface language
 The interface has ten languages: English (US), German, French, Spanish

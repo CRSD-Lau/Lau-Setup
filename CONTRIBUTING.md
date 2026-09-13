@@ -4,6 +4,8 @@
 
 Thanks for helping improve installation and recovery for the Wrath community.
 
+> **Installing for the first time?** Follow [Start here](START-HERE.txt) before collecting a bug report.
+
 ## Community roadmap
 
 Follow the [Community roadmap](https://github.com/users/CRSD-Lau/projects/2) to see work as issues and pull requests automatically feed the board through **Backlog**, **Ready**, **In progress**, **Testing** and **Done**. **Testing** cards include acceptance checklists and collect the evidence needed to finish validation; use [Ideas](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas) to discuss proposals before filing an issue. [Release notes](https://github.com/CRSD-Lau/Lau-Setup/releases) remain the authority for what shipped in each version.

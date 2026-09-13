@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — 一個 ZIP 現在同時包含 Windows 安裝程式和 Linux/Wine 啟動器。介面會在十種選項中自動跟隨作業系統語言，手動選擇會被儲存。遊戲版本 3.0.8 和遊戲檔案均未變更，也沒有 DBC 修改。
 >
 > 由於 Google HTTP 429，完整指南更新仍在等待中。下方正文可能已過時；請以目前英文來源和 1.2.0 發行說明為準。 [English](../../../PLATFORM-FEASIBILITY.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **目前下載：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解壓含五個檔案的 `LauSetup/` 資料夾：Windows 開啟 `LauSetup.exe`；Linux/Wine 執行 `LauSetup.sh`。下方關於個別 EXE 或 Wine ZIP 的舊說明不適用於 1.2.0。
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -20,6 +22,7 @@
 最後修改者：Neil Mitchell
 評估日期：2026-09-11
 
+> **以下為歷史評估：** 後續關於 1.0.1/1.1.0 的章節描述的是當時的評估狀態。目前使用單一共享 ZIP 的安裝請參閱上方 Setup 1.2.0 提示。
 更新：用戶僅選擇了Wine。安裝程式 1.1.0 現在提供經過測試的
 Wine 11 / Wine Mono 10.4.1 啟動器在 [Wine 指南](wine/README.md) 中描述。
 以下的 Wine 8 探測和建議被保留為歷史評估。

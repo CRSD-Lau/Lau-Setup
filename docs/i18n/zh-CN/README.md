@@ -2,11 +2,27 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
 >
 > 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.2.0 发布说明为准。 [English](../../../README.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.2.0。
 
+
+<!-- BEGINNER-120-STEPS -->
+## 新手步骤
+
+1。完全关闭 WoW。
+2。只下载 `LauSetup.zip`。在 Windows 中右键点击，选择**全部提取**，打开 `LauSetup`，然后双击 `LauSetup.exe`。
+3。选择 **选择文件夹…**，并选择直接包含 `WoW.exe` 的文件夹，不要选择 `Data` 或启动器文件夹。
+4。**界面语言** 只改变 Setup 文本：自动跟随系统语言，手动选择会保存；它不会改变游戏的九种语言环境。
+5。**强化奉献** 默认启用。新法术效果需要检测到兼容的 HD 模型；地图和小地图是可选下载。
+6。选择 **安装升级**，等待完成且不要关闭 Setup。启动 WoW 后输入 `/pyversion`。如需恢复，请关闭 WoW，选择相同的游戏文件夹，再选择 **恢复上一次安装**。
+
+### Linux/Wine
+
+同一个 ZIP 只能在已有 64-bit Wine 前缀、Wine 11.0、Wine Mono 10.4.1、Python 3.9+、文档要求的字体和本地 Linux 存储准备好后使用。解压后运行 `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`；不要在 Wine 中直接运行 EXE。
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 自动翻译。 [英文来源](../../../README.md)。如果措辞不同，则以英文来源为准。
@@ -52,7 +68,7 @@
 
 | Windows | Linux / Wine |
 | :--- | :--- |
-| **[下载LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[下载LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
+| **[下载LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)** | **[下载LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)** |
 | Windows 10 / 11 · .NET 框架 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit 前缀 |
 |关于**156 KB** |关于 **80 KB** · Python 3.9+ |
 | [Windows 指南](START-HERE.md) | [Wine 指南和先决条件](wine/README.md) |
@@ -61,7 +77,7 @@
 
 [SHA-256 校验和](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [发行说明](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [验证报告](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
-> **带上您现有的客户端。** 这是升级，而不是完整的游戏客户端、语言包或高清模型库。运行时安装程序未捆绑。安装程序用户界面是英文的；游戏内容支持九种语言环境。
+> **带上您现有的客户端。** 这是升级，而不是完整的游戏客户端、语言包或高清模型库。 安装程序界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。客户端游戏数据仍支持九种语言环境，并遵循检测到的游戏语言环境。
 
 <a id="one-setup-the-details-handled"></a>
 
@@ -84,7 +100,7 @@
 ## 开始吧
 
 1。 **完全关闭 WoW。** 在 Wine 上，关闭所有前缀上的每个 WoW 实例。
-2。 **启动安装程序并选择您的客户端文件夹。** Windows：打开`LauSetup.exe`。 Linux：从 Wine ZIP 中提取所有四个文件并使用下面的启动器。
+2。 **启动安装程序并选择您的客户端文件夹。** 将 `LauSetup.zip` 解压到 `LauSetup/` 文件夹。Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。
 3。 **选择您的视觉效果并安装。** 增强奉献开始选中；取消选中它以查看库存外观。新的法术视觉效果需要兼容的高清模型基础。地图是可选的。
 4。 **启动 WoW 并运行 `/pyversion`。** 在进入游戏之前确认已安装的版本。
 

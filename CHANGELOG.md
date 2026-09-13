@@ -2,7 +2,11 @@
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
+> **First time installing?** Use [Start here](START-HERE.txt). Older entries below retain their original release instructions.
+
 One `LauSetup.zip` includes the Windows executable, Linux/Wine safety launcher and bundled translations. The interface detects the system language, offers ten languages including Brazilian Portuguese, and remembers a manual selection. Changing interface language preserves the selected client and options. WoW's detected locale still controls game patch selection.
+
+The current release publishes only `LauSetup.zip` as an installer download; the duplicate Wine ZIP and standalone EXE assets were removed. Primary guides now begin with exact numbered Windows and separate Linux/Wine steps, folder selection, option meanings and recovery help. All 27 localized primary guides include current beginner steps.
 
 Linux prerequisites remain unchanged. Game release 3.0.8, its nine game locales, all 28 game assets and their hashes remain unchanged; no DBC edits. Validation passed 62 Windows and 62 Wine regression groups, 50 Windows and 21 normal-user Wine interface states, 185 translation keys across ten languages, and 31 package, translation, and host tests. See [1.2.0 release notes](docs/RELEASE-1.2.0.md) and [shared-package guide](docs/UNIVERSAL-INSTALLER.md).
 

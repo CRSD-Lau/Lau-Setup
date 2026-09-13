@@ -5,12 +5,17 @@ Creator: Neil Mitchell
 Last Modified By: Neil Mitchell  
 Assessment date: 2026-09-11
 
-Update: the user selected Wine only. Installer 1.1.0 now provides the tested
-Wine 11 / Wine Mono 10.4.1 launcher described in [the Wine guide](wine/README.txt).
-The Wine 8 probe and recommendations below are preserved as historical assessment.
-Lutris, Proton and macOS integration remain out of scope.
+## Current 1.2.0 support
 
-Lau Setup 1.0.1 remains a Windows installer. Linux through Wine is the recommended next compatibility target. This assessment does not certify installation on Linux or macOS. The earlier 63 Docker/Wine cases exercised the game data, not this installer.
+> **First time?** Use the beginner steps in [Start here](START-HERE.txt); this document records platform scope and historical feasibility evidence.
+
+One `LauSetup.zip` serves Windows and supported Linux/Wine installations. On Windows, open `LauSetup.exe`; on Linux/Wine, run `LauSetup.sh` from the extracted `LauSetup/` folder. Linux support requires Wine 11.0, Wine Mono 10.4.1, an existing 64-bit prefix, Python 3.9+, the documented fonts, and supported local Linux storage. See [the Wine guide](wine/README.txt) for the complete prerequisites and safety limits.
+
+Lutris, Proton, Steam Deck-specific integration and macOS remain outside the supported scope for this release.
+
+## Historical feasibility assessment (2026-09-11)
+
+The Wine 8 probe and the recommendations below record the earlier feasibility assessment. Its statements about Lau Setup 1.0.1 being Windows-only and Wine support being unverified are historical; they do not describe the current 1.2.0 release. The earlier 63 Docker/Wine cases exercised game data, not that earlier installer.
 
 | Option | Recommendation | What it means for Lau Setup |
 | --- | --- | --- |

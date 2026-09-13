@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Une seule archive ZIP contient désormais l’installateur Windows et le lanceur Linux/Wine. L’interface suit automatiquement la langue du système d’exploitation parmi dix options ; un choix manuel est mémorisé. La version 3.0.8 et les fichiers du jeu restent inchangés. Aucune modification DBC.
 >
 > La mise à jour complète des guides reste en attente à cause d’une erreur Google HTTP 429. Le texte ci-dessous peut être ancien ; consultez la source anglaise actuelle et les notes 1.2.0. [English](../../../KNOWN-LIMITATIONS.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Téléchargement actuel :** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) pour Windows et Linux/Wine. Extrayez le dossier `LauSetup/` avec cinq fichiers : Windows ouvre `LauSetup.exe` ; Linux/Wine lance `LauSetup.sh`. Les anciennes instructions ci-dessous sur des ZIP Wine ou EXE séparés ne s’appliquent pas à 1.2.0.
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -61,7 +63,7 @@ La dépendance à la localisation a été un réel problème lors du développem
 - Si vous supprimez ou désactivez les correctifs du modèle HD après l'installation, réexécutez la dernière installation pour la configuration résultante. Une édition HD installée ne se convertit pas dynamiquement. Des actifs incompatibles peuvent produire des visuels manquants ou incorrects et nécessiter une enquête sur les plantages ; ni un crash ni un comportement sans crash ne sont garantis.
 - Les emplacements racine et actifs ont des rôles distincts. En particulier, les deux archives S sont différentes. Suivez le [guide de placement](docs/TECHNICAL.md#file-placement), pas une instruction générique pour dupliquer chaque MPQ.
 - Les correctifs non liés sont conservés, mais la préservation ne constitue pas une garantie de compatibilité. Une autre archive remplaçant les mêmes données peut modifier le résultat.
-- Le contenu du jeu prend en charge neuf paramètres régionaux ; l'interface de l'installateur est actuellement en anglais. Changement `Config.wtf` seul, n'installe pas les fichiers ou les polices d'une autre langue.
+- L’interface de l’installateur suit automatiquement la langue du système parmi dix options ; un choix manuel est mémorisé. Le contenu du jeu prend toujours en charge neuf langues. Modifier uniquement `Config.wtf` n’installe pas les fichiers ou polices d’une autre langue.
 
 <a id="installer-and-recovery-assumptions"></a>
 

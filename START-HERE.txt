@@ -1,19 +1,47 @@
 LAU SETUP 1.2.0 — GAME RELEASE 3.0.8
 Author / Creator / Last Modified By: Neil Mitchell
 
-Download LauSetup.zip on Windows or Linux and extract it intact.
-Windows: open LauSetup/LauSetup.exe.
-Linux/Wine: run LauSetup/LauSetup.sh and follow LauSetup/README.txt.
-Wine requires the supplied Linux launcher; do not run the EXE directly.
+START HERE ON WINDOWS
+
+1. Close World of Warcraft completely.
+2. Download LauSetup.zip. Right-click it, choose Extract All, and open the
+   extracted LauSetup folder.
+3. Double-click LauSetup.exe. In File Explorer, its type is Application.
+4. In Lau Setup, click Choose folder… and select the
+   game folder that directly contains WoW.exe—not its Data folder or a launcher
+   folder.
+5. Enhanced Consecration starts on; leave it on unless you prefer the stock
+   look. New spell visuals is available only when compatible HD models are
+   detected. Upgrade maps and minimap is optional and adds a download.
+6. Click Install upgrade and wait for it to finish. If setup says Already
+   installed, the selected files already match this release and no game update
+   is needed. Otherwise start WoW and type /pyversion to confirm 3.0.8 Lau.
+
+START HERE ON LINUX / WINE
+
+Use the same LauSetup.zip, but first have Wine 11.0, Wine Mono 10.4.1, an
+existing 64-bit Wine prefix, Python 3.9+, the documented fonts, and local Linux
+storage. Extract the ZIP, close every WoW instance in every prefix, then run:
+
+  WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup/LauSetup.sh
+
+Never run LauSetup.exe directly under Wine. After setup opens, use the same
+Choose folder…, options, and Install upgrade steps above.
+
+IF YOU GET STUCK
+
+- Cannot find LauSetup.exe? Extract the ZIP first and open the LauSetup folder;
+  its type should be Application.
+- Setup rejects a folder? Select the folder that directly contains WoW.exe.
+- WoW is running? Close it and retry; on Wine, close every WoW instance in
+  every prefix.
+- Windows says .NET is missing? Use the Microsoft .NET Framework 4.8 prompt,
+  then reopen setup.
 
 Setup follows your system language. Use Interface language to select another
 language; your choice is remembered for your user account. Automatic follows
 the system again. Ten interface languages are bundled. This changes setup text
 only, never WoW's nine game locales or language files.
-
-1. Close World of Warcraft.
-2. Launch setup for your platform and choose your WoW folder.
-3. Choose your visuals and click Install upgrade.
 
 Updating from an older release or test v2? Download the new installer first; old copies embed the old catalog.
 Select the same client and visuals. File-hash checks detect the changed patches.
@@ -33,8 +61,8 @@ No manual patch copying or renaming is needed. Do not download the entire
 shared data release. The app downloads only the files needed for your selection.
 
 Backups and resumable downloads stay in LauSetupBackups inside your WoW
-folder, outside Data. To undo the update, close WoW, reopen LauSetup.exe,
-choose the same folder, and click Restore previous install. Recovery also
+folder, outside Data. To undo the update, close WoW, reopen Lau Setup, choose
+the same folder, and click Restore previous install. Recovery also
 works if an interrupted update left WoW.exe temporarily missing.
 
 Your addons, SavedVariables, fonts, login artwork, realm settings, and

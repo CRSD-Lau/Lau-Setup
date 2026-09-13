@@ -23,6 +23,30 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 **Installer 1.2.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
 
+## Download and start here
+
+**[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)**. This is the one installer download for Windows and Linux/Wine.
+
+### Windows
+
+1. **Close WoW completely.** Right-click `LauSetup.zip`, choose **Extract All**, and open the extracted `LauSetup` folder.
+2. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
+3. Select **Choose folder…**, then choose the game folder that directly contains `WoW.exe`—not its `Data` folder or a launcher folder.
+4. **Enhanced Consecration** starts on; **New spell visuals** needs detected compatible HD models; **Upgrade maps and minimap** is optional. Select **Install upgrade** and wait for completion.
+5. If setup says **Already installed**, the selected files already match this release and no game update is needed. Otherwise start WoW and type `/pyversion`.
+
+### Linux / Wine
+
+Use the same ZIP, but first prepare an existing supported environment: Wine 11.0, Wine Mono 10.4.1, a 64-bit prefix, Python 3.9+, the documented fonts, and local Linux storage. Close every WoW instance in every prefix, extract the ZIP, then run this from the `LauSetup` folder:
+
+```sh
+WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
+```
+
+Never start `LauSetup.exe` directly under Wine. When setup opens, use the same **Choose folder…**, options, and **Install upgrade** steps above. For recovery, close WoW, choose the same game folder, and select **Restore previous install**.
+
+**Stuck?** Extract the ZIP before looking for `LauSetup.exe`; select the folder that contains `WoW.exe` directly; close WoW if setup says it is running; and use the Microsoft .NET Framework 4.8 prompt if Windows reports that runtime is missing.
+
 ## Renamed-patch checks
 
 Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
@@ -41,7 +65,7 @@ The supplied executable retains the inspected Billy patch-naming implementation.
 
 [Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
-## Download
+## Package and requirements
 
 **[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)** once for Windows or Linux/Wine. Extract it intact: the `LauSetup/` folder contains the Windows executable, the Linux/Wine safety launcher, bundled translations, and its README.
 
@@ -70,23 +94,6 @@ Game files download during setup. An English core installation is about **472 MB
 
 Your addons, SavedVariables, fonts, login artwork, realm settings and unrelated patches stay in place. No personal UI, credentials or analytics are included.
 
-## Get started
-
-1. **Close WoW completely.** On Wine, close every WoW instance across all prefixes.
-2. **Extract and launch setup.** Windows: open `LauSetup.exe` from `LauSetup/`. Linux: use the included `LauSetup.sh` launcher from that same folder.
-3. **Choose your visuals and install.** Enhanced Consecration starts checked; uncheck it for the stock appearance. New spell visuals require a compatible HD model base. Maps are optional.
-4. **Launch WoW and run `/pyversion`.** Confirm the installed edition before heading into game.
-
-On Linux, run this from the extracted folder with your existing prefix:
-
-```sh
-WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
-```
-
-Use the launcher as your normal user. It checks Linux paths, running games, free space and installer locks across prefixes. Use local Linux storage; linked folders, network shares and Windows-mounted drives are unsupported. The [Wine guide](wine/README.txt) lists fonts and all prerequisites.
-
-On Windows, setup offers Microsoft's official .NET Framework 4.8 download page if the runtime is missing. The tested Wine configuration uses **Wine Mono**, not the Windows .NET installer.
-
 ## Ten interface languages; nine game locales
 
 The installer interface automatically follows your Windows display language or Linux host locale. You can choose any interface language manually; the selection is saved, and **Automatic** follows the system again. This affects setup text only.
@@ -101,7 +108,7 @@ Setup follows your client's active locale. Install the appropriate language file
 
 ## Restore with your backups
 
-Close WoW, reopen setup through the same launcher, choose the same client and select **Restore previous install**. Keep `LauSetupBackups` inside the client folder: it contains the originals and recovery records.
+Close WoW, reopen setup through the same launcher, choose the same game folder, and select **Restore previous install**. Keep `LauSetupBackups` inside the client folder: it contains the originals and recovery records.
 
 An interrupted install or restore can be recovered even if `WoW.exe` is temporarily missing. If another update changed the installed files, restore stops and preserves the backup for resolution. Once this installer adds the map upgrade, it retains it during edition changes; restore the previous installation to undo that upgrade.
 
