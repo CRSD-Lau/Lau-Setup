@@ -106,16 +106,52 @@ class TranslationTests(unittest.TestCase):
             self.assertIn("Instalar", before)
             self.assertIn(t.META, before)
             self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, translator))
-            self.assertEqual(len(calls), 1)
-            t.write(root / "README.md", "# Install\n\nInstall `Changed.exe` version 3.0.9.\n")
+            count = len(calls)
+            self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, translator))
+            self.assertEqual(len(calls), count)
+            t.write(root / "README.md", "# Download\n\nDownload `Changed.exe` version 3.0.9.\n")
             with self.assertRaises(ValueError):
-                t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, lambda *args: "broken")
+                t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, lambda *args: "<script>broken</script>")
             self.assertEqual(t.read(output), before)
 
+    def test_model_never_receives_protected_spans_or_markdown(self):
+        original = '# Install [guide](https://example.com) with `WoW.exe` version 3.0.8.\n'
+        masked, saved = t.mask(original)
+        calls = []
+        def translator(prose, *_):
+            calls.append(prose)
+            return prose.replace('Install', 'Instalar').replace('guide', 'guia').replace('with', 'com').replace('version', 'versão')
+        translated = t.translate_prose(masked, t.locales()['ptBR'], t.MODEL, translator, {})
+        for prose in calls:
+            self.assertNotRegex(prose, r'ZXQKEEP|https://|WoW.exe|3.0.8|[\[\]#`]')
+        result = t.unmask(translated, masked, saved)
+        self.assertEqual(result, '# Instalar [guia](https://example.com) com `WoW.exe` versão 3.0.8.\n')
+
     def test_discovery_excludes_generated_and_agent_instructions(self):
-        tracked = b"README.md\0README.txt\0AGENTS.md\0docs/TECHNICAL.md\0docs/i18n/fr/README.md\0wine/README.txt\0app/README.md\0"
+        tracked = b"README.md\0START-HERE.txt\0AGENTS.md\0docs/TECHNICAL.md\0docs/i18n/fr/README.md\0wine/README.txt\0app/README.md\0"
         with patch.object(subprocess, "check_output", return_value=tracked):
-            self.assertEqual(t.sources(), ["README.md", "README.txt", "docs/TECHNICAL.md", "wine/README.txt"])
+            self.assertEqual(t.sources(), ["README.md", "START-HERE.txt", "docs/TECHNICAL.md", "wine/README.txt"])
+
+    def test_colliding_markdown_and_text_names_fail(self):
+        with patch.object(subprocess, "check_output", return_value=b"README.md\0README.txt\0"):
+            with self.assertRaisesRegex(ValueError, "collide"):
+                t.sources()
+
+    def test_new_source_invalidates_links_in_cached_documents(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            t.write(root / "README.md", "# Install\n")
+            locale = t.locales()["ptBR"]
+            self.assertNotEqual(t.fingerprint("README.md", locale, ["README.md"], t.MODEL, root),
+                                t.fingerprint("README.md", locale, ["README.md", "NEW.md"], t.MODEL, root))
+
+    def test_publication_rejects_missing_translations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            t.write(root / "tools/translation-locales.json", t.read(t.ROOT / "tools/translation-locales.json"))
+            t.write(root / "build/catalog.json", json.dumps({"Locales": list(t.locales())[:-1]}))
+            with patch.object(t, "sources", return_value=["README.md"]), self.assertRaises(FileNotFoundError):
+                t.verify_complete(root)
 
     def test_navigation_has_no_missing_links_and_does_not_dirty_source(self):
         with tempfile.TemporaryDirectory() as directory:

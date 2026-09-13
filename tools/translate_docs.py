@@ -23,6 +23,7 @@ NAV_START = "<!-- LANGUAGES:START -->"
 NAV_END = "<!-- LANGUAGES:END -->"
 NAV_RE = re.compile(re.escape(NAV_START) + r".*?" + re.escape(NAV_END) + r"\n*", re.S)
 TOKEN = re.compile(r"ZXQKEEP\d{5}QXZ")
+PROSE_BOUNDARY = re.compile(r"(" + TOKEN.pattern + r"|\n+|[\[\]()*|#!]+|^[ \t]*(?:[-+>]+)[ \t]+)", re.M)
 # Protect executable examples, URLs, HTML, code, and numerical release evidence.
 PROTECTED = re.compile(
     r"^```[^\n]*\n.*?^```[^\n]*$|^~~~[^\n]*\n.*?^~~~[^\n]*$"
@@ -67,9 +68,13 @@ def locales(root=ROOT):
 
 def sources(root=ROOT):
     tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=root).decode().split("\0")
-    return sorted(p for p in tracked if p and p.endswith((".md", ".txt"))
+    files = sorted(p for p in tracked if p and p.endswith((".md", ".txt"))
                   and ("/" not in p or p.startswith("docs/") or p == "wine/README.txt")
                   and p != "AGENTS.md" and not p.startswith("docs/i18n/"))
+    outputs = [destination(p, "en") for p in files]
+    if len(outputs) != len(set(outputs)):
+        raise ValueError("Documentation filenames collide after converting text guides to Markdown")
+    return files
 
 
 def destination(source, tag):
@@ -165,7 +170,7 @@ MODEL_DIGEST = "c49d986b0764f5881c476eb21435bb62b7abc62347aab3d4a6071e811be510a1
 def request_translation(text, language, model):
     if model != MODEL:
         raise ValueError("Only the pinned local translation model is allowed")
-    name, tag = language["instruction"], language["tag"]
+    name, tag = language["instruction"].split(",")[0], language["tag"]
     if tag == "zh-CN":
         tag = "zh-Hans"
     elif tag == "zh-TW":
@@ -174,12 +179,11 @@ def request_translation(text, language, model):
         f"You are a professional English (en) to {name} ({tag}) translator. "
         f"Your goal is to accurately convey the meaning and nuances of the original English text "
         f"while adhering to {name} grammar, vocabulary, and cultural sensitivities. "
-        "Keep Markdown formatting and every ZXQKEEP00000QXZ-style placeholder exactly unchanged. "
         f"Produce only the {name} translation, without any additional explanations or commentary. "
         f"Please translate the following English text into {name}:\n\n\n{text}"
     )
     body = json.dumps({"model": MODEL, "prompt": prompt, "stream": False, "keep_alive": "30m",
-                       "options": {"temperature": 0, "num_ctx": 8192, "num_predict": 6000,
+                       "options": {"temperature": 0, "num_ctx": 4096, "num_predict": 3000,
                                    "num_thread": 4}}).encode()
     request = urllib.request.Request("http://127.0.0.1:11434/api/generate", data=body,
                                      headers={"Content-Type": "application/json"})
@@ -196,15 +200,43 @@ def request_translation(text, language, model):
             time.sleep(5)
 
 
+def fingerprint(source, locale, files, model, root):
+    return digest(clean_source(read(root / source)) + json.dumps(locale, sort_keys=True)
+                  + json.dumps(sorted(files)) + model + read(Path(__file__)))
+
+
+def translate_prose(protected, locale, model, translator, cache):
+    """Keep all protected spans and Markdown delimiters out of the model."""
+    output = []
+    for segment in PROSE_BOUNDARY.split(protected):
+        if not segment or PROSE_BOUNDARY.fullmatch(segment) or not re.search(r"[A-Za-z]{2}", segment):
+            output.append(segment)
+            continue
+        leading = segment[:len(segment) - len(segment.lstrip())]
+        trailing = segment[len(segment.rstrip()):]
+        prose = segment.strip()
+        cache_key = digest(prose + json.dumps(locale, sort_keys=True) + model + read(Path(__file__)))
+        result = cache.get(cache_key)
+        if result is None:
+            result = translator(prose, locale, model).strip()
+        # Prose cannot create Markdown links, executable examples, or HTML.
+        if re.search(r"[\[\]`<>|#*]|https?://|ZXQKEEP", result):
+            raise ValueError(f"Prose translation introduced structure or a URL: {prose[:120]!r} -> {result[:180]!r}")
+        unmask(result, prose, [])
+        cache[cache_key] = result
+        output.append(leading + result + trailing)
+    return "".join(output)
+
+
 def translate_one(source, locale, files, model, root=ROOT, translator=request_translation):
     tag = locale["tag"]
     output = root / destination(source, tag)
     state_path = root / "docs/i18n" / tag / ".translation-state.json"
     state = json.loads(read(state_path)) if state_path.exists() else {}
     original = clean_source(read(root / source))
-    fingerprint = digest(original + json.dumps(locale, sort_keys=True) + model + read(Path(__file__)))
+    source_hash = fingerprint(source, locale, files, model, root)
     cached = state.get(source, {})
-    if cached.get("source") == fingerprint and output.exists() and cached.get("output") == digest(read(output)):
+    if cached.get("source") == source_hash and output.exists() and cached.get("output") == digest(read(output)):
         return False
     english = posixpath.relpath(source, posixpath.dirname(destination(source, tag)))
     # Translate the visible provenance notice too; author metadata remains exact.
@@ -212,24 +244,42 @@ def translate_one(source, locale, files, model, root=ROOT, translator=request_tr
     content = stable_headings(original.replace(META, "").strip() + "\n")
     content = rewrite_links(content, source, tag, files)
     protected, saved = mask(prepared + content)
+    cache_path = root / "docs/i18n" / tag / ".translation-segments.json"
+    cache = json.loads(read(cache_path)) if cache_path.exists() else {}
     translated_parts = []
-    for chunk in chunks(protected):
+    for index, chunk in enumerate(chunks(protected), 1):
         if not re.search(r"[A-Za-z]{2}", TOKEN.sub("", chunk)):
             translated_parts.append(chunk)
             continue
-        leading = chunk[:len(chunk) - len(chunk.lstrip())]
-        trailing = chunk[len(chunk.rstrip()):]
-        result = leading + translator(chunk.strip(), locale, model).strip() + trailing
+        print(f"{tag}: {source}: translating section {index}", flush=True)
+        result = translate_prose(chunk, locale, model, translator, cache)
         # Validate each response before accepting any part of the document.
         unmask(result, chunk, saved)
         translated_parts.append(result)
     translated = "".join(translated_parts)
     result = unmask(translated, protected, saved)
     write(output, result.rstrip() + "\n")
-    state[source] = {"source": fingerprint, "output": digest(read(output))}
+    state[source] = {"source": source_hash, "output": digest(read(output))}
     state.update({"Author": "Neil Mitchell", "Creator": "Neil Mitchell", "LastModifiedBy": "Neil Mitchell"})
     write(state_path, json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    cache.update({"Author": "Neil Mitchell", "Creator": "Neil Mitchell", "LastModifiedBy": "Neil Mitchell"})
+    write(cache_path, json.dumps(cache, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     return True
+
+
+def verify_complete(root=ROOT):
+    files = sources(root)
+    for locale in locales(root).values():
+        if locale["tag"] == "en":
+            continue
+        state = json.loads(read(root / "docs/i18n" / locale["tag"] / ".translation-state.json"))
+        for source in files:
+            output = root / destination(source, locale["tag"])
+            record = state.get(source, {})
+            if (not output.is_file() or record.get("source") != fingerprint(source, locale, files, MODEL, root)
+                    or record.get("output") != digest(read(output)) or META not in read(output)):
+                raise ValueError(f"Missing, stale or modified translation: {locale['tag']}/{source}")
+    print(f"All {len(files) * (len(locales(root)) - 1)} translated documents verified")
 
 
 def navigation(root=ROOT):
@@ -268,6 +318,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Check catalog coverage and source inventory; no API calls")
     parser.add_argument("--navigation", action="store_true", help="Rebuild links to translations that exist")
+    parser.add_argument("--verify", action="store_true", help="Verify every locale and document before publication")
     parser.add_argument("--source", help="Translate one tracked source document for a smoke check")
     parser.add_argument("--locale", help="Translate one catalog locale, such as ptBR")
     args = parser.parse_args()
@@ -281,15 +332,19 @@ def main():
     if args.navigation:
         navigation()
         return
+    if args.verify:
+        verify_complete()
+        return
+    selected_files = files
     if args.source:
         if args.source not in files:
             raise ValueError("Source must be a tracked documentation file")
-        files = [args.source]
+        selected_files = [args.source]
     selected = {args.locale: data[args.locale]} if args.locale else data
     for key, locale in selected.items():
         if key == "enUS":
             continue
-        for source in files:
+        for source in selected_files:
             changed = translate_one(source, locale, files, MODEL)
             print(f"{key}: {source}: {'translated' if changed else 'unchanged'}", flush=True)
 

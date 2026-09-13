@@ -138,6 +138,8 @@ jobs:
           pattern: translations-*
           path: docs/i18n/
           merge-multiple: true
+      - name: Verify all generated documents
+        run: python tools/translate_docs.py --verify
       - name: Update language links
         run: python tools/translate_docs.py --navigation
       - name: Publish complete translations
