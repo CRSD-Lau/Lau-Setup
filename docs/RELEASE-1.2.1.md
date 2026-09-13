@@ -46,7 +46,7 @@ You only need **LauSetup.zip** to install. **START-HERE.txt** is a separate copy
 
 ## Validation and translation notes
 
-Windows validation: 66 regression groups, including large tables, end-of-table markers and malformed bounds. All 185 translation keys across ten languages and 16 package/translation tests passed. Fresh Wine validation is recorded in VALIDATION.json. The supplied archive passes the new reader; this does not certify every archive member or game encounter.
+Windows and Wine each passed 66 regression groups, including large tables, end-of-table markers and malformed bounds. All 185 translation keys across ten languages and 16 package/translation tests passed. Packaged interface checks are recorded in VALIDATION.json. The supplied archive passes the new reader; this does not certify every archive member or game encounter.
 
 Translations are bundled; setup makes no translation-service requests. Current notices in all 117 translated guides and beginner steps in all 27 translated primary guides have been updated. A full refresh of older technical translation bodies remains pending because the external Google service returned HTTP 429. Fluent-reader corrections are welcome. These interface checks do not certify every Linux distribution or new in-game behavior.
 

@@ -119,6 +119,10 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
+Setup 1.2.1 passed all 66 Wine regression groups, including large MPQ tables,
+conflict detection and rollback. See VALIDATION.json on the release for the
+packaged interface checks.
+
 Historical 1.2.0 validation passed 62 Wine regression groups. Thirty-five groups ran before the
 busy-state completion fix; the affected GUI group and remaining 26 ran after
 it, followed by final localization and packaged-window checks. Twenty-one
