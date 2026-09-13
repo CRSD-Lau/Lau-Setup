@@ -2,14 +2,104 @@
   "Author": "Neil Mitchell",
   "Creator": "Neil Mitchell",
   "LastModifiedBy": "Neil Mitchell",
-  "enUS": {"tag": "en", "name": "English", "instruction": "English"},
-  "deDE": {"tag": "de", "name": "Deutsch", "instruction": "German"},
-  "esES": {"tag": "es-ES", "name": "Español (España)", "instruction": "European Spanish, for readers in Spain"},
-  "esMX": {"tag": "es-MX", "name": "Español (México)", "instruction": "Mexican Spanish, with natural Mexican vocabulary"},
-  "frFR": {"tag": "fr", "name": "Français", "instruction": "French"},
-  "koKR": {"tag": "ko", "name": "한국어", "instruction": "Korean"},
-  "ruRU": {"tag": "ru", "name": "Русский", "instruction": "Russian"},
-  "zhCN": {"tag": "zh-CN", "name": "简体中文", "instruction": "Simplified Chinese, using simplified characters throughout"},
-  "zhTW": {"tag": "zh-TW", "name": "繁體中文", "instruction": "Traditional Chinese for Taiwan, using traditional characters throughout"},
-  "ptBR": {"tag": "pt-BR", "name": "Português (Brasil)", "instruction": "Brazilian Portuguese, with Brazilian spelling and vocabulary, never European Portuguese"}
+  "enUS": {
+    "tag": "en",
+    "name": "English",
+    "instruction": "English",
+    "unsigned": {
+      "executable": "The executable is unsigned",
+      "installer": "This installer is unsigned",
+      "windows": "Windows packages are unsigned"
+    }
+  },
+  "deDE": {
+    "tag": "de",
+    "name": "Deutsch",
+    "instruction": "German",
+    "unsigned": {
+      "executable": "Die ausführbare Datei ist nicht digital signiert",
+      "installer": "Dieses Installationsprogramm ist nicht digital signiert",
+      "windows": "Die Windows-Pakete sind nicht digital signiert"
+    }
+  },
+  "esES": {
+    "tag": "es-ES",
+    "name": "Español (España)",
+    "instruction": "European Spanish, for readers in Spain",
+    "unsigned": {
+      "executable": "El ejecutable no está firmado digitalmente",
+      "installer": "Este instalador no está firmado digitalmente",
+      "windows": "Los paquetes para Windows no están firmados digitalmente"
+    }
+  },
+  "esMX": {
+    "tag": "es-MX",
+    "name": "Español (México)",
+    "instruction": "Mexican Spanish, with natural Mexican vocabulary",
+    "unsigned": {
+      "executable": "El ejecutable no está firmado digitalmente",
+      "installer": "Este instalador no está firmado digitalmente",
+      "windows": "Los paquetes para Windows no están firmados digitalmente"
+    }
+  },
+  "frFR": {
+    "tag": "fr",
+    "name": "Français",
+    "instruction": "French",
+    "unsigned": {
+      "executable": "Le fichier exécutable n'est pas signé numériquement",
+      "installer": "Cet installateur n'est pas signé numériquement",
+      "windows": "Les paquets Windows ne sont pas signés numériquement"
+    }
+  },
+  "koKR": {
+    "tag": "ko",
+    "name": "한국어",
+    "instruction": "Korean",
+    "unsigned": {
+      "executable": "실행 파일에는 디지털 서명이 없습니다",
+      "installer": "이 설치 프로그램에는 디지털 서명이 없습니다",
+      "windows": "Windows 패키지에는 디지털 서명이 없습니다"
+    }
+  },
+  "ruRU": {
+    "tag": "ru",
+    "name": "Русский",
+    "instruction": "Russian",
+    "unsigned": {
+      "executable": "Исполняемый файл не имеет цифровой подписи",
+      "installer": "Этот установщик не имеет цифровой подписи",
+      "windows": "Пакеты Windows не имеют цифровой подписи"
+    }
+  },
+  "zhCN": {
+    "tag": "zh-CN",
+    "name": "简体中文",
+    "instruction": "Simplified Chinese, using simplified characters throughout",
+    "unsigned": {
+      "executable": "可执行文件没有数字签名",
+      "installer": "此安装程序没有数字签名",
+      "windows": "Windows 软件包没有数字签名"
+    }
+  },
+  "zhTW": {
+    "tag": "zh-TW",
+    "name": "繁體中文",
+    "instruction": "Traditional Chinese for Taiwan, using traditional characters throughout",
+    "unsigned": {
+      "executable": "執行檔沒有數位簽章",
+      "installer": "此安裝程式沒有數位簽章",
+      "windows": "Windows 套件沒有數位簽章"
+    }
+  },
+  "ptBR": {
+    "tag": "pt-BR",
+    "name": "Português (Brasil)",
+    "instruction": "Brazilian Portuguese, with Brazilian spelling and vocabulary, never European Portuguese",
+    "unsigned": {
+      "executable": "O executável não possui assinatura digital",
+      "installer": "Este instalador não possui assinatura digital",
+      "windows": "Os pacotes para Windows não possuem assinatura digital"
+    }
+  }
 }

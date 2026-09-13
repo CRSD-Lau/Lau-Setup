@@ -29,6 +29,19 @@ class TranslationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "cover exactly"):
                 t.locales(root)
 
+    def test_unsigned_claim_is_locked_for_every_locale(self):
+        for locale in t.locales().values():
+            for source, key in [('The executable is unsigned', 'executable'),
+                                ('The executable remains unsigned', 'executable'),
+                                ('This installer is unsigned', 'installer'),
+                                ('Windows packages are unsigned', 'windows')]:
+                masked, saved = t.mask(source, locale)
+                self.assertTrue(t.TOKEN.fullmatch(masked))
+                self.assertEqual(t.unmask(masked, masked, saved), locale['unsigned'][key])
+        # Numeric signedness is a different concept and must not become a signature claim.
+        masked, saved = t.mask('raw unsigned 32-bit words', t.locales()['ptBR'])
+        self.assertIn('unsigned', masked)
+
     def test_command_links_numbers_and_metadata_survive(self):
         original = (t.META + '\nInstall **3.0.8** using `/pyversion` and [Download](https://example.com/a.zip).\n'
                     '```sh\nWINEPREFIX="/absolute/path" sh LauSetup.sh\n```\n'
@@ -66,6 +79,13 @@ class TranslationTests(unittest.TestCase):
         masked, saved = t.mask(original)
         self.assertNotIn("WINEPREFIX", masked)
         self.assertIn('WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh', t.unmask(masked, masked, saved))
+
+    def test_text_guide_literals_render_as_code(self):
+        original = 'Run:\n\n   WINEPREFIX="/existing/prefix" sh LauSetup.sh\n\nKeep .mpq.disabled.<12-character hash>.\n'
+        result = t.source_markdown('wine/README.txt', original)
+        self.assertIn('```sh\nWINEPREFIX="/existing/prefix" sh LauSetup.sh\n```', result)
+        self.assertIn('`.mpq.disabled.<12-character hash>`', result)
+        self.assertEqual(t.source_markdown('README.md', original), original)
 
     def test_links_point_to_locale_documents_and_original_assets(self):
         original = '[Home](../README.md#download) [Wine](../wine/README.txt) ![Image](assets/a.png) [Code](../app/Core.cs)'
