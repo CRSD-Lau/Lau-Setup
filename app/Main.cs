@@ -57,7 +57,8 @@ public sealed class SetupForm:Form {
     readonly Catalog catalog;
     readonly Color ink=Color.FromArgb(241,245,251),muted=Color.FromArgb(190,204,224),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
     TextBox folder;Label detected,download,status;CheckBox cons,spells,maps,basePatch;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
-    FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded;Button back,next;int step;bool navigationBlocked;
+    FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded;Button back,next;int step;bool navigationBlocked,previewing;
+    protected override bool ShowWithoutActivation { get { return previewing; } }
     ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly;
     sealed class PhraseValue { readonly string key;public PhraseValue(string key){this.key=key;}public override string ToString(){return Ui.T(key);} }
     sealed class TextBinding {
@@ -77,7 +78,7 @@ public sealed class SetupForm:Form {
         if(!String.IsNullOrEmpty(Ui.LastPreferenceError))SetText(status,"This language is active for this session, but the preference could not be saved.");
     }
     public SetupForm(Catalog catalog) {
-        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(12,20,33);ClientSize=new Size(1000,830);MinimumSize=new Size(900,790);StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
+        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(12,20,33);MinimumSize=new Size(900,650);ClientSize=new Size(Math.Min(1000,Screen.PrimaryScreen.WorkingArea.Width-40),Math.Min(830,Screen.PrimaryScreen.WorkingArea.Height-80));StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
         using(var icon=typeof(SetupForm).Assembly.GetManifestResourceStream("LauSetup.Icon.ico"))if(icon!=null)Icon=new Icon(icon);
         var grid=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(30,22,30,18),ColumnCount=1,RowCount=9};Controls.Add(grid);
         foreach(int h in new[]{40,30,48,42,1,60,24,64,32})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
@@ -137,7 +138,7 @@ public sealed class SetupForm:Form {
     void AddPage(int index,Control control,int height){control.Dock=DockStyle.None;control.Height=height;control.Width=900;control.Margin=new Padding(0,0,0,6);pages[index].Controls.Add(control);}
     void AddOption(CheckBox check,Label note){
         var card=new Panel{BackColor=surface,Padding=new Padding(14,4,12,5)};check.Dock=DockStyle.Top;check.Height=40;check.Font=new Font(UiFont,11,FontStyle.Bold);
-        note.Dock=DockStyle.Fill;card.Controls.Add(note);card.Controls.Add(check);AddPage(1,card,88);
+        note.Dock=DockStyle.Fill;card.Controls.Add(note);card.Controls.Add(check);AddPage(1,card,94);
     }
     void UpdateReview(){
         SetText(reviewFolder,"Folder: {0}",folder.Text);
@@ -194,14 +195,13 @@ public sealed class SetupForm:Form {
         folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map Upgrade — already installed, kept":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=client.NewSpells;maps.Checked=client.MapsInstalled;refreshing=false;
         SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language(client.Locale),client.Hd?Phrase("HD models detected"):Phrase("Original models detected"));
     }
-    void UpdatePlanDisplay(){if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));}
+    void UpdatePlanDisplay(){SetText(install,"Install upgrade");if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));}
     async void RefreshPlan(object sender,EventArgs args) {
         if(refreshing||busy||client==null||recoveryOnly)return;SetBusy(true);SetText(status,"Checking installed files…");
         try {
             bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;
             plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));
             UpdatePlanDisplay();
-            SetText(install,plan.Operations.Count==0?"Already installed":"Install upgrade");
             SetText(status,Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S becomes .mpq.disabled. Any older disabled copy is preserved separately. Restore previous install reverses the change.":"Ready. A verified backup is created before any game files change."));
             if(Transaction.Pending(client.Root)==null&&plan.Operations.Any(o=>o.ExtraPatch))SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",plan.Operations.Count(o=>o.ExtraPatch));
         }catch(Exception ex){plan=null;SetMessage(status,ex.Message);}finally{SetBusy(false);}
@@ -241,8 +241,8 @@ public sealed class SetupForm:Form {
         await RestoreRecord(record);
     }
     internal async Task RestoreRecord(string record){
-        SetBusy(true);SetText(status,"Restoring your previous install…");
-        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));UpdatePlanDisplay();ShowStep(0);}
+        SetBusy(true);plan=null;SetText(status,"Restoring your previous install…");
+        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();ShowStep(0);SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));UpdatePlanDisplay();ShowStep(0);}
         catch(Exception ex){SetMessage(status,ex.Message);}finally{SetBusy(false);}
     }
     void SetBusy(bool value) {
@@ -251,6 +251,8 @@ public sealed class SetupForm:Form {
         UpdateReview();UpdateNavigation();
     }
     internal void Preview(string output,string state="ready") {
+        previewing=true;
+        if(state.StartsWith("small-",StringComparison.Ordinal)){Size=MinimumSize;state=state.Substring(6);}
         if(state!="initial"){
             SetText(basePatch,"Patch-Y HD");folder.Text=@"D:\Games\World of Warcraft";SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language("enUS"),Phrase("HD models detected"));spells.Checked=state!="options";spells.Enabled=true;
             SetText(download,"Download up to {0}  ·  {1}","472.4 MB",Phrase("Existing maps kept"));SetText(status,"Ready. A verified backup is created before any game files change.");install.Enabled=true;
