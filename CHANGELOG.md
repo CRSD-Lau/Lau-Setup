@@ -1,3 +1,14 @@
+# Lau Setup 1.4.0 — guided setup wizard
+
+- Game folder → Your visuals → Review → Finished, with Next and Back.
+- Fixed detected Patch-Y HD/Non-HD base; optional extras start off. Existing upgraded maps are kept.
+- Your choices lists Patch-Y (Lau’s version) plus each selected extra. Review also discloses WoW.exe, Patch-Q, language patches, download size and backups.
+- Manual Interface language remains available on every step and is remembered. Automatic follows the host language; game language stays separate.
+- Next only navigates; Install upgrade performs the update. Restore and existing safety checks remain available.
+- One shared LauSetup.zip. Game 3.0.8 unchanged. No DBC edits.
+
+See [beginner steps](START-HERE.txt) and [1.4.0 release notes](docs/RELEASE-1.4.0.md).
+
 # Lau Setup 1.3.0 — automatic extra-patch backups
 
 - Click Install upgrade as usual: recognized extra upgrade patches are backed up automatically and setup continues.

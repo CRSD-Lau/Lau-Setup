@@ -1,3 +1,30 @@
+# Wizard 1.4.0 review
+
+Author: Neil Mitchell
+Creator: Neil Mitchell
+Last Modified By: Neil Mitchell
+
+Reviewed the wizard diff against the existing install/restore transaction. No
+transaction scope, MPQ detection, payload bytes, path checks or commit guards
+were changed. Next checks/prepares a plan and navigates; only Install upgrade
+enters the download/transaction path. Restore remains reachable when WoW.exe
+is missing. Manual language changes re-render the summary without changing
+client locale or options.
+
+Fixed during review: hidden progress control shifted auto-assigned layout
+rows and clipped navigation; grid rows are now explicit. Restore captures
+checkbox values on the UI thread and refreshes the plan/download display.
+GUI tests now install a stable WinForms synchronization context and enable
+cross-thread detection instead of allowing asynchronous test continuations
+onto worker threads. Eight option combinations, all ten live interface
+languages and Back/Next/install/restore passed on Windows. Wine release checks
+and final package evidence are recorded separately in VALIDATION.json.
+
+Public release and website/Discord verification remain required. This source
+review is not an in-game acceptance result. Older review history follows.
+
+---
+
 # Installer review
 
 Author: Neil Mitchell  

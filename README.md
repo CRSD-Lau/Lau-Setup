@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.3.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
+**Installer 1.4.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
 
 ## Download and start here
 
@@ -32,9 +32,12 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 1. **Close WoW completely.**
 2. Download **LauSetup.zip**, right-click it, choose **Extract All**, and open the extracted `LauSetup` folder.
 3. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
-4. Select **Choose folder…**, then choose the game folder that directly contains `WoW.exe`—not its `Data` folder or a launcher folder.
-5. Leave **Enhanced Consecration** on for the custom look, or turn it off for the original look. **New spell visuals** needs compatible HD models; **Upgrade maps and minimap** is optional and adds a download.
-6. Select **Install upgrade** and wait until it finishes. Start WoW and type `/pyversion`; it should show **3.0.8 Lau**. **Already installed** means the selected files match this release and no game update is needed.
+4. **Game folder:** select **Choose folder…**, choose the folder directly containing `WoW.exe`, then click **Next**.
+5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. Click **Next**.
+6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen also lists the compatible **WoW.exe**, **Patch-Q** artwork, matching language patches, download size and automatic backups. Use **Back** to change choices.
+7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.8 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
+
+**Wrong interface language?** Use **Interface language** at the top of any step. The manual choice is remembered; **Automatic** follows your system again. It changes setup text only. **Next** does not download or change game files.
 
 ### Linux / Wine
 
@@ -44,7 +47,7 @@ Use the same ZIP, but first prepare an existing supported environment: Wine 11.0
 WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 ```
 
-Never start `LauSetup.exe` directly under Wine. When setup opens, use the same **Choose folder…**, options, and **Install upgrade** steps above. For recovery, close WoW, choose the same game folder, and select **Restore previous install**.
+Never start `LauSetup.exe` directly under Wine. When setup opens, use the same **Game folder → Your visuals → Review → Finished** steps above. For recovery, close WoW, choose the same game folder, and select **Restore previous install**.
 
 ## Common setup messages
 
@@ -115,7 +118,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.3.0 automatically backs up recognized extra upgrade patches and continues. See [current validation and release notes](docs/RELEASE-1.3.0.md). The following 1.2.0 results are retained as historical interface and release evidence.
+Setup 1.4.0 adds the guided wizard while retaining automatic backups for recognized extra upgrade patches. See [current validation and release notes](docs/RELEASE-1.4.0.md). The following 1.2.0 results are retained as historical interface and release evidence.
 
 Setup 1.2.0 passed **62 regression groups on Windows and 62 on Wine**. Wine ran 35 groups before the busy-state completion fix, then the affected GUI group and the remaining 26 after it; final Wine localization and packaged-window checks also passed. The validation records 50 Windows and 21 normal-user Wine interface states, 185 keys across all ten bundled interface languages, and 31 package, translation, and host tests. Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
 

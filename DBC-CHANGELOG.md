@@ -6,6 +6,10 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Installer 1.4.0 — no DBC edits
+
+The wizard, optional-default changes and manual language controls change installer behavior only. No DBC edits. Game release 3.0.8, all 28 asset hashes, nine locales and download segments are unchanged from 1.3.0. `/pyversion` stays 3.0.8 Lau.
+
 ## Installer 1.2.0 — no DBC edits
 
 Shared Windows/Linux packaging and automatic interface language selection change installer code and text only. The game remains 3.0.8. All 28 game assets, nine game locales, asset IDs, sizes, SHA-256 values and download segments are unchanged from installer 1.1.8. Interface language never selects or changes the WoW client locale.

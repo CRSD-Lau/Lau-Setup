@@ -3,28 +3,25 @@
 <!-- LANGUAGES:END -->
 
 <!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
+> **Setup 1.4.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
 >
-> 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.3.0 发布说明为准。 [English](../../../../wine/README.txt) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
+> 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.4.0 发布说明为准。 [English](../../../../wine/README.txt) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 >
-> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.3.0。
+> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.4.0。
 >
-> **1.3.0:** 已识别的额外升级文件会自动备份，然后继续安装。恢复操作会将文件放回原位。无需手动移动。 安装程序在替换或移动现有文件之前会自动保留原文件。无关文件保持不变。
+> **1.4.0:** 已识别的额外升级文件会自动备份，然后继续安装。恢复操作会将文件放回原位。无需手动移动。 安装程序在替换或移动现有文件之前会自动保留原文件。无关文件保持不变。
 
 
-<!-- BEGINNER-120-STEPS -->
-## 新手步骤
 
-1。完全关闭 WoW。
-2。只下载 `LauSetup.zip`。在 Windows 中右键点击，选择**全部提取**，打开 `LauSetup`，然后双击 `LauSetup.exe`。
-3。解压 `LauSetup.zip`。将 `LauSetup/` 中的五个文件放在一起：`LauSetup.exe`、`LauSetup.sh`、`lau_wine.py`、`lau-languages.json` 和 `README.txt`。
-4。**界面语言** 只改变 Setup 文本：自动跟随系统语言，手动选择会保存；它不会改变游戏的九种语言环境。
-5。**强化奉献** 默认启用。新法术效果需要检测到兼容的 HD 模型；地图和小地图是可选下载。
-6。选择 **安装升级**，等待完成且不要关闭 Setup。启动 WoW 后输入 `/pyversion`。如需恢复，请关闭 WoW，选择相同的游戏文件夹，再选择 **恢复上一次安装**。
+> **1.4.0:** 选择游戏文件夹 → 下一步 → 选择视觉效果 → 下一步 → 确认 → 安装升级 → 完成。根据检测到的客户端固定选择 Patch-Y HD 或 Patch-Y Non-HD。额外选项默认关闭；已安装的地图升级会保留。确认页列出 Patch-Y（Lau 版本）及所选额外内容、WoW.exe、Patch-Q、语言文件、下载大小和备份。下一步不会更改游戏文件。每一步都可手动选择界面语言并保存；自动会重新使用系统语言。仍可使用恢复上次安装。
 
-### Linux/Wine
+<!-- BEGINNER-140-STEPS -->
 
-同一个 ZIP 只能在已有 64-bit Wine 前缀、Wine 11.0、Wine Mono 10.4.1、Python 3.9+、文档要求的字体和本地 Linux 存储准备好后使用。解压后运行 `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`；不要在 Wine 中直接运行 EXE。
+
+选择游戏文件夹 → 下一步 → 选择视觉效果 → 下一步 → 确认 → 安装升级 → 完成。根据检测到的客户端固定选择 Patch-Y HD 或 Patch-Y Non-HD。额外选项默认关闭；已安装的地图升级会保留。确认页列出 Patch-Y（Lau 版本）及所选额外内容、WoW.exe、Patch-Q、语言文件、下载大小和备份。下一步不会更改游戏文件。每一步都可手动选择界面语言并保存；自动会重新使用系统语言。仍可使用恢复上次安装。
+
+Linux/Wine: Wine 11.0, Wine Mono 10.4.1, Python 3.9+, 64-bit WINEPREFIX. `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`. [Guide](https://github.com/CRSD-Lau/Lau-Setup/blob/main/wine/README.txt).
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 自动翻译。 [英文来源](../../../../wine/README.txt)。如果措辞不同，则以英文来源为准。

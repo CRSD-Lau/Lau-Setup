@@ -3,28 +3,26 @@
 <!-- LANGUAGES:END -->
 
 <!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — Um único ZIP agora contém o instalador do Windows e o iniciador para Linux/Wine. A interface segue automaticamente o idioma do sistema operacional entre dez opções; a escolha manual é salva. A versão 3.0.8 e os arquivos do jogo não mudam. Não há alterações de DBC.
+> **Setup 1.4.0** — Um único ZIP agora contém o instalador do Windows e o iniciador para Linux/Wine. A interface segue automaticamente o idioma do sistema operacional entre dez opções; a escolha manual é salva. A versão 3.0.8 e os arquivos do jogo não mudam. Não há alterações de DBC.
 >
-> A atualização completa dos guias continua pendente devido a um HTTP 429 do Google. O texto abaixo pode estar desatualizado; consulte a fonte atual em inglês e as notas da versão 1.3.0. [English](../../../README.md) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
+> A atualização completa dos guias continua pendente devido a um HTTP 429 do Google. O texto abaixo pode estar desatualizado; consulte a fonte atual em inglês e as notas da versão 1.4.0. [English](../../../README.md) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 >
-> **Download atual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows e Linux/Wine. Extraia a pasta `LauSetup/` com cinco arquivos: no Windows, abra `LauSetup.exe`; no Linux/Wine, execute `LauSetup.sh`. As instruções antigas abaixo sobre EXE ou ZIP Wine separados não se aplicam à versão 1.3.0.
+> **Download atual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows e Linux/Wine. Extraia a pasta `LauSetup/` com cinco arquivos: no Windows, abra `LauSetup.exe`; no Linux/Wine, execute `LauSetup.sh`. As instruções antigas abaixo sobre EXE ou ZIP Wine separados não se aplicam à versão 1.4.0.
 >
-> **1.3.0:** Os arquivos extras de melhoria reconhecidos são salvos em backup e a instalação continua. A restauração os devolve. Não é preciso movê-los manualmente. O Setup preserva automaticamente os arquivos existentes antes de substituí-los ou movê-los. Os arquivos não relacionados permanecem intactos.
+> **1.4.0:** Os arquivos extras de melhoria reconhecidos são salvos em backup e a instalação continua. A restauração os devolve. Não é preciso movê-los manualmente. O Setup preserva automaticamente os arquivos existentes antes de substituí-los ou movê-los. Os arquivos não relacionados permanecem intactos.
 
 
-<!-- BEGINNER-120-STEPS -->
-## Primeiros passos
 
+> **1.4.0:** Escolher pasta do jogo → Avançar → escolher aparência → Avançar → revisar → Instalar atualização → Concluir. Patch-Y HD ou Patch-Y Non-HD fica fixo conforme o cliente detectado. Os extras começam desativados; os mapas já instalados são mantidos. A revisão mostra Patch-Y (versão do Lau) e extras escolhidos, WoW.exe, Patch-Q, arquivos de idioma, download e backups. Avançar não altera arquivos do jogo. Você pode escolher o idioma da interface em qualquer etapa; a escolha é salva e Automático volta ao idioma do sistema. Restaurar instalação anterior continua disponível.
+
+<!-- BEGINNER-140-STEPS -->
 1. Feche o WoW completamente.
 2. Baixe apenas `LauSetup.zip`; no Windows, clique com o botão direito, **Extrair tudo**, abra `LauSetup` e clique duas vezes em `LauSetup.exe`.
-3. Use **Escolher pasta…** e escolha a pasta que contém `WoW.exe`, não `Data`.
-4. **Idioma da interface** muda apenas o texto do Setup; Automático segue o sistema e não muda os nove idiomas do jogo.
-5. **Consagração aprimorada** vem ativada; efeitos exigem modelos HD compatíveis e mapas são opcionais.
-6. Use **Instalar atualização**, espere sem fechar o Setup; abra WoW e digite `/pyversion`. Para restaurar, feche WoW, escolha a mesma pasta e use **Restaurar instalação anterior**.
 
-### Linux/Wine
+Escolher pasta do jogo → Avançar → escolher aparência → Avançar → revisar → Instalar atualização → Concluir. Patch-Y HD ou Patch-Y Non-HD fica fixo conforme o cliente detectado. Os extras começam desativados; os mapas já instalados são mantidos. A revisão mostra Patch-Y (versão do Lau) e extras escolhidos, WoW.exe, Patch-Q, arquivos de idioma, download e backups. Avançar não altera arquivos do jogo. Você pode escolher o idioma da interface em qualquer etapa; a escolha é salva e Automático volta ao idioma do sistema. Restaurar instalação anterior continua disponível.
 
-Use o mesmo ZIP somente com prefixo Wine 64-bit existente, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, fontes documentadas e armazenamento Linux local. Extraia e execute `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`; nunca execute o EXE diretamente no Wine.
+Linux/Wine: Wine 11.0, Wine Mono 10.4.1, Python 3.9+, 64-bit WINEPREFIX. `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`. [Guide](https://github.com/CRSD-Lau/Lau-Setup/blob/main/wine/README.txt).
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Tradução automática. [Fonte em inglês](../../../README.md). Se o texto for diferente, a fonte em inglês é oficial.

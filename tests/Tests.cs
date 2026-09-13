@@ -150,7 +150,7 @@ public static class Tests {
             Test("Junction client rejected",()=>{var path=Environment.GetEnvironmentVariable("LAU_TEST_JUNCTION");Check(Directory.Exists(path),"Junction fixture missing.");Fails(()=>SafePaths.Root(path),"Linked folders");});
             Test("Hardlinked resume file cannot change another file",()=>{var f=new Fixture();var a=f.Catalog.Get("Executable");var cache=Path.Combine(f.Root,"cache");Directory.CreateDirectory(cache);string victim=Put(Path.Combine(f.Root,"unrelated"),"KEEP");Check(CreateHardLink(Path.Combine(cache,a.Sha256+".partial"),victim,IntPtr.Zero),"Hardlink fixture failed.");using(var server=new Server(q=>Response(File.ReadAllBytes(f.Files[a.Id])))){var d=new Downloader(cache,null,null);d.TestUrl=p=>server.Url;Fails(()=>d.Fetch(a,CancellationToken.None),"linked to another file");}Check(File.ReadAllText(victim)=="KEEP","Unrelated file modified.");});
             Test("Journal temporary hardlink is not overwritten",()=>{var f=new Fixture();string victim=Put(Path.Combine(f.Root,"unrelated"),"KEEP"),record=Path.Combine(f.Root,"record.json");Check(CreateHardLink(record+".new",victim,IntPtr.Zero),"Hardlink fixture failed.");Json.Save(record,new{value=1});Check(File.ReadAllText(victim)=="KEEP","Unrelated journal-linked file modified.");});
-            Test("Recovery UI works with missing WoW.exe",()=>{var f=new Fixture();string j=f.Tx().Install(f.Plan(),f.Files,CancellationToken.None);File.Delete(Path.Combine(f.Root,"WoW.exe"));var record=Json.Parse<Journal>(File.ReadAllText(j));record.Status="COMMITTING";Json.Save(j,record);using(var form=new SetupForm(f.Catalog)){Pump(form.SelectRoot(f.Root));Call(form,"SetBusy",false);Check(((Button)Field(form,"restore")).Enabled,"Restore unavailable without executable.");Check(!((Button)Field(form,"install")).Enabled,"Install enabled during recovery.");}f.Tx().Restore(j);f.Original();});
+            Test("Recovery UI works with missing WoW.exe",()=>{var f=new Fixture();string j=f.Tx().Install(f.Plan(),f.Files,CancellationToken.None);File.Delete(Path.Combine(f.Root,"WoW.exe"));var record=Json.Parse<Journal>(File.ReadAllText(j));record.Status="COMMITTING";Json.Save(j,record);using(var form=new SetupForm(f.Catalog)){Pump(form.SelectRoot(f.Root));Call(form,"SetBusy",false);Check(((Button)Field(form,"restore")).Enabled,"Restore unavailable without executable.");Check(!((Button)Field(form,"install")).Enabled,"Install enabled during recovery.");Check(!((Button)Field(form,"next")).Enabled,"Next enabled during recovery.");Check(((ComboBox)Field(form,"language")).Enabled,"Manual language unavailable during recovery.");}f.Tx().Restore(j);f.Original();});
             Test("GUI install and restore use the real executable safely",()=>{
                 var f=new Fixture();File.Copy(realExe,Path.Combine(f.Root,"WoW.exe"),true);File.Copy(realExe,f.Files["Executable"],true);
                 var exe=f.Catalog.Get("Executable");exe.Bytes=new FileInfo(realExe).Length;exe.Sha256=Hash.FileHash(realExe);exe.Parts=new List<Part>{new Part{Bytes=exe.Bytes,Sha256=exe.Sha256,FileName=exe.Sha256+".bin"}};
@@ -159,14 +159,40 @@ public static class Tests {
                 string offline=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload");Directory.CreateDirectory(offline);
                 foreach(var a in f.Catalog.Assets.Values)File.Copy(f.Files[a.Id],Path.Combine(offline,a.Parts[0].FileName),true);
                 using(var form=new SetupForm(f.Catalog)){
-                    form.StartPosition=FormStartPosition.Manual;form.Location=new System.Drawing.Point(-32000,-32000);form.ShowInTaskbar=false;form.Show();Application.DoEvents();
+                    form.StartPosition=FormStartPosition.Manual;form.Location=new System.Drawing.Point(-32000,-32000);form.ShowInTaskbar=false;form.Show();Application.DoEvents();WindowsFormsSynchronizationContext.AutoInstall=false;SynchronizationContext.SetSynchronizationContext(new WindowsFormsSynchronizationContext());Control.CheckForIllegalCrossThreadCalls=true;
                     Pump(form.SelectRoot(f.Root));Call(form,"SetBusy",false);Call(form,"RefreshPlan",null,EventArgs.Empty);Idle(form);
-                    var readyPlan=Field(form,"plan") as InstallPlan;var readyButton=(Button)Field(form,"install");
-                    Check(readyButton.Enabled,"Install did not become ready: "+((Label)Field(form,"status")).Text+"; busy="+Field(form,"busy")+"; refreshing="+Field(form,"refreshing")+"; recovery="+Field(form,"recoveryOnly")+"; operations="+(readyPlan==null?-1:readyPlan.Operations.Count)+"; button="+readyButton.Text+"; parent="+readyButton.Parent.Enabled+"; form="+form.Enabled);((CheckBox)Field(form,"maps")).Checked=true;Idle(form);
+                    var readyButton=(Button)Field(form,"install");
+                    Check(!readyButton.Enabled&&((Button)Field(form,"next")).Enabled,"Folder step must offer Next, not Install. status="+((Label)Field(form,"status")).Text+"; install="+readyButton.Enabled+"; next="+((Button)Field(form,"next")).Enabled+"; step="+Field(form,"step")+"; busy="+Field(form,"busy")+"; recovery="+Field(form,"recoveryOnly")+"; blocked="+Field(form,"navigationBlocked")+"; plan="+(Field(form,"plan")!=null)+"; parent="+((Button)Field(form,"next")).Parent.Enabled);
+                    f.Original();Check(!Directory.Exists(Transaction.StateRoot(f.Root)),"Folder check wrote installer state.");
+                    ((Button)Field(form,"next")).PerformClick();Check((int)Field(form,"step")==1,"Next did not open options.");
+                    Check(((CheckBox)Field(form,"basePatch")).Checked&&!((CheckBox)Field(form,"basePatch")).Enabled&&((CheckBox)Field(form,"basePatch")).Text=="Patch-Y HD","Detected base flag incorrect.");
+                    Check(!((CheckBox)Field(form,"cons")).Checked&&!((CheckBox)Field(form,"spells")).Checked&&!((CheckBox)Field(form,"maps")).Checked,"Optional extras did not start off.");
+                    for(int mask=0;mask<8;mask++){
+                        form.GetType().GetField("refreshing",BindingFlags.Instance|BindingFlags.NonPublic).SetValue(form,true);
+                        ((CheckBox)Field(form,"cons")).Checked=(mask&1)!=0;((CheckBox)Field(form,"spells")).Checked=(mask&2)!=0;((CheckBox)Field(form,"maps")).Checked=(mask&4)!=0;
+                        form.GetType().GetField("refreshing",BindingFlags.Instance|BindingFlags.NonPublic).SetValue(form,false);Call(form,"RefreshPlan",null,EventArgs.Empty);Idle(form);
+                        string expected="Your choices: Patch-Y (Lau’s version)"+((mask&1)!=0?" + Enhanced Consecration":"")+((mask&2)!=0?" + New Spells":"")+((mask&4)!=0?" + Map Upgrade":"");
+                        Check(((Label)Field(form,"reviewChoices")).Text==expected,"Summary does not match selected options.");f.Original();
+                    }
+                    for(int page=0;page<4;page++){
+                        Call(form,"ShowStep",page);
+                        foreach(var locale in new[]{"de-DE","fr-FR","es-ES","es-MX","pt-BR","ko-KR","ru-RU","zh-CN","zh-TW","en-US"}){
+                            form.ChangeLanguage(locale,false);Check((int)Field(form,"step")==page&&((ComboBox)Field(form,"language")).Enabled,"Language switch changed step or lost selector.");
+                            Check(((Label)Field(form,"reviewChoices")).Text.Contains(Ui.T("Patch-Y (Lau’s version)")),"Summary did not translate live.");
+                        }
+                    }
+                    Call(form,"ShowStep",1);((CheckBox)Field(form,"spells")).Checked=false;Idle(form);((CheckBox)Field(form,"cons")).Checked=false;Idle(form);
+                    Check(((Label)Field(form,"reviewIncluded")).Text.Contains("WoW.exe")&&((Label)Field(form,"reviewIncluded")).Text.Contains("Patch-Q"),"Default files missing from review.");
+
+                    ((Button)Field(form,"back")).PerformClick();Check((int)Field(form,"step")==0&&((CheckBox)Field(form,"maps")).Checked,"Back lost selections.");
+                    ((Button)Field(form,"next")).PerformClick();((Button)Field(form,"next")).PerformClick();
+                    Check((int)Field(form,"step")==2&&readyButton.Enabled,"Review did not enable install.");
+                    f.Original();Check(!Directory.Exists(Transaction.StateRoot(f.Root)),"Navigation wrote installer state.");
                     Check(((Label)Field(form,"status")).Text.Contains("backed up automatically"),"Automatic backup was not disclosed");readyButton.PerformClick();Idle(form);Check(((Label)Field(form,"status")).Text.StartsWith("Installed and verified"),((Label)Field(form,"status")).Text);
+                    Check((int)Field(form,"step")==3&&((Button)Field(form,"next")).Text=="Finish","Success did not reach Finish.");Check(((ComboBox)Field(form,"language")).Enabled,"Language unavailable on Finish.");
                     Check(!((CheckBox)Field(form,"maps")).Enabled&&((CheckBox)Field(form,"maps")).Checked,"Installed map state not refreshed.");
                     string j=Transaction.Journals(f.Root).First();Pump(form.RestoreRecord(j));Check(((Label)Field(form,"status")).Text=="Previous install restored and verified.","GUI restore failed.");
-                    Check(((CheckBox)Field(form,"maps")).Enabled&&!((CheckBox)Field(form,"maps")).Checked,"Restored map state stale.");f.Original();
+                    Check(((CheckBox)Field(form,"maps")).Enabled&&!((CheckBox)Field(form,"maps")).Checked,"Restored map state stale.");Check((int)Field(form,"step")==0&&Field(form,"plan")!=null,"Restore did not reset wizard with a fresh plan.");f.Original();
                 }
             });
             Test("Catalog rejects size, hash and language tampering",()=>{var f=new Fixture();string json=Json.Text(f.Catalog);Fails(()=>Catalog.Load(json.Replace("enUS","xxXX")));f.Catalog.Get("Maps").Bytes++;Fails(()=>f.Catalog.Validate(),"sizes");f=new Fixture();f.Catalog.Get("Maps").Sha256="../evil";Fails(()=>f.Catalog.Validate(),"Invalid asset");});

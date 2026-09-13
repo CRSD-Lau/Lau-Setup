@@ -1,4 +1,4 @@
-Lau Setup 1.3.0 shared Windows/Linux release
+Lau Setup 1.4.0 shared Windows/Linux release
 Author / Creator / Last Modified By: Neil Mitchell
 
 Game data remains Lau 3.0.8. This package contains one LauSetup folder with
@@ -14,13 +14,24 @@ This ZIP is an upgrade, not the complete game.
 2. If you have not already done so, right-click LauSetup.zip, choose Extract
    All, and open the extracted LauSetup folder.
 3. Double-click LauSetup.exe. Its File Explorer type is Application.
-4. Click Choose folder… and select the game folder that directly contains
-   WoW.exe, not its Data folder or a launcher folder.
-5. Leave Enhanced Consecration on for the custom look, or turn it off for the
-   original look. New spell visuals is available only with compatible HD
-   models. Upgrade maps and minimap is optional and adds a download.
-6. Click Install upgrade and wait until it finishes. Start WoW and type
-   /pyversion; it should show 3.0.8 Lau.
+4. Click Choose folder… and select the game folder containing WoW.exe,
+   then click Next. Do not select Data or a launcher folder.
+5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
+   on your client. Optional extras start off. Enable Enhanced Consecration
+   for Lau's ground effect, New spell visuals for upgraded spells (HD only),
+   or Upgrade maps and minimap for sharper maps and an extra download.
+   Already installed map upgrades are kept. Click Next.
+6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
+   extra. The review also lists WoW.exe, Patch-Q artwork, matching language
+   patches, download size and automatic backups. Back lets you make changes.
+7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
+   and type /pyversion to check 3.0.8 Lau. If your selection is already
+   installed, click Finish; no game-file changes are needed.
+
+Interface language stays at the top of every step. Choose your language if
+Automatic detects it incorrectly. Your manual choice is remembered; choose
+Automatic to follow your system again. This changes setup text, not the game.
+Next does not download or change game files. Install upgrade performs the update.
 
 Already installed means your selected files match this release; no game update
 is needed. To undo an installation, close WoW, reopen Lau Setup, choose the
@@ -49,13 +60,8 @@ setup text only, not your game's language or files.
 
    Replace the example path with your existing Wine prefix path.
 
-5. In Lau Setup, choose **Choose folder…** and select the game folder that
-   directly contains `WoW.exe`, not its `Data` folder. Select your options,
-   choose **Install upgrade**, and wait for completion. **Enhanced
-   Consecration** starts on; **New spell visuals** needs detected compatible HD
-   models; **Upgrade maps and minimap** is optional. If setup says **Already
-   installed**, the selected files already match this release and no game
-   update is needed.
+5. Follow the same Game folder → Your visuals → Review → Finished wizard
+   above. Use Next between steps; Install upgrade begins the update.
 6. Start WoW and type `/pyversion`. To undo an installation, close WoW, reopen
    setup with the same game folder, and choose **Restore previous install**.
 
@@ -123,7 +129,7 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
-Setup 1.3.0 passed all 66 Wine regression groups, including large MPQ tables,
+Historical Setup 1.3.0 passed all 76 Wine regression groups, including large MPQ tables,
 conflict detection and rollback. See VALIDATION.json on the release for the
 packaged interface checks.
 
