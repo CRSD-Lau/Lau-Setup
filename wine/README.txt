@@ -63,3 +63,6 @@ is needed to switch options. Re-enabling manually requires removing
 file being overwritten. Use Restore previous install for managed rollback.
 
 1.1.7 re-enable cleanup: matching disabled Patch-S is reused locally. The plain disabled copy is moved to the verified transaction backup in LauSetupBackups, leaving one active S. Different copies remain recoverable through Restore previous install. Existing hash-suffixed archives are not swept.
+
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.

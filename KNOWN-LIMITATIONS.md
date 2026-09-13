@@ -65,3 +65,10 @@ Builds, hash checks, installer regression tests, Wine tests and in-game testing 
 Describe the player-visible problem, your setup and the evidence. Proposals within the supported scope are welcome in [Ideas](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas); reproducible defects belong in [Issues](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose).
 
 For DLL, native-code, protected-action or server-dependent proposals, identify the dependency explicitly. They need feasibility work and appropriate control of the affected system before implementation can be promised. Please do not file them as simple missing DBC options.
+
+
+## Setup 1.1.8 overlap detection
+
+The scanner reads classic MPQ version 0/1 headers and hash tables without extraction or native DLL loading. Known Patch-Y member-name combinations detect renamed copies even without a listfile. Exact current-catalog Q/M/S/Y copies are also detected by size and SHA-256. Modified Q/M/S files and unknown renamed members can evade these checks; this is not a universal conflict detector or proof of archive loading priority.
+
+Scans cover root Data and the active locale only. Expected managed paths and filenames not ending in .mpq are excluded. Limits are 2,048 candidate archives, 262,144 hash entries per archive and a one-minute cooperative time budget (individual storage calls can take longer). Unsupported, malformed or inaccessible candidate archives stop the install for review. No automatic deletion or renaming occurs. Separate HDD and broad filesystem benchmarks remain future work.

@@ -57,3 +57,8 @@ previously downloaded and rehashed GitHub payload bytes.
 ## Setup 1.1.7 review
 
 Reviewed the current diff for path scope, local-source trust, download selection, preflight/commit drift checks, transaction backups and rollback compatibility. No unresolved findings. Local reuse is limited to the catalog-matching root/active-locale S pair; disabled files move through the existing verified backup journal. Both platforms passed 50 regression groups and actual release-file on/off/on with exact stacked rollback. No game payload changes.
+
+
+## Setup 1.1.8 review
+
+Reviewed the managed MPQ reader for bounds, integer overflow, read-only file access, root/active-locale scope, false positives from shared DBCs, candidate limits, cancellation and transaction ordering. Added a recheck after staging and a regression for a conflict introduced during staging. Invalid archive errors name the affected file. No new native dependency, extraction, archive mutation or expanded write allowlist is introduced. See [scan coverage and limits](docs/MPQ-SCANNING.md) and the release validation report.

@@ -1,3 +1,20 @@
+# Lau Setup 1.1.8 Hotfix — renamed-patch checks
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
+
+Windows and Wine each passed 60 regression groups, including 108 locale/edition/map plans, renamed/malformed archives, cancellation, a conflict introduced during staging, interrupted operations and exact rollback. Fresh release payloads passed on/off/on and stacked rollback on both platforms. The raw Patch-Y ZIP, game executable and DBC bytes are unchanged. See [scan coverage and limits](docs/MPQ-SCANNING.md).
+
+---
+
+# Lau Setup 1.1.7 Hotfix - Patch-S re-enable cleanup
+
+- Re-enabling New spell visuals reuses a disabled Patch-S when its SHA-256 and size match the selected release, avoiding that download.
+- The plain disabled copy moves into the verified transaction backup outside Data, even if active Patch-S already matches. Different disabled files remain recoverable through Restore previous install.
+- Applies to root and active-locale Patch-S. Off still uses the plain `.mpq.disabled` filename. Existing hash-suffixed archives are left intact.
+- Game payloads remain 3.0.8 Lau. Windows and Wine each passed 50 regression groups, real-file on/off/on switching and exact rollback.
+
+---
+
 # Lau Setup 1.1.6 Hotfix - Switch options with existing disabled Patch-S
 
 Fixes the 1.1.5 message "A different disabled Patch-S already exists" when turning New spell visuals off after an earlier install.
@@ -48,13 +65,6 @@ Author / Creator / Last Modified By: Neil Mitchell
 ---
 
 # Lau Setup 1.1.4 · Game release 3.0.8 Lau
-
-## 1.1.7 Hotfix - Patch-S re-enable cleanup
-
-- Re-enabling New spell visuals reuses a disabled Patch-S when its SHA-256 and size match the selected release, avoiding that download.
-- The plain disabled copy moves into the verified transaction backup outside Data, even if active Patch-S already matches. Different disabled files remain recoverable through Restore previous install.
-- Applies to root and active-locale Patch-S. Off still uses the plain `.mpq.disabled` filename. Existing hash-suffixed archives are left intact.
-- Game payloads remain 3.0.8 Lau. Windows and Wine each passed 50 regression groups, real-file on/off/on switching and exact rollback.
 
 ## All breath and Slime Spray warnings are now 90°
 

@@ -66,3 +66,6 @@ is needed to switch options. Re-enabling manually requires removing
 file being overwritten. Use Restore previous install for managed rollback.
 
 1.1.7 Hotfix: enabling New spell visuals reuses a matching disabled Patch-S without downloading it again. The plain disabled copy is moved into the verified transaction backup in LauSetupBackups, even when active Patch-S already matches. Different versions remain recoverable with Restore previous install. Switching off still uses .mpq.disabled. Existing hash-suffixed archives are left intact.
+
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.

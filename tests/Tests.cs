@@ -23,6 +23,15 @@ public static class Tests {
     static string Put(string path,string value){return Put(path,Encoding.UTF8.GetBytes(value));}
     static void Test(string name,Action run){var start=DateTime.UtcNow;try{run();passed++;results.Add(new{name,status="PASS",seconds=(DateTime.UtcNow-start).TotalSeconds});Console.WriteLine("PASS "+name);}catch(Exception e){results.Add(new{name,status="FAIL",error=e.ToString()});throw;}}
     static void Guard(string root){}
+    static byte[] ScanFixture(params string[] names){
+        uint[] table=new uint[32];for(int i=0;i<table.Length;i++)table[i]=0xFFFFFFFF;
+        for(int i=0;i<names.Length;i++){table[i*4]=MpqScan.NameHash(names[i],1);table[i*4+1]=MpqScan.NameHash(names[i],2);table[i*4+2]=0;table[i*4+3]=(uint)i;}
+        uint key=MpqScan.NameHash("(hash table)",3),seed=0xEEEEEEEE;uint[] crypt=new uint[1280];uint z=0x100001;
+        for(int i=0;i<256;i++)for(int j=0;j<5;j++){z=(z*125+3)%0x2AAAAB;uint hi=(z&65535)<<16;z=(z*125+3)%0x2AAAAB;crypt[i+j*256]=hi|(z&65535);}
+        using(var m=new MemoryStream())using(var w=new BinaryWriter(m)){w.Write(0x1A51504Du);w.Write(32u);w.Write(160u);w.Write((ushort)0);w.Write((ushort)3);w.Write(32u);w.Write(160u);w.Write(8u);w.Write((uint)names.Length);
+        unchecked{foreach(uint plain in table){seed+=crypt[1024+(key&255)];w.Write(plain^(key+seed));key=((~key<<21)+0x11111111)|(key>>11);seed=plain+seed+(seed<<5)+3;}}return m.ToArray();}
+    }
+
     sealed class Fixture {
         public string Root;public Catalog Catalog;public ClientInfo Client;public Dictionary<string,string> Files;public Dictionary<string,string> Before;
         public Fixture(string locale="enUS",bool hd=true,bool originals=true){
@@ -36,6 +45,7 @@ public static class Tests {
             var scoped=new[]{"WoW.exe",@"Data\patch-q.mpq",@"Data\patch-y.mpq",@"Data\patch-s.mpq",@"Data\patch-m.mpq",@"Data\"+locale+@"\patch-"+locale+"-Q.MPQ",@"Data\"+locale+@"\patch-"+locale+"-Y.MPQ",@"Data\"+locale+@"\patch-"+locale+"-S.MPQ",@"Data\"+locale+@"\patch-"+locale+"-M.MPQ"};
             if(originals)foreach(var relative in scoped)Put(Path.Combine(Root,relative),"ORIGINAL "+relative);
             foreach(var relative in new[]{@"Data\patch-z.mpq",@"Data\patch-a.mpq",@"Interface\AddOns\ElvUI\ElvUI.lua",@"WTF\Account\private.lua",@"Fonts\private.ttf",@"Data\xxXX\patch-xxXX-Q.MPQ"})Put(Path.Combine(Root,relative),"PRESERVE "+relative);
+            foreach(var mpq in new[]{@"Data\patch-z.mpq",@"Data\patch-a.mpq"})Put(Path.Combine(Root,mpq),ScanFixture());
             Before=Snapshot();
         }
         public Dictionary<string,string> Snapshot(){return Directory.GetFiles(Root,"*",SearchOption.AllDirectories).Where(p=>!p.StartsWith(Path.Combine(Root,"LauSetupBackups")+"\\")).ToDictionary(p=>p.Substring(Root.Length+1),Hash.FileHash);}
@@ -130,7 +140,7 @@ public static class Tests {
             Test("GUI install and restore use the real executable safely",()=>{
                 var f=new Fixture();File.Copy(realExe,Path.Combine(f.Root,"WoW.exe"),true);File.Copy(realExe,f.Files["Executable"],true);
                 var exe=f.Catalog.Get("Executable");exe.Bytes=new FileInfo(realExe).Length;exe.Sha256=Hash.FileHash(realExe);exe.Parts=new List<Part>{new Part{Bytes=exe.Bytes,Sha256=exe.Sha256,FileName=exe.Sha256+".bin"}};
-                foreach(var rel in new[]{@"Data\common.mpq",@"Data\enUS\locale-enUS.mpq",@"Data\patch-f.mpq",@"Data\enUS\patch-enUS-F.MPQ"})Put(Path.Combine(f.Root,rel),"fixture");Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \"enUS\"\r\n");f.Before=f.Snapshot();
+                foreach(var rel in new[]{@"Data\common.mpq",@"Data\enUS\locale-enUS.mpq",@"Data\patch-f.mpq",@"Data\enUS\patch-enUS-F.MPQ"})Put(Path.Combine(f.Root,rel),ScanFixture());Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \"enUS\"\r\n");f.Before=f.Snapshot();
                 string offline=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload");Directory.CreateDirectory(offline);
                 foreach(var a in f.Catalog.Assets.Values)File.Copy(f.Files[a.Id],Path.Combine(offline,a.Parts[0].FileName),true);
                 using(var form=new SetupForm(f.Catalog)){
@@ -150,6 +160,16 @@ public static class Tests {
             Test("Downloader rejects unsafe redirects before requesting them",()=>{foreach(string location in new[]{"http://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/file","https://github.com.evil.example/file","https://release-assets.githubusercontent.com:444/file","https://user:password@release-assets.githubusercontent.com/file","https://github.com/login"}){var f=new Fixture();var a=f.Catalog.Get("Executable");using(var redirect=new Server(q=>Response(new byte[0],"302 Found","Location: "+location+"\r\n"))){var d=new Downloader(Path.Combine(f.Root,"cache"),null,null);d.TestUrl=p=>redirect.Url;Fails(()=>d.Fetch(a,CancellationToken.None),"Unexpected download destination");}}});
             foreach(var mode in new[]{"normal","resume","ignored-range","bad-range","wrong-size","bad-hash","interrupted","quota","cancel"}){string m=mode;Test("Downloader: "+m,()=>DownloadTest(m));}
             Test("Offline segmented assembly and corruption rejection",()=>{var f=new Fixture();var a=f.Catalog.Get("Maps");byte[] bytes=File.ReadAllBytes(f.Files[a.Id]);a.Parts.Clear();string offline=Path.Combine(f.Root,"offline");foreach(var b in new[]{bytes.Take(8).ToArray(),bytes.Skip(8).ToArray()}){string temp=Put(Path.Combine(f.Root,Guid.NewGuid().ToString()),b);string sha=Hash.FileHash(temp);Put(Path.Combine(offline,sha+".bin"),b);a.Parts.Add(new Part{Bytes=b.Length,Sha256=sha,FileName=sha+".bin"});}var d=new Downloader(Path.Combine(f.Root,"cache"),offline,null);Check(Hash.Matches(d.Fetch(a,CancellationToken.None),a.Sha256,a.Bytes),"Assembly mismatch.");Put(Path.Combine(offline,a.Parts[0].FileName),"damaged");Fails(()=>new Downloader(Path.Combine(f.Root,"other-cache"),offline,null).Fetch(a,CancellationToken.None),"damaged");});
+            Test("MPQ scan detects renamed Y without listfile",()=>{var f=new Fixture();Put(Path.Combine(f.Root,@"Data\patch-custom.mpq"),ScanFixture(@"Interface\AddOns\!PYAndre\!PYAndre.toc"));Fails(()=>f.Plan(),"Possible renamed upgrade patch");});
+            Test("MPQ scan detects model pair in active locale",()=>{var f=new Fixture();Put(Path.Combine(f.Root,@"Data\enUS\patch-enUS-custom.MPQ"),ScanFixture(@"Spells\PW_HalionMeteor_Ground.m2",@"Spells\PW_Coldflame_Ground.m2"));Fails(()=>f.Plan(),"Possible renamed upgrade patch");});
+            Test("MPQ scan permits generic shared DBC and a single model",()=>{var f=new Fixture();Put(Path.Combine(f.Root,@"Data\patch-custom.mpq"),ScanFixture(@"DBFilesClient\Spell.dbc",@"Spells\PW_Coldflame_Ground.m2"));f.Plan();});
+            Test("MPQ scan ignores disabled and other-locale archives",()=>{var f=new Fixture();Put(Path.Combine(f.Root,@"Data\patch-custom.mpq.disabled"),"x");Put(Path.Combine(f.Root,@"Data\deDE\patch-custom.mpq"),"x");f.Plan();});
+            Test("MPQ scan detects renamed catalog asset",()=>{var f=new Fixture();File.Copy(f.Files["SpellAssets"],Path.Combine(f.Root,@"Data\patch-custom.mpq"));Fails(()=>f.Plan(),"Possible renamed upgrade patch");});
+            Test("MPQ scan blocks malformed archives",()=>{var f=new Fixture();Put(Path.Combine(f.Root,@"Data\patch-custom.mpq"),"broken");Fails(()=>f.Plan(),"Cannot safely check patch");});
+            Test("MPQ scan rejects excessive table bounds",()=>{var f=new Fixture();var b=ScanFixture();Buffer.BlockCopy(BitConverter.GetBytes(0x40000000u),0,b,24,4);Put(Path.Combine(f.Root,@"Data\patch-custom.mpq"),b);Fails(()=>f.Plan(),"Cannot safely check patch");});
+            Test("MPQ scan rechecks after plan before transaction",()=>{var f=new Fixture();var p=f.Plan();Put(Path.Combine(f.Root,@"Data\patch-late.mpq"),ScanFixture(@"Interface\AddOns\!PYAndre\!PYAndre.toc"));Fails(()=>f.Tx().Install(p,f.Files,CancellationToken.None),"Possible renamed upgrade patch");});
+            Test("MPQ scan catches a conflict introduced during staging",()=>{var f=new Fixture();var p=f.Plan();int calls=0;var tx=new Transaction(f.Catalog,null,root=>{if(++calls==2)Put(Path.Combine(root,@"Data\patch-late.mpq"),ScanFixture(@"Interface\AddOns\!PYAndre\!PYAndre.toc"));});Fails(()=>tx.Install(p,f.Files,CancellationToken.None),"Possible renamed upgrade patch");foreach(var x in f.Before)Check(Hash.FileHash(Path.Combine(f.Root,x.Key))==x.Value,"Existing file changed on scan abort");Check(Transaction.Pending(f.Root)==null,"Aborted scan left pending journal");});
+            Test("MPQ scan cancellation",()=>{var f=new Fixture();var c=new CancellationTokenSource();c.Cancel();Fails(()=>MpqScan.Check(f.Root,f.Client.Locale,f.Catalog,c.Token));});
             Console.WriteLine("ALL PASS "+passed);return 0;
         }catch(Exception e){Console.Error.WriteLine(e);return 1;}
         finally{Json.Save(Path.Combine(work,"results.json"),new{Author="Neil Mitchell",Creator="Neil Mitchell",LastModifiedBy="Neil Mitchell",passed,results});}

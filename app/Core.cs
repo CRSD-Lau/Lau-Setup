@@ -201,8 +201,9 @@ public sealed class Operation { public string Relative,AssetId,OldHash,SourceRel
 public sealed class InstallPlan {
     public string Root,Locale,Edition;public bool Maps;public List<Operation> Operations=new List<Operation>();
     public long DownloadBytes,StageBytes;
-    public static InstallPlan Build(ClientInfo client,Catalog catalog,bool newSpells,bool consecration,bool maps) {
+    public static InstallPlan Build(ClientInfo client,Catalog catalog,bool newSpells,bool consecration,bool maps,CancellationToken scanToken=default(CancellationToken)) {
         if(newSpells&&!client.Hd) throw new IOException("New spell visuals require an existing HD model client.");
+        MpqScan.Check(client.Root,client.Locale,catalog,scanToken);
         maps=maps||client.MapsInstalled;
         string edition=(client.Hd ? (newSpells?"HD-NewSpells-On":"HD-NewSpells-Off") : "Non-HD")+"-Consecration-"+(consecration?"On":"Off");
         var plan=new InstallPlan{Root=SafePaths.Root(client.Root),Locale=client.Locale,Edition=edition,Maps=maps};
@@ -308,6 +309,7 @@ public sealed class Transaction {
         string state=StateRoot(plan.Root);Directory.CreateDirectory(state);
         {
             if(plan.Operations.Count==0){report("This release is already installed.");return null;}
+            MpqScan.Check(plan.Root,plan.Locale,catalog,token);
             if(WineHost.AvailableBytes(plan.Root)<plan.StageBytes+256L*1024*1024)throw new IOException("Not enough free space to stage this update safely.");
             var seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach(var op in plan.Operations) {
@@ -344,7 +346,7 @@ public sealed class Transaction {
                     if(!Hash.Matches(stage,expectedHash,expectedBytes))throw new IOException("Staged file verification failed.");
                 }
             }
-            guard(plan.Root);token.ThrowIfCancellationRequested();
+            guard(plan.Root);token.ThrowIfCancellationRequested();MpqScan.Check(plan.Root,plan.Locale,catalog,token);
             foreach(var op in plan.Operations) {
                 string path=SafePaths.Target(plan.Root,op.Relative,plan.Locale);
                 if(op.Existed ? !Hash.Matches(path,op.OldHash,op.OldBytes) : File.Exists(path))throw new IOException("Game files changed while downloading. No install was applied.");

@@ -21,7 +21,13 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.7 · Game release 3.0.8 Lau · Nine client languages**
+**Installer 1.1.8 · Game release 3.0.8 Lau · Nine client languages**
+
+## Renamed-patch checks
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
+
+The supplied executable retains the inspected Billy patch-naming implementation. Setup still manages its own Q/M/S/Y at fixed names; do not rename those files.
 
 ## Patch-S stays recoverable
 
@@ -31,7 +37,7 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 **3.0.8 Lau:** all supported breath indicators and Rotface Slime Spray are **90° total**, following Warmane tester confirmation. Covers Halion in both realms, Saviana Ragefire, Sartharion, ICC Rimefang and Sindragosa. Range and animation timing are preserved. The approved larger Halion meteor-fire radius and light blue Coldflame are unchanged.
 
-**Already installed?** Download **Setup 1.1.7** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
+**Already installed?** Download **Setup 1.1.8** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
 
 [Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
@@ -41,7 +47,7 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 | :--- | :--- |
 | **[Download LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[Download LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
 | Windows 10 / 11 · .NET Framework 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit prefix |
-| About **156 KB** | About **80 KB** · Python 3.9+ |
+| About **167 KB** | About **84 KB** · Python 3.9+ |
 | [Windows guide](START-HERE.txt) | [Wine guide and prerequisites](wine/README.txt) |
 
 Game files download during setup. An English core installation is about **472 MB** with HD models and new spell visuals, or **259 MB** with original models. Optional maps add a larger download; setup shows the total before you install.
@@ -97,7 +103,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Release 1.1.7 passed **50 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. Game-release 3.0.8 previously passed six-edition upgrades and one-byte detection on both platforms; its payloads are unchanged. Setup 1.1.7 also covers the all-flags-on to New Spells off sequence with older disabled copies, repeated switches and exact rollback. Public payloads were downloaded anonymously and hash-verified; actual core installation and rollback were tested.
+Setup 1.1.8 passed **60 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. These cover renamed Patch-Y and catalog copies, missing listfiles, unrelated archives, malformed input, scan cancellation, and conflicts introduced before installation or during staging. Patch-S switching, interrupted operations and exact rollback remain covered. Fresh public payloads passed on/off/on installation and stacked rollback on both platforms. Game-release 3.0.8 payloads are unchanged; earlier six-edition upgrade and one-byte detection evidence is retained.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion meteor-fire geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.7. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
 
@@ -126,4 +132,4 @@ Game payloads are distributed through GitHub Releases. This repository contains 
 
 ## DBC change tracking
 
-See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.7 also leave the DBC data unchanged.
+See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.8 also leave the DBC data unchanged.

@@ -63,3 +63,12 @@ The current active S file always takes the plain .mpq.disabled name. Before repl
 ## Setup 1.1.7 re-enable cleanup
 
 Enabling new spells journals removal of the plain root and active-locale disabled S files. The transaction moves their verified original bytes into its before backup outside Data. If a disabled file matches the catalog SHA-256 and size, it is staged locally for the matching S destination and excluded from downloads. Local sources must be paired with the exact disabled-file removal and catalog asset. Active S already matching still produces a cleanup transaction. Existing hash-suffixed archives are not swept. Previous journals remain readable. On/off/on, source drift, interruptions at every new commit/restore step, all locales and stacked restoration are covered.
+
+
+## Setup 1.1.8 renamed-patch preflight
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
+
+`app/MpqScan.cs` implements bounded classic hash-table probes in managed C#, with no archive extraction, decompression, external process or native parser. It runs during plan creation, under the client lease before GUI downloads, at transaction preflight and after staging immediately before commit. It does not change restoration semantics or expand the write allowlist. Files remain vulnerable to unrelated external changes after a check; close WoW and avoid concurrent manual changes.
+
+See [scanner limits](../KNOWN-LIMITATIONS.md#setup-118-overlap-detection). Windows and Wine regression cases include missing-listfile detection, normal placements, generic shared members, disabled/other-locale files, current-catalog copies, malformed/bounded tables, pre-transaction drift and cancellation.

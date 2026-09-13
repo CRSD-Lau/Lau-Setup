@@ -76,3 +76,8 @@ For each actual DBC edit, record one row per field (or a linked machine-readable
 Also record added/deleted records and tables, schema changes, and string-value edits. Decode string values rather than reporting string-block offset churn as content changes. Specify field-index convention and schema source; label unknown fields rather than guessing. Attach before/after archive and table hashes, the comparison method, and validation limits. Never claim a comparison passed without evidence.
 
 The handoff audit covers Patch-Y from the retained Andre 3.0.3 baselines onward. Separate Q/S/map localization pipelines and unrelated experimental builds are outside this initial retrospective. No earlier broken artifact is assigned a release number without matching provenance.
+
+
+## Setup 1.1.8 Hotfix — renamed-patch checks
+
+Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
