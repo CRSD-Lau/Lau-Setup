@@ -8,6 +8,8 @@ One `LauSetup.zip` includes the Windows executable, Linux/Wine safety launcher a
 
 The current release publishes only `LauSetup.zip` as an installer download; the duplicate Wine ZIP and standalone EXE assets were removed. Primary guides now begin with exact numbered Windows and separate Linux/Wine steps, folder selection, option meanings and recovery help. All 27 localized primary guides include current beginner steps.
 
+Documentation follow-up: the website now has one shared download card. Current guides include plain-language setup and recovery FAQs; historical hotfix details remain below. This documentation update does not change the installer binary or game files.
+
 Linux prerequisites remain unchanged. Game release 3.0.8, its nine game locales, all 28 game assets and their hashes remain unchanged; no DBC edits. Validation passed 62 Windows and 62 Wine regression groups, 50 Windows and 21 normal-user Wine interface states, 185 translation keys across ten languages, and 31 package, translation, and host tests. See [1.2.0 release notes](docs/RELEASE-1.2.0.md) and [shared-package guide](docs/UNIVERSAL-INSTALLER.md).
 
 ---
