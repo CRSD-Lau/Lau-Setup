@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-`LauSetup.zip` is the Lau Setup 1.2.0 release ZIP for Windows and Linux.
+`LauSetup.zip` is the Lau Setup 1.2.1 release ZIP for Windows and Linux.
 Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 `LauSetup.sh`, `lau_wine.py`, `lau-languages.json`, and `README.txt`.
 
@@ -69,10 +69,10 @@ detect and preserve the nine supported 3.3.5a game locales: enUS, deDE, frFR,
 esES, esMX, koKR, ruRU, zhCN, and zhTW.
 
 Build a release only after placing the built input EXE at
-`dist/universal-1.2.0/LauSetup.exe` and generating `app/translations.json`:
+`dist/release-1.2.1/LauSetup.exe` and generating `app/translations.json`:
 
 ```powershell
-python tools/package_universal.py
+python tools/package_universal.py --exe dist/release-1.2.1/LauSetup.exe --output dist/release-1.2.1/LauSetup.zip
 ```
 
 For an isolated build, pass `--exe`, `--translations`, and

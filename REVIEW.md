@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Creator: Neil Mitchell  
 Last Modified By: Neil Mitchell
 
-## Current 1.2.0 validation evidence
+## Historical 1.2.0 validation evidence
 
 Installer 1.2.0 validation recorded 62 regression groups on Windows and 62 on
 Wine. The Wine run is staged: 35 groups ran before the busy-state completion
@@ -74,3 +74,7 @@ Reviewed the current diff for path scope, local-source trust, download selection
 ## Setup 1.1.8 review
 
 Reviewed the managed MPQ reader for bounds, integer overflow, read-only file access, root/active-locale scope, false positives from shared DBCs, candidate limits, cancellation and transaction ordering. Added a recheck after staging and a regression for a conflict introduced during staging. Invalid archive errors name the affected file. No new native dependency, extraction, archive mutation or expanded write allowlist is introduced. See [scan coverage and limits](docs/MPQ-SCANNING.md) and the release validation report.
+
+## 1.2.1 scanner review
+
+The table reader uses bounded chunks and continuous cipher state rather than loading the full table or collecting every hash in a set. Every table entry is still validated. Current validation is in docs/RELEASE-1.2.1.md and the release VALIDATION.json; older results above retain their original scope.

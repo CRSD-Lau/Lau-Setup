@@ -1,4 +1,4 @@
-Lau Setup 1.2.0 shared Windows/Linux release
+Lau Setup 1.2.1 shared Windows/Linux release
 Author / Creator / Last Modified By: Neil Mitchell
 
 Game data remains Lau 3.0.8. This package contains one LauSetup folder with
@@ -91,10 +91,16 @@ client folder and select **Restore previous install**. Keep
 `LauSetupBackups`; if restore stops because another update changed a named game
 file, keep all files and backups. Report the exact message, filename, and a
 screenshot at https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose; do not
-delete or force-replace files to bypass the check. If setup reports a possible
-renamed upgrade patch or cannot safely check a patch, keep the named archive
-and backups and report it through the same link. Do not delete, rename, or
-force-replace it to bypass the safety check.
+delete or force-replace files to bypass the check.
+
+Possible extra upgrade patch? A file with its original download name can
+trigger this too. Close WoW, keep a backup, and move only the named extra file
+outside Data, then retry. Setup chooses the right edition. Do not rename an HD
+download into an original-model client. If unsure, report the file first.
+
+Cannot safely check patch? Download the latest setup; 1.2.1 fixes the old
+large-table restriction. If it still stops, keep the archive and backups and
+report the exact message and filename through the link above.
 
 Interface language
 The interface has ten languages: English (US), German, French, Spanish
@@ -113,7 +119,7 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
-Validation passed 62 Wine regression groups. Thirty-five groups ran before the
+Historical 1.2.0 validation passed 62 Wine regression groups. Thirty-five groups ran before the
 busy-state completion fix; the affected GUI group and remaining 26 ran after
 it, followed by final localization and packaged-window checks. Twenty-one
 normal-user Wine interface states and all ten bundled interface languages were

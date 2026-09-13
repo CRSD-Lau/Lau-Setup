@@ -1,3 +1,18 @@
+# Lau Setup 1.2.1 — large MPQ compatibility fix
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+Download and extract the latest **LauSetup.zip**. Windows opens **LauSetup.exe**; Linux/Wine uses **LauSetup.sh** with the existing supported environment. The game remains **3.0.8 Lau**. No DBC edits.
+
+- Fixes the false unsupported-layout rejection of large classic MPQ hash tables, including the 524,288-entry archive supplied by Andre. Tables now stream in bounded chunks instead of using an arbitrary entry-count cap.
+- Preserves bounds, malformed-entry, cancellation, timeout and known-patch conflict checks.
+- Clarifies the warning to **Possible extra upgrade patch** in all ten interface languages. A file with its original download name can trigger this warning too; it is separate from the large-table bug.
+- Installer update only: all 28 game assets and their hashes are unchanged.
+
+See [beginner steps](START-HERE.txt) and [1.2.1 release notes](docs/RELEASE-1.2.1.md).
+
+---
+
 # Lau Setup 1.2.0 — shared download and interface languages
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
