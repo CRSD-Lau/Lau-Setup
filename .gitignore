@@ -1,2 +1,5 @@
 dist/
 *.user
+reports/
+package/
+__pycache__/

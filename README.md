@@ -1,3 +1,9 @@
+> **PRERELEASE: Lady Deathwhisper Banshee test 1 (Windows)**
+>
+> [Test download](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/lady-deathwhisper-banshee-test1) | [Install and restore](LADY-TEST.md) | [Editing and rebuilding](EDITING-LADY.md)
+>
+> Requires unmodified Lau 3.0.8. Only Lady visuals change. No DBM modifications. Beacon is a summon cue with unchanged duration; chase targeting and full-raid visibility remain unverified. The stable release is unchanged.
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 <p align="center">

@@ -1,11 +1,12 @@
 using System.Reflection;
-[assembly: AssemblyTitle("Lau Setup")]
+[assembly: AssemblyTitle("Lau Lady Deathwhisper Test 1")]
 [assembly: AssemblyDescription("Wrath 3.3.5a visual upgrade installer. Author, creator and modifier: Neil Mitchell.")]
 [assembly: AssemblyCompany("Neil Mitchell")]
 [assembly: AssemblyProduct("Lau Setup")]
 [assembly: AssemblyCopyright("Neil Mitchell")]
 [assembly: AssemblyVersion("1.1.7.0")]
 [assembly: AssemblyFileVersion("1.1.7.0")]
+[assembly: AssemblyInformationalVersion("1.1.7-lady-deathwhisper.1")]
 [assembly: AssemblyMetadata("Author", "Neil Mitchell")]
 [assembly: AssemblyMetadata("Creator", "Neil Mitchell")]
 [assembly: AssemblyMetadata("LastModifiedBy", "Neil Mitchell")]
