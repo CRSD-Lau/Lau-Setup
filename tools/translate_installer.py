@@ -65,6 +65,15 @@ REVIEWED = {target: {
     "The --language option needs one of: {0}.": values[0] + "{0}.",
     "Use --language followed by one language code or auto.": values[1],
 } for target, values in LANGUAGE_OPTION_REVIEWED.items()}
+# Preserve the clearer extra-patch wording when rebuilding translations.
+REVIEWED['de'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': 'Möglicher zusätzlicher Upgrade-Patch: {0}. Erstellen Sie eine Sicherungskopie und verschieben Sie diese Kopie außerhalb von Data, bevor Sie es erneut versuchen. Setup löscht es nicht.'})
+REVIEWED['fr'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': "Possible correctif de mise à niveau supplémentaire : {0}. Conservez une sauvegarde et déplacez cette copie en dehors de Data avant de réessayer. Le programme d'installation ne le supprimera pas."})
+REVIEWED['es'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': 'Posible parche de actualización adicional: {0}. Mantenga una copia de seguridad y mueva esta copia fuera de Data antes de volver a intentarlo. El programa de instalación no lo eliminará.'})
+REVIEWED['ko'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': '추가 업그레이드 패치 가능성: {0}. 다시 시도하기 전에 백업을 유지하고 이 복사본을 Data 외부로 이동하세요. 설치 프로그램에서는 해당 항목을 삭제하지 않습니다.'})
+REVIEWED['ru'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': 'Возможный дополнительный патч обновления: {0}. Сохраните резервную копию и переместите эту копию за пределы Data, прежде чем повторить попытку. Программа установки не удалит его.'})
+REVIEWED['zh-CN'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': '可能存在额外的升级补丁：{0}。重试之前，请保留备份并将此副本移至 Data 之外。安装程序不会删除它。'})
+REVIEWED['zh-TW'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': '可能存在額外的升級補丁：{0}。重試之前，請保留備份並將此副本移至 Data 之外。安裝程式不會刪除它。'})
+REVIEWED['pt'].update({'Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.': 'Possível patch de atualização adicional: {0}. Mantenha um backup e mova esta cópia para fora de Data antes de tentar novamente. A instalação não irá excluí-lo.'})
 REVIEWED["pt"].update({
     "Already installed": "Já instalado",
     "An interrupted install was found. Restore it before continuing.": "Foi encontrada uma instalação interrompida. Restaure-a antes de continuar.",
