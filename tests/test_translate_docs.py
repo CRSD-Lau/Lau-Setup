@@ -137,6 +137,15 @@ class TranslationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'target rejected'):
                 t.request_translation('Hello', t.locales()['ptBR'], t.PROVIDER)
 
+    def test_google_retries_temporary_empty_pages(self):
+        from io import BytesIO
+        responses = [BytesIO(b'<html>Temporarily unavailable</html>'),
+                     BytesIO('<input name="tl" value="pt"><div class="result-container">Site e galeria</div>'.encode())]
+        with patch.object(t.time, 'sleep'), patch.object(t.urllib.request, 'urlopen', side_effect=responses) as call:
+            self.assertEqual(t.request_translation('Website &amp; gallery', t.locales()['ptBR'], t.PROVIDER), 'Site e galeria')
+            self.assertEqual(call.call_count, 2)
+            self.assertIn('q=Website+%26+gallery', call.call_args.args[0])
+
     def test_google_rate_limit_stops_without_retry(self):
         error = t.urllib.error.HTTPError('https://translate.google.com/m', 429, 'limited', {}, None)
         with patch.object(t.time, 'sleep'), patch.object(t.urllib.request, 'urlopen', side_effect=error) as call:

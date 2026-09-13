@@ -17,6 +17,7 @@ import urllib.error
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
+from html import unescape
 
 ROOT = Path(__file__).resolve().parents[1]
 META = "<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->"
@@ -30,7 +31,7 @@ PROTECTED = re.compile(
     r"^```[^\n]*\n.*?^```[^\n]*$|^~~~[^\n]*\n.*?^~~~[^\n]*$"
     r"|The executable (?:is|remains) unsigned|(?:The|This) installer is unsigned|Windows packages are unsigned"
     r"|^\s*WINEPREFIX=[^\n]+|^Author / Creator / Last Modified By:[^\n]+"
-    r"|<!--.*?-->|<[^>\n]+>|&(?:[a-zA-Z]+|#\d+|#x[0-9a-fA-F]+);|`+[^`\n]+`+"
+    r"|<!--.*?-->|<[^>\n]+>|`+[^`\n]+`+"
     r"|(?<=\]\()[^\s)]+|https?://[^\s<>\])]+"
     r"|Neil Mitchell|Lau Setup|World of Warcraft|Wine Mono|/pyversion"
     r"|\b(?:Windows|Wine|Linux|Blizzard(?: Entertainment)?|Warmane|Wrath|Lau|Andre|Loriendal|Trimitor|Project Reforged|GitHub|WoW|SHA-256|64-bit|32-bit)\b"
@@ -177,7 +178,7 @@ def rewrite_links(text, source, tag, source_files):
 
 
 PROVIDER = "google-web"
-TRANSLATION_REVISION = "4"
+TRANSLATION_REVISION = "5"
 
 
 class GoogleResult(HTMLParser):
@@ -215,7 +216,7 @@ def request_translation(text, language, provider, plain=False):
     if len(text) > 2000:
         raise ValueError("Translation segment exceeds the Google web input limit")
     target = language["google"]
-    url = "https://translate.google.com/m?" + urllib.parse.urlencode({"sl": "en", "tl": target, "q": text})
+    url = "https://translate.google.com/m?" + urllib.parse.urlencode({"sl": "en", "tl": target, "q": unescape(text)})
     # A small steady request rate; no proxies, API keys, paid fallback or limit bypass.
     time.sleep(1)
     for attempt in range(3):
@@ -224,12 +225,12 @@ def request_translation(text, language, provider, plain=False):
                 page = response.read().decode("utf-8")
             parsed = GoogleResult()
             parsed.feed(page)
-            if parsed.target != target:
-                raise ValueError("Google web translation unavailable or target rejected; existing pages retained")
-            if parsed.parts:
+            if parsed.target is not None and parsed.target != target:
+                raise ValueError(f"Google target rejected: {target} became {parsed.target}; existing pages retained")
+            if parsed.target == target and parsed.parts:
                 return "".join(parsed.parts)
             if attempt == 2:
-                raise ValueError("Google returned no translation; retry the workflow later")
+                raise ValueError(f"Google returned no translation after 3 attempts ({target}, input: {text[:80]!r}); retry later")
         except urllib.error.HTTPError as error:
             if error.code == 429:
                 raise ValueError("Google rate-limited translation; retry the workflow later. Existing pages retained.") from None
