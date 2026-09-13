@@ -4,7 +4,7 @@
 
 > **First time installing?** Use [Start here](../START-HERE.txt); this document explains a technical safety check.
 
-Setup 1.2.1 uses a small managed C# reader for classic MPQ headers/hash tables. StormLib was assessed and an official library package obtained, but the hotfix does not bundle or load it. Reading known-name hashes requires neither native code nor decompression; broader archive inspection remains separate work.
+Setup 1.3.0 uses a small managed C# reader for classic MPQ headers/hash tables. StormLib was assessed and an official library package obtained, but the hotfix does not bundle or load it. Reading known-name hashes requires neither native code nor decompression; broader archive inspection remains separate work.
 
 The MPQ hash/decryption format was checked against [StormLib](https://github.com/ladislav-zezula/StormLib), particularly SBaseCommon.cpp and StormLib.h. The upstream license is retained below for attribution. The reader's scope and conservative rejection behavior are documented in [Known limitations](../KNOWN-LIMITATIONS.md#setup-118-overlap-detection).
 
@@ -52,4 +52,12 @@ Setup 1.2.1 removes the old 262,144-entry cap. It decrypts tables in 64 KiB chun
 
 The supplied Patch-Armadura.mpq has 524,288 entries (8 MiB). The 1.2.0 reader rejected its size; the new reader passes it without finding the known Patch-Y marker combination. This is not a full archive-integrity or in-game certification.
 
-“Possible extra upgrade patch” covers both renamed files and files left under their original download names, such as Y-HD-NewSpells-Off-Consecration-On.mpq. It means known upgrade content was found outside the managed Q/M/S/Y paths. Keep a backup, close WoW, and move that extra download outside Data before retrying. Do not delete required archives or blindly rename HD files into an original-model client. If unsure, report the named file and exact message.
+## Automatic backups in 1.3.0
+
+Recognized extra upgrade patches, including original download names, are backed up automatically when the player clicks **Install upgrade**. Setup continues with the selected edition. **Restore previous install** returns those files to their original paths. No manual moving is needed.
+
+Eligibility requires known Patch-Y markers or an exact catalog archive match. This indicates overlap, not ownership. Only direct `.mpq` children of Data or the active locale may be moved. Stock archives, managed Q/M/S/Y paths, other locales, disabled files and nested folders are excluded from extra-file moves. Readable unknown patches remain untouched; malformed or inaccessible archives still stop safely.
+
+The existing transaction records each original path, byte count and SHA-256 before moving the file into `LauSetupBackups/transactions/<id>/before/`. It verifies the full conflict set again before committing, including otherwise empty plans. Up to 2,048 extra entries are allowed separately from the 13 managed targets. Crash recovery, cancellation and rollback cover both.
+
+Restore rejects changed backups, unsafe paths, forged replacement operations and files recreated by the player. Published archive hashes are retained in an append-only trusted list so older exact-copy backups remain restorable after catalog changes. A journal flag alone never authorizes moving an arbitrary file.

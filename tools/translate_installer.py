@@ -394,6 +394,18 @@ def validate(data=None, keys=None, root=ROOT):
     print(f"Verified {len(keys)} source keys across {len(languages)} complete languages")
 
 
+
+# Reviewed automatic-backup copy; retain exact button labels.
+REVIEWED['de'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '{0} zusätzliche Upgrade-Patches werden automatisch in LauSetupBackups gesichert. Klicken Sie zum Fortfahren auf Upgrade installieren.', 'Backing up {0}…': 'Sicherung von {0}…'})
+REVIEWED['fr'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '{0} correctifs supplémentaires seront sauvegardés automatiquement dans LauSetupBackups. Cliquez sur Installer la mise à niveau pour continuer.', 'Backing up {0}…': 'Sauvegarde de {0}…'})
+REVIEWED['es'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': 'Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar.', 'Backing up {0}…': 'Creando copia de seguridad de {0}…'})
+REVIEWED['es'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': 'Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar.', 'Backing up {0}…': 'Creando copia de seguridad de {0}…'})
+REVIEWED['pt'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '{0} patches extras serão salvos automaticamente em LauSetupBackups. Clique em Instalar atualização para continuar.', 'Backing up {0}…': 'Fazendo backup de {0}…'})
+REVIEWED['ko'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '추가 업그레이드 패치 {0}개를 LauSetupBackups에 자동으로 백업합니다. 계속하려면 업그레이드 설치를 클릭하세요.', 'Backing up {0}…': '{0} 백업 중…'})
+REVIEWED['ru'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '{0} дополнительных патчей будут автоматически сохранены в LauSetupBackups. Нажмите «Установить обновление», чтобы продолжить.', 'Backing up {0}…': 'Резервное копирование {0}…'})
+REVIEWED['zh-CN'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '将自动把 {0} 个额外升级补丁备份到 LauSetupBackups。点击“安装升级”继续。', 'Backing up {0}…': '正在备份 {0}…'})
+REVIEWED['zh-TW'].update({'{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.': '將自動把 {0} 個額外升級修補程式備份至 LauSetupBackups。按一下「安裝升級」繼續。', 'Backing up {0}…': '正在備份 {0}…'})
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=("extract", "build", "verify"), nargs="?", default="verify")

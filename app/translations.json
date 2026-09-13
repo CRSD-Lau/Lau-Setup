@@ -110,7 +110,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S changed after the install was prepared.",
       "Path escapes the selected folder.": "Path escapes the selected folder.",
       "Please wait for this operation to finish, or use Cancel.": "Please wait for this operation to finish, or use Cancel.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.",
       "Previous install restored and verified.": "Previous install restored and verified.",
       "Public download URL is missing.": "Public download URL is missing.",
       "Ready. A verified backup is created before any game files change.": "Ready. A verified backup is created before any game files change.",
@@ -188,7 +187,9 @@
       "Your client. Your language. One simple install.": "Your client. Your language. One simple install.",
       "Your selected release {0} is already installed.": "Your selected release {0} is already installed.",
       "{0}  ·  Interrupted installation found": "{0}  ·  Interrupted installation found",
-      "{0}  ·  {1}  ·  Build 12340": "{0}  ·  {1}  ·  Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0}  ·  {1}  ·  Build 12340",
+      "Backing up {0}…": "Backing up {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue."
     },
     "de-DE": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Wählen Sie Ihren vorhandenen WoW 3.3.5a-Ordner",
@@ -297,7 +298,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S wurde nach der Vorbereitung der Installation geändert.",
       "Path escapes the selected folder.": "Der Pfad maskiert den ausgewählten Ordner.",
       "Please wait for this operation to finish, or use Cancel.": "Bitte warten Sie, bis dieser Vorgang abgeschlossen ist, oder verwenden Sie „Abbrechen“.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Möglicher zusätzlicher Upgrade-Patch: {0}. Erstellen Sie eine Sicherungskopie und verschieben Sie diese Kopie außerhalb von Data, bevor Sie es erneut versuchen. Setup löscht es nicht.",
       "Previous install restored and verified.": "Vorherige Installation wiederhergestellt und überprüft.",
       "Public download URL is missing.": "Die öffentliche Download-URL fehlt.",
       "Ready. A verified backup is created before any game files change.": "Bereit. Bevor sich Spieldateien ändern, wird ein verifiziertes Backup erstellt.",
@@ -375,7 +375,9 @@
       "Your client. Your language. One simple install.": "Dein Spielclient. Deine Sprache. Einfach installiert.",
       "Your selected release {0} is already installed.": "Ihr ausgewähltes Release {0} ist bereits installiert.",
       "{0}  ·  Interrupted installation found": "{0} · Unterbrochene Installation gefunden",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Sicherung von {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} zusätzliche Upgrade-Patches werden automatisch in LauSetupBackups gesichert. Klicken Sie zum Fortfahren auf Upgrade installieren."
     },
     "fr-FR": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Choisissez votre dossier WoW 3.3.5a existant",
@@ -484,7 +486,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S a été modifié après la préparation de l'installation.",
       "Path escapes the selected folder.": "Le chemin échappe au dossier sélectionné.",
       "Please wait for this operation to finish, or use Cancel.": "Veuillez attendre la fin de cette opération ou utiliser Annuler.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Possible correctif de mise à niveau supplémentaire : {0}. Conservez une sauvegarde et déplacez cette copie en dehors de Data avant de réessayer. Le programme d'installation ne le supprimera pas.",
       "Previous install restored and verified.": "Installation précédente restaurée et vérifiée.",
       "Public download URL is missing.": "L'URL de téléchargement publique est manquante.",
       "Ready. A verified backup is created before any game files change.": "Prêt. Une sauvegarde vérifiée est créée avant toute modification des fichiers du jeu.",
@@ -562,7 +563,9 @@
       "Your client. Your language. One simple install.": "Votre client de jeu. Votre langue. Une installation simple.",
       "Your selected release {0} is already installed.": "La version sélectionnée {0} est déjà installée.",
       "{0}  ·  Interrupted installation found": "{0} · Installation interrompue trouvée",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Sauvegarde de {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} correctifs supplémentaires seront sauvegardés automatiquement dans LauSetupBackups. Cliquez sur Installer la mise à niveau pour continuer."
     },
     "es-ES": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Elija su carpeta WoW 3.3.5a existente",
@@ -671,7 +674,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S cambió después de que se preparó la instalación.",
       "Path escapes the selected folder.": "La ruta escapa de la carpeta seleccionada.",
       "Please wait for this operation to finish, or use Cancel.": "Espere a que finalice esta operación o utilice Cancelar.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Posible parche de actualización adicional: {0}. Mantenga una copia de seguridad y mueva esta copia fuera de Data antes de volver a intentarlo. El programa de instalación no lo eliminará.",
       "Previous install restored and verified.": "Instalación anterior restaurada y verificada.",
       "Public download URL is missing.": "Falta la URL de descarga pública.",
       "Ready. A verified backup is created before any game files change.": "Listo. Se crea una copia de seguridad verificada antes de que cambie cualquier archivo del juego.",
@@ -749,7 +751,9 @@
       "Your client. Your language. One simple install.": "Tu cliente de juego. Tu idioma. Una instalación sencilla.",
       "Your selected release {0} is already installed.": "La versión seleccionada {0} ya está instalada.",
       "{0}  ·  Interrupted installation found": "{0} · Se encontró instalación interrumpida",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Creando copia de seguridad de {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar."
     },
     "es-MX": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Elija su carpeta WoW 3.3.5a existente",
@@ -858,7 +862,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S cambió después de que se preparó la instalación.",
       "Path escapes the selected folder.": "La ruta escapa de la carpeta seleccionada.",
       "Please wait for this operation to finish, or use Cancel.": "Espere a que finalice esta operación o utilice Cancelar.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Posible parche de actualización adicional: {0}. Mantenga una copia de seguridad y mueva esta copia fuera de Data antes de volver a intentarlo. El programa de instalación no lo eliminará.",
       "Previous install restored and verified.": "Instalación anterior restaurada y verificada.",
       "Public download URL is missing.": "Falta la URL de descarga pública.",
       "Ready. A verified backup is created before any game files change.": "Listo. Se crea una copia de seguridad verificada antes de que cambie cualquier archivo del juego.",
@@ -936,7 +939,9 @@
       "Your client. Your language. One simple install.": "Tu cliente de juego. Tu idioma. Una instalación sencilla.",
       "Your selected release {0} is already installed.": "La versión seleccionada {0} ya está instalada.",
       "{0}  ·  Interrupted installation found": "{0} · Se encontró instalación interrumpida",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Creando copia de seguridad de {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar."
     },
     "ko-KR": {
       "1   Choose your existing WoW 3.3.5a folder": "1 기존 WoW 3.3.5a 폴더를 선택하세요",
@@ -1045,7 +1050,6 @@
       "Patch-S changed after the install was prepared.": "설치 준비 후 Patch-S가 변경되었습니다.",
       "Path escapes the selected folder.": "Path는 선택한 폴더를 이스케이프합니다.",
       "Please wait for this operation to finish, or use Cancel.": "이 작업이 완료될 때까지 기다리거나 취소를 사용하십시오.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "추가 업그레이드 패치 가능성: {0}. 다시 시도하기 전에 백업을 유지하고 이 복사본을 Data 외부로 이동하세요. 설치 프로그램에서는 해당 항목을 삭제하지 않습니다.",
       "Previous install restored and verified.": "이전 설치가 복원되고 확인되었습니다.",
       "Public download URL is missing.": "공개 다운로드 URL이 누락되었습니다.",
       "Ready. A verified backup is created before any game files change.": "준비가 된. 게임 파일이 변경되기 전에 확인된 백업이 생성됩니다.",
@@ -1123,7 +1127,9 @@
       "Your client. Your language. One simple install.": "내 게임 클라이언트. 내 언어. 간편한 설치.",
       "Your selected release {0} is already installed.": "선택한 릴리스 {0}가 이미 설치되어 있습니다.",
       "{0}  ·  Interrupted installation found": "{0} · 중단된 설치 발견",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "{0} 백업 중…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "추가 업그레이드 패치 {0}개를 LauSetupBackups에 자동으로 백업합니다. 계속하려면 업그레이드 설치를 클릭하세요."
     },
     "ru-RU": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Выберите существующую папку WoW 3.3.5a.",
@@ -1232,7 +1238,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S изменился после подготовки установки.",
       "Path escapes the selected folder.": "Путь выходит за пределы выбранной папки.",
       "Please wait for this operation to finish, or use Cancel.": "Пожалуйста, дождитесь завершения этой операции или нажмите «Отмена».",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Возможный дополнительный патч обновления: {0}. Сохраните резервную копию и переместите эту копию за пределы Data, прежде чем повторить попытку. Программа установки не удалит его.",
       "Previous install restored and verified.": "Предыдущая установка восстановлена ​​и проверена.",
       "Public download URL is missing.": "Публичный URL-адрес загрузки отсутствует.",
       "Ready. A verified backup is created before any game files change.": "Готовый. Проверенная резервная копия создается перед изменением каких-либо файлов игры.",
@@ -1310,7 +1315,9 @@
       "Your client. Your language. One simple install.": "Ваш игровой клиент. Ваш язык. Простая установка.",
       "Your selected release {0} is already installed.": "Выбранный вами выпуск {0} уже установлен.",
       "{0}  ·  Interrupted installation found": "{0} · Обнаружена прерванная установка",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Резервное копирование {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} дополнительных патчей будут автоматически сохранены в LauSetupBackups. Нажмите «Установить обновление», чтобы продолжить."
     },
     "zh-CN": {
       "1   Choose your existing WoW 3.3.5a folder": "1 选择现有的 WoW 3.3.5a 文件夹",
@@ -1419,7 +1426,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S 在安装准备好后发生了变化。",
       "Path escapes the selected folder.": "路径转义所选文件夹。",
       "Please wait for this operation to finish, or use Cancel.": "请等待此操作完成，或使用“取消”。",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "可能存在额外的升级补丁：{0}。重试之前，请保留备份并将此副本移至 Data 之外。安装程序不会删除它。",
       "Previous install restored and verified.": "先前的安装已恢复并经过验证。",
       "Public download URL is missing.": "缺少公共下载 URL。",
       "Ready. A verified backup is created before any game files change.": "准备好。在任何游戏文件更改之前都会创建经过验证的备份。",
@@ -1497,7 +1503,9 @@
       "Your client. Your language. One simple install.": "你的游戏客户端，你的语言，轻松安装。",
       "Your selected release {0} is already installed.": "您选择的版本 {0} 已安装。",
       "{0}  ·  Interrupted installation found": "{0} · 发现安装中断",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "正在备份 {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "将自动把 {0} 个额外升级补丁备份到 LauSetupBackups。点击“安装升级”继续。"
     },
     "zh-TW": {
       "1   Choose your existing WoW 3.3.5a folder": "1 選擇現有的 WoW 3.3.5a 資料夾",
@@ -1606,7 +1614,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S 在安裝準備好後發生了變化。",
       "Path escapes the selected folder.": "路徑轉義所選資料夾。",
       "Please wait for this operation to finish, or use Cancel.": "請等待此操作完成，或使用「取消」。",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "可能存在額外的升級補丁：{0}。重試之前，請保留備份並將此副本移至 Data 之外。安裝程式不會刪除它。",
       "Previous install restored and verified.": "先前的安裝已恢復並經過驗證。",
       "Public download URL is missing.": "缺少公共下載 URL。",
       "Ready. A verified backup is created before any game files change.": "準備好。在任何遊戲檔案變更之前都會建立經過驗證的備份。",
@@ -1684,7 +1691,9 @@
       "Your client. Your language. One simple install.": "你的遊戲用戶端，你的語言，輕鬆安裝。",
       "Your selected release {0} is already installed.": "您選擇的版本 {0} 已安裝。",
       "{0}  ·  Interrupted installation found": "{0} · 發現安裝中斷",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "正在備份 {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "將自動把 {0} 個額外升級修補程式備份至 LauSetupBackups。按一下「安裝升級」繼續。"
     },
     "pt-BR": {
       "1   Choose your existing WoW 3.3.5a folder": "1 Escolha sua pasta WoW 3.3.5a existente",
@@ -1793,7 +1802,6 @@
       "Patch-S changed after the install was prepared.": "Patch-S alterado após a preparação da instalação.",
       "Path escapes the selected folder.": "O caminho escapa da pasta selecionada.",
       "Please wait for this operation to finish, or use Cancel.": "Aguarde a conclusão desta operação ou use Cancelar.",
-      "Possible extra upgrade patch: {0}. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.": "Possível patch de atualização adicional: {0}. Mantenha um backup e mova esta cópia para fora de Data antes de tentar novamente. A instalação não irá excluí-lo.",
       "Previous install restored and verified.": "Instalação anterior restaurada e verificada.",
       "Public download URL is missing.": "O URL de download público está ausente.",
       "Ready. A verified backup is created before any game files change.": "Preparar. Um backup verificado é criado antes de qualquer alteração nos arquivos do jogo.",
@@ -1871,7 +1879,9 @@
       "Your client. Your language. One simple install.": "Seu cliente de jogo. Seu idioma. Uma instalação simples.",
       "Your selected release {0} is already installed.": "Sua versão selecionada {0} já está instalada.",
       "{0}  ·  Interrupted installation found": "{0} · Instalação interrompida encontrada",
-      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340"
+      "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
+      "Backing up {0}…": "Fazendo backup de {0}…",
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} patches extras serão salvos automaticamente em LauSetupBackups. Clique em Instalar atualização para continuar."
     }
   }
 }

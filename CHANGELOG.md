@@ -1,3 +1,12 @@
+# Lau Setup 1.3.0 — automatic extra-patch backups
+
+- Click Install upgrade as usual: recognized extra upgrade patches are backed up automatically and setup continues.
+- Restore previous install returns those extra files as well as the managed files.
+- Unknown readable patches stay in place. Unreadable archives, protected stock files and changed backups retain their safety checks.
+- Game release remains 3.0.8. No DBC edits.
+
+See [beginner steps](START-HERE.txt) and [1.3.0 release notes](docs/RELEASE-1.3.0.md).
+
 # Lau Setup 1.2.1 — large MPQ compatibility fix
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->

@@ -1,4 +1,4 @@
-Lau Setup 1.2.1 shared Windows/Linux release
+Lau Setup 1.3.0 shared Windows/Linux release
 Author / Creator / Last Modified By: Neil Mitchell
 
 Game data remains Lau 3.0.8. This package contains one LauSetup folder with
@@ -98,7 +98,7 @@ trigger this too. Close WoW, keep a backup, and move only the named extra file
 outside Data, then retry. Setup chooses the right edition. Do not rename an HD
 download into an original-model client. If unsure, report the file first.
 
-Cannot safely check patch? Download the latest setup; 1.2.1 fixes the old
+Cannot safely check patch? Download the latest setup; 1.3.0 fixes the old
 large-table restriction. If it still stops, keep the archive and backups and
 report the exact message and filename through the link above.
 
@@ -119,7 +119,7 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
-Setup 1.2.1 passed all 66 Wine regression groups, including large MPQ tables,
+Setup 1.3.0 passed all 66 Wine regression groups, including large MPQ tables,
 conflict detection and rollback. See VALIDATION.json on the release for the
 packaged interface checks.
 
@@ -129,3 +129,8 @@ it, followed by final localization and packaged-window checks. Twenty-one
 normal-user Wine interface states and all ten bundled interface languages were
 checked. This is not certification for every Linux distribution, filesystem,
 display scale, Wine version, translation nuance, or game encounter.
+
+EXTRA UPGRADE FILES
+Click Install upgrade as usual. Setup backs up recognized extra upgrade
+files in LauSetupBackups and continues. Restore previous install returns
+them. You do not need to move or rename these files yourself.
