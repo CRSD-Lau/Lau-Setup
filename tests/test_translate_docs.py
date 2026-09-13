@@ -30,6 +30,27 @@ class TranslationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "cover exactly"):
                 t.locales(root)
 
+    def test_reviewed_platform_scope_cannot_be_inverted(self):
+        source = 'Lutris, Proton and macOS integrations are outside this release'
+        locale = t.locales()['zhTW']
+        masked, saved = t.mask(source, locale)
+        self.assertTrue(t.TOKEN.fullmatch(masked))
+        self.assertEqual(t.unmask(masked, masked, saved), '此版本不包含 Lutris、Proton 和 macOS 整合')
+        self.assertNotIn('glossary', t.scoped_locale('An unrelated document.', locale))
+        self.assertIn('glossary', t.scoped_locale(source, locale))
+
+    def test_glossary_invalidates_only_affected_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            locale = t.locales()['zhTW']
+            previous = {k:v for k,v in locale.items() if k != 'glossary'}
+            t.write(root / 'README.md', 'An unrelated document.')
+            self.assertEqual(t.fingerprint('README.md',locale,['README.md'],t.PROVIDER,root),
+                             t.fingerprint('README.md',previous,['README.md'],t.PROVIDER,root))
+            t.write(root / 'README.md', next(iter(locale['glossary'])))
+            self.assertNotEqual(t.fingerprint('README.md',locale,['README.md'],t.PROVIDER,root),
+                                t.fingerprint('README.md',previous,['README.md'],t.PROVIDER,root))
+
     def test_unsigned_claim_is_locked_for_every_locale(self):
         for locale in t.locales().values():
             for source, key in [('The executable is unsigned', 'executable'),

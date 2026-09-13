@@ -114,11 +114,11 @@ WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
 ## 经过测试，有明确的限制
 
-版本 1.1.7 通过了 Windows 和 Wine 上的 **50 回归组**，包括每个平台的 108 语言环境/版本/地图计划。游戏发布3.0.8此前在两个平台均通过了六版升级和一字节检测；它的有效负载没有改变。设置 1.1.7 还涵盖了从所有标志到新法术关闭序列，以及旧的禁用副本、重复切换和精确回滚。公共有效负载是匿名下载并经过哈希验证的；测试了实际的核心安装和回滚。
+版本 1.1.7 通过了 Windows 和 Wine 上的 **50 回归组**，包括每个平台的 108 语言环境/版本/地图计划。游戏发布3.0.8此前已通过双平台六版升级和一字节检测；它的有效负载没有改变。设置 1.1.7 还涵盖了从所有标志到新法术关闭序列，以及旧的禁用副本、重复切换和精确回滚。公共有效负载是匿名下载并经过哈希验证的；测试了实际的核心安装和回滚。
 
 Wine 在本地 Linux 存储上使用 **Wine 11.0 / Wine Mono 10.4.1** 进行了测试，包括作为普通用户提供的启动器。 Halion 流星火几何形状与测试人员批准的 v2 完全匹配。 Coldflame、动画轨道、原生火焰和法术表与 3.0.7 保持字节相同。网站动画是说明性的模型。这些测试并不能证明每个 Linux 发行版或游戏中的遭遇。
 
-Lutris、Proton 和 macOS 集成不在此版本之外。 可执行文件没有数字签名。
+此版本不包含 Lutris、Proton 和 macOS 集成。 可执行文件没有数字签名。
 
 <a id="known-limitations-and-feature-requests"></a>
 
@@ -143,7 +143,7 @@ Lutris、Proton 和 macOS 集成不在此版本之外。 可执行文件没有�
 
 **Andre** — Patch-Y 基线 · **Loriendal 和 Trimitor** — 高清客户端基础 · **Project Reforged 贡献者** — 高清艺术作品 · **Blizzard** — 原创游戏、艺术作品和本地化文本 · **Lau** — 地面指示器、兼容性、适配、测试和发布工具。
 
-[完整制作人员](https://wrath-multilingual-hd.vercel.app/credits) · [屏幕截图和安装帮助](https://wrath-multilingual-hd.vercel.app/)
+[完整制作](https://wrath-multilingual-hd.vercel.app/credits) · [屏幕截图和安装帮助](https://wrath-multilingual-hd.vercel.app/)
 
 <sub>非官方社区项目。不隶属于 Blizzard Entertainment，也不受其认可。原创游戏和第三方艺术品仍然是其各自所有者的财产。</sub>
 
