@@ -1,0 +1,76 @@
+<!-- LANGUAGES:START -->
+[English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](README.md) · [Português (Brasil)](../pt-BR/README.md)
+<!-- LANGUAGES:END -->
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+> 自動翻譯。 [英文來源](../../../START-HERE.txt)。若措詞不同，則以英文來源為準。
+
+LAU 設定 — 釋放 3.0.8
+
+Windows：下載LauSetup.exe。
+Linux/Wine：下载LauSetup-Wine.zip并关注其README.txt。
+Wine 需要提供的 Linux 启动器；不要直接运行 EXE。
+
+1。關閉World of Warcraft。
+2。打开 LauSetup.exe 并选择您的 WoW 文件夹。
+3。選擇您的視覺效果並點擊安裝升級。
+
+从旧版本或测试 v2 更新？首先下载新的安装程序；旧副本嵌入旧目录。
+选择相同的客户端和视觉效果。文件哈希檢查檢測更改的補丁。
+启动WoW并输入/pyversion；它应该报告 3.0.8 Lau。
+
+安装程序会检测您的客户端语言和 HD 型号配置。
+預設選擇增強奉獻。取消選取庫存
+外觀；咒語本身仍然有效。新的法术视觉效果需要
+現有相容高清型號客戶端。升級地圖/小地圖是可選的。
+
+您需要现有的 WoW 3.3.5a 客户端，在 Windows 10 或 11 上构建 12340。
+此下载是升级，而不是完整的客户端或语言包。
+所需的兼容 WoW.exe 会自动安装。
+
+无需手动复制或重命名补丁。請勿下載整個
+共享數據發布。该应用程序仅下载您选择所需的文件。
+
+備份和可恢復下載保留在 WoW 內的 LauSetupBackups 中
+資料夾，資料之外。若要撤銷更新，請關閉 WoW，重新開啟 LauSetup.exe，
+選擇相同資料夾，然後按一下復原先前的安裝。恢復也
+如果更新中斷導致 WoW.exe 暫時遺失，則可以使用。
+
+您的插件、SavedVariables、字體、登入插圖、領域設定和
+不相關的補丁被保留。沒有披薩勇士品牌，個人
+捆綁 ElvUI 設定、LoginUI、帳戶資料或完整遊戲用戶端。
+
+下載來自GitHub Releases；不需要 GitHub 帳戶。
+如果下載停止，請稍後重試。已驗證的文件
+被重複使用並恢復部分下載。遊戲檔案僅在之後更改
+所有必要的下載均已通過驗證。如果保留 LauSetupBackups
+該應用程式報告需要恢復。
+
+此安裝程式沒有數位簽章，因此 Windows 可能會顯示未知發布者
+警告。使用提供的校驗和來驗證您的下載。它不
+需要停用 Windows 安全性或安裝 Python/PowerShell 工具。
+需要 .NET Framework 4.8 運行時。
+
+一旦此安裝程式添加了地圖升級，它就會在安裝過程中保留該升級
+版本變更。使用恢復之前的安裝來撤銷地圖安裝。
+
+學分：Andre（Patch-Y 基線）、Loriendal 和 Trimitor（HD 基礎）、
+Project Reforged 貢獻者（高清藝術作品），Blizzard（原創藝術作品和
+在地化文字），Lau（適配、相容性、指標、測試）。
+
+Author / Creator / Last Modified By: Neil Mitchell
+
+設定 1.1.7：新的拼字視覺效果關閉，使 Patch-S 保持為 .mpq.disabled 旁邊
+它原來的路徑。不同的禁用副本永遠不會被覆蓋。
+若要撤銷整個安裝，請使用恢復先前的安裝。對於文件
+已被舊安裝版本刪除，請從這些備份中還原它們
+重新安裝之前使用恢復先前的安裝。保留LauSetupBackups。
+
+目前的S檔案始終變為.mpq.disabled。如果年紀較大的殘障人士
+副本存在，安裝程式首先將其保留為 `.mpq.disabled.<12-character hash>`。無需手動重新命名
+需要切換選項。手動重新啟用需要刪除
+.disabled 和任何後續哈希，WoW 關閉並且沒有不同的活動
+文件被覆蓋。使用恢復先前的安裝進行託管回滾。
+
+1.1.7 修補程式：啟用新拼字視覺效果可重複使用相符的已停用 Patch-S，而無需再次下載。即使活動 Patch-S 已匹配，普通禁用副本也會移至 LauSetupBackups 中經過驗證的交易備份中。不同版本仍然可以透過恢復先前的安裝來恢復。關閉仍然使用.mpq.disabled。現有的雜湊後綴存檔保持不變。
