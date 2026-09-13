@@ -81,7 +81,10 @@
       "installer": "此安装程序没有数字签名",
       "windows": "Windows 软件包没有数字签名"
     },
-    "google": "zh-CN"
+    "google": "zh-CN",
+    "glossary": {
+      "Lutris, Proton and macOS integrations are outside this release": "此版本不包含 Lutris、Proton 和 macOS 集成"
+    }
   },
   "zhTW": {
     "tag": "zh-TW",
@@ -91,7 +94,10 @@
       "installer": "此安裝程式沒有數位簽章",
       "windows": "Windows 套件沒有數位簽章"
     },
-    "google": "zh-TW"
+    "google": "zh-TW",
+    "glossary": {
+      "Lutris, Proton and macOS integrations are outside this release": "此版本不包含 Lutris、Proton 和 macOS 整合"
+    }
   },
   "ptBR": {
     "tag": "pt-BR",

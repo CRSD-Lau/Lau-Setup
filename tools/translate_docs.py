@@ -98,6 +98,8 @@ def mask(text, locale=None):
 
     def replace(match):
         value = match.group()
+        if locale and value in locale.get("glossary", {}):
+            value = locale["glossary"][value]
         if locale and "unsigned" in value and not value.startswith(("`", "<")):
             if value.startswith("The executable"):
                 value = locale["unsigned"]["executable"]
@@ -108,7 +110,9 @@ def mask(text, locale=None):
         saved.append(value)
         return f"ZXQKEEP{len(saved) - 1:05d}QXZ"
 
-    return PROTECTED.sub(replace, text), saved
+    glossary = locale.get("glossary", {}) if locale else {}
+    pattern = re.compile("|".join(map(re.escape, glossary)) + "|" + PROTECTED.pattern, re.M | re.S) if glossary else PROTECTED
+    return pattern.sub(replace, text), saved
 
 
 def unmask(translated, original, saved):
@@ -242,8 +246,18 @@ def request_translation(text, language, provider, plain=False):
         time.sleep(5 * (attempt + 1))
 
 
+def scoped_locale(text, locale):
+    """A reviewed phrase correction invalidates only documents containing it."""
+    result = {k: v for k, v in locale.items() if k != "glossary"}
+    glossary = {source: target for source, target in locale.get("glossary", {}).items() if source in text}
+    if glossary:
+        result["glossary"] = glossary
+    return result
+
+
 def fingerprint(source, locale, files, provider, root):
-    return digest(clean_source(read(root / source)) + json.dumps(locale, sort_keys=True)
+    original = clean_source(read(root / source))
+    return digest(original + json.dumps(scoped_locale(original, locale), sort_keys=True)
                   + json.dumps(sorted(files)) + provider + TRANSLATION_REVISION)
 
 
@@ -328,6 +342,7 @@ def translate_one(source, locale, files, provider, root=ROOT, translator=request
     state_path = root / "docs/i18n" / tag / ".translation-state.json"
     state = json.loads(read(state_path)) if state_path.exists() else {}
     original = clean_source(read(root / source))
+    locale = scoped_locale(original, locale)
     source_hash = fingerprint(source, locale, files, provider, root)
     cached = state.get(source, {})
     if cached.get("source") == source_hash and output.exists() and cached.get("output") == digest(read(output)):

@@ -55,7 +55,7 @@
 
 [SHA-256 校驗和](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [發行說明](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [驗證報告](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
-> **带上您现有的客户端。 ** 這是升級，而不是完整的遊戲用戶端、語言套件或高清模型庫。運行時安裝程式未捆綁。安裝程式使用者介面是英文的；遊戲內容支援九種語言環境。
+> **帶上您現有的客戶端。 ** 這是升級，而不是完整的遊戲用戶端、語言套件或高清模型庫。運行時安裝程式未捆綁。安裝程式使用者介面是英文的；遊戲內容支援九種語言環境。
 
 <a id="one-setup-the-details-handled"></a>
 
@@ -71,7 +71,7 @@
 
 <p align="center"><img src="../../assets/installer-windows.png" alt="Lau Setup on Windows: choose a WoW folder, select visuals, install or restore" width="836" /></p>
 
-您的插件、SavedVariables、字體、登入插圖、領域設定和不相關的補丁保持不變。不包含个人用户界面、凭据或分析。
+您的插件、SavedVariables、字體、登入插圖、領域設定和不相關的補丁保持不變。不包含個人使用者介面、憑證或分析。
 
 <a id="get-started"></a>
 
@@ -114,11 +114,11 @@ WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
 ## 經過測試，有明確的限制
 
-版本 1.1.7 通過了 Windows 和 Wine 上的 **50 回歸組**，包括每個平台的 108 語言環境/版本/地圖計劃。遊戲發表3.0.8先前在兩個平台均通過了六版升級和一位元組檢測；它的有效負載沒有改變。設定 1.1.7 還涵蓋了從所有標誌到新法術關閉序列，以及舊的禁用副本、重複切換和精確回滾。公共有效負載是匿名下載並經過哈希驗證的；測試了實際的核心安裝和回滾。
+版本 1.1.7 通過了 Windows 和 Wine 上的 **50 回歸組**，包括每個平台的 108 語言環境/版本/地圖計劃。遊戲發表3.0.8先前已透過雙平台六版升級和一位元組檢測；它的有效負載沒有改變。設定 1.1.7 還涵蓋了從所有標誌到新法術關閉序列，以及舊的禁用副本、重複切換和精確回滾。公共有效負載是匿名下載並經過哈希驗證的；測試了實際的核心安裝和回滾。
 
 Wine 在本地 Linux 儲存上使用 **Wine 11.0 / Wine Mono 10.4.1** 提供了普通用戶的啟動器。 Halion 流星火幾何形狀與測試人員批准的 v2 完全匹配。 Coldflame、動畫軌道、原生火焰和法術表與 3.0.7 保持位元組相同。網站動畫是說明性的模型。這些測試並不能證明每個 Linux 發行版或遊戲中的遭遇。
 
-Lutris、Proton 和 macOS 整合不在此版本之外。 執行檔沒有數位簽章。
+此版本不包含 Lutris、Proton 和 macOS 整合。 執行檔沒有數位簽章。
 
 <a id="known-limitations-and-feature-requests"></a>
 
@@ -143,7 +143,7 @@ Lutris、Proton 和 macOS 整合不在此版本之外。 執行檔沒有數位�
 
 **Andre** — Patch-Y 基線· **Loriendal & Trimitor** — 高清客戶端基礎· **Project Reforged 貢獻者** — 高清藝術作品· **Blizzard** — 原創遊戲、藝術作品與在地化文本 · **Lau** — 地面指標、相容性、適應性、測試和發布工具。
 
-[完整製作人員](https://wrath-multilingual-hd.vercel.app/credits) · [螢幕截圖與安裝幫助](https://wrath-multilingual-hd.vercel.app/)
+[完整製作](https://wrath-multilingual-hd.vercel.app/credits) · [螢幕截圖與安裝幫助](https://wrath-multilingual-hd.vercel.app/)
 
 <sub>非官方社區項目。不隸屬於 Blizzard Entertainment，也不受其認可。原創遊戲和第三方藝術品仍然是其各自所有者的財產。</sub>
 
