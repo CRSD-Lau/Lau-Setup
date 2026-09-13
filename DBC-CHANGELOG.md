@@ -6,6 +6,12 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## ICC player range circles — Test 1 (experimental)
+
+Seven existing Spell rows change only their first visual link. Three private records are added to each of SpellVisual, SpellVisualKit, SpellVisualEffectName and SpellVisualKitModelAttach. Each of the six exact 3.0.8 editions retains its own strings and unrelated members. [Every field edit, allocated ID and before/after hash](docs/dbc/icc-range-test1.md) · [Full JSON evidence](docs/dbc/icc-range-test1.json).
+
+This test covers heroic BPC Shadow Prison as an experimental carrier, player-origin Empowered Vortex bursts and selected-target Blood Nova impacts. It does not change gameplay or aura duration. In-game attachment, warning timing and 12-yard calibration remain pending. Stable game 3.0.8 is unchanged.
+
 ## Installer 1.2.0 — no DBC edits
 
 Shared Windows/Linux packaging and automatic interface language selection change installer code and text only. The game remains 3.0.8. All 28 game assets, nine game locales, asset IDs, sizes, SHA-256 values and download segments are unchanged from installer 1.1.8. Interface language never selects or changes the WoW client locale.

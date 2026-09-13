@@ -2,3 +2,7 @@ dist/
 *.user
 
 __pycache__/
+
+# Local test fixtures, build logs and downloaded verification copies.
+reports/
+build/*.exe

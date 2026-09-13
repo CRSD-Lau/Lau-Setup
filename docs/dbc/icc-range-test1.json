@@ -1,0 +1,3846 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "prototype": "ICC player range circles",
+  "build_sources": {
+    "tools/build_range_model.py": "9479e217161b602350fd6fad0a55402bcc5b2b023d41134b931418dba6582699",
+    "tools/build_range_payload.py": "52eabd2bf4b6dc90e17e8dcbeaa3ae2bf75db58214801fc144253c671f0311eb",
+    "tools/range_model_utils.py": "af9c278a8fd63e1a1a17b0c557bce82060b32a44f9566397228452f33a1749b0",
+    "tools/range_mpq.py": "15fcf473161901c9d2e406d42e1e7c5afdb84e9700fdb8261f57509e4a2d131f",
+    "tools/test_range_payload.py": "1963519bc26981e335701dde5ceb41d899a76b2ba97ffe1a1686e43a01cf4796",
+    "editing/range-circles/Range_Circle_White_Small_50.blp": "a71b5efcb101918b6e478e1bbc0fb1535123b9f8205487112d7e434d2e9c1224",
+    "editing/range-circles/Range_Circle_White_Small_50.m2": "afc59a8401ec696ee84193ef6dac8990b21b56d669e5e6752fae5865e125c9f4",
+    "editing/range-circles/Range_Circle_White_Small_50.png": "6f72c94a5b20991bcae5bb2e6ff996fb1b52ef8f29d14e35dcb6235a3ea469c7",
+    "editing/range-circles/Range_Circle_White_Small_5000.skin": "75dabfe9613e249a23931f950197dc6857b06f2cf4d41b52f5a1fb7a3eed307e"
+  },
+  "build_dependency": {
+    "stormlib_sha256": "3a8931532ef859cab446a83d782f4003fc1a9691d295a70a648ffd235e3d4db8",
+    "stormlib_embedded_in_payload": false,
+    "path_is_configurable_via": "STORMLIB_DLL"
+  },
+  "baseline_catalog_source_sha256": "dfa3b35536452ec7a12047ca932544bb5a0dff1439d80a1754a25182e116b786",
+  "requested_visible_radius_model_units": 12.0,
+  "intended_game_radius_yards": 12.0,
+  "geometry_basis": {
+    "donor_quad_half_width_model_units": 2.859224557876587,
+    "source_texture_half_width_pixels": 255.5,
+    "bright_visible_outer_axis_pixels": 249.5,
+    "threshold": "source PNG alpha >= 64 and max RGB >= 64",
+    "generated_quad_half_width_model_units": 12.288577154308618,
+    "generated_model_sequence_and_skin_radius_model_units": 17.38089230896898,
+    "updated_bounds": [
+      "M2 global bounds at offset 160",
+      "all three M2 sequence bounds at sequence +32",
+      "SKIN submesh center/radius block at submesh +20"
+    ],
+    "dbc_effect_fields": {
+      "3_AreaEffectSize": 1.0,
+      "4_Scale": 1.0,
+      "5_MinAllowedScale": 1.0,
+      "6_MaxAllowedScale": 1.0
+    },
+    "runtime_calibration_required": true
+  },
+  "mechanics": {
+    "shadow_prison": {
+      "spell_ids": [
+        73001
+      ],
+      "color": "cyan-blue",
+      "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+      "anchor": "state kit on the aura holder if the client renders the area-aura state"
+    },
+    "empowered_vortex": {
+      "spell_ids": [
+        72038,
+        72815,
+        72816,
+        72817
+      ],
+      "color": "purple",
+      "timing": "direct player-origin burst/cast cue; not advance warning",
+      "anchor": "cloned CastKit on each player force-casting the burst"
+    },
+    "blood_nova": {
+      "spell_ids": [
+        72378,
+        73058
+      ],
+      "color": "red",
+      "timing": "selected-target parent impact cue; not advance warning",
+      "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+    }
+  },
+  "excluded_spell_ids": {
+    "boss_shadow_prison_aura": [
+      72998
+    ],
+    "blood_nova_dummy_or_damage_chain": [
+      72379,
+      72380,
+      72438,
+      72439,
+      72440
+    ]
+  },
+  "limitations": [
+    "Static model units are intended as yards but require in-game calibration.",
+    "The direct Vortex and Blood Nova cues are resolution-time diagnostics, not advance spacing warnings.",
+    "Shadow Prison is encounter-wide heroic behavior and may be hidden or unrendered on Warmane.",
+    "Blood Nova target-side attachment is inferred from the selected-target parent ImpactKit and must be observed in game.",
+    "Circle overlap alone does not mean player centres are within 12 yards."
+  ],
+  "results": [
+    {
+      "edition": "Y-HD-NewSpells-Off-Consecration-Off",
+      "baseline_archive_sha256": "0a7f2eef34085785b72f1d18b83108c25dac2c2deada412738182fee5e738a80",
+      "output_archive_sha256": "416d062addf4209158d636993df2bbda60c9a61a154c6e649f89e56678170c5c",
+      "output_archive_bytes": 67913649,
+      "changed": [
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+        "dbfilesclient\\spell.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after": "8d8981f617b31a90681bd7638ec2c8770ce9f83e4f3c686cce60f8443b52648e"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "e721c563cd0c6283f8b9091cba7c7bcd1a35b70527d537a1bba30271ec1a3f0f",
+          "after": "88de4ff664313fe7f172f1aa9afdb8258ec13b113f20bbf260a9092ba59a39fa"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after": "ee2b091e208ac90e3039ebf7cd3bcbb203514f1b8530e9f494b7b122b9f69632"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "after": "604c7c001283c8c8119253018d3284f4acd9afd9f4df22914b3c2dd076610fbf"
+        },
+        "dbfilesclient\\spell.dbc": {
+          "before": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after_sha256": "8d8981f617b31a90681bd7638ec2c8770ce9f83e4f3c686cce60f8443b52648e",
+          "before_records": 9411,
+          "after_records": 9414,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90060,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90061,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90062,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after_sha256": "ee2b091e208ac90e3039ebf7cd3bcbb203514f1b8530e9f494b7b122b9f69632",
+          "before_records": 8721,
+          "after_records": 8724,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90060,
+            90061,
+            90062
+          ],
+          "added_rows": [
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90062,
+              "field_values_u32": [
+                90062,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381888,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "e721c563cd0c6283f8b9091cba7c7bcd1a35b70527d537a1bba30271ec1a3f0f",
+          "after_sha256": "88de4ff664313fe7f172f1aa9afdb8258ec13b113f20bbf260a9092ba59a39fa",
+          "before_records": 4139,
+          "after_records": 4142,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                155799,
+                155845,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                155889,
+                155938,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                155985,
+                156028,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "after_sha256": "604c7c001283c8c8119253018d3284f4acd9afd9f4df22914b3c2dd076610fbf",
+          "before_records": 665,
+          "after_records": 668,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90060,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90061,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90062,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90060,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90061,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90062,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    },
+    {
+      "edition": "Y-HD-NewSpells-Off-Consecration-On",
+      "baseline_archive_sha256": "2941cbbf61bebcabd2e0ff51361268447e7b6739fafef7da175b2a31662991a3",
+      "output_archive_sha256": "c9a83086115c4dcc34eb7407651145f48d33b4686aa646e871bdb44e2d7b4227",
+      "output_archive_bytes": 67913677,
+      "changed": [
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+        "dbfilesclient\\spell.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after": "8d8981f617b31a90681bd7638ec2c8770ce9f83e4f3c686cce60f8443b52648e"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "3e48ac693588cce058754a562f5681c3b72a1ff5062ff0c63cadff1d1e75d23c",
+          "after": "19288c912dbd67177c97627b4c243cb37ebf771ed4a77c5879f5c8e60e286ded"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after": "ee2b091e208ac90e3039ebf7cd3bcbb203514f1b8530e9f494b7b122b9f69632"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "after": "604c7c001283c8c8119253018d3284f4acd9afd9f4df22914b3c2dd076610fbf"
+        },
+        "dbfilesclient\\spell.dbc": {
+          "before": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after_sha256": "8d8981f617b31a90681bd7638ec2c8770ce9f83e4f3c686cce60f8443b52648e",
+          "before_records": 9411,
+          "after_records": 9414,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90060,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90061,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90062,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after_sha256": "ee2b091e208ac90e3039ebf7cd3bcbb203514f1b8530e9f494b7b122b9f69632",
+          "before_records": 8721,
+          "after_records": 8724,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90060,
+            90061,
+            90062
+          ],
+          "added_rows": [
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90062,
+              "field_values_u32": [
+                90062,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381888,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "3e48ac693588cce058754a562f5681c3b72a1ff5062ff0c63cadff1d1e75d23c",
+          "after_sha256": "19288c912dbd67177c97627b4c243cb37ebf771ed4a77c5879f5c8e60e286ded",
+          "before_records": 4139,
+          "after_records": 4142,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                155820,
+                155866,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                155910,
+                155959,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                156006,
+                156049,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "after_sha256": "604c7c001283c8c8119253018d3284f4acd9afd9f4df22914b3c2dd076610fbf",
+          "before_records": 665,
+          "after_records": 668,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90060,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90061,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90062,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90060,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90061,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90062,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    },
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-Off",
+      "baseline_archive_sha256": "270afe55b5d517ea4f0b976437b00c663da5bee52d9fb7f9969a5042e8d3fd8e",
+      "output_archive_sha256": "9cf59d9c584e5b7b9c4bda47b0e6dd93734a568d2ef47cc709c317283108e596",
+      "output_archive_bytes": 83898456,
+      "changed": [
+        "DBFilesClient\\Spell.dbc",
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\Spell.dbc": {
+          "before": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after": "604f222a31a1615a3239cc7c4deaa88be077566bb865d750a26c3c2562ad6e71"
+        },
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after": "7c0e126fac1bd6274f5d812b86bc00c53deb0bb17cf5c0959ec05b995dd21791"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "8964ecb47f85bd873abfe54c971d58722c3467de3f6084b945c2bf8e2250e4fa",
+          "after": "aa9509caf20a867f0a25a24ed443d748e1e44823ca6c75cc6e82cc758bc14239"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after": "246adee00464017b1ba17a7ebeac63471685defaf745fd9c94677785f8e442ff"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "after": "ed0b8c399dcd51d97aaf9b8346e98a1b5cb5ba8c534262fd95e23c3568b5ad67"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after_sha256": "604f222a31a1615a3239cc7c4deaa88be077566bb865d750a26c3c2562ad6e71",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after_sha256": "7c0e126fac1bd6274f5d812b86bc00c53deb0bb17cf5c0959ec05b995dd21791",
+          "before_records": 9447,
+          "after_records": 9450,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90059,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90060,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90061,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after_sha256": "246adee00464017b1ba17a7ebeac63471685defaf745fd9c94677785f8e442ff",
+          "before_records": 8948,
+          "after_records": 8951,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90059,
+            90060,
+            90061
+          ],
+          "added_rows": [
+            {
+              "id": 90059,
+              "field_values_u32": [
+                90059,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381892,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "8964ecb47f85bd873abfe54c971d58722c3467de3f6084b945c2bf8e2250e4fa",
+          "after_sha256": "aa9509caf20a867f0a25a24ed443d748e1e44823ca6c75cc6e82cc758bc14239",
+          "before_records": 4289,
+          "after_records": 4292,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                171951,
+                171997,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                172041,
+                172090,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                172137,
+                172180,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "after_sha256": "ed0b8c399dcd51d97aaf9b8346e98a1b5cb5ba8c534262fd95e23c3568b5ad67",
+          "before_records": 699,
+          "after_records": 702,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90059,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90060,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90061,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90059,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90060,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90061,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    },
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-On",
+      "baseline_archive_sha256": "508020eb056d73597d0d64fed17662018cbbe7236a401623b2088b051664d9f2",
+      "output_archive_sha256": "5d634f73cc8981d20a68e571b8622ae24c6167df365a2e297928afeed9b562a4",
+      "output_archive_bytes": 83898470,
+      "changed": [
+        "DBFilesClient\\Spell.dbc",
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\Spell.dbc": {
+          "before": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after": "604f222a31a1615a3239cc7c4deaa88be077566bb865d750a26c3c2562ad6e71"
+        },
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after": "7c0e126fac1bd6274f5d812b86bc00c53deb0bb17cf5c0959ec05b995dd21791"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "d130ea47602eb6d17e2d676dad0e0dece477fdb6ffc7c79e184ec038769d094b",
+          "after": "f71708496a7bc78c0f7b8b0efbf5eafe5009dd2487eb72a9aa7ee2e5d2d64636"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after": "246adee00464017b1ba17a7ebeac63471685defaf745fd9c94677785f8e442ff"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "after": "ed0b8c399dcd51d97aaf9b8346e98a1b5cb5ba8c534262fd95e23c3568b5ad67"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after_sha256": "604f222a31a1615a3239cc7c4deaa88be077566bb865d750a26c3c2562ad6e71",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after_sha256": "7c0e126fac1bd6274f5d812b86bc00c53deb0bb17cf5c0959ec05b995dd21791",
+          "before_records": 9447,
+          "after_records": 9450,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90059,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90060,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90061,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after_sha256": "246adee00464017b1ba17a7ebeac63471685defaf745fd9c94677785f8e442ff",
+          "before_records": 8948,
+          "after_records": 8951,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90059,
+            90060,
+            90061
+          ],
+          "added_rows": [
+            {
+              "id": 90059,
+              "field_values_u32": [
+                90059,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381892,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "d130ea47602eb6d17e2d676dad0e0dece477fdb6ffc7c79e184ec038769d094b",
+          "after_sha256": "f71708496a7bc78c0f7b8b0efbf5eafe5009dd2487eb72a9aa7ee2e5d2d64636",
+          "before_records": 4289,
+          "after_records": 4292,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                171951,
+                171997,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                172041,
+                172090,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                172137,
+                172180,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "after_sha256": "ed0b8c399dcd51d97aaf9b8346e98a1b5cb5ba8c534262fd95e23c3568b5ad67",
+          "before_records": 699,
+          "after_records": 702,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90059,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90060,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90061,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90059,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90060,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90061,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-Off",
+      "baseline_archive_sha256": "e841709e455f70dd3255a691b337b28ecf1761fef8e758570db4038ba7a2d062",
+      "output_archive_sha256": "027cb8a105200a6ceaa97a16bbb44180311d7930f3b6d91511ff785eebd0c98f",
+      "output_archive_bytes": 71082577,
+      "changed": [
+        "DBFilesClient\\Spell.dbc",
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\Spell.dbc": {
+          "before": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa"
+        },
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after": "69b87a1f29e776ee5c4a8d4ad39ef0925290aa283e68446564c5cc90d5aecf89"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "611608dd4c605970bf5b9ecfc4ea99037d56620607fd32449234c5036b953b30",
+          "after": "7b19a388fdec8c9799535c3347dc2319addc7ae543b4e18d831c421ea0d4841f"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after": "c44f66c8def2f8b869275bdbc94c7cbe1a7090775dcaf2afcb61a2c0cf128b6e"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "after": "bc15857a88e73de8b81c1e4588874c0e306a6efcd93596b827cfc70c15d5e5a7"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after_sha256": "69b87a1f29e776ee5c4a8d4ad39ef0925290aa283e68446564c5cc90d5aecf89",
+          "before_records": 9411,
+          "after_records": 9414,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90059,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90060,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90061,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after_sha256": "c44f66c8def2f8b869275bdbc94c7cbe1a7090775dcaf2afcb61a2c0cf128b6e",
+          "before_records": 8720,
+          "after_records": 8723,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90059,
+            90060,
+            90061
+          ],
+          "added_rows": [
+            {
+              "id": 90059,
+              "field_values_u32": [
+                90059,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381892,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "611608dd4c605970bf5b9ecfc4ea99037d56620607fd32449234c5036b953b30",
+          "after_sha256": "7b19a388fdec8c9799535c3347dc2319addc7ae543b4e18d831c421ea0d4841f",
+          "before_records": 4139,
+          "after_records": 4142,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                155819,
+                155865,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                155909,
+                155958,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                156005,
+                156048,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "after_sha256": "bc15857a88e73de8b81c1e4588874c0e306a6efcd93596b827cfc70c15d5e5a7",
+          "before_records": 665,
+          "after_records": 668,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90059,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90060,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90061,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90059,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90060,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90061,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-On",
+      "baseline_archive_sha256": "177445dee261bf6bea06fd8ca8cf1398b64c231ee26878329ff8faebfb1bce17",
+      "output_archive_sha256": "87691884691ba54e070b3f2351dfae7b0efc9e6d65ddd9907c5b081801962aeb",
+      "output_archive_bytes": 71082577,
+      "changed": [
+        "DBFilesClient\\Spell.dbc",
+        "DBFilesClient\\SpellVisual.dbc",
+        "DBFilesClient\\SpellVisualEffectName.dbc",
+        "DBFilesClient\\SpellVisualKit.dbc",
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc"
+      ],
+      "added": [
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin"
+      ],
+      "changed_member_hashes": {
+        "DBFilesClient\\Spell.dbc": {
+          "before": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa"
+        },
+        "DBFilesClient\\SpellVisual.dbc": {
+          "before": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after": "69b87a1f29e776ee5c4a8d4ad39ef0925290aa283e68446564c5cc90d5aecf89"
+        },
+        "DBFilesClient\\SpellVisualEffectName.dbc": {
+          "before": "738892c59e16e99afee3656d6a72f80da9753a5e43dca497fe9b31218a6fd7c5",
+          "after": "ed481c4a39c97d4033ebaa8d3afb37b7e0b07281e54bab6bd3edd23e4b95f338"
+        },
+        "DBFilesClient\\SpellVisualKit.dbc": {
+          "before": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after": "c44f66c8def2f8b869275bdbc94c7cbe1a7090775dcaf2afcb61a2c0cf128b6e"
+        },
+        "DBFilesClient\\SpellVisualKitModelAttach.dbc": {
+          "before": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "after": "bc15857a88e73de8b81c1e4588874c0e306a6efcd93596b827cfc70c15d5e5a7"
+        }
+      },
+      "added_member_hashes": {
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.blp": "ef15711fb04aefd35e10045f5cb3ff0f6d224b798299f6117b2e239cc4cb7fdf",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova12.m2": "52ef4e082811c9232087f18a3bd0c62f8d8b3bddbfd7b70bca0999ddbca3d887",
+        "Spells\\Lau_ICC_RangeTest\\BloodNova1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.blp": "a8a415dfde589c5b13e581b929abb252f982d3248a6237c18ce09dd695f6b200",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.m2": "9bacb4f85c4936aac42054734f0c931b2c57bfd9cf9169024bdcc905d0b0a6a0",
+        "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.blp": "88613fe1a414173aca204e5a100eee75723ab0757d057acccda8aa7436e96656",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.m2": "546c8b6d30580532bb8d2e8ce4fe5f1276f1d52aa2ef713263a849c1ce71d1e1",
+        "Spells\\Lau_ICC_RangeTest\\ShadowPrison1200.skin": "6fd34fe9c365e84466254089bfafd59808629a09911eb58b72356b1c96a84a3f"
+      },
+      "dbc": {
+        "Spell": {
+          "field_count": 234,
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "635b2ca811d1b411bf8b919c3f6b6f914c8644d56379f1e37f0995f747e9ebaa",
+          "before_records": 49839,
+          "after_records": 49839,
+          "changed_original_ids": [
+            72038,
+            72378,
+            72815,
+            72816,
+            72817,
+            73001,
+            73058
+          ],
+          "record_field_diffs": [
+            {
+              "id": 72038,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72378,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            },
+            {
+              "id": 72815,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72816,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 72817,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15204,
+                  "new": 20022
+                }
+              ]
+            },
+            {
+              "id": 73001,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15404,
+                  "new": 20021
+                }
+              ]
+            },
+            {
+              "id": 73058,
+              "field_diffs": [
+                {
+                  "field": 131,
+                  "old": 15283,
+                  "new": 20023
+                }
+              ]
+            }
+          ],
+          "added_ids": [],
+          "added_rows": [],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisual": {
+          "field_count": 32,
+          "before_sha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after_sha256": "69b87a1f29e776ee5c4a8d4ad39ef0925290aa283e68446564c5cc90d5aecf89",
+          "before_records": 9411,
+          "after_records": 9414,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            20021,
+            20022,
+            20023
+          ],
+          "added_rows": [
+            {
+              "id": 20021,
+              "field_values_u32": [
+                20021,
+                6777,
+                7401,
+                0,
+                90059,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20022,
+              "field_values_u32": [
+                20022,
+                0,
+                90060,
+                651,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 20023,
+              "field_values_u32": [
+                20023,
+                14123,
+                14122,
+                90061,
+                0,
+                0,
+                0,
+                0,
+                4002,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKit": {
+          "field_count": 38,
+          "before_sha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after_sha256": "c44f66c8def2f8b869275bdbc94c7cbe1a7090775dcaf2afcb61a2c0cf128b6e",
+          "before_records": 8720,
+          "after_records": 8723,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            90059,
+            90060,
+            90061
+          ],
+          "added_rows": [
+            {
+              "id": 90059,
+              "field_values_u32": [
+                90059,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                16559,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90060,
+              "field_values_u32": [
+                90060,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                4301,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                31,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 90061,
+              "field_values_u32": [
+                90061,
+                4294967295,
+                4294967295,
+                0,
+                3781,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3134,
+                0,
+                13,
+                4294967295,
+                4294967295,
+                4294967295,
+                1265381892,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1086324736,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualEffectName": {
+          "field_count": 7,
+          "before_sha256": "738892c59e16e99afee3656d6a72f80da9753a5e43dca497fe9b31218a6fd7c5",
+          "after_sha256": "ed481c4a39c97d4033ebaa8d3afb37b7e0b07281e54bab6bd3edd23e4b95f338",
+          "before_records": 4139,
+          "after_records": 4142,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            9176,
+            9177,
+            9178
+          ],
+          "added_rows": [
+            {
+              "id": 9176,
+              "field_values_u32": [
+                9176,
+                155819,
+                155865,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test shadow_prison 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9177,
+              "field_values_u32": [
+                9177,
+                155909,
+                155958,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test empowered_vortex 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "id": 9178,
+              "field_values_u32": [
+                9178,
+                156005,
+                156048,
+                1065353216,
+                1065353216,
+                1065353216,
+                1065353216
+              ],
+              "name": "Lau ICC range test blood_nova 12-unit ring",
+              "model_path": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+              "float_fields_3_to_6": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "SpellVisualKitModelAttach": {
+          "field_count": 10,
+          "before_sha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "after_sha256": "bc15857a88e73de8b81c1e4588874c0e306a6efcd93596b827cfc70c15d5e5a7",
+          "before_records": 665,
+          "after_records": 668,
+          "changed_original_ids": [],
+          "record_field_diffs": [],
+          "added_ids": [
+            8075,
+            8076,
+            8077
+          ],
+          "added_rows": [
+            {
+              "id": 8075,
+              "field_values_u32": [
+                8075,
+                90059,
+                9176,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8076,
+              "field_values_u32": [
+                8076,
+                90060,
+                9177,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 8077,
+              "field_values_u32": [
+                8077,
+                90061,
+                9178,
+                19,
+                0,
+                0,
+                3207803699,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "original_string_block_prefix_preserved": true
+        },
+        "allocation": {
+          "shadow_prison": {
+            "spell_ids": [
+              73001
+            ],
+            "visual_id": 20021,
+            "visual_donor": 15404,
+            "visual_slot": 4,
+            "kit_id": 90059,
+            "kit_donor": 90002,
+            "effect_id": 9176,
+            "effect_donor": 9002,
+            "attach_id": 8075,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\ShadowPrison12.mdx",
+            "color": "cyan-blue",
+            "timing": "conditional Shadow Prison state; may be hidden or absent on Warmane",
+            "anchor": "state kit on the aura holder if the client renders the area-aura state"
+          },
+          "empowered_vortex": {
+            "spell_ids": [
+              72038,
+              72815,
+              72816,
+              72817
+            ],
+            "visual_id": 20022,
+            "visual_donor": 15204,
+            "visual_slot": 2,
+            "kit_id": 90060,
+            "kit_donor": 14056,
+            "effect_id": 9177,
+            "effect_donor": 9002,
+            "attach_id": 8076,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\EmpoweredVortex12.mdx",
+            "color": "purple",
+            "timing": "direct player-origin burst/cast cue; not advance warning",
+            "anchor": "cloned CastKit on each player force-casting the burst"
+          },
+          "blood_nova": {
+            "spell_ids": [
+              72378,
+              73058
+            ],
+            "visual_id": 20023,
+            "visual_donor": 15283,
+            "visual_slot": 3,
+            "kit_id": 90061,
+            "kit_donor": 14140,
+            "effect_id": 9178,
+            "effect_donor": 9002,
+            "attach_id": 8077,
+            "attach_donor": 8003,
+            "model": "Spells\\Lau_ICC_RangeTest\\BloodNova12.mdx",
+            "color": "red",
+            "timing": "selected-target parent impact cue; not advance warning",
+            "anchor": "cloned parent ImpactKit on the selected target; damage/dummy chain untouched"
+          }
+        }
+      },
+      "unrelated_members_byte_identical": true,
+      "archive_snapshot_readback_exact": true
+    }
+  ]
+}

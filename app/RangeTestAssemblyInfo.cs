@@ -1,0 +1,12 @@
+using System.Reflection;
+[assembly: AssemblyTitle("Lau ICC Range Circles Test 1")]
+[assembly: AssemblyDescription("Experimental Wrath 3.3.5a ICC range-circle installer. Author, creator and modifier: Neil Mitchell.")]
+[assembly: AssemblyCompany("Neil Mitchell")]
+[assembly: AssemblyProduct("Lau Setup")]
+[assembly: AssemblyCopyright("Neil Mitchell")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyInformationalVersion("0.1.0-test1-icc-range-circles")]
+[assembly: AssemblyMetadata("Author", "Neil Mitchell")]
+[assembly: AssemblyMetadata("Creator", "Neil Mitchell")]
+[assembly: AssemblyMetadata("LastModifiedBy", "Neil Mitchell")]

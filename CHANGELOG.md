@@ -1,3 +1,13 @@
+# ICC 12-yard player circles — Test 1 (experimental branch)
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+- Adds private cyan heroic BPC Shadow Prison, purple Empowered Vortex and red Blood Nova test visuals, with an intended 12-yard radius.
+- Adds an offline Windows installer that accepts the six exact Lau game 3.0.8 editions, changes only root and active-locale Patch-Y, and restores its verified backups.
+- Changes seven Spell visual links and adds private rows to four visual tables. Unrelated archive members and per-edition spell text are preserved. [Exact DBC edits](docs/dbc/icc-range-test1.md).
+- Static and installer validation accompany the test download; useful advance warning, player attachment, size and encounter cleanup remain unverified in game. [Andre's test guide](ICC-RANGE-TEST.md) · [Ticket #27](https://github.com/CRSD-Lau/Lau-Setup/issues/27).
+- Stable installer 1.3.0 and game version 3.0.8 remain unchanged.
+
 # Lau Setup 1.3.0 — automatic extra-patch backups
 
 - Click Install upgrade as usual: recognized extra upgrade patches are backed up automatically and setup continues.

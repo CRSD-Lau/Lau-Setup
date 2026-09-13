@@ -4,6 +4,8 @@
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
+> **Experimental branch: ICC 12-yard player circles — Test 1.** [Download the Windows test](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/icc-player-range-circles-test1) · [Andre's install and encounter checks](ICC-RANGE-TEST.md) · [Testing ticket #27](https://github.com/CRSD-Lau/Lau-Setup/issues/27). Requires an exact Lau game 3.0.8 baseline. Player attachment, timing and radius need in-game validation; this does not change the stable release below.
+
 <p align="center">
   <a href="https://wrath-multilingual-hd.vercel.app/"><img src="docs/assets/social-preview.png" alt="Wrath HD — gold W shield on an icy blue background" width="100%" /></a>
 </p>
