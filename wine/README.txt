@@ -93,12 +93,16 @@ file, keep all files and backups. Report the exact message, filename, and a
 screenshot at https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose; do not
 delete or force-replace files to bypass the check.
 
-Possible extra upgrade patch? A file with its original download name can
-trigger this too. Close WoW, keep a backup, and move only the named extra file
-outside Data, then retry. Setup chooses the right edition. Do not rename an HD
-download into an original-model client. If unsure, report the file first.
+Before Setup replaces or moves an existing game file, it preserves the
+original automatically. Keep LauSetupBackups; Restore previous install
+puts the originals back. Unrelated files stay in place.
 
-Cannot safely check patch? Download the latest setup; 1.3.0 fixes the old
+Most users do not need to rename patches. If you renamed an identical
+patch-y.mpq to patch-lau.mpq, Setup recognizes it, backs up patch-lau.mpq,
+and installs the selected patch-y.mpq. Restore returns the original name
+and file. Just click Install upgrade; no manual moving is needed.
+
+Cannot safely check patch? Download the latest setup; 1.2.1 fixed the old
 large-table restriction. If it still stops, keep the archive and backups and
 report the exact message and filename through the link above.
 

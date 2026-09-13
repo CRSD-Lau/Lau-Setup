@@ -5,6 +5,8 @@
 - Unknown readable patches stay in place. Unreadable archives, protected stock files and changed backups retain their safety checks.
 - Game release remains 3.0.8. No DBC edits.
 
+Player confirmation: an identical `patch-y.mpq` renamed to `patch-lau.mpq` was backed up automatically and Setup installed `patch-y.mpq` without errors or hard stops. This confirms install behavior on a real client; it is not a new game-payload change.
+
 See [beginner steps](START-HERE.txt) and [1.3.0 release notes](docs/RELEASE-1.3.0.md).
 
 # Lau Setup 1.2.1 — large MPQ compatibility fix

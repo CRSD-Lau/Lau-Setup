@@ -17,6 +17,10 @@ You do not need the source ZIP, raw game patch ZIP, or checksum files for normal
 
 ## What happens to my files?
 
+**Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
+
+Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+
 Recognized extra copies are moved into a verified backup, including files kept under their original download names. Your addons and personal settings stay in place. Keep **LauSetupBackups** in your selected game folder so Restore can work.
 
 Unknown readable patches stay in place. Setup still stops if it cannot safely read an archive, if a protected stock archive contains conflicting content, or if files change during installation. Keep those files and [report the exact message](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose).
