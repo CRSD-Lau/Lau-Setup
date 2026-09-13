@@ -84,6 +84,17 @@ If the launcher cannot start, confirm that `LauSetup.exe`, `lau_wine.py`, and
 `lau-languages.json` are still in the extracted `LauSetup` folder. If it says
 WoW is running, close every WoW instance in every prefix and retry. If it
 rejects your game folder, select the folder that directly contains `WoW.exe`.
+If it reports missing matching language files, use the fully installed locale
+already active in that client; changing configuration does not add a game
+language pack. If an interrupted install needs restoring, choose the same
+client folder and select **Restore previous install**. Keep
+`LauSetupBackups`; if restore stops because another update changed a named game
+file, keep all files and backups. Report the exact message, filename, and a
+screenshot at https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose; do not
+delete or force-replace files to bypass the check. If setup reports a possible
+renamed upgrade patch or cannot safely check a patch, keep the named archive
+and backups and report it through the same link. Do not delete, rename, or
+force-replace it to bypass the safety check.
 
 Interface language
 The interface has ten languages: English (US), German, French, Spanish

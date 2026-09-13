@@ -46,25 +46,18 @@ WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
 Never start `LauSetup.exe` directly under Wine. When setup opens, use the same **Choose folder…**, options, and **Install upgrade** steps above. For recovery, close WoW, choose the same game folder, and select **Restore previous install**.
 
-**Stuck?** Extract the ZIP before looking for `LauSetup.exe`; select the folder that contains `WoW.exe` directly; close WoW if setup says it is running; and use the Microsoft .NET Framework 4.8 prompt if Windows reports that runtime is missing.
+## Common setup messages
 
-## Renamed-patch checks
+- **Cannot find `LauSetup.exe`** — extract the ZIP first, then open the extracted `LauSetup` folder. Its File Explorer type is **Application**.
+- **Choose the folder containing `WoW.exe`** — choose the game folder itself, not `Data`, a launcher folder, a drive root, network share, or linked folder.
+- **.NET Framework 4.8 is missing** — use the Microsoft runtime prompt, then reopen setup.
+- **Missing matching language files** — use the client whose active game locale is fully installed. Changing a config value does not install a language pack.
+- **WoW is running** — close it and retry. Under Wine, close every WoW instance in every prefix.
+- **An interrupted install needs restoring first** — choose the same client folder, select **Restore previous install**, and keep `LauSetupBackups` in place.
+- **A game file was changed by another update** — restore stops to preserve that file. Keep all files and backups, then [report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose). Do not delete or force-replace files to bypass the check.
+- **Possible renamed upgrade patch** or **Cannot safely check patch** — keep the named archive and your backups. [Report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose); do not delete, rename, or force-replace it to bypass the safety check.
 
-Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
-
-The supplied executable retains the inspected Billy patch-naming implementation. Setup still manages its own Q/M/S/Y at fixed names; do not rename those files.
-
-## Patch-S stays recoverable
-
-**Setup 1.1.7 Hotfix:** re-enabling New spell visuals reuses a matching disabled Patch-S and moves the plain disabled copy into `LauSetupBackups`, so Data does not retain an active/disabled duplicate. Different copies are preserved in the transaction backup. Switching off still uses `.mpq.disabled`. Use **Restore previous install** for recovery.
-
-## 90° breath and Slime Spray warnings
-
-**3.0.8 Lau:** all supported breath indicators and Rotface Slime Spray are **90° total**, following Warmane tester confirmation. Covers Halion in both realms, Saviana Ragefire, Sartharion, ICC Rimefang and Sindragosa. Range and animation timing are preserved. The approved larger Halion meteor-fire radius and light blue Coldflame are unchanged.
-
-**Already installed?** Download **LauSetup.zip** first, extract it, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Older installers keep their embedded catalog.
-
-[Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
+For prior hotfix behavior and historical indicator changes, see the [changelog](CHANGELOG.md). Setup checks actual SHA-256 hashes; an older installer keeps its embedded catalog, so download and extract the current `LauSetup.zip` before updating.
 
 ## Package and requirements
 

@@ -34,6 +34,10 @@ All nine translated reading options must pass source/output integrity checks bef
 
 Machine translation still needs fluent-reader review. English remains authoritative. For durable corrections, update the English source or translation tooling; direct edits to generated files will be regenerated. Failed or partial batches do not replace existing documents.
 
+## Native-language review
+
+The [translation review matrix](docs/TRANSLATION-REVIEW.md) records human review of the current beginner guides. It starts every non-English language as unreviewed and deliberately leaves the source revision blank until a reviewer selects and reviews one. This record does not certify translation quality or replace the English source.
+
 ## Local use
 
 Python 3.11 or newer is sufficient; no additional packages are required. Check structure without network access:
