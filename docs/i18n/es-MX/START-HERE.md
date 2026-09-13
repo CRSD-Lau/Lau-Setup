@@ -2,20 +2,35 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Un solo ZIP incluye ahora el instalador de Windows y el iniciador para Linux/Wine. La interfaz sigue automáticamente el idioma del sistema operativo entre diez opciones; la elección manual se guarda. La versión 3.0.8 y los archivos del juego no cambian. No hay cambios en DBC.
 >
 > La actualización completa de las guías sigue pendiente por un HTTP 429 de Google. El texto anterior puede estar desactualizado; consulta la fuente inglesa actual y las notas 1.2.0. [English](../../../START-HERE.txt) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Descarga actual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows y Linux/Wine. Extrae la carpeta `LauSetup/` con cinco archivos: en Windows abre `LauSetup.exe`; en Linux/Wine ejecuta `LauSetup.sh`. Las instrucciones antiguas de abajo sobre ZIP Wine o EXE separados no se aplican a 1.2.0.
 
+
+<!-- BEGINNER-120-STEPS -->
+## Primeros pasos
+
+1. Cierre WoW por completo.
+2. Descargue solo `LauSetup.zip`. En Windows: clic derecho, **Extraer todo**, abra `LauSetup` y haga doble clic en `LauSetup.exe`.
+3. Elija **Elegir carpeta…** y la carpeta que contiene directamente `WoW.exe`, no `Data` ni una carpeta de lanzador.
+4. **Idioma de la interfaz** solo cambia el texto de Setup: Automático sigue el sistema y guarda la elección; no cambia los nueve idiomas del juego.
+5. **Consagración mejorada** está activada por defecto. Los nuevos efectos requieren modelos HD compatibles detectados; mapas/minimapa son opcionales.
+6. Elija **Instalar actualización**, espere sin cerrar Setup, inicie WoW y escriba `/pyversion`. Para restaurar, cierre WoW, use la misma carpeta y elija **Restaurar instalación anterior**.
+
+### Linux/Wine
+
+Use el mismo ZIP solo con un prefijo Wine 64-bit existente, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, fuentes documentadas y almacenamiento Linux local. Extraiga y ejecute `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`; nunca ejecute el EXE directamente en Wine.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Traducción automática. [Fuente en inglés](../../../START-HERE.txt). Si la redacción difiere, la fuente en inglés tiene autoridad.
 
 CONFIGURACIÓN DE LAU: LANZAMIENTO 3.0.8
 
-Windows: descargar LauSetup.exe.
-Linux/Wine: descargue LauSetup-Wine.zip y siga su README.txt.
-Wine requiere el lanzador Linux suministrado; No ejecute el EXE directamente.
+Windows y Linux/Wine: descargue `LauSetup.zip` y extraiga `LauSetup/`. En Windows abra `LauSetup/LauSetup.exe`; en Linux/Wine ejecute `LauSetup/LauSetup.sh`.
+Para Wine use el iniciador Linux incluido. No ejecute directamente el EXE.
 
 1. Cierre World of Warcraft.
 2. Abra LauSetup.exe y elija su carpeta WoW.

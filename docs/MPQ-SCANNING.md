@@ -2,6 +2,8 @@
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
+> **First time installing?** Use [Start here](../START-HERE.txt); this document explains a technical safety check.
+
 Setup 1.1.8 uses a small managed C# reader for classic MPQ headers/hash tables. StormLib was assessed and an official library package obtained, but the hotfix does not bundle or load it. Reading known-name hashes requires neither native code nor decompression; broader archive inspection remains separate work.
 
 The MPQ hash/decryption format was checked against [StormLib](https://github.com/ladislav-zezula/StormLib), particularly SBaseCommon.cpp and StormLib.h. The upstream license is retained below for attribution. The reader's scope and conservative rejection behavior are documented in [Known limitations](../KNOWN-LIMITATIONS.md#setup-118-overlap-detection).

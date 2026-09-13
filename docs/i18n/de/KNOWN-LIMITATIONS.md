@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Ein ZIP enthält jetzt das Windows-Installationsprogramm und den Linux/Wine-Starter. Die Oberfläche folgt automatisch der Betriebssystemsprache mit zehn Optionen; eine manuelle Auswahl wird gespeichert. Spielversion 3.0.8 und die Spieldateien bleiben unverändert. Es gibt keine DBC-Änderungen.
 >
 > Die vollständige Aktualisierung der Anleitungen steht wegen Google-HTTP-429 noch aus. Der bisherige Text unten kann älter sein; maßgeblich sind die aktuelle englische Quelle und die Hinweise zu 1.2.0. [English](../../../KNOWN-LIMITATIONS.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Aktueller Download:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) für Windows und Linux/Wine. Entpacken Sie den Ordner `LauSetup/` mit fünf Dateien: Windows öffnet `LauSetup.exe`; Linux/Wine führt `LauSetup.sh` aus. Die älteren Anweisungen unten zu getrennten EXE- oder Wine-ZIPs gelten nicht für 1.2.0.
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -61,7 +63,7 @@ Die Lokalisierungsabhängigkeit war während der Entwicklung dieses Projekts ein
 – Wenn Sie die HD-Modell-Patches nach der Installation entfernen oder deaktivieren, führen Sie das neueste Setup für die resultierende Konfiguration erneut aus. Eine installierte HD-Edition führt keine dynamische Konvertierung durch. Nicht übereinstimmende Assets können zu fehlenden oder falschen Bildern führen und eine Untersuchung von Abstürzen erforderlich machen. Es wird weder ein Absturz noch ein absturzfreies Verhalten garantiert.
 – Root- und Active-Locale-Platzierungen haben unterschiedliche Rollen. Insbesondere sind die beiden S-Archive unterschiedlich. Befolgen Sie die [Platzierungsanleitung](docs/TECHNICAL.md#file-placement), keine allgemeine Anweisung zum Duplizieren jedes MPQ.
 - Nicht verwandte Patches bleiben erhalten, die Beibehaltung ist jedoch keine Kompatibilitätsgarantie. Ein anderes Archiv, das dieselben Daten überschreibt, kann das Ergebnis ändern.
-- Spielinhalte unterstützen neun Gebietsschemas; Die Benutzeroberfläche des Installationsprogramms ist derzeit Englisch. Durch die alleinige Änderung von `Config.wtf` werden keine Dateien oder Schriftarten einer anderen Sprache installiert.
+- Die Installationsoberfläche folgt automatisch der Betriebssystemsprache mit zehn Optionen; eine manuelle Auswahl wird gespeichert. Die Spielinhalte unterstützen weiterhin neun Gebietsschemas. Durch die alleinige Änderung von `Config.wtf` werden keine Dateien oder Schriftarten einer anderen Sprache installiert.
 
 <a id="installer-and-recovery-assumptions"></a>
 

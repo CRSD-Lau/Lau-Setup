@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — 하나의 ZIP에 이제 Windows 설치 관리자와 Linux/Wine 실행기가 함께 들어 있습니다. 인터페이스는 열 가지 옵션 중 운영 체제 언어를 자동으로 따르며, 수동 선택은 저장됩니다. 게임 버전 3.0.8과 게임 파일은 변경되지 않습니다. DBC 변경도 없습니다.
 >
 > Google HTTP 429로 전체 안내서 갱신은 아직 보류 중입니다. 아래 본문은 오래되었을 수 있으므로 현재 영어 원문과 1.2.0 릴리스 노트를 확인하세요. [English](../../../KNOWN-LIMITATIONS.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **현재 다운로드:** Windows와 Linux/Wine용 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)입니다. 다섯 파일이 있는 `LauSetup/` 폴더를 추출하세요. Windows에서는 `LauSetup.exe`를 열고 Linux/Wine에서는 `LauSetup.sh`를 실행합니다. 아래의 별도 EXE 또는 Wine ZIP 관련 이전 안내는 1.2.0에 적용되지 않습니다.
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -61,7 +63,7 @@ DBC 테이블은 독립된 스위치가 아닌 연결된 데이터입니다. 비
 - 설치 후 HD 모델 패치를 제거하거나 비활성화하는 경우 결과 구성에 대한 최신 설정을 다시 실행하십시오. 설치된 HD 에디션은 동적으로 자체 변환되지 않습니다. 일치하지 않는 자산은 누락되거나 잘못된 시각적 개체를 생성할 수 있으며 충돌 조사가 필요할 수 있습니다. 충돌이나 충돌 없는 동작은 보장되지 않습니다.
 - 루트 및 활성 로캘 배치에는 서로 다른 역할이 있습니다. 특히 두 S 아카이브는 서로 다르다. 모든 MPQ를 복제하려면 일반적인 지침이 아닌 [배치 가이드](docs/TECHNICAL.md#file-placement)를 따르세요.
 - 관련되지 않은 패치는 보존되지만 보존한다고 해서 호환성이 보장되는 것은 아닙니다. 동일한 데이터를 재정의하는 다른 아카이브로 인해 결과가 변경될 수 있습니다.
-- 게임 콘텐츠는 9개 로케일을 지원합니다. 설치 프로그램 인터페이스는 현재 영어입니다. `Config.wtf`만 변경하면 다른 언어의 파일이나 글꼴이 설치되지 않습니다.
+- 설치 프로그램 인터페이스는 열 가지 옵션 중 운영 체제 언어를 자동으로 따르며 수동 선택은 저장됩니다. 게임 콘텐츠는 계속 9개 로케일을 지원합니다. `Config.wtf`만 변경해도 다른 언어의 파일이나 글꼴은 설치되지 않습니다.
 
 <a id="installer-and-recovery-assumptions"></a>
 

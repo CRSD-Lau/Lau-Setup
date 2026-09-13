@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Un solo ZIP incluye ahora el instalador de Windows y el iniciador para Linux/Wine. La interfaz sigue automáticamente el idioma del sistema operativo entre diez opciones; la elección manual se guarda. La versión 3.0.8 y los archivos del juego no cambian. No hay cambios en DBC.
 >
 > La actualización completa de las guías sigue pendiente por un HTTP 429 de Google. El texto anterior puede estar desactualizado; consulta la fuente inglesa actual y las notas 1.2.0. [English](../../../KNOWN-LIMITATIONS.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Descarga actual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows y Linux/Wine. Extrae la carpeta `LauSetup/` con cinco archivos: en Windows abre `LauSetup.exe`; en Linux/Wine ejecuta `LauSetup.sh`. Las instrucciones antiguas de abajo sobre ZIP Wine o EXE separados no se aplican a 1.2.0.
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -61,7 +63,7 @@ La dependencia de la localización fue un problema real durante el desarrollo de
 - Si elimina o desactiva los parches del modelo HD después de la instalación, vuelva a ejecutar la instalación más reciente para la configuración resultante. Una edición HD instalada no se convierte dinámicamente. Los activos no coincidentes pueden producir imágenes faltantes o incorrectas y pueden requerir una investigación de los accidentes; No se garantiza ni un fallo ni un comportamiento libre de fallos.
 - Las ubicaciones raíz y local activa tienen funciones distintas. En particular, los dos archivos S son diferentes. Siga la [guía de colocación](docs/TECHNICAL.md#file-placement), no una instrucción genérica para duplicar cada MPQ.
 - Se conservan los parches no relacionados, pero la conservación no es una garantía de compatibilidad. Otro archivo que anule los mismos datos puede cambiar el resultado.
-- El contenido del juego admite nueve configuraciones regionales; La interfaz del instalador está actualmente en inglés. Cambiar `Config.wtf` por sí solo no instala los archivos o fuentes de otro idioma.
+- La interfaz del instalador sigue automáticamente el idioma del sistema entre diez opciones; la elección manual se guarda. El contenido del juego sigue admitiendo nueve configuraciones regionales. Cambiar solo `Config.wtf` no instala archivos ni fuentes de otro idioma.
 
 <a id="installer-and-recovery-assumptions"></a>
 

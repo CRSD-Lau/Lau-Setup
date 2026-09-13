@@ -2,11 +2,27 @@
 [English](../../../../README.md) · [Deutsch](../../de/README.md) · [Español (España)](../../es-ES/README.md) · [Español (México)](../../es-MX/README.md) · [Français](../README.md) · [한국어](../../ko/README.md) · [Русский](../../ru/README.md) · [简体中文](../../zh-CN/README.md) · [繁體中文](../../zh-TW/README.md) · [Português (Brasil)](../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — Une seule archive ZIP contient désormais l’installateur Windows et le lanceur Linux/Wine. L’interface suit automatiquement la langue du système d’exploitation parmi dix options ; un choix manuel est mémorisé. La version 3.0.8 et les fichiers du jeu restent inchangés. Aucune modification DBC.
 >
 > La mise à jour complète des guides reste en attente à cause d’une erreur Google HTTP 429. Le texte ci-dessous peut être ancien ; consultez la source anglaise actuelle et les notes 1.2.0. [English](../../../../wine/README.txt) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **Téléchargement actuel :** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) pour Windows et Linux/Wine. Extrayez le dossier `LauSetup/` avec cinq fichiers : Windows ouvre `LauSetup.exe` ; Linux/Wine lance `LauSetup.sh`. Les anciennes instructions ci-dessous sur des ZIP Wine ou EXE séparés ne s’appliquent pas à 1.2.0.
 
+
+<!-- BEGINNER-120-STEPS -->
+## Premiers pas
+
+1. Fermez complètement WoW.
+2. Téléchargez seulement `LauSetup.zip`. Sous Windows : clic droit, **Extraire tout**, ouvrez `LauSetup` puis double-cliquez `LauSetup.exe`.
+3. Extrayez `LauSetup.zip`. Conservez les cinq fichiers de `LauSetup/` ensemble : `LauSetup.exe`, `LauSetup.sh`, `lau_wine.py`, `lau-languages.json` et `README.txt`.
+4. **Langue de l’interface** ne change que le texte de Setup : Automatique suit le système et le choix est mémorisé ; les neuf langues du jeu ne changent pas.
+5. **Consécration améliorée** est activée par défaut. Les nouveaux effets exigent des modèles HD compatibles détectés ; cartes/minicarte sont facultatives.
+6. Choisissez **Installer la mise à niveau**, attendez la fin sans fermer Setup, puis lancez WoW et tapez `/pyversion`. Pour annuler : fermez WoW, reprenez le même dossier et choisissez **Restaurer l’installation précédente**.
+
+### Linux/Wine
+
+Utilisez la même ZIP seulement avec un préfixe Wine 64-bit existant, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, les polices documentées et un stockage Linux local. Extrayez-la puis lancez `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`; ne lancez jamais l’EXE directement sous Wine.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Traduction automatique. [source anglaise](../../../../wine/README.txt). Si la formulation diffère, la source anglaise fait autorité.
@@ -16,7 +32,7 @@ Author / Creator / Last Modified By: Neil Mitchell
 
 1. Utilisez un client WoW 3.3.5a build 12340 existant sur un système de fichiers Linux local.
 2. Fermez chaque instance WoW, y compris les jeux dans d'autres préfixes Wine.
-3. Extrayez ce ZIP. Conservez les quatre fichiers ensemble.
+3. Extrayez `LauSetup.zip`. Conservez les cinq fichiers de `LauSetup/` ensemble : `LauSetup.exe`, `LauSetup.sh`, `lau_wine.py`, `lau-languages.json` et `README.txt`.
 4. Ouvrez un terminal dans le dossier extrait et exécutez :
 
 ```sh
@@ -62,8 +78,7 @@ chèques. Il ne s'agit pas d'une certification de chaque distribution, système 
 échelle d'affichage, version Wine ou rencontre de jeu. Pas de Lutris, Proton ou macOS
 l'intégration est incluse dans cette version.
 
-L'interface du programme d'installation est en anglais. Les données de jeu client prennent en charge les neuf
-paramètres régionaux existants et est sélectionné parmi les paramètres régionaux de jeu détectés.
+L’interface de l’installateur suit automatiquement la langue du système parmi dix options ; un choix manuel est mémorisé. Les données de jeu du client prennent toujours en charge neuf paramètres régionaux et suivent les paramètres régionaux détectés du jeu.
 
 Configuration 1.1.7 : Les nouveaux visuels de sorts désactivés conservent Patch-S sous la forme .mpq.disabled à côté de
 son chemin originel. Une autre copie désactivée n’est jamais écrasée.

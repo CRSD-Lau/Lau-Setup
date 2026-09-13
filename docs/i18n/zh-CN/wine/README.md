@@ -2,11 +2,27 @@
 [English](../../../../README.md) · [Deutsch](../../de/README.md) · [Español (España)](../../es-ES/README.md) · [Español (México)](../../es-MX/README.md) · [Français](../../fr/README.md) · [한국어](../../ko/README.md) · [Русский](../../ru/README.md) · [简体中文](../README.md) · [繁體中文](../../zh-TW/README.md) · [Português (Brasil)](../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
 >
 > 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.2.0 发布说明为准。 [English](../../../../wine/README.txt) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.2.0。
 
+
+<!-- BEGINNER-120-STEPS -->
+## 新手步骤
+
+1。完全关闭 WoW。
+2。只下载 `LauSetup.zip`。在 Windows 中右键点击，选择**全部提取**，打开 `LauSetup`，然后双击 `LauSetup.exe`。
+3。解压 `LauSetup.zip`。将 `LauSetup/` 中的五个文件放在一起：`LauSetup.exe`、`LauSetup.sh`、`lau_wine.py`、`lau-languages.json` 和 `README.txt`。
+4。**界面语言** 只改变 Setup 文本：自动跟随系统语言，手动选择会保存；它不会改变游戏的九种语言环境。
+5。**强化奉献** 默认启用。新法术效果需要检测到兼容的 HD 模型；地图和小地图是可选下载。
+6。选择 **安装升级**，等待完成且不要关闭 Setup。启动 WoW 后输入 `/pyversion`。如需恢复，请关闭 WoW，选择相同的游戏文件夹，再选择 **恢复上一次安装**。
+
+### Linux/Wine
+
+同一个 ZIP 只能在已有 64-bit Wine 前缀、Wine 11.0、Wine Mono 10.4.1、Python 3.9+、文档要求的字体和本地 Linux 存储准备好后使用。解压后运行 `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`；不要在 Wine 中直接运行 EXE。
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 自动翻译。 [英文来源](../../../../wine/README.txt)。如果措辞不同，则以英文来源为准。
@@ -16,7 +32,7 @@ Author / Creator / Last Modified By: Neil Mitchell
 
 1。在本地 Linux 文件系统上使用现有的 WoW 3.3.5a 构建 12340 客户端。
 2。关闭每个 WoW 实例，包括其他 Wine 前缀的游戏。
-3。解压缩此 ZIP。将所有四个文件放在一起。
+3。解压 `LauSetup.zip`。将 `LauSetup/` 中的五个文件放在一起：`LauSetup.exe`、`LauSetup.sh`、`lau_wine.py`、`lau-languages.json` 和 `README.txt`。
 4。在提取的文件夹中打开终端并运行：
 
 ```sh
@@ -62,8 +78,7 @@ https://github.com/wine-mono/wine-mono/releases/tag/wine-mono-10.4.1
 显示比例，Wine版本，或者游戏遭遇。没有 Lutris、Proton 或 macOS
 此版本中包含集成。
 
-安装程序界面是英文的。客户端游戏数据支持全部九个
-现有语言环境，并从检测到的游戏语言环境中选择。
+安装程序界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。客户端游戏数据仍支持九种语言环境，并遵循检测到的游戏语言环境。
 
 设置 1.1.7：新的拼写视觉效果关闭，使 Patch-S 保持为 .mpq.disabled 旁边
 它原来的路径。不同的禁用副本永远不会被覆盖。

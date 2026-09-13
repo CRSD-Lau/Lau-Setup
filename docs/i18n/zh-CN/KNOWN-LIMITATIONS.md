@@ -2,10 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- RELEASE-120-NOTICE -->
+<!-- ZIP-ONLY-120-NOTICE -->
 > **Setup 1.2.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
 >
 > 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.2.0 发布说明为准。 [English](../../../KNOWN-LIMITATIONS.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
+>
+> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.2.0。
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
@@ -61,7 +63,7 @@ DBC表是连接的数据，而不是独立的开关。添加视觉效果可能�
 - 如果您在安装后删除或禁用 HD 型号补丁，请重新运行最新的设置以获取最终的配置。安装的高清版本不会动态转换自身。不匹配的资产可能会产生缺失或不正确的视觉效果，并可能需要对崩溃进行调查；无法保证崩溃或无崩溃行为。
 - 根位置和活动区域设置具有不同的作用。特别是，两个S档案是不同的。请遵循[放置指南](docs/TECHNICAL.md#file-placement)，而不是复制每个 MPQ 的通用说明。
 - 保留不相关的补丁，但保留并不能保证兼容性。覆盖相同数据的另一个存档可能会改变结果。
-- 游戏内容支持九种语言环境；安装程序界面目前为英文。单独更改 `Config.wtf` 不会安装其他语言的文件或字体。
+- 安装程序界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏内容仍支持九种语言环境。仅更改 `Config.wtf` 不会安装其他语言的文件或字体。
 
 <a id="installer-and-recovery-assumptions"></a>
 

@@ -6,6 +6,8 @@
 
 Read this before proposing a feature. Lau Setup installs a client-side visual upgrade for **WoW 3.3.5a build 12340**. It is not a server modification framework. The boundaries below describe the current project; outside scope does not necessarily mean technically impossible.
 
+> **Need installation help?** Use [Start here](START-HERE.txt) before relying on these technical limits.
+
 ## What we can and cannot change
 
 | Request | Current boundary |
@@ -40,7 +42,7 @@ The localization dependency was a real issue during this project's development. 
 - If you remove or disable the HD model patches after installation, rerun the latest setup for the resulting configuration. An installed HD edition does not dynamically convert itself. Mismatched assets may produce missing or incorrect visuals and can require investigation of crashes; neither a crash nor crash-free behavior is guaranteed.
 - Root and active-locale placements have distinct roles. In particular, the two S archives are different. Follow the [placement guide](docs/TECHNICAL.md#file-placement), not a generic instruction to duplicate every MPQ.
 - Unrelated patches are preserved, but preservation is not a compatibility guarantee. Another archive overriding the same data can change the result.
-- Game content supports nine locales; the installer interface is currently English. Changing `Config.wtf` alone does not install another language's files or fonts.
+- Game content supports nine locales. The installer interface supports ten languages, follows the system in Automatic mode, and saves a manual selection. Changing `Config.wtf` alone does not install another game language's files or fonts.
 
 ## Installer and recovery assumptions
 

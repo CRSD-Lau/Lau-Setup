@@ -6,6 +6,12 @@ The **Translate documentation** GitHub Action uses **Google Translate's free web
 
 Use the language links at the top of the README. GitHub displays the root README by default; visitors choose their language using these links. This workflow translates documentation, including installation guides and technical references. It does not translate GitHub's interface, issues, release descriptions, the separate website or the installer interface, and does not add a Portuguese game locale.
 
+## Current beginner instructions
+
+The 1.2.0 beginner steps in all 27 localized primary guides and the current notices in all 117 translated pages were updated directly while a full refresh of older technical text was blocked by HTTP 429. The English guides remain authoritative. A scheduled follow-up retries the pending full refresh; current installer instructions and bundled interface translations do not depend on that service.
+
+The authored temporary notices and beginner steps are retained in `tools/translation_zip_only_notices_120.py`. This self-contained repository script can reapply them without a translation-service request. Do not mark the older technical bodies freshly translated merely because these notices were updated. Once the complete refresh passes, review the result before retiring the temporary notices.
+
 ## Languages
 
 Coverage is checked against `build/catalog.json`, with `ptBR` added for documentation. The reading options are English, German, Spanish for Spain and Mexico, French, Korean, Russian, Simplified Chinese, Traditional Chinese and Brazilian Portuguese.
