@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-`dist/universal-1.2.0/LauSetup.zip` is the local 1.2.0 candidate ZIP for Windows and Linux.
+`LauSetup.zip` is the Lau Setup 1.2.0 release ZIP for Windows and Linux.
 Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 `LauSetup.sh`, `lau_wine.py`, `lau-languages.json`, and `README.txt`.
 
@@ -49,10 +49,12 @@ Build a release only after placing the built input EXE at
 python tools/package_universal.py
 ```
 
-For an isolated release candidate, pass `--exe`, `--translations`, and
+For an isolated build, pass `--exe`, `--translations`, and
 `--output`. The packager copies those input bytes exactly, accepts only the five
 listed files, stamps ZIP metadata as Neil Mitchell, and gives the shell launcher
 an executable Unix mode. It bundles no game payloads or Wine runtime.
 
-This candidate does not alter public 1.1.8 release links. Publish and replace
-those links only after the separate release validation is complete.
+Release validation passed 62 Windows and 62 Wine regression groups, 50 Windows
+and 21 normal-user Wine interface states, 185 translation keys across ten
+languages, and 31 package, translation, and host tests.
+Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
