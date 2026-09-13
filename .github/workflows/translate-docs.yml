@@ -1,0 +1,164 @@
+# Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell
+name: Translate documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - '**.txt'
+      - '!docs/i18n/**'
+      - 'build/catalog.json'
+      - 'tools/translate_docs.py'
+      - 'tools/start_translation_model.sh'
+      - 'tools/translation-locales.json'
+      - 'tests/test_translate_docs.py'
+      - '.github/workflows/translate-docs.yml'
+  pull_request:
+    paths:
+      - '**.md'
+      - '**.txt'
+      - 'build/catalog.json'
+      - 'tools/translate_docs.py'
+      - 'tools/start_translation_model.sh'
+      - 'tools/translation-locales.json'
+      - 'tests/test_translate_docs.py'
+      - '.github/workflows/translate-docs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-translations-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      locales: ${{ steps.locales.outputs.locales }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s tests -p test_translate_docs.py -v
+      - run: python tools/translate_docs.py --check
+      - id: locales
+        shell: python
+        run: |
+          import json, os, sys
+          sys.path.insert(0, 'tools')
+          from translate_docs import locales
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('locales=' + json.dumps([k for k in locales() if k != 'enUS']) + '\n')
+
+  model-smoke:
+    needs: validate
+    if: github.event_name == 'pull_request' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - run: bash tools/start_translation_model.sh
+      - run: python tools/translate_docs.py --locale ptBR --source README.md
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: portuguese-smoke
+          path: docs/i18n/pt-BR/README.md
+          retention-days: 1
+
+  translate:
+    needs: validate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: true
+      max-parallel: 9
+      matrix:
+        locale: ${{ fromJSON(needs.validate.outputs.locales) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - name: Start verified local translation model
+        run: bash tools/start_translation_model.sh
+      - name: Translate changed documents
+        env:
+          TARGET_LOCALE: ${{ matrix.locale }}
+        run: python tools/translate_docs.py --locale "$TARGET_LOCALE"
+      - name: Stage only this language
+        env:
+          TARGET_LOCALE: ${{ matrix.locale }}
+        shell: python
+        run: |
+          import os, shutil, sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          from translate_docs import locales
+          tag = locales()[os.environ['TARGET_LOCALE']]['tag']
+          shutil.copytree(Path('docs/i18n') / tag, Path(os.environ['RUNNER_TEMP']) / 'translations' / tag)
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: translations-${{ matrix.locale }}
+          path: ${{ runner.temp }}/translations/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: [validate, translate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: translations-*
+          path: docs/i18n/
+          merge-multiple: true
+      - name: Verify all generated documents
+        run: python tools/translate_docs.py --verify
+      - name: Update language links
+        run: python tools/translate_docs.py --navigation
+      - name: Publish complete translations
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          gh auth setup-git
+          git fetch origin main
+          if [ "$(git rev-parse origin/main)" != "$EXPECTED_SHA" ]; then
+            echo 'English sources changed during translation. Rerun on the latest main commit.' >&2
+            exit 1
+          fi
+          git add -- README.md docs/i18n/
+          if git diff --cached --quiet; then
+            echo 'Translations already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: refresh automatic translations'
+          git push origin HEAD:main

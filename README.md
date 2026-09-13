@@ -1,3 +1,7 @@
+<!-- LANGUAGES:START -->
+[English](README.md) · Deutsch · Español (España) · Español (México) · Français · 한국어 · Русский · 简体中文 · 繁體中文 · Português (Brasil)
+<!-- LANGUAGES:END -->
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 <p align="center">
