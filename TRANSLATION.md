@@ -16,7 +16,7 @@ Google's web language selector identifies `pt` as Portuguese (Brazil); Portugues
 
 Pushes changing English documentation, the catalog or translation tooling trigger the Action. Maintainers can also select **Actions → Translate documentation → Run workflow → main**. It discovers tracked Markdown and text files in the repository root and `docs/`, plus `wine/README.txt`. Generated translations and `AGENTS.md` are excluded. Text guides become rendered Markdown under `docs/i18n/<language>/`.
 
-Only changed documents need translation. Source and output hashes and a segment cache avoid repeated requests. Bump `TRANSLATION_REVISION` when changing translation conventions. Language jobs run one at a time, with a pause between requests. A rate limit stops the affected job; retry later. The free web interface is unofficial for automation and can change or block requests. There is no paid fallback. Existing published pages remain available when generation fails.
+Only changed documents need translation. Source and output hashes and a segment cache avoid repeated requests. Bump `TRANSLATION_REVISION` when changing translation conventions. At most three language jobs run at once, with a pause between requests in each job. A rate limit stops the affected job; retry later. The free web interface is unofficial for automation and can change or block requests. There is no paid fallback. Existing published pages remain available when generation fails.
 
 Standard GitHub-hosted runner execution is free for this public repository. Jobs are disabled if the repository becomes private. Small intermediate artifacts expire after one day; no model or large dependency is stored.
 
