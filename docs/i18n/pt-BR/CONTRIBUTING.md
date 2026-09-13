@@ -2,6 +2,11 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](README.md)
 <!-- LANGUAGES:END -->
 
+<!-- HOTFIX-118-NOTICE -->
+> **Correção 1.1.8** — O Setup verifica os MPQs de Data e da pasta do idioma ativo para detectar arquivos Patch-Y renomeados conhecidos e cópias exatas do catálogo. Se houver um possível conflito ou um arquivo ilegível ou incompatível, ele para e identifica o arquivo sem excluí-lo automaticamente. Renomear um arquivo não altera o hash do conteúdo. Os arquivos do jogo continuam na versão 3.0.8.
+>
+> A tradução completa ainda não foi atualizada devido ao limite de solicitações do Google. O texto existente abaixo corresponde a uma versão anterior. Consulte as informações atuais em inglês. [English](../../../CONTRIBUTING.md) · [1.1.8](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.1.8)
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Tradução automática. [Fonte em inglês](../../../CONTRIBUTING.md). Se o texto for diferente, a fonte em inglês é oficial.

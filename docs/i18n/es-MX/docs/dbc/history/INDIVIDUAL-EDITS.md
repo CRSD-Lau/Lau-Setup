@@ -2,6 +2,11 @@
 [English](../../../../../../README.md) · [Deutsch](../../../../de/README.md) · [Español (España)](../../../../es-ES/README.md) · [Español (México)](../../../README.md) · [Français](../../../../fr/README.md) · [한국어](../../../../ko/README.md) · [Русский](../../../../ru/README.md) · [简体中文](../../../../zh-CN/README.md) · [繁體中文](../../../../zh-TW/README.md) · [Português (Brasil)](../../../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
+<!-- HOTFIX-118-NOTICE -->
+> **Corrección 1.1.8** — Setup revisa los MPQ de Data y de la carpeta del idioma activo para detectar Patch-Y renombrados conocidos y copias exactas del catálogo. Si hay un posible conflicto o un archivo ilegible o no compatible, se detiene e indica el archivo sin borrarlo automáticamente. Cambiar el nombre de un archivo no cambia el hash de su contenido. Los archivos del juego siguen en 3.0.8.
+>
+> La traducción completa aún no se ha actualizado debido al límite de solicitudes de Google. El texto anterior que aparece debajo corresponde a una versión previa. Consulta la información actual en inglés. [English](../../../../../dbc/history/INDIVIDUAL-EDITS.md) · [1.1.8](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.1.8)
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Traducción automática. [Fuente en inglés](../../../../../dbc/history/INDIVIDUAL-EDITS.md). Si la redacción difiere, la fuente en inglés tiene autoridad.

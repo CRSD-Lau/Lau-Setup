@@ -2,6 +2,11 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
+<!-- HOTFIX-118-NOTICE -->
+> **热修复 1.1.8** — Setup 会检查 Data 和当前语言文件夹中的 MPQ，识别已知的改名 Patch-Y 和与目录文件完全相同的副本。发现可能的冲突、无法读取或不支持的存档时，会停止安装并显示文件名，不会自动删除该文件。仅重命名文件不会改变内容哈希。游戏文件仍为 3.0.8。
+>
+> 由于 Google 请求限额，完整翻译尚未更新。下方原有正文描述的是较早版本的情况。请以最新英文原文为准。 [English](../../../TRANSLATION.md) · [1.1.8](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.1.8)
+
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 自动翻译。 [英文来源](../../../TRANSLATION.md)。如果措辞不同，则以英文来源为准。
