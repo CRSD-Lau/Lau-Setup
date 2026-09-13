@@ -49,12 +49,12 @@ Author / Creator / Last Modified By: Neil Mitchell
 
 # Lau Setup 1.1.4 · Game release 3.0.8 Lau
 
-## Unreleased - Patch-S re-enable cleanup
+## 1.1.7 Hotfix - Patch-S re-enable cleanup
 
 - Re-enabling New spell visuals reuses a disabled Patch-S when its SHA-256 and size match the selected release, avoiding that download.
 - The plain disabled copy moves into the verified transaction backup outside Data, even if active Patch-S already matches. Different disabled files remain recoverable through Restore previous install.
 - Applies to root and active-locale Patch-S. Off still uses the plain `.mpq.disabled` filename. Existing hash-suffixed archives are left intact.
-- Game payloads are unchanged. This change is not yet a published installer release.
+- Game payloads remain 3.0.8 Lau. Windows and Wine each passed 50 regression groups, real-file on/off/on switching and exact rollback.
 
 ## All breath and Slime Spray warnings are now 90°
 

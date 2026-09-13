@@ -59,3 +59,7 @@ Only root and active-locale S paths gain the .disabled suffix. Each disable crea
 ## Setup 1.1.6 disabled-copy collisions
 
 The current active S file always takes the plain .mpq.disabled name. Before replacing a different existing disabled file, Setup stages its bytes into a sibling ending in the first 12 characters of its SHA-256; full SHA-256 and length are checked before any reuse. This keeps names within the existing Windows path limits. Conflicting archive contents fail closed. The active S, plain disabled file, and newly created archival copy are journaled independently, with at most thirteen entries; rollback restores all originals. Local sources are restricted to paired S deactivation or disabled-file replacement operations. Old journals remain readable.
+
+## Setup 1.1.7 re-enable cleanup
+
+Enabling new spells journals removal of the plain root and active-locale disabled S files. The transaction moves their verified original bytes into its before backup outside Data. If a disabled file matches the catalog SHA-256 and size, it is staged locally for the matching S destination and excluded from downloads. Local sources must be paired with the exact disabled-file removal and catalog asset. Active S already matching still produces a cleanup transaction. Existing hash-suffixed archives are not swept. Previous journals remain readable. On/off/on, source drift, interruptions at every new commit/restore step, all locales and stacked restoration are covered.

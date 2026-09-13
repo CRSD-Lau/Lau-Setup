@@ -53,3 +53,7 @@ states; the Windows prerequisite branch was reviewed and the installed-runtime
 path exercised. No Windows machine lacking .NET was modified for a test.
 The final code also repeats core installation and exact rollback with the
 previously downloaded and rehashed GitHub payload bytes.
+
+## Setup 1.1.7 review
+
+Reviewed the current diff for path scope, local-source trust, download selection, preflight/commit drift checks, transaction backups and rollback compatibility. No unresolved findings. Local reuse is limited to the catalog-matching root/active-locale S pair; disabled files move through the existing verified backup journal. Both platforms passed 50 regression groups and actual release-file on/off/on with exact stacked rollback. No game payload changes.

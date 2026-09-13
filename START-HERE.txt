@@ -53,7 +53,7 @@ localized text), Lau (adaptation, compatibility, indicators, testing).
 
 Author / Creator / Last Modified By: Neil Mitchell
 
-Setup 1.1.6: New spell visuals off keeps Patch-S as .mpq.disabled next to
+Setup 1.1.7: New spell visuals off keeps Patch-S as .mpq.disabled next to
 its original path. A different disabled copy is never overwritten.
 To undo the complete install, use Restore previous install. For files
 already removed by older setup versions, recover them from those backups
@@ -64,3 +64,5 @@ copy exists, Setup first preserves it as .mpq.disabled.<12-character hash>. No m
 is needed to switch options. Re-enabling manually requires removing
 .disabled and any following hash, with WoW closed and no different active
 file being overwritten. Use Restore previous install for managed rollback.
+
+1.1.7 Hotfix: enabling New spell visuals reuses a matching disabled Patch-S without downloading it again. The plain disabled copy is moved into the verified transaction backup in LauSetupBackups, even when active Patch-S already matches. Different versions remain recoverable with Restore previous install. Switching off still uses .mpq.disabled. Existing hash-suffixed archives are left intact.
