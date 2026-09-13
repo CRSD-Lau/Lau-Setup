@@ -93,7 +93,7 @@ The installer interface automatically follows your Windows display language or L
 
 English (US) · Deutsch · Français · Español (España) · Español (México) · Português (Brasil) · 한국어 · Русский · 简体中文 · 繁體中文
 
-English · Français · Deutsch · 한국어 · Русский · 简体中文 · 繁體中文 · Español (España) · Español (México)
+Game locales (unchanged): English · Français · Deutsch · 한국어 · Русский · 简体中文 · 繁體中文 · Español (España) · Español (México)
 
 `enUS` · `frFR` · `deDE` · `koKR` · `ruRU` · `zhCN` · `zhTW` · `esES` · `esMX`
 
