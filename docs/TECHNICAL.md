@@ -21,7 +21,7 @@ Run `tools/build.ps1` on Windows with the .NET Framework compiler installed. The
 | Matching localized spell tables, when selected | Active locale `Data/<locale>/patch-<locale>-S.MPQ` |
 | Optional maps/minimap | Root `Data/patch-m.mpq`; the superseded active-locale M is backed up |
 
-Core Q retains the release's LoadingScreens.dbc, localized Map.dbc and loading images byte for byte. It omits the added world-map definitions and world-map artwork. Full map mode uses the original regional Q and shared M without repacking them. The two S placements contain different archives. Turning new spells off backs up and removes the scoped root/locale S pair. HD detection requires the matching existing root and locale F patches.
+Core Q retains the release's LoadingScreens.dbc, localized Map.dbc and loading images byte for byte. It omits the added world-map definitions and world-map artwork. Full map mode uses the original regional Q and shared M without repacking them. The two S placements contain different archives. Turning new spells off preserves the scoped root/locale S pair as .mpq.disabled; re-enabling moves the plain disabled copies into verified transaction backups, as described in the Setup 1.1.7 section below. HD detection requires the matching existing root and locale F patches.
 
 ## Recovery design
 
@@ -31,7 +31,7 @@ Restore refuses files changed by another update and keeps the backup for manual 
 
 ## Release boundaries
 
-The installer is unsigned. Windows and Wine installer tests, sampled GUI checks and the retained game-data baseline are recorded separately in VALIDATION.json. Wine 1.1.0 checks use Wine 11.0 / Wine Mono 10.4.1 and local Docker overlay storage; the nested-mount test mocks device identity because that container cannot create mounts. These checks do not certify every Linux distribution/filesystem, display scale, encounter or third-party client modification. Existing manual Google Drive releases remain available; new raw-file uploads are deferred while rate limited.
+The installer is unsigned. Windows and Wine installer tests, sampled GUI checks and the retained game-data baseline are recorded separately in VALIDATION.json. Wine 1.1.0 checks use Wine 11.0 / Wine Mono 10.4.1 and local Docker overlay storage; the nested-mount test mocks device identity because that container cannot create mounts. These checks do not certify every Linux distribution/filesystem, display scale, encounter or third-party client modification. Raw Patch-Y edition ZIPs are available on GitHub Releases. See [known limitations](../KNOWN-LIMITATIONS.md) for current scope and assumptions.
 
 
 ## 3.0.6 color update / Setup 1.1.2

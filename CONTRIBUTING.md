@@ -12,6 +12,8 @@ Remove account names, passwords, tokens and personal paths from screenshots or e
 
 ## Propose a change
 
+Start with [Known limitations and assumptions](KNOWN-LIMITATIONS.md). Use [Ideas](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas) for recommendations; identify any server, native-code or protected-action dependency before proposing an implementation.
+
 Keep pull requests focused. Explain the user-visible problem, the change and the checks you ran. Test file operations only in isolated fixtures, never in an active personal game client.
 
 Preserve the archive allowlist, hash checks, backup journals, process checks and cross-prefix locking. Do not change game payload records as part of a documentation or interface update.

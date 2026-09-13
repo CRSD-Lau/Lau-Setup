@@ -98,6 +98,10 @@ Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, in
 
 Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
 
+## Known limitations and feature requests
+
+Read [Known limitations and assumptions](KNOWN-LIMITATIONS.md) before suggesting a feature: Warmane server control, DLL/native-code scope, protected Lua actions, indicator accuracy and timing, DBC dependencies, and platform/recovery limits.
+
 ## For contributors
 
 - [Build, archive placement and recovery design](docs/TECHNICAL.md)
