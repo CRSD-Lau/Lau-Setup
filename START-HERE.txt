@@ -1,11 +1,17 @@
-LAU SETUP — RELEASE 3.0.8
+LAU SETUP 1.2.0 — GAME RELEASE 3.0.8
+Author / Creator / Last Modified By: Neil Mitchell
 
-Windows: download LauSetup.exe.
-Linux/Wine: download LauSetup-Wine.zip and follow its README.txt.
+Download LauSetup.zip on Windows or Linux and extract all five files together.
+Windows: open LauSetup.exe.
+Linux/Wine: run LauSetup.sh and follow its README.txt.
 Wine requires the supplied Linux launcher; do not run the EXE directly.
 
+Setup follows your system language. Use Interface language to select another
+language; your choice is remembered for your user account. Automatic follows
+the system again. This changes setup text only, never WoW's language files.
+
 1. Close World of Warcraft.
-2. Open LauSetup.exe and choose your WoW folder.
+2. Launch setup for your platform and choose your WoW folder.
 3. Choose your visuals and click Install upgrade.
 
 Updating from an older release or test v2? Download the new installer first; old copies embed the old catalog.
@@ -17,7 +23,8 @@ Enhanced Consecration is selected by default. Uncheck it for the stock
 appearance; the spell itself still works. New spell visuals require an
 existing compatible HD model client. Upgraded maps/minimap are optional.
 
-You need an existing WoW 3.3.5a client, build 12340, on Windows 10 or 11.
+You need an existing WoW 3.3.5a client, build 12340. Windows 10/11 needs .NET
+Framework 4.8. Linux needs the supported Wine/Mono environment in README.txt.
 This download is an upgrade, not a complete client or language pack.
 The required compatible WoW.exe is installed automatically.
 

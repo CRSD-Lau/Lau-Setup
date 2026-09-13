@@ -2,10 +2,64 @@
 """Lau Setup Wine launcher and live host guard.
 Author, Creator, Last Modified By: Neil Mitchell
 """
-import fcntl, hashlib, hmac, http.server, json, os, pathlib, re, secrets
+try:import fcntl
+except ModuleNotFoundError:fcntl=None # Importable for cross-platform packaging tests; main rejects non-Linux hosts.
+import hashlib, hmac, http.server, json, os, pathlib, re, secrets
 import stat, subprocess, sys, threading
 
 GAME = re.compile(r'^(wow|wow-64|wowclassic)\.exe$', re.I)
+UI_LANGUAGES=('en-US','de-DE','fr-FR','es-ES','es-MX','pt-BR','ko-KR','ru-RU','zh-CN','zh-TW')
+UI_LANGUAGE_OPTIONS=UI_LANGUAGES+('auto',)
+
+def _locale_tag(value):
+    """Map a GNU locale spelling to one of Lau Setup's BCP47 UI languages."""
+    if not value:return None
+    value=value.strip().split('.',1)[0].split('@',1)[0].replace('_','-')
+    if value.upper() in ('C','POSIX'):return None
+    bits=value.split('-');language=bits[0].lower();lower={item.lower() for item in bits[1:]}
+    direct={'en':'en-US','de':'de-DE','fr':'fr-FR','ko':'ko-KR','ru':'ru-RU','pt':'pt-BR'}
+    if language=='es':return 'es-MX' if lower & {'mx','419','ar','bo','br','bz','cl','co','cr','cu','do','ec','sv','gt','hn','ni','pa','py','pe','pr','uy','ve'} else 'es-ES'
+    if language=='zh':
+        if 'hans' in lower:return 'zh-CN'
+        if 'hant' in lower:return 'zh-TW'
+        if lower & {'cn','sg'}:return 'zh-CN'
+        if lower & {'tw','hk','mo'}:return 'zh-TW'
+        return None
+    return direct.get(language)
+
+def ui_language(environment=None):
+    """Honor GNU LC_* precedence and LANGUAGE only outside the C/POSIX locale."""
+    environment=os.environ if environment is None else environment
+    category=next((environment.get(key) for key in ('LC_ALL','LC_MESSAGES','LANG') if environment.get(key)), 'C')
+    category_is_c=category.strip().split('.',1)[0].split('@',1)[0].upper() in ('C','POSIX')
+    if not category_is_c:
+        for preferred in environment.get('LANGUAGE','').split(':'):
+            tag=_locale_tag(preferred)
+            if tag:return tag
+    return _locale_tag(category) or 'en-US'
+
+def parse_language(args, environment=None):
+    """Return the selected UI language; only a plain, allowlisted argv is accepted."""
+    if not args:return ui_language(environment)
+    if len(args)==2 and args[0]=='--language' and args[1] in UI_LANGUAGE_OPTIONS:return args[1]
+    raise ValueError('The --language option needs one of: '+', '.join(UI_LANGUAGE_OPTIONS)+'.')
+
+def translate(message, language, folder=None):
+    """Translate launcher-only messages from the sibling catalog when available.
+
+    Guard HTTP responses intentionally remain raw protocol values for the C# UI.
+    """
+    try:
+        catalog=pathlib.Path(folder or pathlib.Path(__file__).resolve().parent)/'lau-languages.json'
+        value=json.loads(catalog.read_text(encoding='utf-8'))
+        languages=value.get('languages',value)
+        return languages.get(language,{}).get(message,message)
+    except (OSError,ValueError,AttributeError):return message
+
+def translate_error(message, language):
+    prefix='The --language option needs one of: '
+    if message.startswith(prefix):return translate(prefix,language)+message[len(prefix):]
+    return translate(message,language)
 
 def local_filesystem(path):
     mounts=[]
@@ -106,6 +160,7 @@ class Guard:
             self.roots[path]=identity
             processes()
             if op=='acquire':
+                if fcntl is None:raise ValueError('Linux file locking is unavailable.')
                 lockdir='/tmp/lau-setup-locks-'+str(os.getuid())
                 try:os.mkdir(lockdir,0o700)
                 except FileExistsError:pass
@@ -156,14 +211,17 @@ def server(guard,secret):
     service.daemon_threads=True
     return service
 
-def run(command):
+def run(command,language=None):
     guard=Guard();secret=secrets.token_hex(32);service=server(guard,secret)
     threading.Thread(target=service.serve_forever,daemon=True).start()
-    env=os.environ.copy();env['LAU_WINE_GUARD_PORT']=str(service.server_port);env['LAU_WINE_GUARD_TOKEN']=secret
+    # Preserve the caller's prefix and other Wine settings. This is only a
+    # child-process UI preference; no prefix registry value is touched.
+    env=os.environ.copy();env['LAU_WINE_GUARD_PORT']=str(service.server_port);env['LAU_WINE_GUARD_TOKEN']=secret;env['LAU_UI_LANGUAGE']=language or ui_language()
     try:return subprocess.call(command,env=env)
     finally:service.shutdown();service.server_close();guard.close()
 
-def main():
+def main(args=None):
+    args=sys.argv[1:] if args is None else args;language=parse_language(args)
     if sys.platform!='linux':raise ValueError('This launcher is for Linux with Wine.')
     if sys.version_info<(3,9):raise ValueError('Lau Setup requires Python 3.9 or newer for its Linux safety checks.')
     if os.geteuid()==0:raise ValueError('Run Lau Setup as your normal user, not root.')
@@ -180,10 +238,14 @@ def main():
     if version.split()[0]!='wine-11.0':raise ValueError('This release is validated with Wine 11.0. Other Wine versions are not supported yet.')
     folder=pathlib.Path(__file__).resolve().parent
     exe=folder/'LauSetup.exe'
-    if not exe.is_file():raise ValueError('Keep LauSetup.exe beside this launcher.')
+    if not exe.is_file() or not (folder/'lau-languages.json').is_file():raise ValueError('LauSetup.exe, lau_wine.py and lau-languages.json must stay together.')
     # Select WINEPREFIX before launch; never modify runtime packages or game launchers.
-    return run(['wine',str(exe)])
+    # Forward the same validated plain argv to Ui.Initialize. `auto` resets
+    # its saved choice there while this host-derived value remains available.
+    return run(['wine',str(exe)]+args,ui_language())
 
 if __name__=='__main__':
-    try:sys.exit(main())
-    except Exception as error:print('Lau Setup: '+str(error),file=sys.stderr);sys.exit(1)
+    language=ui_language()
+    try:
+        language=parse_language(sys.argv[1:]);sys.exit(main(sys.argv[1:]))
+    except Exception as error:print('Lau Setup: '+translate_error(str(error),language),file=sys.stderr);sys.exit(1)

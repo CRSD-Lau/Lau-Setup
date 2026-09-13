@@ -1,68 +1,65 @@
-Lau Setup for Wine on Linux
+Lau Setup 1.2.0 local shared Windows/Linux candidate
 Author / Creator / Last Modified By: Neil Mitchell
 
+Game data remains Lau 3.0.8. This package contains one LauSetup folder with
+exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
+README.txt. Keep those five files together after extraction.
+
+Windows
+Open LauSetup.exe. It is the native installer and requires .NET Framework 4.8.
+
+Linux with Wine
 1. Use an existing WoW 3.3.5a build 12340 client on a local Linux filesystem.
 2. Close every WoW instance, including games in other Wine prefixes.
-3. Extract this ZIP. Keep all four files together.
-4. Open a terminal in the extracted folder and run:
+3. In the extracted LauSetup folder, run:
 
    WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
-5. Choose your existing game folder and install. The usual automatic backups
-   and Restore previous install button are available.
+4. Choose the existing game folder and install. Automatic backups and Restore
+   previous install remain available.
 
-Requirements for this release:
-- Wine 11.0, a 64-bit prefix, and Wine Mono 10.4.1 already installed there.
-- Python 3.9 or newer for the host safety helper (standard library only).
-- Liberation Sans or DejaVu Sans fonts; the complete Wine font package must
-  also be installed so Wine Mono's own default controls can render.
-- Local Linux storage. Network shares and Windows-mounted drives are excluded.
-- Normal host process visibility. Do not run this launcher through a sandbox
-  that hides other Wine processes. Run as your normal user, never sudo/root.
+Linux requirements and limits
+- Wine 11.0, an existing 64-bit prefix, and Wine Mono 10.4.1 in that prefix.
+- Python 3.9+ for the standard-library host safety helper.
+- Liberation Sans or DejaVu Sans and Wine's complete font package for controls.
+- Korean and Chinese interface text needs Wine-visible Noto Sans CJK fonts
+  (`fonts-noto-cjk` on typical Debian/Ubuntu systems). Lau Setup auto-selects
+  them when available and never installs fonts or other prerequisites.
+- Local Linux storage, ordinary host process visibility, and a normal user;
+  never sudo/root. Network shares, Windows-mounted drives, symlinked paths,
+  hardlinks, ambiguous casing, and process-hiding sandboxes are rejected.
+- The prefix may contain the 32-bit game client. Lau Setup never creates,
+  converts, or upgrades the prefix; changes its Wine/Mono/DXVK runtime or
+  registry configuration; or changes a game launcher. The application stores
+  its saved interface-language choice only in that Wine user's app data.
+  Proton, Lutris and macOS are not supported.
 
-The 64-bit prefix can contain the 32-bit WoW client. This installer does not
-create, convert or upgrade your Wine prefix, install Wine/Mono, configure
-DXVK, or change your game launcher. Use your distribution's Wine setup
-instructions first if its runtime is missing.
+Always use LauSetup.sh on Linux. Starting LauSetup.exe directly under Wine
+refuses client operations because it lacks the host path, process, and
+cross-prefix lock guard. Keep WoW closed until Setup completes. The guard
+reduces races but cannot stop another program launched afterward.
 
-Official Wine Mono package for this tested runtime:
-https://github.com/wine-mono/wine-mono/releases/tag/wine-mono-10.4.1
+Interface language
+The interface has ten languages: English (US), German, French, Spanish
+(Spain), Spanish (Mexico), Portuguese (Brazil), Korean, Russian, Simplified
+Chinese and Traditional Chinese. On Linux it follows LC_ALL, then LC_MESSAGES,
+then LANG; GNU LANGUAGE supplies a preferred list only when that category is
+not C or POSIX. A missing category is treated as C. Use
+`sh LauSetup.sh --language fr-FR` to select and save that manual choice. Use
+`sh LauSetup.sh --language auto` to save Automatic and return to the host/system
+language. The launcher passes only validated argv and does not
+write Wine registry settings; LauSetup.exe owns the saved preference in Wine
+user app data.
+All ten interface languages are bundled, but fluent human review remains the
+limit for translation quality.
 
-Use the Wine Mono runtime with Wine. The Windows .NET Framework installer is
-not bundled and is not required by this tested Wine Mono configuration.
-
-Always launch through LauSetup.sh. Running LauSetup.exe directly under Wine
-will refuse client operations without the Linux helper. It checks host paths
-and processes and holds a host lock shared across Wine prefixes. If it stops,
-reopen the launcher and restore the pending installation before trying again.
-
-Keep WoW closed until setup finishes. Process checks reduce races; they cannot
-stop another program from launching the game or changing files afterward.
-Symlinked paths, hardlinks and ambiguous filename casing are rejected. Data
-and backup directories must remain on the same filesystem as the client.
+Interface language is separate from game locale. The nine unchanged supported
+game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
 Validation scope: isolated Wine 11.0 / Wine Mono 10.4.1 clients, fixture and
 real-payload install/restore tests, two-prefix safety tests and sampled GUI
-checks. This is not certification of every Linux distribution, filesystem,
-display scale, Wine version, or game encounter. No Lutris, Proton or macOS
-integration is included in this release.
+checks. This is not certification for every Linux distribution, filesystem,
+display scale, Wine version or game encounter.
 
-The installer interface is English. Client game data supports all nine
-existing locales and is selected from the detected game locale.
-
-Setup 1.1.7: New spell visuals off keeps Patch-S as .mpq.disabled next to
-its original path. A different disabled copy is never overwritten.
-To undo the complete install, use Restore previous install. For files
-already removed by older setup versions, recover them from those backups
-using Restore previous install before reinstalling. Keep LauSetupBackups.
-
-The current S file always becomes .mpq.disabled. If an older disabled
-copy exists, Setup first preserves it as .mpq.disabled.<12-character hash>. No manual rename
-is needed to switch options. Re-enabling manually requires removing
-.disabled and any following hash, with WoW closed and no different active
-file being overwritten. Use Restore previous install for managed rollback.
-
-1.1.7 re-enable cleanup: matching disabled Patch-S is reused locally. The plain disabled copy is moved to the verified transaction backup in LauSetupBackups, leaving one active S. Different copies remain recoverable through Restore previous install. Existing hash-suffixed archives are not swept.
-
-
-Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
+This is a local 1.2.0 candidate. Public release links remain on 1.1.8 until
+separate release validation and publishing are complete.
