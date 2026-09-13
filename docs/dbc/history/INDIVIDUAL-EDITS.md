@@ -258,4 +258,3 @@ Numeric values are raw unsigned 32-bit words, including float bit patterns; unkn
 | spellvisualkit.dbc | 13448 | 14 | 6388 | 9172 |
 
 [All record/field edits and added records](Y-Non-HD-Consecration-Off.csv) · [Decoded text changes](spell-text-nonhd.json.gz)
-

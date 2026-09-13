@@ -9,15 +9,15 @@
   "files": {
     "3.0.4-through-3.0.8.json": "3aa2d5c29ca5ad60a2ea9978ca5236ae8c4e8f899434266815d8aca354f72275",
     "andre-to-3.0.4.json": "964aad7dee7b272709e97cbe6d27f11d841cb15b9f2e173897ec013502a7c48a",
-    "INDIVIDUAL-EDITS.md": "56e2c2907de4b5013af846270350cf2d2d7fab6f2514c5da70d97cf639a3b16b",
+    "INDIVIDUAL-EDITS.md": "93a9bb4f4f9db7a3519a3e3a1fcfff6ce591200eb9537d551d6a02615d419d30",
     "localization-stage.json": "5a8b51554184b501cf4d39adcdcf19f8bfcdaefa24b15e3cfbb0570a291468b3",
     "spell-text-hd.json.gz": "3d63cfb99f4637e693129d1363ddb6b0ffa9abb6b21dbb7ff365e83e50be0138",
     "spell-text-nonhd.json.gz": "fc1cd94f35a552639910c20dd69bfe3b2ac89bd7fc24181bb21d4b94950dc9d7",
-    "Y-HD-NewSpells-Off-Consecration-Off.csv": "20cae797373a5950bd7136ef5a85520a912880e67c95e36397201a7bd216c6f0",
-    "Y-HD-NewSpells-Off-Consecration-On.csv": "01d89b866da4d2e3caf91dfa738549bb6c216a5092eab335faa5e5c5d8e51d4c",
-    "Y-HD-NewSpells-On-Consecration-Off.csv": "90eeba7264855759cc8718e68c825d60f083429cd1aecf4a7e24d5907751e2cd",
-    "Y-HD-NewSpells-On-Consecration-On.csv": "d30798d5b61d83ca9455ae09b979fd5eadbe7798f86b1b666a5863eed09ea58d",
-    "Y-Non-HD-Consecration-Off.csv": "97de07fbad9c7b5c5bf37bd9584786bd3387eb206b2f462f389d39391e00c204",
-    "Y-Non-HD-Consecration-On.csv": "3c3a44461f6ec99ac262db900f540d38f76f052cde759ee4c420f782c65ab884"
+    "Y-HD-NewSpells-Off-Consecration-Off.csv": "06b4656ef8e7dde66aee18575670b8d2d19f03f70b8f881f6c5b44fc8eff4c43",
+    "Y-HD-NewSpells-Off-Consecration-On.csv": "8bdc026ec715428d7183f426e138a9cde0469e6d0c5d2d46e2c7e236d7b044bc",
+    "Y-HD-NewSpells-On-Consecration-Off.csv": "2c506787109716f5da01ea2d27abac1eb60e2580f0260c86a033a193ca61b6cd",
+    "Y-HD-NewSpells-On-Consecration-On.csv": "38ec9b46ac5f426a6207d44297a4ddee6e9cf0695e7b98c00cd938f0ed10ec16",
+    "Y-Non-HD-Consecration-Off.csv": "9c973fc6362b9448c2b3209c8b1489dda7490d38e6857baffdc1a796539e852d",
+    "Y-Non-HD-Consecration-On.csv": "b385bc50f0a2f672bc4b0d8952a871a2a47c9f07170a1eb849bc83f9e3114975"
   }
 }
