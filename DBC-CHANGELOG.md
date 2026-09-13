@@ -6,7 +6,7 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 ## Installer 1.2.0 — no DBC edits
 
-Shared Windows/Linux packaging and automatic interface language selection change installer code and text only. The game remains 3.0.8. Asset IDs, sizes, SHA-256 values and download segments are unchanged from installer 1.1.8. Interface language never selects or changes the WoW client locale.
+Shared Windows/Linux packaging and automatic interface language selection change installer code and text only. The game remains 3.0.8. All 28 game assets, nine game locales, asset IDs, sizes, SHA-256 values and download segments are unchanged from installer 1.1.8. Interface language never selects or changes the WoW client locale.
 
 ## Handoff history: Andre 3.0.3 onward
 

@@ -2,10 +2,10 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- HOTFIX-118-NOTICE -->
-> **Correctif 1.1.8** — Setup vérifie les MPQ de Data et du dossier de langue actif pour repérer les fichiers Patch-Y renommés connus et les copies exactes du catalogue. En cas de conflit possible ou d’archive illisible ou non prise en charge, il s’arrête et indique le fichier sans le supprimer automatiquement. Renommer un fichier ne change pas le hachage de son contenu. Les fichiers du jeu restent en version 3.0.8.
+<!-- RELEASE-120-NOTICE -->
+> **Setup 1.2.0** — Une seule archive ZIP contient désormais l’installateur Windows et le lanceur Linux/Wine. L’interface suit automatiquement la langue du système d’exploitation parmi dix options ; un choix manuel est mémorisé. La version 3.0.8 et les fichiers du jeu restent inchangés. Aucune modification DBC.
 >
-> La traduction complète n’a pas encore été actualisée, car Google limite les requêtes. Le texte existant ci-dessous correspond à un état antérieur. Les informations anglaises actuelles font référence. [English](../../../REVIEW.md) · [1.1.8](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.1.8)
+> La mise à jour complète des guides reste en attente à cause d’une erreur Google HTTP 429. Le texte ci-dessous peut être ancien ; consultez la source anglaise actuelle et les notes 1.2.0. [English](../../../REVIEW.md) · [1.2.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.2.0)
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

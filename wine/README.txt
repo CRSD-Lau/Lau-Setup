@@ -1,4 +1,4 @@
-Lau Setup 1.2.0 local shared Windows/Linux candidate
+Lau Setup 1.2.0 shared Windows/Linux release
 Author / Creator / Last Modified By: Neil Mitchell
 
 Game data remains Lau 3.0.8. This package contains one LauSetup folder with
@@ -56,10 +56,9 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
-Validation scope: isolated Wine 11.0 / Wine Mono 10.4.1 clients, fixture and
-real-payload install/restore tests, two-prefix safety tests and sampled GUI
-checks. This is not certification for every Linux distribution, filesystem,
-display scale, Wine version or game encounter.
-
-This is a local 1.2.0 candidate. Public release links remain on 1.1.8 until
-separate release validation and publishing are complete.
+Validation passed 62 Wine regression groups. Thirty-five groups ran before the
+busy-state completion fix; the affected GUI group and remaining 26 ran after
+it, followed by final localization and packaged-window checks. Twenty-one
+normal-user Wine interface states and all ten bundled interface languages were
+checked. This is not certification for every Linux distribution, filesystem,
+display scale, Wine version, translation nuance, or game encounter.

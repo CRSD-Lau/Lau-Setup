@@ -1,14 +1,15 @@
 LAU SETUP 1.2.0 — GAME RELEASE 3.0.8
 Author / Creator / Last Modified By: Neil Mitchell
 
-Download LauSetup.zip on Windows or Linux and extract all five files together.
-Windows: open LauSetup.exe.
-Linux/Wine: run LauSetup.sh and follow its README.txt.
+Download LauSetup.zip on Windows or Linux and extract it intact.
+Windows: open LauSetup/LauSetup.exe.
+Linux/Wine: run LauSetup/LauSetup.sh and follow LauSetup/README.txt.
 Wine requires the supplied Linux launcher; do not run the EXE directly.
 
 Setup follows your system language. Use Interface language to select another
 language; your choice is remembered for your user account. Automatic follows
-the system again. This changes setup text only, never WoW's language files.
+the system again. Ten interface languages are bundled. This changes setup text
+only, never WoW's nine game locales or language files.
 
 1. Close World of Warcraft.
 2. Launch setup for your platform and choose your WoW folder.

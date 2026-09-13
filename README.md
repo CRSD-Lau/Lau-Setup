@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.1.8 · Game release 3.0.8 Lau · Nine client languages**
+**Installer 1.2.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
 
 ## Renamed-patch checks
 
@@ -37,26 +37,24 @@ The supplied executable retains the inspected Billy patch-naming implementation.
 
 **3.0.8 Lau:** all supported breath indicators and Rotface Slime Spray are **90° total**, following Warmane tester confirmation. Covers Halion in both realms, Saviana Ragefire, Sartharion, ICC Rimefang and Sindragosa. Range and animation timing are preserved. The approved larger Halion meteor-fire radius and light blue Coldflame are unchanged.
 
-**Already installed?** Download **Setup 1.1.8** first, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Old installers keep their old embedded catalog.
+**Already installed?** Download **LauSetup.zip** first, extract it, select the same folder and visuals, then install. Setup checks actual SHA-256 hashes: even a one-byte change with the same size and timestamp is detected. Only matching new files count as already installed. `/pyversion` reports **3.0.8 Lau**. Older installers keep their embedded catalog.
 
 [Animated color previews and changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
 ## Download
 
-> **1.2.0 source preview:** this branch adds one Windows/Linux ZIP and ten automatically selected interface languages. Build it with `tools/build.ps1 -OutputDirectory dist/universal-1.2.0`, then run `python tools/package_universal.py`. See the [shared-package guide](docs/UNIVERSAL-INSTALLER.md). The published downloads below remain 1.1.8 until a 1.2.0 release is published.
+**[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)** once for Windows or Linux/Wine. Extract it intact: the `LauSetup/` folder contains the Windows executable, the Linux/Wine safety launcher, bundled translations, and its README.
 
 | Windows | Linux / Wine |
 | :--- | :--- |
-| **[Download LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[Download LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
-| Windows 10 / 11 · .NET Framework 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit prefix |
-| About **167 KB** | About **84 KB** · Python 3.9+ |
+| Open `LauSetup.exe` · Windows 10 / 11 · .NET Framework 4.8 | Run `LauSetup.sh` · Wine 11.0 · Wine Mono 10.4.1 · 64-bit prefix · Python 3.9+ |
 | [Windows guide](START-HERE.txt) | [Wine guide and prerequisites](wine/README.txt) |
 
 Game files download during setup. An English core installation is about **472 MB** with HD models and new spell visuals, or **259 MB** with original models. Optional maps add a larger download; setup shows the total before you install.
 
 [SHA-256 checksums](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [Release notes](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [Validation report](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
-> **Bring your existing client.** This is an upgrade, not a full game client, language pack or HD model base. Runtime installers are not bundled. The installer UI is English; game content supports nine locales.
+> **Bring your existing client.** This is an upgrade, not a full game client, language pack or HD model base. Runtime installers are not bundled. The installer interface has ten languages; game content supports nine unchanged locales.
 
 ## One setup. The details handled.
 
@@ -75,7 +73,7 @@ Your addons, SavedVariables, fonts, login artwork, realm settings and unrelated 
 ## Get started
 
 1. **Close WoW completely.** On Wine, close every WoW instance across all prefixes.
-2. **Launch setup and choose your client folder.** Windows: open `LauSetup.exe`. Linux: extract all four files from the Wine ZIP and use the launcher below.
+2. **Extract and launch setup.** Windows: open `LauSetup.exe` from `LauSetup/`. Linux: use the included `LauSetup.sh` launcher from that same folder.
 3. **Choose your visuals and install.** Enhanced Consecration starts checked; uncheck it for the stock appearance. New spell visuals require a compatible HD model base. Maps are optional.
 4. **Launch WoW and run `/pyversion`.** Confirm the installed edition before heading into game.
 
@@ -89,7 +87,11 @@ Use the launcher as your normal user. It checks Linux paths, running games, free
 
 On Windows, setup offers Microsoft's official .NET Framework 4.8 download page if the runtime is missing. The tested Wine configuration uses **Wine Mono**, not the Windows .NET installer.
 
-## Nine client languages
+## Ten interface languages; nine game locales
+
+The installer interface automatically follows your Windows display language or Linux host locale. You can choose any interface language manually; the selection is saved, and **Automatic** follows the system again. This affects setup text only.
+
+English (US) · Deutsch · Français · Español (España) · Español (México) · Português (Brasil) · 한국어 · Русский · 简体中文 · 繁體中文
 
 English · Français · Deutsch · 한국어 · Русский · 简体中文 · 繁體中文 · Español (España) · Español (México)
 
@@ -105,7 +107,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.1.8 passed **60 regression groups on Windows and on Wine**, including 108 locale/edition/map plans per platform. These cover renamed Patch-Y and catalog copies, missing listfiles, unrelated archives, malformed input, scan cancellation, and conflicts introduced before installation or during staging. Patch-S switching, interrupted operations and exact rollback remain covered. Fresh public payloads passed on/off/on installation and stacked rollback on both platforms. Game-release 3.0.8 payloads are unchanged; earlier six-edition upgrade and one-byte detection evidence is retained.
+Setup 1.2.0 passed **62 regression groups on Windows and 62 on Wine**. Wine ran 35 groups before the busy-state completion fix, then the affected GUI group and the remaining 26 after it; final Wine localization and packaged-window checks also passed. The validation records 50 Windows and 21 normal-user Wine interface states, 185 keys across all ten bundled interface languages, and 31 package, translation, and host tests. Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion meteor-fire geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.7. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
 
