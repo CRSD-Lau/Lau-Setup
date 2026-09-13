@@ -1,2 +1,4 @@
 dist/
 *.user
+
+__pycache__/

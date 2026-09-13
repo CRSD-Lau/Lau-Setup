@@ -4,6 +4,27 @@
 
 Track client DBC edits separately from model, texture and installer changes. Game versions and installer versions are separate: `/pyversion` reports the game edition.
 
+## Handoff history: Andre 3.0.3 onward
+
+[Individual DBC edits and development history](docs/dbc/history/INDIVIDUAL-EDITS.md) · [Six-edition comparison and baseline hashes](docs/dbc/history/andre-to-3.0.4.json)
+
+Andre intentionally omitted **Spell.dbc** to avoid localization conflicts. The initial Lau override exposed that dependency; **Lau and Andre debugged it together**, and the multilingual rebuild resolved the spell-text compatibility problem. The retained Andre archives contain six other visual/model DBCs, so this should not be described as an absence of every DBC.
+
+Lau describes the milestones as **3.0.4: initial table addition**, **3.0.5: multilingual resolution**, and **3.0.6–3.0.8: hotfixes with version bumps**. Early version labels overlap: the archived published build labelled 3.0.4 already contains the multilingual fix. Artifact comparisons below use exact hashes and do not erase that development history.
+
+The initial Patch-Y comparison includes fifteen Spell visual-link edits per edition, new indicator visual/kit/attachment records, Consecration differences and decoded localization edits. The table addition is compared against its underlying stock or HD Spell basis so inherited records are not presented as new authored work. [Localization-stage verification](docs/dbc/history/localization-stage.json) confirms the text rebuild preserved numeric data in the four retained pre-localization HD/Non-HD editions.
+
+## Archived releases 3.0.4 → 3.0.8
+
+| Archived transition | DBC result | Other changes |
+| --- | --- | --- |
+| 3.0.4 → 3.0.5 | No DBC edits; 42 identical tables | Sindragosa and Rotface cone geometry, version label |
+| 3.0.5 → 3.0.6 | No DBC edits; 42 identical tables | Coldflame/Halion marker color assets and references, version label |
+| 3.0.6 → 3.0.7 | No DBC edits; 42 identical tables | Approved Halion meteor-fire geometry, version label |
+| 3.0.7 → 3.0.8 | No DBC edits; 42 identical tables | Remaining breath/Slime Spray cone geometry, version label |
+
+[All 168 table comparisons and archive hashes](docs/dbc/history/3.0.4-through-3.0.8.json). These are comparisons of retained release artifacts, not a claim that the earlier localization incident did not happen.
+
 ## 3.0.7 → 3.0.8 — no DBC edits
 
 Released with [Setup 1.1.4](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.1.4). All **42 DBC comparisons passed byte-for-byte**: seven tables in each of the six Patch-Y editions. There are no added/deleted tables, changed records, changed fields, or changed string blocks.
@@ -54,4 +75,4 @@ For each actual DBC edit, record one row per field (or a linked machine-readable
 
 Also record added/deleted records and tables, schema changes, and string-value edits. Decode string values rather than reporting string-block offset churn as content changes. Specify field-index convention and schema source; label unknown fields rather than guessing. Attach before/after archive and table hashes, the comparison method, and validation limits. Never claim a comparison passed without evidence.
 
-Older transitions before 3.0.7 have not yet been audited in this log. Unrelated test releases are not covered by the 3.0.7 → 3.0.8 comparison.
+The handoff audit covers Patch-Y from the retained Andre 3.0.3 baselines onward. Separate Q/S/map localization pipelines and unrelated experimental builds are outside this initial retrospective. No earlier broken artifact is assigned a release number without matching provenance.

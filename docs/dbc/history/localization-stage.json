@@ -1,0 +1,58 @@
+{
+  "Author": "Neil Mitchell",
+  "timeline_note": "Pre-localization v35 artifacts to retained multilingual artifact labelled 3.0.4; not an assertion of a separate 3.0.4-to-3.0.5 binary version transition.",
+  "editions": [
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-On",
+      "prelocalization_artifact": "Patch-Y-v35-20260909/HD/patch-y.mpq",
+      "before_archive_sha256": "00ed3ef1f12d8d48543bfe1d6a6d991e00fef5214bf82653e7ce53336877d947",
+      "after_archive_sha256": "1a3c46180774a7fd4fe03f76d04b2a99d59bfd73ebe0011f4befa045a46888b4",
+      "changed_tables": [
+        "dbfilesclient\\spell.dbc"
+      ],
+      "numeric_field_edits": 0,
+      "decoded_text_cell_edits": 227098,
+      "before_spell_sha256": "80a41577419031d13c73e427bde43479338065bb1e15db18784107df0266d23b",
+      "after_spell_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11"
+    },
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-Off",
+      "prelocalization_artifact": "Patch-Y-v35-No-Consecration-20260910/HD/patch-y.mpq",
+      "before_archive_sha256": "ad16f40736fc9a10096f045169cb7178d65b35da7ffed38ab2cd0943055fe1f6",
+      "after_archive_sha256": "de2310c2eae932fe9327fc25b47f89e299ddcd3aeec14fcb345fa34e3c7f5574",
+      "changed_tables": [
+        "dbfilesclient\\spell.dbc"
+      ],
+      "numeric_field_edits": 0,
+      "decoded_text_cell_edits": 227098,
+      "before_spell_sha256": "80a41577419031d13c73e427bde43479338065bb1e15db18784107df0266d23b",
+      "after_spell_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11"
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-On",
+      "prelocalization_artifact": "Patch-Y-v35-20260909/Non-HD/patch-y.mpq",
+      "before_archive_sha256": "8b57e5de6f8e8e5579bf141617cd877f37991b933403d09c8224e0bcf69734e4",
+      "after_archive_sha256": "c23dbc4c04fa1fd4422ce86e240f75b3d1ec2c6d483fc5672dddecbd79b95627",
+      "changed_tables": [
+        "dbfilesclient\\spell.dbc"
+      ],
+      "numeric_field_edits": 0,
+      "decoded_text_cell_edits": 824604,
+      "before_spell_sha256": "dabc9697aecd2bd9a900147fe70bcc3ba8ae944cb4c5f70f0567bc15663bb4cf",
+      "after_spell_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21"
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-Off",
+      "prelocalization_artifact": "Patch-Y-v35-No-Consecration-20260910/Non-HD/patch-y.mpq",
+      "before_archive_sha256": "428f963341f27592e1bab20c6695b0da53e4eca11ea92aa53e79a4dbc26d9d37",
+      "after_archive_sha256": "f94b2477c44c0510277597c1027d86ada2cc362f97d3bd520ed13d745dd1316b",
+      "changed_tables": [
+        "dbfilesclient\\spell.dbc"
+      ],
+      "numeric_field_edits": 0,
+      "decoded_text_cell_edits": 824604,
+      "before_spell_sha256": "dabc9697aecd2bd9a900147fe70bcc3ba8ae944cb4c5f70f0567bc15663bb4cf",
+      "after_spell_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21"
+    }
+  ]
+}
