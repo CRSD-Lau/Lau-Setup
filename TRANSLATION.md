@@ -12,7 +12,7 @@ The Action runs **Qwen 3.5 4B locally through Ollama** on standard GitHub-hosted
 
 Ollama cloud access is disabled. Both the Ollama runtime and translation model are pinned and verified by SHA-256. Model updates require a reviewed tooling change. Qwen 3.5 4B and Ollama are open-source software/model projects; Qwen uses the Apache 2.0 license. Their model/runtime files are not redistributed in this repository or installer.
 
-Maintainers can use **Actions → Translate documentation → Run workflow**, selecting **main**, to generate missing translations or retry a failed run. Otherwise, pushes that change English documentation, the locale catalog or translation tooling trigger it automatically. The first full pass may take substantial CPU time; source and output hashes skip unchanged documents afterward.
+Maintainers can use **Actions → Translate documentation → Run workflow**, selecting **main**, to generate missing translations or retry a failed run. Otherwise, pushes that change English documentation, the locale catalog or translation tooling trigger it automatically. The first full pass may take substantial CPU time; source and output hashes skip unchanged documents afterward. Maintainers should bump `TRANSLATION_REVISION` when changing translation prompts or conventions; model digest and locale changes also invalidate cached translations.
 
 ## Coverage
 

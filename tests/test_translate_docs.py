@@ -105,6 +105,20 @@ class TranslationTests(unittest.TestCase):
         original = "A paragraph.\n\n" * 200
         self.assertEqual("".join(t.chunks(original, 80)), original)
 
+    def test_short_cjk_labels_are_not_treated_as_truncation(self):
+        self.assertEqual(t.unmask('要求', 'Requirements', []), '要求')
+
+    def test_prose_fallback_uses_plain_translation_mode(self):
+        original = 'Raw six-edition `WoW.exe`'
+        masked, saved = t.mask(original)
+        modes = []
+        def translator(text, locale, model, plain=False):
+            modes.append(plain)
+            return 'Seis ediciones originales' if plain else '# Explanations instead of translation'
+        result = t.translate_context(masked, t.locales()['esES'], t.MODEL, translator, {}, saved)
+        self.assertEqual(t.unmask(result, masked, saved), 'Seis ediciones originales `WoW.exe`')
+        self.assertEqual(modes, [False, True])
+
     def test_local_model_only(self):
         with self.assertRaisesRegex(ValueError, "pinned local"):
             t.request_translation("hello", t.locales()["ptBR"], "paid-cloud-model")
@@ -116,7 +130,7 @@ class TranslationTests(unittest.TestCase):
             locale = t.locales()["ptBR"]
             calls = []
 
-            def translator(text, language, model):
+            def translator(text, language, model, plain=False):
                 calls.append(text)
                 return text.replace("Install", "Instalar").replace("Automatic translation", "Tradução automática")
 

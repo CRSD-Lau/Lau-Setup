@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     strategy:
-      fail-fast: true
+      fail-fast: false
       max-parallel: 9
       matrix:
         locale: ${{ fromJSON(needs.validate.outputs.locales) }}
