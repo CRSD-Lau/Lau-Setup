@@ -1,0 +1,692 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "from": "3.0.7",
+  "to": "3.0.8",
+  "status": "DBC_BYTE_PARITY_PASS",
+  "editions": [
+    {
+      "edition": "Y-HD-NewSpells-Off-Consecration-On",
+      "beforeArchiveSha256": "da207c59ada726cfb71f2ee906728ce435566ac467053cd1cbbeeea58783ec71",
+      "afterArchiveSha256": "2941cbbf61bebcabd2e0ff51361268447e7b6739fafef7da175b2a31662991a3",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "afterSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "bytes": 1617556,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "afterSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "bytes": 229289,
+          "records": 1546,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "dbfilesclient\\spell.dbc",
+          "beforeSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "afterSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "afterSha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "bytes": 1204629,
+          "records": 9411,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "3e48ac693588cce058754a562f5681c3b72a1ff5062ff0c63cadff1d1e75d23c",
+          "afterSha256": "3e48ac693588cce058754a562f5681c3b72a1ff5062ff0c63cadff1d1e75d23c",
+          "bytes": 271732,
+          "records": 4139,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "afterSha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "bytes": 1325613,
+          "records": 8721,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "afterSha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "bytes": 26621,
+          "records": 665,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "spells\\pw_rotface_slimespray_fan25_room.m2",
+        "spells\\pw_rotface_slimespray_fan25_room00.skin",
+        "spells\\pw_white_fan60_100y_glowing.m2",
+        "spells\\pw_white_fan60_100y_glowing00.skin",
+        "spells\\pw_white_fan60_30yd_glowing.m2",
+        "spells\\pw_white_fan60_30yd_glowing00.skin",
+        "spells\\pw_white_fan60_60yd_glowing.m2",
+        "spells\\pw_white_fan60_60yd_glowing00.skin",
+        "spells\\pw_white_fan82_60yd_glowing.m2",
+        "spells\\pw_white_fan82_60yd_glowing00.skin"
+      ]
+    },
+    {
+      "edition": "Y-HD-NewSpells-Off-Consecration-Off",
+      "beforeArchiveSha256": "ded0e9663107d667821f0307842994480096e3442cdc5fb6994946fe097189dd",
+      "afterArchiveSha256": "0a7f2eef34085785b72f1d18b83108c25dac2c2deada412738182fee5e738a80",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "afterSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "bytes": 1617556,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "afterSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "bytes": 229289,
+          "records": 1546,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "dbfilesclient\\spell.dbc",
+          "beforeSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "afterSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "afterSha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "bytes": 1204629,
+          "records": 9411,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "e721c563cd0c6283f8b9091cba7c7bcd1a35b70527d537a1bba30271ec1a3f0f",
+          "afterSha256": "e721c563cd0c6283f8b9091cba7c7bcd1a35b70527d537a1bba30271ec1a3f0f",
+          "bytes": 271711,
+          "records": 4139,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "afterSha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "bytes": 1325613,
+          "records": 8721,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "afterSha256": "b3c222987215cdeb5987c24fbf81c2664e9920c8c9d3ee1e00fcf915afa5f652",
+          "bytes": 26621,
+          "records": 665,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "spells\\pw_rotface_slimespray_fan25_room.m2",
+        "spells\\pw_rotface_slimespray_fan25_room00.skin",
+        "spells\\pw_white_fan60_100y_glowing.m2",
+        "spells\\pw_white_fan60_100y_glowing00.skin",
+        "spells\\pw_white_fan60_30yd_glowing.m2",
+        "spells\\pw_white_fan60_30yd_glowing00.skin",
+        "spells\\pw_white_fan60_60yd_glowing.m2",
+        "spells\\pw_white_fan60_60yd_glowing00.skin",
+        "spells\\pw_white_fan82_60yd_glowing.m2",
+        "spells\\pw_white_fan82_60yd_glowing00.skin"
+      ]
+    },
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-On",
+      "beforeArchiveSha256": "9eea95d71ed78673887597399fc528939f396acbe56f850bfd90f06cd02e647c",
+      "afterArchiveSha256": "508020eb056d73597d0d64fed17662018cbbe7236a401623b2088b051664d9f2",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "afterSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "bytes": 1617556,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "afterSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "bytes": 229289,
+          "records": 1546,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\Spell.dbc",
+          "beforeSha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "afterSha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "afterSha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "bytes": 1209237,
+          "records": 9447,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "d130ea47602eb6d17e2d676dad0e0dece477fdb6ffc7c79e184ec038769d094b",
+          "afterSha256": "d130ea47602eb6d17e2d676dad0e0dece477fdb6ffc7c79e184ec038769d094b",
+          "bytes": 292063,
+          "records": 4289,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "afterSha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "bytes": 1360117,
+          "records": 8948,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "afterSha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "bytes": 27981,
+          "records": 699,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room.m2",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room00.skin",
+        "Spells\\PW_White_Fan60_100y_Glowing.m2",
+        "Spells\\PW_White_Fan60_100y_Glowing00.skin",
+        "Spells\\PW_White_Fan60_30yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_30yd_Glowing00.skin",
+        "Spells\\PW_White_Fan60_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_60yd_Glowing00.skin",
+        "Spells\\PW_White_Fan82_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan82_60yd_Glowing00.skin"
+      ]
+    },
+    {
+      "edition": "Y-HD-NewSpells-On-Consecration-Off",
+      "beforeArchiveSha256": "e7dc0ca8f01548cde13aac7482b18d68b402dac0aa1c7de913e9775aac4fad5a",
+      "afterArchiveSha256": "270afe55b5d517ea4f0b976437b00c663da5bee52d9fb7f9969a5042e8d3fd8e",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "afterSha256": "5ca5fafdb0b18904cb566487c4dea10f1988f4b240e5b6c9c98fa4de7dccddba",
+          "bytes": 1617556,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "afterSha256": "3fcb176c019d3e291722ecac4b886aadfb181f3de5a91311eab8570886d3ab31",
+          "bytes": 229289,
+          "records": 1546,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\Spell.dbc",
+          "beforeSha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "afterSha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "afterSha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "bytes": 1209237,
+          "records": 9447,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "8964ecb47f85bd873abfe54c971d58722c3467de3f6084b945c2bf8e2250e4fa",
+          "afterSha256": "8964ecb47f85bd873abfe54c971d58722c3467de3f6084b945c2bf8e2250e4fa",
+          "bytes": 292063,
+          "records": 4289,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "afterSha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "bytes": 1360117,
+          "records": 8948,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "afterSha256": "daf235cd73624762af76ce1ece369420a2dafbd49027c67e6771d93fdbcf6a35",
+          "bytes": 27981,
+          "records": 699,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room.m2",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room00.skin",
+        "Spells\\PW_White_Fan60_100y_Glowing.m2",
+        "Spells\\PW_White_Fan60_100y_Glowing00.skin",
+        "Spells\\PW_White_Fan60_30yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_30yd_Glowing00.skin",
+        "Spells\\PW_White_Fan60_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_60yd_Glowing00.skin",
+        "Spells\\PW_White_Fan82_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan82_60yd_Glowing00.skin"
+      ]
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-On",
+      "beforeArchiveSha256": "bfd341caf0fd1ba4b0492e38d67b70fd4adc89cf999cb937207eb167aee55c7a",
+      "afterArchiveSha256": "177445dee261bf6bea06fd8ca8cf1398b64c231ee26878329ff8faebfb1bce17",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "f4468c76ab59e50b085878a5795c63b7b9901e2f4582880c511df672866d70e5",
+          "afterSha256": "f4468c76ab59e50b085878a5795c63b7b9901e2f4582880c511df672866d70e5",
+          "bytes": 1610064,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "67abb9b07257676417e35703e271de45eba29e8032986c99e8f4521f632dd22c",
+          "afterSha256": "67abb9b07257676417e35703e271de45eba29e8032986c99e8f4521f632dd22c",
+          "bytes": 197306,
+          "records": 1332,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\Spell.dbc",
+          "beforeSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "afterSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "afterSha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "bytes": 1204629,
+          "records": 9411,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "738892c59e16e99afee3656d6a72f80da9753a5e43dca497fe9b31218a6fd7c5",
+          "afterSha256": "738892c59e16e99afee3656d6a72f80da9753a5e43dca497fe9b31218a6fd7c5",
+          "bytes": 271731,
+          "records": 4139,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "afterSha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "bytes": 1325461,
+          "records": 8720,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "afterSha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "bytes": 26621,
+          "records": 665,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room.m2",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room00.skin",
+        "Spells\\PW_White_Fan60_100y_Glowing.m2",
+        "Spells\\PW_White_Fan60_100y_Glowing00.skin",
+        "Spells\\PW_White_Fan60_30yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_30yd_Glowing00.skin",
+        "Spells\\PW_White_Fan60_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_60yd_Glowing00.skin",
+        "Spells\\PW_White_Fan82_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan82_60yd_Glowing00.skin"
+      ]
+    },
+    {
+      "edition": "Y-Non-HD-Consecration-Off",
+      "beforeArchiveSha256": "dfa2400b7b9b986c4c7d5c028ee571329be284483c345e4dea7e0d56ad8993e3",
+      "afterArchiveSha256": "e841709e455f70dd3255a691b337b28ecf1761fef8e758570db4038ba7a2d062",
+      "dbc": [
+        {
+          "member": "DBFilesClient\\CreatureDisplayInfo.dbc",
+          "beforeSha256": "f4468c76ab59e50b085878a5795c63b7b9901e2f4582880c511df672866d70e5",
+          "afterSha256": "f4468c76ab59e50b085878a5795c63b7b9901e2f4582880c511df672866d70e5",
+          "bytes": 1610064,
+          "records": 24262,
+          "fields": 16,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\CreatureModelData.dbc",
+          "beforeSha256": "67abb9b07257676417e35703e271de45eba29e8032986c99e8f4521f632dd22c",
+          "afterSha256": "67abb9b07257676417e35703e271de45eba29e8032986c99e8f4521f632dd22c",
+          "bytes": 197306,
+          "records": 1332,
+          "fields": 28,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\Spell.dbc",
+          "beforeSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "afterSha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "bytes": 68451365,
+          "records": 49839,
+          "fields": 234,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisual.dbc",
+          "beforeSha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "afterSha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "bytes": 1204629,
+          "records": 9411,
+          "fields": 32,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualEffectName.dbc",
+          "beforeSha256": "611608dd4c605970bf5b9ecfc4ea99037d56620607fd32449234c5036b953b30",
+          "afterSha256": "611608dd4c605970bf5b9ecfc4ea99037d56620607fd32449234c5036b953b30",
+          "bytes": 271731,
+          "records": 4139,
+          "fields": 7,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKit.dbc",
+          "beforeSha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "afterSha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "bytes": 1325461,
+          "records": 8720,
+          "fields": 38,
+          "changedRecords": 0,
+          "changedFields": 0
+        },
+        {
+          "member": "DBFilesClient\\SpellVisualKitModelAttach.dbc",
+          "beforeSha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "afterSha256": "c6c76bd30b3b5622fea6ba994121e6f38652b2e1ca1370011bc9624daf740f0d",
+          "bytes": 26621,
+          "records": 665,
+          "fields": 10,
+          "changedRecords": 0,
+          "changedFields": 0
+        }
+      ],
+      "changedArchiveMembers": [
+        "Interface\\addons\\!PYAndre\\!PyAndre.toc",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room.m2",
+        "Spells\\PW_Rotface_SlimeSpray_Fan25_Room00.skin",
+        "Spells\\PW_White_Fan60_100y_Glowing.m2",
+        "Spells\\PW_White_Fan60_100y_Glowing00.skin",
+        "Spells\\PW_White_Fan60_30yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_30yd_Glowing00.skin",
+        "Spells\\PW_White_Fan60_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan60_60yd_Glowing00.skin",
+        "Spells\\PW_White_Fan82_60yd_Glowing.m2",
+        "Spells\\PW_White_Fan82_60yd_Glowing00.skin"
+      ]
+    }
+  ],
+  "unchangedCatalogAssets": [
+    {
+      "asset": "Executable",
+      "sha256": "6993049f1338b32a0423612093a8c7c6895b112504b83d6826d4c2174692cd37",
+      "bytes": 7705600
+    },
+    {
+      "asset": "Maps",
+      "sha256": "2eb1fde5691cc1e5dcfa9b45e4a2b50ed302b8afe619fe9dffd030854c6f8a8c",
+      "bytes": 3348849001
+    },
+    {
+      "asset": "SpellAssets",
+      "sha256": "ec6f91ceea7bdbc7e5d0b51d566a9f5d59ccc8387bf00ac2ab7069be16096eb5",
+      "bytes": 166341703
+    },
+    {
+      "asset": "SpellTables",
+      "sha256": "6dd53dd139ae0f05e0eff1133819da84c683f2a280bc634ee019a288efe48ada",
+      "bytes": 34427319
+    },
+    {
+      "asset": "MapsQ-deDE",
+      "sha256": "b14e0f8f3729e19807baeb9a217990a5f2bb869c20e9a4ef6de603e0ba66659f",
+      "bytes": 480460004
+    },
+    {
+      "asset": "LoadingQ-deDE",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-enUS",
+      "sha256": "0d307cabbeb874e481ecf92b3f44a3f4fa1f8eee0e6f2741ed4b871e3b6cb567",
+      "bytes": 200195521
+    },
+    {
+      "asset": "LoadingQ-enUS",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-esES",
+      "sha256": "89c8018a293a72380a51c826f908503f7d61313c5249162f815035d551852a0d",
+      "bytes": 485402614
+    },
+    {
+      "asset": "LoadingQ-esES",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-esMX",
+      "sha256": "17ff68d574e559741663dcb93dcaa34ee1439135fe05f2476bab7dd4650ecf47",
+      "bytes": 495087146
+    },
+    {
+      "asset": "LoadingQ-esMX",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-frFR",
+      "sha256": "5f675980f93440e3e8a333c1874ac09dad4e17a6e46a168c4151bf4b88423a4a",
+      "bytes": 464825208
+    },
+    {
+      "asset": "LoadingQ-frFR",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-koKR",
+      "sha256": "4c24eca61f60ab4fe8f6df3e862bdb2c1a0f59d0cc11434ec36fd64fb50daff2",
+      "bytes": 477955311
+    },
+    {
+      "asset": "LoadingQ-koKR",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-ruRU",
+      "sha256": "187ae741e7c364830834cd782b32ea7153caad2b804918ff44227c9af923c237",
+      "bytes": 494853138
+    },
+    {
+      "asset": "LoadingQ-ruRU",
+      "sha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "bytes": 200049780
+    },
+    {
+      "asset": "MapsQ-zhCN",
+      "sha256": "4ae311c9eef3158f6c9f8a6840cf7ad340be9fa9279f8fcc893a599f9dcb524d",
+      "bytes": 759541731
+    },
+    {
+      "asset": "LoadingQ-zhCN",
+      "sha256": "6cc47ec31ac489149577d491aa3e2baa42d0894af6786616a40d4a5813720f4a",
+      "bytes": 278124952
+    },
+    {
+      "asset": "MapsQ-zhTW",
+      "sha256": "773747e64d3c09f94b813d58d858c54e889000e2000f3f131531533e9620d7a4",
+      "bytes": 760818533
+    },
+    {
+      "asset": "LoadingQ-zhTW",
+      "sha256": "962577c0d1206222fb581a8bfe38077e2b7fdd9211ec9c810ef6560d0241360a",
+      "bytes": 281449321
+    }
+  ],
+  "installerHotfixCatalogParity": [
+    {
+      "tag": "v1.1.4",
+      "gameVersion": "3.0.8",
+      "installerVersion": "1.1.4",
+      "assetCount": 28,
+      "identicalTo": "v1.1.4"
+    },
+    {
+      "tag": "v1.1.5",
+      "gameVersion": "3.0.8",
+      "installerVersion": "1.1.5",
+      "assetCount": 28,
+      "identicalTo": "v1.1.4"
+    },
+    {
+      "tag": "v1.1.6",
+      "gameVersion": "3.0.8",
+      "installerVersion": "1.1.6",
+      "assetCount": 28,
+      "identicalTo": "v1.1.4"
+    },
+    {
+      "tag": "v1.1.7",
+      "gameVersion": "3.0.8",
+      "installerVersion": "1.1.7",
+      "assetCount": 28,
+      "identicalTo": "v1.1.4"
+    }
+  ]
+}

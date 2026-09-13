@@ -114,3 +114,7 @@ Game payloads are distributed through GitHub Releases. This repository contains 
 [Full credits](https://wrath-multilingual-hd.vercel.app/credits) · [Screenshots and installation help](https://wrath-multilingual-hd.vercel.app/)
 
 <sub>Unofficial community project. Not affiliated with or endorsed by Blizzard Entertainment. Original game and third-party artwork remain the property of their respective owners.</sub>
+
+## DBC change tracking
+
+See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.7 also leave the DBC data unchanged.

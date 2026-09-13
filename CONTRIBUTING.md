@@ -21,3 +21,7 @@ The [technical reference](docs/TECHNICAL.md) explains the public build and the t
 ## Artwork and attribution
 
 Keep the established W-and-shield branding and upstream credits intact. Include the source and applicable permissions for proposed artwork. Do not introduce personal client state into public assets.
+
+## DBC release records
+
+Every game or installer release must update [DBC-CHANGELOG.md](DBC-CHANGELOG.md) and include a **DBC changes** section in its GitHub release notes. For actual DBC edits, list table, record ID, named field and zero-based index, old/new values, affected editions/locales, and reason, with before/after hashes and comparison evidence. For unchanged DBCs, explicitly record **No DBC edits**. Separate geometry, texture and installer edits from DBC changes. See the changelog for the required format and validation boundaries.
