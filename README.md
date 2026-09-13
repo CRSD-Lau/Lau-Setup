@@ -29,11 +29,12 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 ### Windows
 
-1. **Close WoW completely.** Right-click `LauSetup.zip`, choose **Extract All**, and open the extracted `LauSetup` folder.
-2. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
-3. Select **Choose folder…**, then choose the game folder that directly contains `WoW.exe`—not its `Data` folder or a launcher folder.
-4. **Enhanced Consecration** starts on; **New spell visuals** needs detected compatible HD models; **Upgrade maps and minimap** is optional. Select **Install upgrade** and wait for completion.
-5. If setup says **Already installed**, the selected files already match this release and no game update is needed. Otherwise start WoW and type `/pyversion`.
+1. **Close WoW completely.**
+2. Download **LauSetup.zip**, right-click it, choose **Extract All**, and open the extracted `LauSetup` folder.
+3. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
+4. Select **Choose folder…**, then choose the game folder that directly contains `WoW.exe`—not its `Data` folder or a launcher folder.
+5. Leave **Enhanced Consecration** on for the custom look, or turn it off for the original look. **New spell visuals** needs compatible HD models; **Upgrade maps and minimap** is optional and adds a download.
+6. Select **Install upgrade** and wait until it finishes. Start WoW and type `/pyversion`; it should show **3.0.8 Lau**. **Already installed** means the selected files match this release and no game update is needed.
 
 ### Linux / Wine
 

@@ -5,6 +5,35 @@ Game data remains Lau 3.0.8. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 
+## Start here on Windows
+
+You need Windows 10/11 and your existing WoW 3.3.5a game (build 12340).
+This ZIP is an upgrade, not the complete game.
+
+1. Close WoW completely.
+2. If you have not already done so, right-click LauSetup.zip, choose Extract
+   All, and open the extracted LauSetup folder.
+3. Double-click LauSetup.exe. Its File Explorer type is Application.
+4. Click Choose folder… and select the game folder that directly contains
+   WoW.exe, not its Data folder or a launcher folder.
+5. Leave Enhanced Consecration on for the custom look, or turn it off for the
+   original look. New spell visuals is available only with compatible HD
+   models. Upgrade maps and minimap is optional and adds a download.
+6. Click Install upgrade and wait until it finishes. Start WoW and type
+   /pyversion; it should show 3.0.8 Lau.
+
+Already installed means your selected files match this release; no game update
+is needed. To undo an installation, close WoW, reopen Lau Setup, choose the
+same game folder and click Restore previous install. Keep LauSetupBackups.
+
+Cannot find the app? Open the extracted folder, not the ZIP. If setup rejects
+a folder, find the one containing WoW.exe. If .NET is missing, use the Microsoft
+.NET Framework 4.8 prompt and then reopen setup.
+
+Setup follows your system language. Interface language lets you select and
+save another language; Automatic follows your computer again. This changes
+setup text only, not your game's language or files.
+
 ## Start here on Linux / Wine
 
 1. Download `LauSetup.zip` and extract it. Keep the five files in its
@@ -17,6 +46,8 @@ README.txt. Keep those five files together after extraction.
 4. In the extracted `LauSetup` folder, run:
 
    WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
+
+   Replace the example path with your existing Wine prefix path.
 
 5. In Lau Setup, choose **Choose folder…** and select the game folder that
    directly contains `WoW.exe`, not its `Data` folder. Select your options,
