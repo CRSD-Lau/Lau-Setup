@@ -21,7 +21,7 @@ for attempt in $(seq 1 30); do
   if curl --fail --silent http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
   sleep 1
 done
-ollama pull translategemma:4b
+ollama pull qwen3.5:4b
 python - <<'PY'
 import json, sys, urllib.request
 sys.path.insert(0, 'tools')

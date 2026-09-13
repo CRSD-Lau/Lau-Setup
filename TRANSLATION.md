@@ -8,9 +8,9 @@ Use the language links at the top of the README. A language name becomes a link 
 
 ## Free automatic translation
 
-The Action runs **TranslateGemma 4B locally through Ollama** on standard GitHub-hosted Ubuntu runners. There is no paid translation API, API key, subscription or external inference service. Lau Setup is a public repository, for which standard GitHub-hosted runner execution is free. Translation jobs are disabled if the repository becomes private. Small document artifacts expire after one day; the model is downloaded into the disposable runner and is not stored as an artifact or Actions cache.
+The Action runs **Qwen 3.5 4B locally through Ollama** on standard GitHub-hosted Ubuntu runners. There is no paid translation API, API key, subscription or external inference service. Lau Setup is a public repository, for which standard GitHub-hosted runner execution is free. Translation jobs are disabled if the repository becomes private. Small document artifacts expire after one day; the model is downloaded into the disposable runner and is not stored as an artifact or Actions cache.
 
-Ollama cloud access is disabled. Both the Ollama runtime and translation model are pinned and verified by SHA-256. Model updates require a reviewed tooling change. TranslateGemma is an open-weight model governed by Google's Gemma terms; Ollama is open-source software. Their model/runtime files are not redistributed in this repository or installer.
+Ollama cloud access is disabled. Both the Ollama runtime and translation model are pinned and verified by SHA-256. Model updates require a reviewed tooling change. Qwen 3.5 4B and Ollama are open-source software/model projects; Qwen uses the Apache 2.0 license. Their model/runtime files are not redistributed in this repository or installer.
 
 Maintainers can use **Actions → Translate documentation → Run workflow**, selecting **main**, to generate missing translations or retry a failed run. Otherwise, pushes that change English documentation, the locale catalog or translation tooling trigger it automatically. The first full pass may take substantial CPU time; source and output hashes skip unchanged documents afterward.
 
@@ -44,4 +44,4 @@ python tools/translate_docs.py --navigation
 
 The runner bootstrap script is restricted to disposable GitHub-hosted Linux environments. It does not install anything on a contributor's computer. Translation automation changes documentation only and makes no installer, game-payload or DBC edits.
 
-References: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [TranslateGemma model and regional codes](https://ollama.com/library/translategemma), [Gemma terms](https://ai.google.dev/gemma/terms), [Ollama](https://github.com/ollama/ollama).
+References: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [Qwen model and license](https://ollama.com/library/qwen3.5), [Ollama](https://github.com/ollama/ollama).
