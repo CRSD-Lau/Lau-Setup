@@ -5,6 +5,6 @@
 >
 > **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.3.0。
 >
-> **1.3.0:** 已识别的额外升级文件会自动备份，然后继续安装。恢复操作会将文件放回原位。无需手动移动。
+> **1.3.0:** 已识别的额外升级文件会自动备份，然后继续安装。恢复操作会将文件放回原位。无需手动移动。 安装程序在替换或移动现有文件之前会自动保留原文件。无关文件保持不变。
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->

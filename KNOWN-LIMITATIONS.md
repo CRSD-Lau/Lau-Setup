@@ -52,6 +52,8 @@ Setup compares actual file hashes with its **embedded catalog**. A one-byte chan
 
 Turning New spell visuals off preserves the scoped S files as `.mpq.disabled`. Re-enabling uses matching disabled bytes when available and moves the plain disabled copy into the verified transaction backup. Older hash-suffixed copies are retained. See the [current recovery implementation](docs/TECHNICAL.md#setup-117-re-enable-cleanup).
 
+**Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
+
 Restore depends on the backups and recovery records. It stops when later changes make automatic restoration unsafe. It cannot promise recovery of files whose only backup was deleted. Removing Patch-Y alone is not a full rollback of the executable and other patches installed by setup. Use **Restore previous install** for the managed transaction.
 
 ## Platform and validation limits

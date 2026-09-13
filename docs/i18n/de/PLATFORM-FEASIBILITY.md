@@ -9,7 +9,7 @@
 >
 > **Aktueller Download:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) für Windows und Linux/Wine. Entpacken Sie den Ordner `LauSetup/` mit fünf Dateien: Windows öffnet `LauSetup.exe`; Linux/Wine führt `LauSetup.sh` aus. Die älteren Anweisungen unten zu getrennten EXE- oder Wine-ZIPs gelten nicht für 1.3.0.
 >
-> **1.3.0:** Erkannte zusätzliche Upgrade-Dateien werden automatisch gesichert; die Installation läuft weiter. Die Wiederherstellung bringt sie zurück. Kein manuelles Verschieben nötig.
+> **1.3.0:** Erkannte zusätzliche Upgrade-Dateien werden automatisch gesichert; die Installation läuft weiter. Die Wiederherstellung bringt sie zurück. Kein manuelles Verschieben nötig. Setup bewahrt vorhandene Dateien automatisch auf, bevor es sie ersetzt oder verschiebt. Unbeteiligte Dateien bleiben unverändert.
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

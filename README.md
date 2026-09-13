@@ -101,6 +101,12 @@ Game locales (unchanged): English · Français · Deutsch · 한국어 · Рус
 
 Setup follows your client's active locale. Install the appropriate language files and fonts before changing the configuration. Changing a config value alone does not install a language pack.
 
+## Your files are backed up automatically
+
+**Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
+
+Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+
 ## Restore with your backups
 
 Close WoW, reopen setup through the same launcher, choose the same game folder, and select **Restore previous install**. Keep `LauSetupBackups` inside the client folder: it contains the originals and recovery records.

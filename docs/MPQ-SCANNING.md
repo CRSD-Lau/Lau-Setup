@@ -54,6 +54,10 @@ The supplied Patch-Armadura.mpq has 524,288 entries (8 MiB). The 1.2.0 reader re
 
 ## Automatic backups in 1.3.0
 
+**Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
+
+Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+
 Recognized extra upgrade patches, including original download names, are backed up automatically when the player clicks **Install upgrade**. Setup continues with the selected edition. **Restore previous install** returns those files to their original paths. No manual moving is needed.
 
 Eligibility requires known Patch-Y markers or an exact catalog archive match. This indicates overlap, not ownership. Only direct `.mpq` children of Data or the active locale may be moved. Stock archives, managed Q/M/S/Y paths, other locales, disabled files and nested folders are excluded from extra-file moves. Readable unknown patches remain untouched; malformed or inaccessible archives still stop safely.

@@ -31,7 +31,7 @@ Core Q retains the release's LoadingScreens.dbc, localized Map.dbc and loading i
 
 One client lock covers downloading, staging and installation. Files are verified before staging and again after placement. Existing files move into `LauSetupBackups/transactions/<id>/before/`, preserving their bytes and timestamps; the journal is written durably before commit. A failed commit restores originals when safe. Interrupted commits and interrupted restores remain discoverable when the app is reopened, even without WoW.exe.
 
-Restore refuses files changed by another update and keeps the backup for manual resolution. Only exact root/active-locale Q/M/S/Y paths and WoW.exe are accepted. Traversal, alternate streams and reparse points are rejected; writable resumed files must have one hardlink. Journal and assembly temporaries use unique names and exclusive creation. The application never enumerates an archive into the client filesystem.
+Restore refuses files changed by another update and keeps the backup for manual resolution. Managed replacements are restricted to exact root/active-locale Q/M/S/Y paths and WoW.exe. Setup 1.3.0 additionally journals backup-only moves for recognized extra MPQs directly in Data or the active locale; stock paths and unrelated content remain protected. Traversal, alternate streams and reparse points are rejected; writable resumed files must have one hardlink. Journal and assembly temporaries use unique names and exclusive creation. The application never enumerates an archive into the client filesystem.
 
 ## Release boundaries
 
@@ -69,7 +69,15 @@ The current active S file always takes the plain .mpq.disabled name. Before repl
 Enabling new spells journals removal of the plain root and active-locale disabled S files. The transaction moves their verified original bytes into its before backup outside Data. If a disabled file matches the catalog SHA-256 and size, it is staged locally for the matching S destination and excluded from downloads. Local sources must be paired with the exact disabled-file removal and catalog asset. Active S already matching still produces a cleanup transaction. Existing hash-suffixed archives are not swept. Previous journals remain readable. On/off/on, source drift, interruptions at every new commit/restore step, all locales and stacked restoration are covered.
 
 
-## Setup 1.1.8 renamed-patch preflight
+## Current backup behavior (Setup 1.3.0)
+
+**Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
+
+Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+
+## Historical Setup 1.1.8 renamed-patch preflight
+
+The manual-move behavior below describes 1.1.8 and is superseded by automatic backups in 1.3.0.
 
 Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
 

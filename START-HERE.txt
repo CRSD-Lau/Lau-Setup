@@ -1,4 +1,10 @@
 LAU SETUP 1.3.0 — GAME RELEASE 3.0.8
+
+YOUR EXISTING FILES ARE PRESERVED
+Before Setup replaces or moves an existing game file, it preserves the
+original automatically. Keep LauSetupBackups in your game folder.
+Restore previous install puts the originals back. Unrelated files stay put.
+Most users do not need to copy, rename or move any patches.
 Author / Creator / Last Modified By: Neil Mitchell
 
 START HERE ON WINDOWS
@@ -46,6 +52,9 @@ IF YOU GET STUCK
   and all files. Report the exact message, filename, and a screenshot at
   https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose. Do not delete or
   force-replace files to bypass the check.
+- Renamed patch-y.mpq to patch-lau.mpq? If its contents are recognized,
+  Setup backs up patch-lau.mpq and installs the selected patch-y.mpq.
+  Restore returns your original filename and file. No manual fix is needed.
 - Extra upgrade patches? Click Install upgrade as usual. Setup backs up
   recognized extra upgrade files in LauSetupBackups and continues.
   Restore previous install puts them back. No manual moving is needed.
