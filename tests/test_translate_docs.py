@@ -163,6 +163,22 @@ class TranslationTests(unittest.TestCase):
         self.assertEqual(t.unmask(result, masked, saved), '<strong>Seu Wrath.</strong><br />O Windows instalador.')
         self.assertFalse(any('Your' in call and 'installer' in call for call in calls))
 
+    def test_russian_omits_standalone_articles_in_prose_fallback(self):
+        original = 'The [technical reference](docs/TECHNICAL.md) describes a `WoW.exe` installation.'
+        masked, saved = t.mask(original)
+        calls = []
+        def translator(text, *_):
+            calls.append(text)
+            return text.replace('technical reference', 'техническое руководство').replace('describes a', 'описывает').replace('installation', 'установку')
+        result = t.translate_prose(masked, t.locales()['ruRU'], t.PROVIDER, translator, {})
+        restored = t.unmask(result, masked, saved)
+        self.assertNotIn('The', calls)
+        self.assertNotIn('The', restored)
+        self.assertIn('[техническое руководство](docs/TECHNICAL.md)', restored)
+        # Unexpected empty translations remain an error.
+        with self.assertRaises(ValueError):
+            t.translate_prose('installation', t.locales()['ruRU'], t.PROVIDER, lambda *_: '', {})
+
     def test_long_prose_respects_google_input_limit(self):
         text = 'A lengthy sentence about software. ' * 100
         calls = []

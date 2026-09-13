@@ -1,0 +1,53 @@
+{
+  "Author": "Neil Mitchell",
+  "CHANGELOG.md": {
+    "output": "d830a03d2d9bab465f33f1213f1150abff170193994f54f0cfebb675fbd93a66",
+    "source": "514800a1640948e78c31bcb6e4642119c75557f1cc82efb3c348d2c3210c10ef"
+  },
+  "CONTRIBUTING.md": {
+    "output": "914aaf0aa9d21980639919d4a9d1ecb31fe90ddc16ae3e5d758ae487f3ef469f",
+    "source": "8c2a0cbd15f908cbb92e18c5c7282ef7f162390c8de8cc0d4de5e00f3f8c20f8"
+  },
+  "Creator": "Neil Mitchell",
+  "DBC-CHANGELOG.md": {
+    "output": "37ca0448cdce55ef73fd85ace13555f5ba96ce587d474b830ca3ce85096df2da",
+    "source": "b926f5edf626bac4271cb851ce0753f99ed1b9df0ae6b4b647bcde8ffbeafd14"
+  },
+  "KNOWN-LIMITATIONS.md": {
+    "output": "9ed51fbbcf365ab4052a8b19bbd030ac0b568c03b5eb606f7736908051b49694",
+    "source": "cbf596c099952e07c2c1da69d0d4837afb9b8b1346ba95c9a0d0b61a9269389b"
+  },
+  "LastModifiedBy": "Neil Mitchell",
+  "PLATFORM-FEASIBILITY.md": {
+    "output": "26b587f2fd3f6cc641cdfd4cc6455094448b2348f2a5dbca1dc8d4d891bf628f",
+    "source": "50b6e95b7e44c18c7c76ab06765057a7be4efdaafd97f7faaeefef3358db3cf9"
+  },
+  "README.md": {
+    "output": "1cea3e60284ad0d652f4b102ab1a9c38e89bacb6545c49a2d3b988f194472f62",
+    "source": "b00649aff45a09b27385e1c37f549e819b0e54df4a0384336ac7f8540bc819bb"
+  },
+  "REVIEW.md": {
+    "output": "15b282d9950e14b0295099a8990ca47f7632b2feb865f88d166c1864a8b8f0b0",
+    "source": "d3f135deb20113a099149c4692d89e7dfc19440faa2305834bd276cff6e49a47"
+  },
+  "START-HERE.txt": {
+    "output": "44928b68f99720e045fc0732204c31aeeee5f2e2dad95bf46de5ca938fed0498",
+    "source": "d5957f19718d9e341bfb588d913a4283ac8836dea8410de0e63371658e2c03e8"
+  },
+  "TRANSLATION.md": {
+    "output": "287f403847d9d52f5f584a7037ae0d1a0f838a2e0fe1900d84182bd833d426d1",
+    "source": "0e6d64fce4aafd9fbcd971dcfbd3de9d0acdf029fd72bdfe8911db16e4e43ef8"
+  },
+  "docs/TECHNICAL.md": {
+    "output": "6de361c8a984406643df39b6096cd0480ba348fdfea084b13b06256fb70df6db",
+    "source": "c277c59cecf9b9a6e68ec30dc4cd7a36718b69828fc8901addd93ff411c2696d"
+  },
+  "docs/dbc/history/INDIVIDUAL-EDITS.md": {
+    "output": "ffbc8a6ba13c08c4ad8b36692ee6c1f7d185ff92c25685560ad1be018445a79f",
+    "source": "403a6f21eb8e1aab11cf7e1de65c61e78283d357a7c3e6a881bcb6cae6ab4cf7"
+  },
+  "wine/README.txt": {
+    "output": "b861f1f2df9d79048173e432adb3cb3b83b2c38a717e41b43f6124ad2187fa8e",
+    "source": "043a2a8ba055b88053d40fc03df05899f7d933dc689654652be3ccb26eefb26f"
+  }
+}

@@ -70,7 +70,8 @@
       "installer": "Этот установщик не имеет цифровой подписи",
       "windows": "Пакеты Windows не имеют цифровой подписи"
     },
-    "google": "ru"
+    "google": "ru",
+    "omit_articles": true
   },
   "zhCN": {
     "tag": "zh-CN",
