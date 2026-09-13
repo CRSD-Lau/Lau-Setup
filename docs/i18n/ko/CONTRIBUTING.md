@@ -14,6 +14,12 @@
 
 Wrath 커뮤니티의 설치 및 복구 개선에 도움을 주셔서 감사합니다.
 
+<a id="community-roadmap"></a>
+
+## 커뮤니티 로드맵
+
+[커뮤니티 로드맵](https://github.com/users/CRSD-Lau/projects/2)에 따라 작업을 문제로 확인하고 끌어오기 요청은 **백로그**, **준비**, **진행 중**, **테스트 중** 및 **완료**를 통해 보드에 자동으로 피드됩니다. **테스트** 카드에는 승인 체크리스트가 포함되어 있으며 검증을 완료하는 데 필요한 증거를 수집합니다. 이슈를 제출하기 전에 [아이디어](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas)를 사용하여 제안을 논의하세요. [릴리스 노트](https://github.com/CRSD-Lau/Lau-Setup/releases)는 각 버전에 제공된 내용에 대한 권한을 유지합니다.
+
 <a id="report-a-problem"></a>
 
 ## 문제 신고
@@ -26,7 +32,7 @@ Wrath 커뮤니티의 설치 및 복구 개선에 도움을 주셔서 감사합�
 
 ## 변경 제안
 
-[알려진 제한 사항 및 가정](KNOWN-LIMITATIONS.md)부터 시작하세요. 추천 사항은 [아이디어](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas)를 사용하세요. 구현을 제안하기 전에 서버, 네이티브 코드 또는 보호 작업 종속성을 식별합니다.
+[알려진 제한 사항 및 가정](KNOWN-LIMITATIONS.md)부터 시작하세요. 권장사항은 [아이디어](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas)를 사용하세요. 구현을 제안하기 전에 서버, 네이티브 코드 또는 보호 작업 종속성을 식별합니다.
 
 끌어오기 요청에 집중하세요. 사용자에게 보이는 문제, 변경 사항 및 실행한 점검 사항을 설명하십시오. 활성 개인 게임 클라이언트가 아닌 격리된 장치에서만 파일 작업을 테스트하십시오.
 

@@ -15,12 +15,13 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">Neueste Veröffentlichung</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">Website & Galerie</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Melden Sie ein Problem</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Melden Sie ein Problem</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">Community-Roadmap</a>
 </p>
 
 ---
 
-Mehrsprachiger Zaubertext, Breitbild-Ladegrafiken, benutzerdefinierte Bodenindikatoren und optionale HD-Karten für **WoW 3.3.5a, Build 12340**. Wählen Sie Ihren bestehenden Kunden und Ihr Bildmaterial; Lau Setup lädt die erforderlichen Dateien herunter, überprüft sie, platziert die Patches und sichert die Originale.
+Mehrsprachiger Zaubertext, Breitbild-Ladegrafik, benutzerdefinierte Bodenindikatoren und optionale HD-Karten für **WoW 3.3.5a, Build 12340**. Wählen Sie Ihren bestehenden Kunden und Ihr Bildmaterial; Lau Setup lädt die erforderlichen Dateien herunter, überprüft sie, platziert die Patches und sichert die Originale.
 
 **Installer 1.1.7 · Spielveröffentlichung 3.0.8 Lau · Neun Client-Sprachen**
 
@@ -34,7 +35,7 @@ Mehrsprachiger Zaubertext, Breitbild-Ladegrafiken, benutzerdefinierte Bodenindik
 
 ## 90° Atem- und Schleimspray-Warnungen
 
-**3.0.8 Lau:** Alle unterstützten Atemindikatoren und Rotface Slime Spray sind **90° insgesamt**, nach Warmane Testerbestätigung. Deckt Halion in beiden Reichen ab: Saviana Ragefire, Sartharion, ICC Rimefang und Sindragosa. Reichweite und Animations-Timing bleiben erhalten. Der genehmigte größere Halion-Meteorfeuerradius und die hellblaue Kaltflamme bleiben unverändert.
+**3.0.8 Lau:** Alle unterstützten Atemindikatoren und Rotface Slime Spray sind **90° insgesamt**, nach Warmane Testerbestätigung. Deckt Halion in beiden Reichen ab: Saviana Ragefire, Sartharion, ICC Rimefang und Sindragosa. Reichweite und Animations-Timing bleiben erhalten. Der genehmigte größere Meteorfeuerradius von Halion und die hellblaue Kaltflamme bleiben unverändert.
 
 **Bereits installiert?** Laden Sie zuerst **Setup 1.1.7** herunter, wählen Sie denselben Ordner und dasselbe Bildmaterial aus und installieren Sie es dann. Das Setup überprüft die tatsächlichen SHA-256-Hashes: Selbst eine Änderung um ein Byte mit derselben Größe und demselben Zeitstempel wird erkannt. Nur passende neue Dateien gelten als bereits installiert. `/pyversion` meldet **3.0.8 Lau**. Alte Installationsprogramme behalten ihren alten eingebetteten Katalog.
 
@@ -51,17 +52,17 @@ Mehrsprachiger Zaubertext, Breitbild-Ladegrafiken, benutzerdefinierte Bodenindik
 | Über **156 KB** | Über **80 KB** · Python 3.9+ |
 | [Windows-Anleitung](START-HERE.md) | [Wine Anleitung und Voraussetzungen](wine/README.md) |
 
-Spieledateien werden während der Einrichtung heruntergeladen. Eine englische Kerninstallation kostet etwa **472 MB** bei HD-Modellen und neuen Zaubervisualisierungen oder **259 MB** bei Originalmodellen. Optionale Karten führen zu einem größeren Download; Das Setup zeigt die Gesamtsumme vor der Installation an.
+Spieledateien werden während der Einrichtung heruntergeladen. Eine englische Kerninstallation kostet etwa **472 MB** mit HD-Modellen und neuen Zaubervisualisierungen oder **259 MB** mit Originalmodellen. Optionale Karten führen zu einem größeren Download; Das Setup zeigt die Gesamtsumme vor der Installation an.
 
 [SHA-256 Prüfsummen](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [Versionshinweise](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [Validierungsbericht](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
-> **Bringen Sie Ihren vorhandenen Client mit.** Dies ist ein Upgrade, kein vollständiger Spielclient, Sprachpaket oder HD-Modellbasis. Laufzeitinstallationsprogramme sind nicht im Paket enthalten. Die Benutzeroberfläche des Installationsprogramms ist Englisch. Der Spielinhalt unterstützt neun Gebietsschemas.
+> **Bringen Sie Ihren vorhandenen Client mit.** Dies ist ein Upgrade, kein vollständiger Spielclient, Sprachpaket oder HD-Modellbasis. Laufzeitinstallationsprogramme sind nicht im Paket enthalten. Die Benutzeroberfläche des Installationsprogramms ist Englisch; Der Spielinhalt unterstützt neun Gebietsschemas.
 
 <a id="one-setup-the-details-handled"></a>
 
-## One setup. The details handled.
+## Ein Setup. Die Details behandelt.
 
-| Choose your visuals | Behalten Sie die Kontrolle über Ihre Installation |
+| Wählen Sie Ihr Bildmaterial | Behalten Sie die Kontrolle über Ihre Installation |
 | :--- | :--- |
 | Erweiterte oder serienmäßige Weihe | Client-Sprach- und Modellerkennung |
 | Neue Zaubervisualisierungen für kompatible HD-Clients | Nur die erforderlichen Dateien heruntergeladen |
@@ -108,13 +109,13 @@ Das Setup richtet sich nach dem aktiven Gebietsschema Ihres Clients. Installiere
 
 Schließen Sie WoW, öffnen Sie das Setup erneut über denselben Launcher, wählen Sie denselben Client aus und wählen Sie **Vorherige Installation wiederherstellen**. Bewahren Sie `LauSetupBackups` im Client-Ordner auf: Er enthält die Originale und Wiederherstellungsdatensätze.
 
-Eine unterbrochene Installation oder Wiederherstellung kann auch dann wiederhergestellt werden, wenn `WoW.exe` vorübergehend fehlt. Wenn ein anderes Update die installierten Dateien geändert hat, stoppt die Wiederherstellung und behält die Sicherung zur Auflösung bei. Sobald dieses Installationsprogramm das Karten-Upgrade hinzufügt, behält es es bei Editionsänderungen bei; Stellen Sie die vorherige Installation wieder her, um das Upgrade rückgängig zu machen.
+Eine unterbrochene Installation oder Wiederherstellung kann auch dann wiederhergestellt werden, wenn `WoW.exe` vorübergehend fehlt. Wenn ein anderes Update die installierten Dateien geändert hat, stoppt die Wiederherstellung und behält die Sicherung zur Auflösung bei. Sobald dieses Installationsprogramm das Karten-Upgrade hinzufügt, behält es es bei Editionsänderungen bei. Stellen Sie die vorherige Installation wieder her, um das Upgrade rückgängig zu machen.
 
 <a id="tested-with-clear-limits"></a>
 
 ## Getestet, mit klaren Grenzen
 
-Release 1.1.7 hat **50-Regressionsgruppen auf Windows und auf Wine** bestanden, einschließlich 108-Gebietsschema-/Edition-/Kartenplänen pro Plattform. Die Spielversion 3.0.8 hat zuvor auf beiden Plattformen sechs Editions-Upgrades und eine Ein-Byte-Erkennung bestanden; seine Nutzlasten bleiben unverändert. Das Setup 1.1.7 deckt auch die Sequenz „All-Flags-On“ bis „New Spells Off“ mit älteren deaktivierten Kopien, wiederholten Wechseln und exaktem Rollback ab. Öffentliche Nutzlasten wurden anonym heruntergeladen und Hash-verifiziert; Die tatsächliche Kerninstallation und das Rollback wurden getestet.
+Die Version 1.1.7 hat **50-Regressionsgruppen auf Windows und auf Wine** bestanden, einschließlich 108-Gebietsschema-/Editions-/Kartenplänen pro Plattform. Die Spielversion 3.0.8 hat zuvor auf beiden Plattformen sechs Editions-Upgrades und eine Ein-Byte-Erkennung bestanden; seine Nutzlasten bleiben unverändert. Das Setup 1.1.7 deckt auch die Sequenz „All-Flags-On“ bis „New Spells Off“ mit älteren deaktivierten Kopien, wiederholten Wechseln und exaktem Rollback ab. Öffentliche Nutzlasten wurden anonym heruntergeladen und Hash-verifiziert; Die tatsächliche Kerninstallation und das Rollback wurden getestet.
 
 Wine wurde mit **Wine 11.0 / Wine Mono 10.4.1** auf lokalem Linux-Speicher getestet, einschließlich des mitgelieferten Launchers als normaler Benutzer. Die Halion-Meteorfeuer-Geometrie entspricht genau der vom Tester genehmigten Version 2. Coldflame, Animationsspuren, natives Feuer und Zaubertabellen bleiben byteidentisch mit 3.0.7. Website-Animationen sind illustrative Modelle. Diese Tests zertifizieren nicht jede Linux-Distribution oder jede Begegnung im Spiel.
 
@@ -124,7 +125,7 @@ Lutris-, Proton- und macOS-Integrationen sind nicht in dieser Version enthalten.
 
 ## Bekannte Einschränkungen und Funktionswünsche
 
-Lesen Sie [Bekannte Einschränkungen und Annahmen](KNOWN-LIMITATIONS.md), bevor Sie eine Funktion vorschlagen: Warmane Serversteuerung, DLL-/Native-Code-Bereich, geschützte Lua-Aktionen, Indikatorgenauigkeit und -timing, DBC-Abhängigkeiten und Plattform-/Wiederherstellungsgrenzen.
+Lesen Sie [Bekannte Einschränkungen und Annahmen](KNOWN-LIMITATIONS.md), bevor Sie eine Funktion vorschlagen: Warmane Serversteuerung, DLL-/native-Code-Bereich, geschützte Lua-Aktionen, Indikatorgenauigkeit und -timing, DBC-Abhängigkeiten und Plattform-/Wiederherstellungsgrenzen.
 
 <a id="for-contributors"></a>
 

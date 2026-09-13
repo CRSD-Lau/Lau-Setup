@@ -15,7 +15,8 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">Dernière version</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">Site Web et galerie</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Signaler un problème</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Signaler un problème</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">Feuille de route communautaire</a>
 </p>
 
 ---
@@ -28,7 +29,7 @@ Texte orthographique multilingue, illustration de chargement grand écran, indic
 
 ## Patch-S reste récupérable
 
-**Configuration du correctif 1.1.7 :** la réactivation des visuels du nouveau sort réutilise un Patch-S désactivé correspondant et déplace la copie désactivée dans `LauSetupBackups`, afin que les données ne conservent pas de doublon actif/désactivé. Différentes copies sont conservées dans la sauvegarde des transactions. La mise hors tension utilise toujours `.mpq.disabled`. Utilisez **Restaurer l'installation précédente** pour la récupération.
+**Configuration du correctif 1.1.7 :** la réactivation des visuels du nouveau sort réutilise un Patch-S désactivé correspondant et déplace la copie désactivée simple dans `LauSetupBackups`, afin que les données ne conservent pas de doublon actif/désactivé. Différentes copies sont conservées dans la sauvegarde des transactions. La mise hors tension utilise toujours `.mpq.disabled`. Utilisez **Restaurer l'installation précédente** pour la récupération.
 
 <a id="90-breath-and-slime-spray-warnings"></a>
 
@@ -51,7 +52,7 @@ Texte orthographique multilingue, illustration de chargement grand écran, indic
 | À propos de **156 Ko** | À propos de **80 Ko** · Python 3.9+ |
 | [Guide Windows](START-HERE.md) | [Guide et prérequis Wine](wine/README.md) |
 
-Les fichiers du jeu sont téléchargés lors de l'installation. Une installation de base en anglais concerne environ **472 MB** avec des modèles HD et de nouveaux visuels de sorts, ou **259 MB** avec des modèles originaux. Les cartes facultatives ajoutent un téléchargement plus important ; l'installation affiche le total avant l'installation.
+Les fichiers du jeu sont téléchargés lors de l'installation. Une installation principale en anglais concerne **472 MB** avec des modèles HD et de nouveaux visuels de sorts, ou **259 MB** avec des modèles originaux. Les cartes facultatives ajoutent un téléchargement plus important ; l'installation affiche le total avant l'installation.
 
 [Sommes de contrôle SHA-256](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [Notes de version](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [Rapport de validation](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
@@ -116,7 +117,7 @@ Une installation ou une restauration interrompue peut être récupérée même s
 
 La version 1.1.7 a réussi les **groupes de régression 50 sur Windows et sur Wine**, y compris les plans de paramètres régionaux/éditions/cartes 108 par plate-forme. La version du jeu 3.0.8 a déjà passé avec succès les mises à niveau de six éditions et la détection d'un octet sur les deux plates-formes ; ses charges utiles sont inchangées. La configuration 1.1.7 couvre également la séquence d'activation de tous les drapeaux vers les nouveaux sorts désactivés avec des copies désactivées plus anciennes, des commutateurs répétés et une restauration exacte. Les charges utiles publiques ont été téléchargées de manière anonyme et vérifiées par hachage ; L'installation et la restauration réelles du noyau ont été testées.
 
-Wine a été testé avec **Wine 11.0 / Wine Mono 10.4.1** sur le stockage local Linux, y compris le lanceur fourni en tant qu'utilisateur normal. La géométrie du feu de météore Halion correspond exactement à la v2 approuvée par les testeurs. Coldflame, les pistes d'animation, les tables de feu natif et de sorts restent identiques en octets à 3.0.7. Les animations du site Web sont des maquettes illustratives. Ces tests ne certifient pas chaque distribution Linux ou rencontre en jeu.
+Wine a été testé avec **Wine 11.0 / Wine Mono 10.4.1** sur le stockage local Linux, y compris le lanceur fourni en tant qu'utilisateur normal. La géométrie du feu de météore Halion correspond exactement à la v2 approuvée par les testeurs. Coldflame, les pistes d'animation, le feu natif et les tables de sorts restent identiques en octets à 3.0.7. Les animations du site Web sont des maquettes illustratives. Ces tests ne certifient pas chaque distribution Linux ou rencontre en jeu.
 
 Les intégrations Lutris, Proton et macOS sont en dehors de cette version. Le fichier exécutable n'est pas signé numériquement.
 

@@ -14,6 +14,12 @@
 
 Vielen Dank, dass Sie der Wrath-Community dabei geholfen haben, die Installation und Wiederherstellung zu verbessern.
 
+<a id="community-roadmap"></a>
+
+## Community-Roadmap
+
+Folgen Sie der [Community-Roadmap](https://github.com/users/CRSD-Lau/projects/2), um Arbeit als Probleme zu sehen und Pull-Requests dem Board automatisch über **Backlog**, **Ready**, **In Progress**, **Testing** und **Done** zuzuführen. **Testkarten** enthalten Akzeptanzchecklisten und sammeln die für den Abschluss der Validierung erforderlichen Nachweise; Verwenden Sie [Ideen](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas), um Vorschläge zu besprechen, bevor Sie ein Problem einreichen. [Versionshinweise](https://github.com/CRSD-Lau/Lau-Setup/releases) bleiben die Autorität für den Lieferumfang der einzelnen Versionen.
+
 <a id="report-a-problem"></a>
 
 ## Ein Problem melden

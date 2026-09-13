@@ -15,7 +15,8 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">Última versión</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">Sitio web y galería</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Informar un problema</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Informar un problema</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">Hoja de ruta comunitaria</a>
 </p>
 
 ---
@@ -114,9 +115,9 @@ Una instalación o restauración interrumpida se puede recuperar incluso si `WoW
 
 ## Probado, con límites claros
 
-La versión 1.1.7 aprobó **grupos de regresión 50 en Windows y en Wine**, incluidos los planes locales/edición/mapas de 108 por plataforma. El lanzamiento del juego 3.0.8 pasó previamente por actualizaciones de seis ediciones y detección de un byte en ambas plataformas; sus cargas útiles no cambian. La configuración 1.1.7 también cubre la secuencia de banderas encendidas a nuevos hechizos desactivados con copias más antiguas deshabilitadas, cambios repetidos y reversión exacta. Las cargas útiles públicas se descargaron de forma anónima y se verificaron mediante hash; Se probaron la instalación y la reversión del núcleo real.
+La versión 1.1.7 aprobó **grupos de regresión 50 en Windows y en Wine**, incluidos los planes de configuración regional/edición/mapa de 108 por plataforma. El lanzamiento del juego 3.0.8 pasó previamente por actualizaciones de seis ediciones y detección de un byte en ambas plataformas; sus cargas útiles no cambian. La configuración 1.1.7 también cubre la secuencia de banderas encendidas a nuevos hechizos desactivados con copias más antiguas deshabilitadas, cambios repetidos y reversión exacta. Las cargas útiles públicas se descargaron de forma anónima y se verificaron mediante hash; Se probaron la instalación y la reversión del núcleo real.
 
-Wine se probó con **Wine 11.0 / Wine Mono 10.4.1** en el almacenamiento local Linux, incluido el iniciador suministrado como usuario normal. La geometría del fuego de meteorito Halion coincide exactamente con la v2 aprobada por el probador. Coldflame, las pistas de animación, el fuego nativo y las tablas de hechizos siguen siendo en bytes idénticos a 3.0.7. Las animaciones del sitio web son maquetas ilustrativas. Estas pruebas no certifican cada distribución de Linux o encuentro en el juego.
+Wine se probó con **Wine 11.0 / Wine Mono 10.4.1** en el almacenamiento local Linux, incluido el iniciador suministrado como usuario normal. La geometría del fuego de meteorito Halion coincide exactamente con la v2 aprobada por el probador. Coldflame, pistas de animación, fuego nativo y tablas de hechizos siguen siendo idénticos en bytes a 3.0.7. Las animaciones del sitio web son maquetas ilustrativas. Estas pruebas no certifican cada distribución de Linux o encuentro en el juego.
 
 Las integraciones de Lutris, Proton y macOS están fuera de esta versión. El ejecutable no está firmado digitalmente.
 

@@ -15,12 +15,13 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">最新发布</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">网站和画廊</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">报告问题</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">报告问题</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">社区路线图</a>
 </p>
 
 ---
 
-多语言拼写文本、宽屏加载图稿、自定义地面指示器和可选的高清地图，适用于 **WoW 3.3.5a，构建 12340**。选择您现有的客户和视觉效果； Lau Setup下载所需的文件，验证它们，放置补丁并备份原始文件。
+多语言拼写文本、宽屏加载图稿、自定义地面指示器和可选的高清地图，用于 **WoW 3.3.5a，构建 12340**。选择您现有的客户和视觉效果； Lau Setup下载所需的文件，验证它们，放置补丁并备份原始文件。
 
 **安装程序 1.1.7 · 游戏发行 3.0.8 Lau · 九种客户端语言**
 
@@ -42,14 +43,14 @@
 
 <a id="download"></a>
 
-＃＃ 下载
+## 下载
 
 | Windows | Linux / Wine |
 | :--- | :--- |
-| **[下载 LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[下载 LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
-| Windows 10 / 11 · .NET框架 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit 前缀 |
-| 关于 **156 知识库** | 关于 **80 知识库** · Python 3.9+ |
-| [Windows 指导](START-HERE.md) | [Wine 指南和先决条件](wine/README.md) |
+| **[下载LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[下载LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
+| Windows 10 / 11 · .NET 框架 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit 前缀 |
+|关于**156 KB** |关于 **80 KB** · Python 3.9+ |
+| [Windows 指南](START-HERE.md) | [Wine 指南和先决条件](wine/README.md) |
 
 在安装过程中下载游戏文件。英文核心安装是关于 **472 MB** 的高清模型和新的拼写视觉效果，或 **259 MB** 的原始模型。可选地图增加了更大的下载量；安装程序会在安装前显示总数。
 
@@ -114,9 +115,9 @@ WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
 ## 经过测试，有明确的限制
 
-版本 1.1.7 通过了 Windows 和 Wine 上的 **50 回归组**，包括每个平台的 108 语言环境/版本/地图计划。游戏发布3.0.8此前已通过双平台六版升级和一字节检测；它的有效负载没有改变。设置 1.1.7 还涵盖了从所有标志到新法术关闭序列，以及旧的禁用副本、重复切换和精确回滚。公共有效负载是匿名下载并经过哈希验证的；测试了实际的核心安装和回滚。
+版本 1.1.7 通过了 Windows 和 Wine 上的 **50 回归组**，包括每个平台的 108 语言环境/版本/地图计划。游戏发布3.0.8此前在两个平台均通过了六版升级和一字节检测；它的有效负载没有改变。设置 1.1.7 还涵盖了从所有标志到新法术关闭序列，以及旧的禁用副本、重复切换和精确回滚。公共有效负载是匿名下载并经过哈希验证的；测试了实际的核心安装和回滚。
 
-Wine 在本地 Linux 存储上使用 **Wine 11.0 / Wine Mono 10.4.1** 进行了测试，包括作为普通用户提供的启动器。 Halion 流星火几何形状与测试人员批准的 v2 完全匹配。 Coldflame、动画轨道、原生火焰和法术表与 3.0.7 保持字节相同。网站动画是说明性的模型。这些测试并不能证明每个 Linux 发行版或游戏中的遭遇。
+Wine 在本地 Linux 存储上使用 **Wine 11.0 / Wine Mono 10.4.1** 进行了测试，包括作为普通用户提供的启动器。 Halion 流星火几何形状与测试人员批准的 v2 完全匹配。 Coldflame、动画轨迹、原生火焰和法术表与 3.0.7 的字节保持相同。网站动画是说明性的模型。这些测试并不能证明每个 Linux 发行版或游戏中的遭遇。
 
 此版本不包含 Lutris、Proton 和 macOS 集成。 可执行文件没有数字签名。
 
@@ -143,7 +144,7 @@ Wine 在本地 Linux 存储上使用 **Wine 11.0 / Wine Mono 10.4.1** 进行了�
 
 **Andre** — Patch-Y 基线 · **Loriendal 和 Trimitor** — 高清客户端基础 · **Project Reforged 贡献者** — 高清艺术作品 · **Blizzard** — 原创游戏、艺术作品和本地化文本 · **Lau** — 地面指示器、兼容性、适配、测试和发布工具。
 
-[完整制作](https://wrath-multilingual-hd.vercel.app/credits) · [屏幕截图和安装帮助](https://wrath-multilingual-hd.vercel.app/)
+[完整制作人员](https://wrath-multilingual-hd.vercel.app/credits) · [屏幕截图和安装帮助](https://wrath-multilingual-hd.vercel.app/)
 
 <sub>非官方社区项目。不隶属于 Blizzard Entertainment，也不受其认可。原创游戏和第三方艺术品仍然是其各自所有者的财产。</sub>
 

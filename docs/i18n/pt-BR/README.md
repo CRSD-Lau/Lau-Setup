@@ -15,7 +15,8 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">Último lançamento</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">Site e galeria</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Informar um problema</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">Informar um problema</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">Roteiro comunitário</a>
 </p>
 
 ---
@@ -28,7 +29,7 @@ Texto mágico multilíngue, arte de carregamento em tela ampla, indicadores de s
 
 ## Patch-S permanece recuperável
 
-**Setup 1.1.7 Hotfix:** reativar novos visuais de feitiço reutiliza um Patch-S desativado correspondente e move a cópia simples desativada para `LauSetupBackups`, para que Data não retenha uma duplicata ativa/desativada. Cópias diferentes são preservadas no backup da transação. Desligar ainda usa `.mpq.disabled`. Use **Restaurar instalação anterior** para recuperação.
+**Configuração do hotfix 1.1.7:** a reativação de novos visuais de feitiço reutiliza um Patch-S desativado correspondente e move a cópia simples desativada para `LauSetupBackups`, de modo que os dados não retém uma duplicata ativa/desativada. Cópias diferentes são preservadas no backup da transação. Desligar ainda usa `.mpq.disabled`. Use **Restaurar instalação anterior** para recuperação.
 
 <a id="90-breath-and-slime-spray-warnings"></a>
 
@@ -36,7 +37,7 @@ Texto mágico multilíngue, arte de carregamento em tela ampla, indicadores de s
 
 **3.0.8 Lau:** todos os indicadores de respiração suportados e Rotface Slime Spray são **90° no total**, após a confirmação do testador Warmane. Abrange Halion em ambos os reinos, Saviana Ragefire, Sartharion, ICC Rimefang e Sindragosa. O intervalo e o tempo da animação são preservados. O maior raio de disparo do meteoro Halion aprovado e o Coldflame azul claro permanecem inalterados.
 
-**Já instalado?** Baixe **Configure 1.1.7** primeiro, selecione a mesma pasta e recursos visuais e, em seguida, instale. A instalação verifica os hashes SHA-256 reais: até mesmo uma alteração de um byte com o mesmo tamanho e carimbo de data/hora é detectada. Apenas os novos arquivos correspondentes contam como já instalados. `/pyversion` relata **3.0.8 Lau**. Instaladores antigos mantêm seu antigo catálogo incorporado.
+**Já instalado?** Baixe **Configuração 1.1.7** primeiro, selecione a mesma pasta e recursos visuais e, em seguida, instale. A instalação verifica os hashes SHA-256 reais: até mesmo uma alteração de um byte com o mesmo tamanho e carimbo de data/hora é detectada. Apenas os novos arquivos correspondentes contam como já instalados. `/pyversion` relata **3.0.8 Lau**. Instaladores antigos mantêm seu antigo catálogo incorporado.
 
 [Prévias de cores animadas e changelog](https://wrath-multilingual-hd.vercel.app/#changelog)
 
@@ -77,7 +78,7 @@ Seus complementos, SavedVariables, fontes, arte de login, configurações de dom
 
 ## Comece
 
-1. **Feche WoW completamente.** Em Wine, feche cada instância de WoW em todos os prefixos.
+1. **Feche WoW completamente.** Em Wine, feche cada instância WoW em todos os prefixos.
 2. **Inicie a configuração e escolha sua pasta de cliente.** Windows: abra `LauSetup.exe`. Linux: extraia todos os quatro arquivos do ZIP Wine e use o inicializador abaixo.
 3. **Escolha seu visual e instale.** Consagração Aprimorada começa marcada; desmarque para a aparência do estoque. Novos visuais de feitiços exigem uma base de modelo HD compatível. Os mapas são opcionais.
 4. **Inicie WoW e execute `/pyversion`.** Confirme a edição instalada antes de entrar no jogo.
@@ -88,7 +89,7 @@ Em Linux, execute isto da pasta extraída com seu prefixo existente:
 WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 ```
 
-Use o inicializador como seu usuário normal. Ele verifica caminhos Linux, jogos em execução, espaço livre e bloqueios de instalador em prefixos. Use armazenamento local Linux; pastas vinculadas, compartilhamentos de rede e unidades montadas em Windows não são suportadas. O [guia Wine](wine/README.md) lista as fontes e todos os pré-requisitos.
+Use o inicializador como seu usuário normal. Ele verifica caminhos Linux, jogos em execução, espaço livre e bloqueios do instalador entre prefixos. Use armazenamento Linux local; pastas vinculadas, compartilhamentos de rede e unidades montadas em Windows não são suportadas. O [guia Wine](wine/README.md) lista as fontes e todos os pré-requisitos.
 
 Em Windows, a instalação oferece a página de download oficial do .NET Framework 4.8 da Microsoft se o tempo de execução estiver faltando. A configuração Wine testada usa **Wine Mono**, não o instalador .NET Windows.
 
@@ -141,7 +142,7 @@ As cargas úteis do jogo são distribuídas por meio das versões GitHub. Este r
 
 ## Baseado no trabalho comunitário
 
-**Andre** — Linhas de base Patch-Y · **Loriendal e Trimitor** — Base do cliente HD · **Contribuidores de Project Reforged** — arte HD · **Blizzard** — jogo original, arte e texto localizado · **Lau** — indicadores de solo, compatibilidade, adaptações, ferramentas de teste e liberação.
+**Andre** — Linhas de base Patch-Y · **Loriendal e Trimitor** — Base do cliente HD · **Contribuidores de Project Reforged** — arte em HD · **Blizzard** — jogo original, arte e texto localizado · **Lau** — indicadores de solo, compatibilidade, adaptações, ferramentas de teste e liberação.
 
 [Créditos completos](https://wrath-multilingual-hd.vercel.app/credits) · [Capturas de tela e ajuda de instalação](https://wrath-multilingual-hd.vercel.app/)
 

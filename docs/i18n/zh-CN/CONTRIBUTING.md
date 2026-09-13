@@ -14,6 +14,12 @@
 
 感谢您帮助改进 Wrath 社区的安装和恢复。
 
+<a id="community-roadmap"></a>
+
+## 社区路线图
+
+按照[社区路线图](https://github.com/users/CRSD-Lau/projects/2) 将工作视为问题，并通过 **Backlog**、**Ready**、**Inprogress**、**Testing** 和 **Done** 自动向董事会提供拉取请求。 **测试**卡包括验收清单并收集完成验证所需的证据；在提交问题之前使用[想法](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas) 讨论提案。 [发行说明](https://github.com/CRSD-Lau/Lau-Setup/releases) 保留每个版本中发布的内容的权威。
+
 <a id="report-a-problem"></a>
 
 ## 报告问题

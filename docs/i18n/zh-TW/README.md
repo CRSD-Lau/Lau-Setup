@@ -15,14 +15,15 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">最新發布</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">網站和畫廊</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">報告問題</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">報告問題</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">社區路線圖</a>
 </p>
 
 ---
 
-多語言拼字文字、寬螢幕載入圖稿、自訂地面指示器和可選的高清地圖，適用於 **WoW 3.3.5a，建構 12340**。選擇您現有的客戶和視覺效果；Lau Setup下載所需的文件，驗證它們，放置補丁並備份原始文件。
+多语言拼写文本、宽屏加载图稿、自定义地面指示器和可选的高清地图，用于 **WoW 3.3.5a，构建 12340**。选择您现有的客户和视觉效果； Lau Setup下载所需的文件，验证它们，放置补丁并备份原始文件。
 
-**安裝程式 1.1.7 · 遊戲發行 3.0.8 Lau · 九種客戶端語言**
+**安装程序 1.1.7 · 游戏发行 3.0.8 Lau · 九种客户端语言**
 
 <a id="patch-s-stays-recoverable"></a>
 
@@ -34,7 +35,7 @@
 
 ## 90° 呼吸和黏液噴霧警告
 
-**3.0.8 Lau：** 所有支援的呼吸指示器和 Rotface Slime Spray 均為 **90° 總計**，經 Warmane 測試儀確認。涵蓋兩個領域的哈萊恩：薩維娜·怒火、薩薩裡奧、ICC Rimefang 和辛達苟薩。範圍和動畫時間被保留。經批准的較大哈利恩流星火半徑和淺藍色冷焰保持不變。
+**3.0.8 Lau：** 所有受支援的呼吸指示器和 Rotface Slime Spray 均為 **90° 總計**，經 Warmane 測試儀確認。涵蓋兩個領域的哈萊恩：薩維娜·怒火、薩薩裡奧、ICC Rimefang 和辛達苟薩。範圍和動畫時間被保留。經批准的較大哈利恩流星火半徑和淺藍色冷焰保持不變。
 
 **已經安裝？ ** 先下載 **Setup 1.1.7**，選擇相同的資料夾和視覺效果，然後安裝。安裝程式檢查實際的 SHA-256 雜湊值：即使是具有相同大小和時間戳記的一位元組變更也會被偵測到。只有符合的新檔案才算已安裝。 `/pyversion` 報告 **3.0.8 Lau**。舊的安裝程式保留舊的嵌入式目錄。
 
@@ -59,7 +60,7 @@
 
 <a id="one-setup-the-details-handled"></a>
 
-## 一種設定。細節處理好了。
+## 一种设置。细节处理好了。
 
 |選擇您的視覺效果 |控制您的安裝 |
 | :--- | :--- |
@@ -80,7 +81,7 @@
 1。 **完全關閉 WoW。 ** 在 Wine 上，關閉所有前綴上的每個 WoW 實例。
 2。 **啟動安裝程式並選擇您的客戶端資料夾。 ** Windows：開啟`LauSetup.exe`。 Linux：從 Wine ZIP 中提取所有四個檔案並使用下面的啟動器。
 3。 **選擇您的視覺效果並安裝。 ** 增強奉獻開始選取；取消選取它以查看庫存外觀。新的法術視覺效果需要相容的高清模型基礎。地圖是可選的。
-4。 **啟動 WoW 並運行 `/pyversion`。 ** 在進入遊戲前確認已安裝的版本。
+4。 **啟動 WoW 並運行 `/pyversion`。 ** 在進入遊戲之前確認已安裝的版本。
 
 在 Linux 上，使用現有前綴從提取的資料夾中執行此命令：
 
@@ -114,9 +115,9 @@ WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
 
 ## 經過測試，有明確的限制
 
-版本 1.1.7 通過了 Windows 和 Wine 上的 **50 回歸組**，包括每個平台的 108 語言環境/版本/地圖計劃。遊戲發表3.0.8先前已透過雙平台六版升級和一位元組檢測；它的有效負載沒有改變。設定 1.1.7 還涵蓋了從所有標誌到新法術關閉序列，以及舊的禁用副本、重複切換和精確回滾。公共有效負載是匿名下載並經過哈希驗證的；測試了實際的核心安裝和回滾。
+版本 1.1.7 通過了 Windows 和 Wine 上的 **50 回歸組**，包括每個平台的 108 語言環境/版本/地圖計畫。遊戲發表3.0.8先前在兩個平台均通過了六版升級和一位元組檢測；它的有效負載沒有改變。設定 1.1.7 還涵蓋了從所有標誌到新法術關閉序列，以及舊的禁用副本、重複切換和精確回滾。公共有效負載是匿名下載並經過哈希驗證的；測試了實際的核心安裝和回滾。
 
-Wine 在本地 Linux 儲存上使用 **Wine 11.0 / Wine Mono 10.4.1** 提供了普通用戶的啟動器。 Halion 流星火幾何形狀與測試人員批准的 v2 完全匹配。 Coldflame、動畫軌道、原生火焰和法術表與 3.0.7 保持位元組相同。網站動畫是說明性的模型。這些測試並不能證明每個 Linux 發行版或遊戲中的遭遇。
+Wine 在本地 Linux 儲存上使用 **Wine 11.0 / Wine Mono 10.4.1** 提供了普通用戶的啟動器。 Halion 流星火幾何形狀與測試人員批准的 v2 完全匹配。 Coldflame、動畫軌道、原生火焰和法術表與 3.0.7 的位元組保持相同。網站動畫是說明性的模型。這些測試並不能證明每個 Linux 發行版或遊戲中的遭遇。
 
 此版本不包含 Lutris、Proton 和 macOS 整合。 執行檔沒有數位簽章。
 
@@ -143,7 +144,7 @@ Wine 在本地 Linux 儲存上使用 **Wine 11.0 / Wine Mono 10.4.1** 提供了�
 
 **Andre** — Patch-Y 基線· **Loriendal & Trimitor** — 高清客戶端基礎· **Project Reforged 貢獻者** — 高清藝術作品· **Blizzard** — 原創遊戲、藝術作品與在地化文本 · **Lau** — 地面指標、相容性、適應性、測試和發布工具。
 
-[完整製作](https://wrath-multilingual-hd.vercel.app/credits) · [螢幕截圖與安裝幫助](https://wrath-multilingual-hd.vercel.app/)
+[完整製作人員](https://wrath-multilingual-hd.vercel.app/credits) · [螢幕截圖與安裝幫助](https://wrath-multilingual-hd.vercel.app/)
 
 <sub>非官方社區項目。不隸屬於 Blizzard Entertainment，也不受其認可。原創遊戲和第三方藝術品仍然是其各自所有者的財產。</sub>
 

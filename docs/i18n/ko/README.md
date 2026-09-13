@@ -15,12 +15,13 @@
 <p align="center">
   <a href="https://github.com/CRSD-Lau/Lau-Setup/releases/latest">최신 릴리스</a> ·
   <a href="https://wrath-multilingual-hd.vercel.app/">웹사이트 & 갤러리</a> ·
-  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">문제 신고</a>
+  <a href="https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose">문제 신고</a> ·
+  <a href="https://github.com/users/CRSD-Lau/projects/2">커뮤니티 로드맵</a>
 </p>
 
 ---
 
-**WoW 3.3.5a, 빌드 12340**용 다국어 철자 텍스트, 와이드스크린 로딩 아트워크, 맞춤형 지면 표시기 및 선택적 HD 지도. 기존 클라이언트와 영상을 선택하세요. Lau Setup는 필요한 파일을 다운로드하고 확인한 후 패치를 배치하고 원본을 백업합니다.
+**WoW 3.3.5a, 빌드 12340**용 다국어 철자 텍스트, 와이드스크린 로딩 아트워크, 맞춤형 지면 표시기 및 옵션 HD 지도. 기존 클라이언트와 영상을 선택하세요. Lau Setup는 필요한 파일을 다운로드하고 확인한 후 패치를 배치하고 원본을 백업합니다.
 
 **설치 프로그램 1.1.7 · 게임 출시 3.0.8 Lau · 9개 클라이언트 언어**
 
@@ -28,13 +29,13 @@
 
 ## Patch-S는 복구 가능한 상태로 유지됩니다.
 
-**1.1.7 핫픽스 설정:** 새 주문 시각적 개체를 다시 활성화하면 일치하는 비활성화된 Patch-S를 재사용하고 비활성화된 일반 복사본을 `LauSetupBackups`로 이동하므로 데이터는 활성/비활성화된 복제본을 유지하지 않습니다. 트랜잭션 백업에는 다양한 복사본이 보존됩니다. 끄면 여전히 `.mpq.disabled`가 사용됩니다. 복구하려면 **이전 설치 복원**을 사용하세요.
+**1.1.7 핫픽스 설정:** 새 주문 시각적 개체를 다시 활성화하면 일치하는 비활성화된 Patch-S를 재사용하고 일반 비활성화된 복사본을 `LauSetupBackups`로 이동하므로 데이터는 활성/비활성화된 복제본을 유지하지 않습니다. 트랜잭션 백업에는 다양한 복사본이 보존됩니다. 끄면 여전히 `.mpq.disabled`가 사용됩니다. 복구하려면 **이전 설치 복원**을 사용하세요.
 
 <a id="90-breath-and-slime-spray-warnings"></a>
 
 ## 90° 호흡 및 슬라임 스프레이 경고
 
-**3.0.8 Lau:** 지원되는 모든 호흡 표시기와 Rotface Slime 스프레이는 Warmane 테스터 확인에 따라 **90° 총**입니다. Saviana Ragefire, Sartharion, ICC Rimefang 및 Sindragosa의 두 영역 모두에서 Halion을 다루고 있습니다. 범위와 애니메이션 타이밍이 유지됩니다. 승인된 더 큰 Halion 유성 발사 반경과 하늘색 Coldflame은 변경되지 않았습니다.
+**3.0.8 Lau:** 지원되는 모든 호흡 표시기 및 Rotface Slime 스프레이는 Warmane 테스터 확인에 따라 **90° 총**입니다. Saviana Ragefire, Sartharion, ICC Rimefang 및 Sindragosa의 두 영역 모두에서 Halion을 다루고 있습니다. 범위와 애니메이션 타이밍이 유지됩니다. 승인된 더 큰 Halion 유성 발사 반경과 하늘색 Coldflame은 변경되지 않았습니다.
 
 **이미 설치되었습니까?** 먼저 **Setup 1.1.7**를 다운로드하고 동일한 폴더와 비주얼을 선택한 다음 설치하십시오. 설치 프로그램은 실제 SHA-256 해시를 확인합니다. 크기와 타임스탬프가 동일한 1바이트 변경도 감지됩니다. 일치하는 새 파일만 이미 설치된 것으로 간주됩니다. `/pyversion`는 **3.0.8 Lau**를 보고합니다. 이전 설치 프로그램은 이전에 포함된 카탈로그를 유지합니다.
 
@@ -49,7 +50,7 @@
 | **[LauSetup.exe 다운로드](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[LauSetup-Wine.zip 다운로드](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
 | Windows 10 / 11 · .NET 프레임워크 4.8 | Wine 11.0 · Wine Mono 10.4.1 · 64-bit 접두사 |
 | **156 KB** 정보 | **80 KB** 정보 · Python 3.9+ |
-| [Windows 가이드](START-HERE.md) | [Wine 가이드 및 전제 조건](wine/README.md) |
+| [Windows 가이드](START-HERE.md) | [Wine 가이드 및 전제조건](wine/README.md) |
 
 설정 중에 게임 파일이 다운로드됩니다. 영어 코어 설치는 HD 모델과 새로운 주문 영상이 포함된 **472 MB** 또는 원본 모델이 포함된 **259 MB** 정도입니다. 선택적 지도는 더 큰 다운로드를 추가합니다. setup은 설치하기 전의 전체 내용을 보여줍니다.
 
@@ -116,7 +117,7 @@ WoW를 닫고, 동일한 실행기를 통해 설정을 다시 열고, 동일한 
 
 릴리스 1.1.7는 플랫폼별 108 로케일/에디션/맵 계획을 포함하여 Windows 및 Wine**에 대한 **50 회귀 그룹을 통과했습니다. 게임 출시 3.0.8는 이전에 두 플랫폼 모두에서 6개 에디션 업그레이드와 1바이트 감지를 통과했습니다. 페이로드는 변경되지 않습니다. 설정 1.1.7는 또한 오래된 비활성화된 복사본, 반복된 스위치 및 정확한 롤백을 통해 모든 플래그 온에서 새로운 주문 오프 시퀀스를 다룹니다. 공개 페이로드는 익명으로 다운로드되었으며 해시 검증되었습니다. 실제 코어 설치 및 롤백이 테스트되었습니다.
 
-Wine는 일반 사용자로서 제공된 런처를 포함하여 로컬 Linux 스토리지에서 **Wine 11.0 / Wine Mono 10.4.1**로 테스트되었습니다. Halion 유성불 기하학은 테스터가 승인한 v2와 정확히 일치합니다. Coldflame, 애니메이션 트랙, 기본 화재 및 주문 테이블은 3.0.7와 바이트 동일하게 유지됩니다. 웹사이트 애니메이션은 예시적인 모형입니다. 이 테스트는 모든 Linux 배포 또는 게임 내 만남을 인증하지 않습니다.
+Wine는 ​​일반 사용자로서 제공된 런처를 포함하여 로컬 Linux 스토리지에서 **Wine 11.0 / Wine Mono 10.4.1**로 테스트되었습니다. Halion 유성불 기하학은 테스터가 승인한 v2와 정확히 일치합니다. Coldflame, 애니메이션 트랙, 기본 화재 및 주문 테이블은 3.0.7와 바이트 동일하게 유지됩니다. 웹사이트 애니메이션은 예시적인 모형입니다. 이 테스트는 모든 Linux 배포 또는 게임 내 만남을 인증하지 않습니다.
 
 Lutris, Proton 및 macOS 통합은 이 릴리스 외부에 있습니다. 실행 파일에는 디지털 서명이 없습니다.
 

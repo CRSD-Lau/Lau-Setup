@@ -14,6 +14,12 @@
 
 Obrigado por ajudar a melhorar a instalação e recuperação da comunidade Wrath.
 
+<a id="community-roadmap"></a>
+
+## Roteiro da comunidade
+
+Siga o [roteiro da comunidade](https://github.com/users/CRSD-Lau/projects/2) para ver o trabalho como problemas e solicitações pull alimentam automaticamente o quadro por meio de **Backlog**, **Pronto**, **Em andamento**, **Teste** e **Concluído**. Os cartões de **teste** incluem listas de verificação de aceitação e coletam as evidências necessárias para concluir a validação; use [Ideias](https://github.com/CRSD-Lau/Lau-Setup/discussions/categories/ideas) para discutir propostas antes de registrar um problema. [Notas de versão](https://github.com/CRSD-Lau/Lau-Setup/releases) permanecem como autoridade para o que é fornecido em cada versão.
+
 <a id="report-a-problem"></a>
 
 ## Relate um problema
