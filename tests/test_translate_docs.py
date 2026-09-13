@@ -17,7 +17,8 @@ class TranslationTests(unittest.TestCase):
         values = t.locales()
         self.assertEqual(len(values), 10)
         self.assertEqual(values["ptBR"]["tag"], "pt-BR")
-        self.assertIn("Brazilian", values["ptBR"]["instruction"])
+        self.assertEqual(values["ptBR"]["google"], "pt")
+        self.assertEqual(values["esES"]["google"], values["esMX"]["google"])
         self.assertNotEqual(values["esES"], values["esMX"])
         self.assertNotEqual(values["zhCN"], values["zhTW"])
 
@@ -105,9 +106,72 @@ class TranslationTests(unittest.TestCase):
         original = "A paragraph.\n\n" * 200
         self.assertEqual("".join(t.chunks(original, 80)), original)
 
-    def test_local_model_only(self):
-        with self.assertRaisesRegex(ValueError, "pinned local"):
+    def test_short_cjk_labels_are_not_treated_as_truncation(self):
+        self.assertEqual(t.unmask('要求', 'Requirements', []), '要求')
+
+    def test_prose_fallback_uses_plain_translation_mode(self):
+        original = 'Raw six-edition `WoW.exe`'
+        masked, saved = t.mask(original)
+        modes = []
+        def translator(text, locale, model, plain=False):
+            modes.append(plain)
+            return 'Seis ediciones originales' if plain else '# Explanations instead of translation'
+        result = t.translate_context(masked, t.locales()['esES'], t.PROVIDER, translator, {}, saved)
+        self.assertEqual(t.unmask(result, masked, saved), 'Seis ediciones originales `WoW.exe`')
+        self.assertEqual(modes, [False, True])
+
+    def test_free_google_provider_only(self):
+        with self.assertRaisesRegex(ValueError, "free Google"):
             t.request_translation("hello", t.locales()["ptBR"], "paid-cloud-model")
+
+    def test_google_result_parser_and_target(self):
+        parsed = t.GoogleResult()
+        parsed.feed('<input name="tl" value="pt"><div class="result-container">Olá &amp; <b>mundo</b><br>Fim</div><p>ignored</p>')
+        self.assertEqual(parsed.target, 'pt')
+        self.assertEqual(''.join(parsed.parts), 'Olá & mundo\nFim')
+
+    def test_google_rejects_language_fallback(self):
+        from io import BytesIO
+        with patch.object(t.time, 'sleep'), patch.object(t.urllib.request, 'urlopen',
+                return_value=BytesIO(b'<input name="tl" value="en"><div class="result-container">English</div>')):
+            with self.assertRaisesRegex(ValueError, 'target rejected'):
+                t.request_translation('Hello', t.locales()['ptBR'], t.PROVIDER)
+
+    def test_google_retries_temporary_empty_pages(self):
+        from io import BytesIO
+        responses = [BytesIO(b'<html>Temporarily unavailable</html>'),
+                     BytesIO('<input name="tl" value="pt"><div class="result-container">Site e galeria</div>'.encode())]
+        with patch.object(t.time, 'sleep'), patch.object(t.urllib.request, 'urlopen', side_effect=responses) as call:
+            self.assertEqual(t.request_translation('Website &amp; gallery', t.locales()['ptBR'], t.PROVIDER), 'Site e galeria')
+            self.assertEqual(call.call_count, 2)
+            self.assertIn('q=Website+%26+gallery', call.call_args.args[0])
+
+    def test_google_rate_limit_stops_without_retry(self):
+        error = t.urllib.error.HTTPError('https://translate.google.com/m', 429, 'limited', {}, None)
+        with patch.object(t.time, 'sleep'), patch.object(t.urllib.request, 'urlopen', side_effect=error) as call:
+            with self.assertRaisesRegex(ValueError, 'rate-limited'):
+                t.request_translation('Hello', t.locales()['ptBR'], t.PROVIDER)
+            self.assertEqual(call.call_count, 1)
+
+    def test_html_elements_keep_their_own_text(self):
+        masked, saved = t.mask('<strong>Your Wrath.</strong><br />The Windows installer.')
+        calls = []
+        def translator(text, *_):
+            calls.append(text)
+            return text.replace('Your', 'Seu').replace('The', 'O').replace('installer', 'instalador')
+        result = t.translate_context(masked, t.locales()['ptBR'], t.PROVIDER, translator, {}, saved)
+        self.assertEqual(t.unmask(result, masked, saved), '<strong>Seu Wrath.</strong><br />O Windows instalador.')
+        self.assertFalse(any('Your' in call and 'installer' in call for call in calls))
+
+    def test_long_prose_respects_google_input_limit(self):
+        text = 'A lengthy sentence about software. ' * 100
+        calls = []
+        def translator(value, *_):
+            calls.append(len(value))
+            return value.replace('lengthy', 'larga')
+        result = t.translate_context(text, t.locales()['esES'], t.PROVIDER, translator, {}, [])
+        self.assertLessEqual(max(calls), 2000)
+        self.assertEqual(result, text.replace('lengthy', 'larga'))
 
     def test_generation_cache_and_failure_preserves_previous_page(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -116,22 +180,22 @@ class TranslationTests(unittest.TestCase):
             locale = t.locales()["ptBR"]
             calls = []
 
-            def translator(text, language, model):
+            def translator(text, language, model, plain=False):
                 calls.append(text)
                 return text.replace("Install", "Instalar").replace("Automatic translation", "Tradução automática")
 
-            self.assertTrue(t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, translator))
+            self.assertTrue(t.translate_one("README.md", locale, ["README.md"], t.PROVIDER, root, translator))
             output = root / t.destination("README.md", "pt-BR")
             before = t.read(output)
             self.assertIn("Instalar", before)
             self.assertIn(t.META, before)
-            self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, translator))
+            self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.PROVIDER, root, translator))
             count = len(calls)
-            self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, translator))
+            self.assertFalse(t.translate_one("README.md", locale, ["README.md"], t.PROVIDER, root, translator))
             self.assertEqual(len(calls), count)
             t.write(root / "README.md", "# Download\n\nDownload `Changed.exe` version 3.0.9.\n")
             with self.assertRaises(ValueError):
-                t.translate_one("README.md", locale, ["README.md"], t.MODEL, root, lambda *args: "<script>broken</script>")
+                t.translate_one("README.md", locale, ["README.md"], t.PROVIDER, root, lambda *args: "<script>broken</script>")
             self.assertEqual(t.read(output), before)
 
     def test_model_never_receives_protected_spans_or_markdown(self):
@@ -141,7 +205,7 @@ class TranslationTests(unittest.TestCase):
         def translator(prose, *_):
             calls.append(prose)
             return prose.replace('Install', 'Instalar').replace('guide', 'guia').replace('with', 'com').replace('version', 'versão')
-        translated = t.translate_prose(masked, t.locales()['ptBR'], t.MODEL, translator, {})
+        translated = t.translate_prose(masked, t.locales()['ptBR'], t.PROVIDER, translator, {})
         for prose in calls:
             self.assertNotRegex(prose, r'ZXQKEEP|https://|WoW.exe|3.0.8|[\[\]#`]')
         result = t.unmask(translated, masked, saved)
@@ -162,8 +226,8 @@ class TranslationTests(unittest.TestCase):
             root = Path(directory)
             t.write(root / "README.md", "# Install\n")
             locale = t.locales()["ptBR"]
-            self.assertNotEqual(t.fingerprint("README.md", locale, ["README.md"], t.MODEL, root),
-                                t.fingerprint("README.md", locale, ["README.md", "NEW.md"], t.MODEL, root))
+            self.assertNotEqual(t.fingerprint("README.md", locale, ["README.md"], t.PROVIDER, root),
+                                t.fingerprint("README.md", locale, ["README.md", "NEW.md"], t.PROVIDER, root))
 
     def test_publication_rejects_missing_translations(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -10,7 +10,6 @@ on:
       - '!docs/i18n/**'
       - 'build/catalog.json'
       - 'tools/translate_docs.py'
-      - 'tools/start_translation_model.sh'
       - 'tools/translation-locales.json'
       - 'tests/test_translate_docs.py'
       - '.github/workflows/translate-docs.yml'
@@ -20,7 +19,6 @@ on:
       - '**.txt'
       - 'build/catalog.json'
       - 'tools/translate_docs.py'
-      - 'tools/start_translation_model.sh'
       - 'tools/translation-locales.json'
       - 'tests/test_translate_docs.py'
       - '.github/workflows/translate-docs.yml'
@@ -58,11 +56,11 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('locales=' + json.dumps([k for k in locales() if k != 'enUS']) + '\n')
 
-  model-smoke:
+  google-smoke:
     needs: validate
     if: github.event_name == 'pull_request' && github.event.repository.private == false
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -70,7 +68,6 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.11'
-      - run: bash tools/start_translation_model.sh
       - run: python tools/translate_docs.py --locale ptBR --source README.md
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -82,10 +79,10 @@ jobs:
     needs: validate
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.private == false
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 60
     strategy:
-      fail-fast: true
-      max-parallel: 9
+      fail-fast: false
+      max-parallel: 1
       matrix:
         locale: ${{ fromJSON(needs.validate.outputs.locales) }}
     steps:
@@ -95,8 +92,6 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.11'
-      - name: Start verified local translation model
-        run: bash tools/start_translation_model.sh
       - name: Translate changed documents
         env:
           TARGET_LOCALE: ${{ matrix.locale }}
