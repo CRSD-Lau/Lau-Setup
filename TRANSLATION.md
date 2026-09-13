@@ -2,46 +2,46 @@
 
 # Repository translations
 
-The **Translate documentation** GitHub Action translates repository documentation into German, Spanish for Spain, Spanish for Mexico, French, Korean, Russian, Simplified Chinese, Traditional Chinese and **Brazilian Portuguese**, alongside the original English.
+The **Translate documentation** GitHub Action uses **Google Translate's free website** to keep repository documentation available in every supported game language, plus **Brazilian Portuguese**. No API key, paid Cloud Translation account, subscription or model download is required.
 
-Use the language links at the top of the README. A language name becomes a link after its translated documents have been generated successfully. GitHub shows the root README by default; it does not select one of these files from a visitor's browser language.
+Use the language links at the top of the README. GitHub displays the root README by default; visitors choose their language using these links. This workflow translates documentation, including installation guides and technical references. It does not translate GitHub's interface, issues, release descriptions, the separate website or the installer interface, and does not add a Portuguese game locale.
 
-## Free automatic translation
+## Languages
 
-The Action runs **Qwen 3.5 4B locally through Ollama** on standard GitHub-hosted Ubuntu runners. There is no paid translation API, API key, subscription or external inference service. Lau Setup is a public repository, for which standard GitHub-hosted runner execution is free. Translation jobs are disabled if the repository becomes private. Small document artifacts expire after one day; the model is downloaded into the disposable runner and is not stored as an artifact or Actions cache.
+Coverage is checked against `build/catalog.json`, with `ptBR` added for documentation. The reading options are English, German, Spanish for Spain and Mexico, French, Korean, Russian, Simplified Chinese, Traditional Chinese and Brazilian Portuguese.
 
-Ollama cloud access is disabled. Both the Ollama runtime and translation model are pinned and verified by SHA-256. Model updates require a reviewed tooling change. Qwen 3.5 4B and Ollama are open-source software/model projects; Qwen uses the Apache 2.0 license. Their model/runtime files are not redistributed in this repository or installer.
+Google's web language selector identifies `pt` as Portuguese (Brazil); Portuguese (Portugal) is a different target. Google provides one `es` target, so the Spain and Mexico pages use the same general Spanish translation. The Chinese targets are separate. Google target codes and native language names live in `tools/translation-locales.json`. Adding a game locale requires adding its documentation mapping; missing coverage fails validation.
 
-Maintainers can use **Actions → Translate documentation → Run workflow**, selecting **main**, to generate missing translations or retry a failed run. Otherwise, pushes that change English documentation, the locale catalog or translation tooling trigger it automatically. The first full pass may take substantial CPU time; source and output hashes skip unchanged documents afterward. Maintainers should bump `TRANSLATION_REVISION` when changing translation prompts or conventions; model digest and locale changes also invalidate cached translations.
+## Automatic updates
 
-## Coverage
+Pushes changing English documentation, the catalog or translation tooling trigger the Action. Maintainers can also select **Actions → Translate documentation → Run workflow → main**. It discovers tracked Markdown and text files in the repository root and `docs/`, plus `wine/README.txt`. Generated translations and `AGENTS.md` are excluded. Text guides become rendered Markdown under `docs/i18n/<language>/`.
 
-The Action discovers tracked Markdown and text documents in the repository root and `docs/`, plus the Wine guide. This includes the README, installation guides, known limitations, contribution guidance, technical reference, review notes, platform scope and changelogs. Generated translations and `AGENTS.md` are excluded. Source `.txt` guides become rendered `.md` pages under `docs/i18n/<language>/`.
+Only changed documents need translation. Source and output hashes and a segment cache avoid repeated requests. Bump `TRANSLATION_REVISION` when changing translation conventions. Language jobs run one at a time, with a pause between requests. A rate limit stops the affected job; retry later. The free web interface is unofficial for automation and can change or block requests. There is no paid fallback. Existing published pages remain available when generation fails.
 
-Coverage is checked against `build/catalog.json`, with `ptBR` added for documentation. A new catalog locale requires its name and regional instructions in `tools/translation-locales.json`; validation fails if it is missing. Brazilian Portuguese documentation does not add a Portuguese game locale or translate the installer interface. GitHub's own interface, issue forms, discussions, release descriptions and the separate website are outside this document workflow.
+Standard GitHub-hosted runner execution is free for this public repository. Jobs are disabled if the repository becomes private. Small intermediate artifacts expire after one day; no model or large dependency is stored.
 
-Protected placeholders preserve executable examples, inline code, URLs, HTML and numerical release facts. Relative document links lead to the same language; image and source-code links lead back to the originals. Stable English heading anchors preserve existing section links. Each page identifies itself as an automatic translation and links to its English source. Author, Creator and Last Modified By metadata remain **Neil Mitchell**.
+## Integrity and publication
 
-## Publication and corrections
+Code, commands, URLs, version numbers, product names, credits and signature-status statements are protected. Relative document links point to the same language, while image and code links point to the originals. Stable English heading anchors preserve section links. Every page identifies itself as an automatic translation, links to its English source and retains Author, Creator and Last Modified By metadata for **Neil Mitchell**.
 
-All nine language jobs must succeed before the Action commits translated documents and the language selector to `main`. Publication refuses a changed source revision and never force-pushes. Missing placeholders, truncated output and unchanged English responses fail the run instead of publishing that output. If branch protection later prevents committing, retain the branch rules and adapt publication to the approved PR process.
+All nine translated reading options must pass source/output integrity checks before publication to `main`. Publication refuses a changed source revision and never force-pushes. Pull requests run unit checks and a real Brazilian Portuguese README smoke translation with read-only access. If branch protection later prevents committing, adapt publication to the approved PR process.
 
-Pull requests run unit checks and an isolated Brazilian Portuguese README smoke translation, with read-only repository access and no publication. Automated checks protect structure and technical evidence; fluent readers should report inaccurate or unnatural wording. English remains authoritative. Update the source or regional instructions for durable corrections; direct edits to generated pages will be regenerated by a subsequent run.
+Machine translation still needs fluent-reader review. English remains authoritative. For durable corrections, update the English source or translation tooling; direct edits to generated files will be regenerated. Failed or partial batches do not replace existing documents.
 
-Run structural checks locally without a model or network access:
+## Local use
+
+Python 3.11 or newer is sufficient; no additional packages are required. Check structure without network access:
 
 ```sh
 python -m unittest discover -s tests -p test_translate_docs.py -v
 python tools/translate_docs.py --check
 ```
 
-To translate locally with the pinned model already available in a local Ollama service:
+Translate public documentation using the free Google website:
 
 ```sh
 python tools/translate_docs.py --locale ptBR
 python tools/translate_docs.py --navigation
 ```
 
-The runner bootstrap script is restricted to disposable GitHub-hosted Linux environments. It does not install anything on a contributor's computer. Translation automation changes documentation only and makes no installer, game-payload or DBC edits.
-
-References: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [Qwen model and license](https://ollama.com/library/qwen3.5), [Ollama](https://github.com/ollama/ollama).
+References: [Google Translate](https://translate.google.com/), [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions). The separate [Google Cloud Translation API](https://cloud.google.com/translate/pricing) is a billed service and is not used here.
