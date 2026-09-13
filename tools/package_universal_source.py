@@ -12,7 +12,7 @@ ADDITIONS = [
     'tools/translate_installer.py', 'tools/test_universal_windows.py', 'tools/test_universal_wine.py', 'tests/Tests.cs', 'tests/LocalizationTests.cs',
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',
     'tests/LocalizationProbe.cs', 'tools/test_localization.ps1',
-    'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'CHANGELOG.md',
+    'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'CHANGELOG.md',
 ]
 
 def build(root=ROOT,output=None):
@@ -20,7 +20,7 @@ def build(root=ROOT,output=None):
     names=sorted(set(json.loads((root/'build/wine-public-allowlist.json').read_text(encoding='utf-8-sig'))+ADDITIONS))
     # Keep this manifest in the source bundle so it can reproduce its own archive.
     names.append('build/wine-public-allowlist.json')
-    output=Path(output).resolve() if output else root/'dist/release-1.2.1/LauSetup-source-1.2.1.zip'
+    output=Path(output).resolve() if output else root/'dist/release-1.3.0/LauSetup-source-1.3.0.zip'
     output.parent.mkdir(parents=True,exist_ok=True)
     expected={}
     for name in names:

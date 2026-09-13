@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.2.1 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
+**Installer 1.3.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
 
 ## Download and start here
 
@@ -55,7 +55,7 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 - **WoW is running** — close it and retry. Under Wine, close every WoW instance in every prefix.
 - **An interrupted install needs restoring first** — choose the same client folder, select **Restore previous install**, and keep `LauSetupBackups` in place.
 - **A game file was changed by another update** — restore stops to preserve that file. Keep all files and backups, then [report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose). Do not delete or force-replace files to bypass the check.
-- **Possible extra upgrade patch** — setup found upgrade content in an extra file, even if you kept its original download name. Close WoW, keep a backup, and move only the named extra file outside `Data`, then retry. Setup chooses the right edition; do not rename an HD download into an original-model client. If unsure, report the message and filename before moving anything.
+- **Extra upgrade patches** — click **Install upgrade** as usual. Setup automatically backs up recognized extra upgrade files in `LauSetupBackups` and continues. **Restore previous install** puts them back. No manual moving is needed.
 - **Cannot safely check patch** — first download the latest setup; 1.2.1 fixes the old large-table restriction. If it still stops, keep the named archive and your backups. [Report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose); do not force-replace files to bypass the check.
 
 For prior hotfix behavior and historical indicator changes, see the [changelog](CHANGELOG.md). Setup checks actual SHA-256 hashes; an older installer keeps its embedded catalog, so download and extract the current `LauSetup.zip` before updating.
@@ -109,7 +109,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.2.1 fixes large MPQ-table rejection and clarifies extra-patch warnings. See [current validation and release notes](docs/RELEASE-1.2.1.md). The following 1.2.0 results are retained as historical interface and release evidence.
+Setup 1.3.0 automatically backs up recognized extra upgrade patches and continues. See [current validation and release notes](docs/RELEASE-1.3.0.md). The following 1.2.0 results are retained as historical interface and release evidence.
 
 Setup 1.2.0 passed **62 regression groups on Windows and 62 on Wine**. Wine ran 35 groups before the busy-state completion fix, then the affected GUI group and the remaining 26 after it; final Wine localization and packaged-window checks also passed. The validation records 50 Windows and 21 normal-user Wine interface states, 185 keys across all ten bundled interface languages, and 31 package, translation, and host tests. Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
 

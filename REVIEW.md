@@ -78,3 +78,7 @@ Reviewed the managed MPQ reader for bounds, integer overflow, read-only file acc
 ## 1.2.1 scanner review
 
 The table reader uses bounded chunks and continuous cipher state rather than loading the full table or collecting every hash in a set. Every table entry is still validated. Current validation is in docs/RELEASE-1.2.1.md and the release VALIDATION.json; older results above retain their original scope.
+
+## 1.3.0 automatic-backup review
+
+Three independent reviews and two peer reviews selected the existing verified transaction for recognized extra patches. Scope guards protect stock archives, unrelated files and inactive locales. Full-set revalidation precedes even no-op completion; pending recovery keeps priority in the interface. Regression coverage includes changed files, forged journals, cancellation, interrupted moves, historical catalog recovery and GUI install/restore. See docs/RELEASE-1.3.0.md for release evidence.

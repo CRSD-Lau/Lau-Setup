@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 
 namespace LauSetup {
+public sealed class PatchConflict { public string Relative,Sha256;public long Bytes; }
 // Deliberately limited to classic MPQ hash tables. No extraction, native code,
 // decompression, archive writes or inference from generic shared DBC filenames.
 public static class MpqScan {
@@ -19,7 +20,10 @@ public static class MpqScan {
     static void Budget(Stopwatch watch,CancellationToken token){token.ThrowIfCancellationRequested();if(watch.ElapsedMilliseconds>60000)throw new IOException("Patch conflict scan exceeded one minute. No game files changed; check the selected drive and retry.");}
     internal static bool HasMarkers(string path,Stopwatch watch,CancellationToken token){
         SafePaths.Plain(path);
-        using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read))using(var reader=new BinaryReader(stream)){
+        using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read))return HasMarkers(stream,watch,token);
+    }
+    static bool HasMarkers(Stream stream,Stopwatch watch,CancellationToken token){
+        using(var reader=new BinaryReader(stream,System.Text.Encoding.UTF8,true)){
             long start=-1;
             for(long at=0;at+32<=stream.Length&&at<=1024*1024;at+=512){Budget(watch,token);stream.Position=at;if(reader.ReadUInt32()==0x1A51504D){start=at;break;}}
             if(start<0)throw new InvalidDataException("No supported MPQ header.");
@@ -43,11 +47,12 @@ public static class MpqScan {
             Budget(watch,token);return found[0]||found.Skip(1).Count(value=>value)>=2;
         }
     }
-    public static void Check(string root,string locale,Catalog catalog,CancellationToken token){
+    public static void Check(string root,string locale,Catalog catalog,CancellationToken token){Find(root,locale,catalog,token);}
+    public static List<PatchConflict> Find(string root,string locale,Catalog catalog,CancellationToken token){
         root=SafePaths.Root(root);var watch=Stopwatch.StartNew();int count=0;
+        var conflicts=new List<PatchConflict>();
         var expected=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach(char c in "qmsy"){expected.Add(@"Data\patch-"+c+".mpq");expected.Add(@"Data\"+locale+@"\patch-"+locale+"-"+c+".mpq");}
-        var known=catalog.Assets.Values.Where(a=>a.Id!="Executable").GroupBy(a=>a.Bytes).ToDictionary(g=>g.Key,g=>new HashSet<string>(g.Select(a=>a.Sha256),StringComparer.OrdinalIgnoreCase));
         foreach(string relativeDir in new[]{"Data",@"Data\"+locale}){
             string dir=SafePaths.Under(root,relativeDir);SafePaths.Plain(dir);if(!Directory.Exists(dir))continue;
             foreach(string path in Directory.EnumerateFiles(dir)){
@@ -56,16 +61,61 @@ public static class MpqScan {
                 if(++count>2048)throw new IOException("Too many MPQ files to scan safely. No game files changed.");
                 try{
                     SafePaths.Plain(path);
-                    HashSet<string> matches;
-                    if(known.TryGetValue(new FileInfo(path).Length,out matches)&&matches.Contains(TimedHash(path,watch,token)))throw new ConflictException();
-                    if(HasMarkers(path,watch,token))throw new ConflictException();
-                }catch(ConflictException){throw new IOException("Possible extra upgrade patch: "+relative+". Keep a backup and move this copy outside Data before retrying. Setup will not delete it.");}
+                    var conflict=Identify(path,catalog,watch,token);
+                    if(conflict!=null){SafePaths.ExtraPatch(root,relative,locale);conflict.Relative=relative;conflicts.Add(conflict);}
+                }
                 catch(OperationCanceledException){throw;}
                 catch(Exception ex){if(!(ex is IOException)&&!(ex is InvalidDataException)&&!(ex is UnauthorizedAccessException))throw;throw new IOException("Cannot safely check patch: "+relative+". No game files changed. Check this archive before retrying. "+ex.Message,ex);}
             }
         }
+        return conflicts;
     }
-    sealed class ConflictException:Exception{}
-    static string TimedHash(string path,Stopwatch watch,CancellationToken token){using(var f=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read))using(var sha=System.Security.Cryptography.SHA256.Create()){byte[] b=new byte[1024*1024];int n;while((n=f.Read(b,0,b.Length))>0){Budget(watch,token);sha.TransformBlock(b,0,n,b,0);}sha.TransformFinalBlock(b,0,0);return BitConverter.ToString(sha.Hash).Replace("-","").ToLowerInvariant();}}
+    internal static bool KnownHash(string hash,long bytes,Catalog catalog){return releasedArchiveHashes.Contains(hash)||catalog.Assets.Values.Any(a=>a.Id!="Executable"&&a.Bytes==bytes&&a.Sha256.Equals(hash,StringComparison.OrdinalIgnoreCase));}
+    internal static PatchConflict Identify(string path,Catalog catalog,Stopwatch watch,CancellationToken token){
+        SafePaths.Plain(path);
+        using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read)){
+            long bytes=stream.Length;string hash=null;
+            // Classification and fingerprint use this same non-write-sharing handle.
+            if(catalog.Assets.Values.Any(a=>a.Id!="Executable"&&a.Bytes==bytes))hash=TimedHash(stream,watch,token);
+            bool known=hash!=null&&KnownHash(hash,bytes,catalog);
+            if(!known&&!HasMarkers(stream,watch,token))return null;
+            if(hash==null)hash=TimedHash(stream,watch,token);
+            return new PatchConflict{Sha256=hash,Bytes=bytes};
+        }
+    }
+    internal static void VerifyOriginal(string path,string hash,long bytes,Catalog catalog){
+        if(!Hash.Matches(path,hash,bytes))throw new IOException("An original backup has changed: "+path);
+        if(!KnownHash(hash,bytes,catalog)&&!HasMarkers(path,Stopwatch.StartNew(),CancellationToken.None))throw new IOException("Invalid backup entry.");
+    }
+    public static void ValidatePlan(InstallPlan plan,Catalog catalog,CancellationToken token){
+        var actual=Find(plan.Root,plan.Locale,catalog,token);var expected=plan.Operations.Where(o=>o.ExtraPatch).ToArray();
+        if(actual.Count!=expected.Length||actual.Any(a=>!expected.Any(e=>e.Relative.Equals(a.Relative,StringComparison.OrdinalIgnoreCase)&&e.Existed&&e.OldHash==a.Sha256&&e.OldBytes==a.Bytes)))throw new IOException("Game files changed while downloading. No install was applied.");
+    }
+    static string TimedHash(Stream f,Stopwatch watch,CancellationToken token){f.Position=0;using(var sha=System.Security.Cryptography.SHA256.Create()){byte[] b=new byte[1024*1024];int n;while((n=f.Read(b,0,b.Length))>0){Budget(watch,token);sha.TransformBlock(b,0,n,b,0);}sha.TransformFinalBlock(b,0,0);return BitConverter.ToString(sha.Hash).Replace("-","").ToLowerInvariant();}}
+    // Append-only published MPQ fingerprints for recovery across catalog upgrades.
+    // Game 3.0.8 / Setup 1.2.1 catalog; never replace old entries when adding a release.
+    static readonly HashSet<string> releasedArchiveHashes=new HashSet<string>(StringComparer.OrdinalIgnoreCase){
+        "0a7f2eef34085785b72f1d18b83108c25dac2c2deada412738182fee5e738a80",
+        "0d307cabbeb874e481ecf92b3f44a3f4fa1f8eee0e6f2741ed4b871e3b6cb567",
+        "177445dee261bf6bea06fd8ca8cf1398b64c231ee26878329ff8faebfb1bce17",
+        "17ff68d574e559741663dcb93dcaa34ee1439135fe05f2476bab7dd4650ecf47",
+        "187ae741e7c364830834cd782b32ea7153caad2b804918ff44227c9af923c237",
+        "270afe55b5d517ea4f0b976437b00c663da5bee52d9fb7f9969a5042e8d3fd8e",
+        "2941cbbf61bebcabd2e0ff51361268447e7b6739fafef7da175b2a31662991a3",
+        "2eb1fde5691cc1e5dcfa9b45e4a2b50ed302b8afe619fe9dffd030854c6f8a8c",
+        "4ae311c9eef3158f6c9f8a6840cf7ad340be9fa9279f8fcc893a599f9dcb524d",
+        "4c24eca61f60ab4fe8f6df3e862bdb2c1a0f59d0cc11434ec36fd64fb50daff2",
+        "508020eb056d73597d0d64fed17662018cbbe7236a401623b2088b051664d9f2",
+        "5f675980f93440e3e8a333c1874ac09dad4e17a6e46a168c4151bf4b88423a4a",
+        "6cc47ec31ac489149577d491aa3e2baa42d0894af6786616a40d4a5813720f4a",
+        "6dd53dd139ae0f05e0eff1133819da84c683f2a280bc634ee019a288efe48ada",
+        "773747e64d3c09f94b813d58d858c54e889000e2000f3f131531533e9620d7a4",
+        "89c8018a293a72380a51c826f908503f7d61313c5249162f815035d551852a0d",
+        "962577c0d1206222fb581a8bfe38077e2b7fdd9211ec9c810ef6560d0241360a",
+        "b14e0f8f3729e19807baeb9a217990a5f2bb869c20e9a4ef6de603e0ba66659f",
+        "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "e841709e455f70dd3255a691b337b28ecf1761fef8e758570db4038ba7a2d062",
+        "ec6f91ceea7bdbc7e5d0b51d566a9f5d59ccc8387bf00ac2ab7069be16096eb5"
+    };
 }
 }

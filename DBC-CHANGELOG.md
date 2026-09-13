@@ -87,3 +87,7 @@ The handoff audit covers Patch-Y from the retained Andre 3.0.3 baselines onward.
 ## Setup 1.1.8 Hotfix — renamed-patch checks
 
 Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.
+
+## Setup 1.3.0 — automatic extra-patch backups
+
+No DBC edits. Installer-only transaction and interface changes. Game release stays 3.0.8; all 28 catalog assets, nine game locales and the raw game ZIP are unchanged. Setup 1.2.1 likewise changed only MPQ scanning and documentation, with no DBC edits.

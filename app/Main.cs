@@ -153,6 +153,7 @@ public sealed class SetupForm:Form {
             if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));
             SetText(install,plan.Operations.Count==0?"Already installed":"Install upgrade");
             SetText(status,Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S becomes .mpq.disabled. Any older disabled copy is preserved separately. Restore previous install reverses the change.":"Ready. A verified backup is created before any game files change."));
+            if(Transaction.Pending(client.Root)==null&&plan.Operations.Any(o=>o.ExtraPatch))SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",plan.Operations.Count(o=>o.ExtraPatch));
         }catch(Exception ex){plan=null;SetMessage(status,ex.Message);}finally{SetBusy(false);}
     }
     async void Install(object sender,EventArgs args) {
@@ -166,7 +167,7 @@ public sealed class SetupForm:Form {
             await Task.Run(()=>{
                 using(var lease=ClientLease.Acquire(current.Root)){
                 if(Transaction.Pending(current.Root)!=null)throw new IOException("An interrupted install needs restoring first.");
-                MpqScan.Check(current.Root,current.Locale,catalog,cancellation.Token);
+                MpqScan.ValidatePlan(current,catalog,cancellation.Token);
                 var files=new Dictionary<string,string>();var loader=new Downloader(cache,Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload"),p=>{p.Overall=done+p.Received;((IProgress<TransferProgress>)transfer).Report(p);});
                 foreach(var id in current.Operations.Where(o=>o.AssetId!=null&&o.SourceRelative==null).Select(o=>o.AssetId).Distinct()) {
                     cancellation.Token.ThrowIfCancellationRequested();
@@ -202,7 +203,8 @@ public sealed class SetupForm:Form {
         }
         if(state=="busy"){SetBusy(true);cancel.Visible=true;progress.Visible=true;progress.Value=420;SetText(status,"Downloading {0}  ·  {1} / {2}",Phrase("spell visuals"),"84.0 MB","200.0 MB");}
         if(state=="recovery"){SetText(detected,"{0}  ·  Interrupted installation found",Language("enUS"));SetText(status,"Click Restore previous install to recover your game files.");install.Enabled=false;restore.Enabled=true;}
-        if(state=="error")SetMessage(status,@"Possible renamed upgrade patch: Data\patch-test.mpq. Keep a backup and move this copy outside Data before retrying. Setup will not delete it.");
+        if(state=="error")SetMessage(status,@"Cannot safely check patch: Data\patch-test.mpq. No game files changed. Check this archive before retrying. Unsupported MPQ table layout.");
+        if(state=="conflicts")SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",3);
         CreateControl();ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;Location=WineHost.Active?Point.Empty:new Point(-32000,-32000);Show();PerformLayout();Refresh();Application.DoEvents();
         // Mono's DrawToBitmap omits custom controls. Capture the real Wine window
         // on the isolated test display so visual evidence includes every control.

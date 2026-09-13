@@ -1,4 +1,4 @@
-LAU SETUP 1.2.1 — GAME RELEASE 3.0.8
+LAU SETUP 1.3.0 — GAME RELEASE 3.0.8
 Author / Creator / Last Modified By: Neil Mitchell
 
 START HERE ON WINDOWS
@@ -46,10 +46,9 @@ IF YOU GET STUCK
   and all files. Report the exact message, filename, and a screenshot at
   https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose. Do not delete or
   force-replace files to bypass the check.
-- Possible extra upgrade patch? This can be a file with its original download
-  name. Close WoW, keep a backup, and move only the named extra file outside
-  Data, then retry. Setup chooses the right edition. Do not rename an HD
-  download into an original-model client. If unsure, report the file first.
+- Extra upgrade patches? Click Install upgrade as usual. Setup backs up
+  recognized extra upgrade files in LauSetupBackups and continues.
+  Restore previous install puts them back. No manual moving is needed.
 - Cannot safely check patch? Download the latest setup; 1.2.1 fixes the old
   large-table restriction. If it still stops, keep the archive and backups.
   Report the exact message, filename, and screenshot at
