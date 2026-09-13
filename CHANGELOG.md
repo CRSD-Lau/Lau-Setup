@@ -1,3 +1,13 @@
+# Lau Setup 1.2.0 — shared download and interface languages
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+One `LauSetup.zip` includes the Windows executable, Linux/Wine safety launcher and bundled translations. The interface detects the system language, offers ten languages including Brazilian Portuguese, and remembers a manual selection. Changing interface language preserves the selected client and options. WoW's detected locale still controls game patch selection.
+
+Linux prerequisites remain unchanged. Game release 3.0.8 and all payload hashes remain unchanged; no DBC edits. See [1.2.0 release notes](docs/RELEASE-1.2.0.md) and [shared-package guide](docs/UNIVERSAL-INSTALLER.md).
+
+---
+
 # Lau Setup 1.1.8 Hotfix — renamed-patch checks
 
 Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y markers and exact copies of catalog patches before downloading and again before installation. A possible conflict or unreadable/unsupported archive stops installation with its filename; setup does not delete it. Keep a backup and resolve the named archive outside Data before retrying. Expected Q/M/S/Y placements and disabled files are excluded. Game files remain 3.0.8; no DBC edits.

@@ -21,7 +21,8 @@ public static class Tests {
     static void Fails(Action action,string fragment=null){try{action();}catch(Exception e){if(fragment!=null)Check(e.ToString().Contains(fragment),"Wrong error: "+e);return;}throw new Exception("Expected rejection.");}
     static string Put(string path,byte[] bytes){Directory.CreateDirectory(Path.GetDirectoryName(path));File.WriteAllBytes(path,bytes);return path;}
     static string Put(string path,string value){return Put(path,Encoding.UTF8.GetBytes(value));}
-    static void Test(string name,Action run){var start=DateTime.UtcNow;try{run();passed++;results.Add(new{name,status="PASS",seconds=(DateTime.UtcNow-start).TotalSeconds});Console.WriteLine("PASS "+name);}catch(Exception e){results.Add(new{name,status="FAIL",error=e.ToString()});throw;}}
+    static readonly string startAt=Environment.GetEnvironmentVariable("LAU_TEST_START_AT");static bool testStarted=String.IsNullOrEmpty(startAt);
+    static void Test(string name,Action run){if(!testStarted){if(name!=startAt)return;testStarted=true;}var start=DateTime.UtcNow;try{run();passed++;results.Add(new{name,status="PASS",seconds=(DateTime.UtcNow-start).TotalSeconds});Console.WriteLine("PASS "+name);}catch(Exception e){results.Add(new{name,status="FAIL",error=e.ToString()});throw;}}
     static void Guard(string root){}
     static byte[] ScanFixture(params string[] names){
         uint[] table=new uint[32];for(int i=0;i<table.Length;i++)table[i]=0xFFFFFFFF;
@@ -94,6 +95,16 @@ public static class Tests {
         work=Path.GetFullPath(args[0]);realExe=Path.GetFullPath(args[1]);Directory.CreateDirectory(work);
         try {
             Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
+            Test("Interface locale resolution, persistence and live switching",()=>LocalizationTests.Run(work));
+            Ui.Initialize("en-US",false);
+            Test("Interface language does not change game locale or install plan",()=>{
+                var f=new Fixture("frFR");var original=Json.Text(f.Plan());
+                foreach(var option in Ui.Languages.Where(x=>x.Code!="auto")){
+                    Ui.Select(option.Code,false);Check(f.Client.Locale=="frFR","UI language changed the client locale.");
+                    Check(Json.Text(f.Plan())==original,"UI language changed patch selection.");
+                }
+                f.Original();Ui.Initialize("en-US",false);
+            });
             Test("108 locale / edition / map install plans",()=>{
                 foreach(var loc in new Fixture().Catalog.Locales)foreach(int mode in new[]{0,1,2})foreach(bool cons in new[]{false,true})foreach(bool maps in new[]{false,true}){
                     var f=new Fixture(loc,mode>0);var p=f.Plan(mode==2,cons,maps);
@@ -144,8 +155,10 @@ public static class Tests {
                 string offline=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload");Directory.CreateDirectory(offline);
                 foreach(var a in f.Catalog.Assets.Values)File.Copy(f.Files[a.Id],Path.Combine(offline,a.Parts[0].FileName),true);
                 using(var form=new SetupForm(f.Catalog)){
+                    form.StartPosition=FormStartPosition.Manual;form.Location=new System.Drawing.Point(-32000,-32000);form.ShowInTaskbar=false;form.Show();Application.DoEvents();
                     Pump(form.SelectRoot(f.Root));Call(form,"SetBusy",false);Call(form,"RefreshPlan",null,EventArgs.Empty);Idle(form);
-                    Check(((Button)Field(form,"install")).Enabled,"Install did not become ready.");((CheckBox)Field(form,"maps")).Checked=true;Idle(form);
+                    var readyPlan=Field(form,"plan") as InstallPlan;var readyButton=(Button)Field(form,"install");
+                    Check(readyButton.Enabled,"Install did not become ready: "+((Label)Field(form,"status")).Text+"; busy="+Field(form,"busy")+"; refreshing="+Field(form,"refreshing")+"; recovery="+Field(form,"recoveryOnly")+"; operations="+(readyPlan==null?-1:readyPlan.Operations.Count)+"; button="+readyButton.Text+"; parent="+readyButton.Parent.Enabled+"; form="+form.Enabled);((CheckBox)Field(form,"maps")).Checked=true;Idle(form);
                     Call(form,"Install",null,EventArgs.Empty);Idle(form);Check(((Label)Field(form,"status")).Text.StartsWith("Installed and verified"),((Label)Field(form,"status")).Text);
                     Check(!((CheckBox)Field(form,"maps")).Enabled&&((CheckBox)Field(form,"maps")).Checked,"Installed map state not refreshed.");
                     string j=Transaction.Journals(f.Root).First();Pump(form.RestoreRecord(j));Check(((Label)Field(form,"status")).Text=="Previous install restored and verified.","GUI restore failed.");
@@ -170,8 +183,8 @@ public static class Tests {
             Test("MPQ scan rechecks after plan before transaction",()=>{var f=new Fixture();var p=f.Plan();Put(Path.Combine(f.Root,@"Data\patch-late.mpq"),ScanFixture(@"Interface\AddOns\!PYAndre\!PYAndre.toc"));Fails(()=>f.Tx().Install(p,f.Files,CancellationToken.None),"Possible renamed upgrade patch");});
             Test("MPQ scan catches a conflict introduced during staging",()=>{var f=new Fixture();var p=f.Plan();int calls=0;var tx=new Transaction(f.Catalog,null,root=>{if(++calls==2)Put(Path.Combine(root,@"Data\patch-late.mpq"),ScanFixture(@"Interface\AddOns\!PYAndre\!PYAndre.toc"));});Fails(()=>tx.Install(p,f.Files,CancellationToken.None),"Possible renamed upgrade patch");foreach(var x in f.Before)Check(Hash.FileHash(Path.Combine(f.Root,x.Key))==x.Value,"Existing file changed on scan abort");Check(Transaction.Pending(f.Root)==null,"Aborted scan left pending journal");});
             Test("MPQ scan cancellation",()=>{var f=new Fixture();var c=new CancellationTokenSource();c.Cancel();Fails(()=>MpqScan.Check(f.Root,f.Client.Locale,f.Catalog,c.Token));});
-            Console.WriteLine("ALL PASS "+passed);return 0;
+            Check(passed>0,"No tests matched the requested starting group.");Console.WriteLine("ALL PASS "+passed);return 0;
         }catch(Exception e){Console.Error.WriteLine(e);return 1;}
-        finally{Json.Save(Path.Combine(work,"results.json"),new{Author="Neil Mitchell",Creator="Neil Mitchell",LastModifiedBy="Neil Mitchell",passed,results});}
+        finally{Json.Save(Path.Combine(work,"results.json"),new{Author="Neil Mitchell",Creator="Neil Mitchell",LastModifiedBy="Neil Mitchell",StartAt=startAt,passed,results});}
     }
 }

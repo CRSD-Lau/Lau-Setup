@@ -43,6 +43,8 @@ The supplied executable retains the inspected Billy patch-naming implementation.
 
 ## Download
 
+> **1.2.0 source preview:** this branch adds one Windows/Linux ZIP and ten automatically selected interface languages. Build it with `tools/build.ps1 -OutputDirectory dist/universal-1.2.0`, then run `python tools/package_universal.py`. See the [shared-package guide](docs/UNIVERSAL-INSTALLER.md). The published downloads below remain 1.1.8 until a 1.2.0 release is published.
+
 | Windows | Linux / Wine |
 | :--- | :--- |
 | **[Download LauSetup.exe](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.exe)** | **[Download LauSetup-Wine.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup-Wine.zip)** |
