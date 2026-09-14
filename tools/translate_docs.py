@@ -7,6 +7,8 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import os
+from email.utils import parsedate_to_datetime
 from pathlib import Path, PurePosixPath
 import posixpath
 import re
@@ -214,6 +216,25 @@ class GoogleResult(HTMLParser):
             self.parts.append(data)
 
 
+class TranslationDeferred(ValueError):
+    """A temporary provider failure, with an optional server cooldown."""
+
+    def __init__(self, message, retry_after=None):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
+def retry_after_seconds(value, now=None):
+    if not value:
+        return None
+    try:
+        if value.strip().isdigit():
+            return int(value.strip())
+        return max(0, parsedate_to_datetime(value).timestamp() - (time.time() if now is None else now))
+    except (ValueError, TypeError, OverflowError):
+        return None
+
+
 def request_translation(text, language, provider, plain=False):
     if provider != PROVIDER:
         raise ValueError("Only the free Google web translator is configured")
@@ -222,7 +243,7 @@ def request_translation(text, language, provider, plain=False):
     target = language["google"]
     url = "https://translate.google.com/m?" + urllib.parse.urlencode({"sl": "en", "tl": target, "q": unescape(text)})
     # A small steady request rate; no proxies, API keys, paid fallback or limit bypass.
-    time.sleep(1)
+    time.sleep(3)
     for attempt in range(3):
         try:
             with urllib.request.urlopen(url, timeout=45) as response:
@@ -236,13 +257,17 @@ def request_translation(text, language, provider, plain=False):
             if attempt == 2:
                 raise ValueError(f"Google returned no translation after 3 attempts ({target}, input: {text[:80]!r}); retry later")
         except urllib.error.HTTPError as error:
+            retry_delay = retry_after_seconds((error.headers or {}).get("Retry-After"))
             if error.code == 429:
-                raise ValueError("Google rate-limited translation; retry the workflow later. Existing pages retained.") from None
+                raise TranslationDeferred("Google rate-limited translation. Existing pages retained.",
+                                          retry_delay) from None
+            if error.code >= 500 and (retry_delay is not None or attempt == 2):
+                raise TranslationDeferred(f"Google web translation HTTP {error.code}", retry_delay) from None
             if error.code < 500 or attempt == 2:
                 raise ValueError(f"Google web translation HTTP {error.code}") from None
         except (urllib.error.URLError, TimeoutError):
             if attempt == 2:
-                raise ValueError("Google web translation unavailable; retry later") from None
+                raise TranslationDeferred("Google web translation unavailable; retry later") from None
         time.sleep(5 * (attempt + 1))
 
 
@@ -336,6 +361,19 @@ def translate_context(chunk, locale, provider, translator, cache, saved):
     return result
 
 
+class SegmentCache(dict):
+    """Checkpoint accepted segments atomically, including within unfinished documents."""
+
+    def __init__(self, initial, checkpoint):
+        super().__init__(initial)
+        self.checkpoint = checkpoint
+
+    def __setitem__(self, key, value):
+        super().__setitem__(key, value)
+        if self.checkpoint:
+            write(self.checkpoint, json.dumps(self, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def translate_one(source, locale, files, provider, root=ROOT, translator=request_translation):
     tag = locale["tag"]
     output = root / destination(source, tag)
@@ -354,7 +392,12 @@ def translate_one(source, locale, files, provider, root=ROOT, translator=request
     content = rewrite_links(content, source, tag, files)
     protected, saved = mask(prepared + content, locale)
     cache_path = root / "docs/i18n" / tag / ".translation-segments.json"
-    cache = json.loads(read(cache_path)) if cache_path.exists() else {}
+    initial = json.loads(read(cache_path)) if cache_path.exists() else {}
+    checkpoint = Path(os.environ["TRANSLATION_CACHE_DIR"]) / f"{tag}.json" if os.environ.get("TRANSLATION_CACHE_DIR") else None
+    if checkpoint and checkpoint.exists():
+        initial.update(json.loads(read(checkpoint)))
+    initial.update({"Author": "Neil Mitchell", "Creator": "Neil Mitchell", "LastModifiedBy": "Neil Mitchell"})
+    cache = SegmentCache(initial, checkpoint)
     translated_parts = []
     for index, chunk in enumerate(chunks(protected), 1):
         if not re.search(r"[A-Za-z]{2}", TOKEN.sub("", chunk)):
