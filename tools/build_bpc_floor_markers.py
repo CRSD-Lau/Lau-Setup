@@ -14,6 +14,8 @@ import shutil
 import struct
 from pathlib import Path
 
+from PIL import Image, ImageDraw, ImageFont
+
 from range_model_utils import append_aligned
 
 
@@ -22,7 +24,7 @@ SOURCE = ROOT / "editing" / "range-circles"
 NATIVE = ROOT / "editing" / "native" / "World" / "WMO" / "Dungeon" / "IcecrownRaid" / "middle_section"
 OUTPUT = ROOT / "dist" / "model" / "Spells" / "Lau_BPC_FloorMarkers"
 WMO_OUTPUT = ROOT / "dist" / "wmo" / "World" / "WMO" / "Dungeon" / "IcecrownRaid"
-MARKER_PATH = "Spells\\Lau_BPC_FloorMarkers\\Bpc_Floor_Marker.mdx"
+PRIVATE_PREFIX = "Spells\\Lau_BPC_FloorMarkers"
 
 EXPECTED = {
     "Range_Circle_White_Small_50.m2": "afc59a8401ec696ee84193ef6dac8990b21b56d669e5e6752fae5865e125c9f4",
@@ -30,21 +32,20 @@ EXPECTED = {
     "Range_Circle_White_Small_50.blp": "a71b5efcb101918b6e478e1bbc0fb1535123b9f8205487112d7e434d2e9c1224",
 }
 
-# These screenshot-space centres are the supplied plan.  The BPC room overlay
-# is named upperbloodprince and spans X=-94.5..55.2, Y=246.5..322.7; its main
-# walkable geometry is middle-section group 023 (icetop).  The planner image
-# map area is X=575..1786, Y=102..784, so this projection preserves the exact
-# relative layout while placing every point on that group's real floor.
-SCREEN_POINTS = (
-    ("M1", 1124, 278), ("M2", 1245, 278), ("M3", 1087, 233), ("M4", 1282, 234),
-    ("M5", 965, 234), ("M6", 1406, 234), ("M7", 850, 278), ("M8", 1537, 278),
-    ("M9", 749, 301), ("M10", 1622, 301),
-    ("H1", 1186, 459), ("H2", 1380, 447), ("H3", 992, 447), ("H4", 1064, 536),
-    ("H5", 1320, 536),
-    ("R1", 625, 484), ("R2", 883, 396), ("R3", 820, 476), ("R4", 771, 662),
-    ("R5", 1040, 728), ("R6", 1330, 728), ("R7", 1599, 653), ("R8", 1574, 475),
-    ("R9", 1488, 396), ("R10", 1745, 475),
+# The supplied image is a tactical guide, not literal world coordinates. These
+# inferred room points preserve its role zones while enforcing a 13-yard centre
+# separation between every pair: a one-yard margin over Vortex's 12-yard range.
+MARKER_POINTS = (
+    ("M1", -25, 260), ("M2", -5, 260), ("M3", -45, 260), ("M4", 15, 260),
+    ("M5", -65, 260), ("M6", 35, 260), ("M7", -55, 275), ("M8", 25, 275),
+    ("M9", -80, 275), ("M10", 45, 275),
+    ("H1", -25, 294), ("H2", 15, 294), ("H3", -55, 294), ("H4", -40, 310),
+    ("H5", -5, 310),
+    ("R1", -95, 294), ("R2", -80, 310), ("R3", -75, 330), ("R4", -70, 350),
+    ("R5", -35, 365), ("R6", 0, 365), ("R7", 30, 345), ("R8", 45, 330),
+    ("R9", 55, 310), ("R10", 65, 292),
 )
+MINIMUM_SEPARATION = 13.0
 
 
 def sha256(data: bytes) -> str:
@@ -70,7 +71,11 @@ def write_chunks(chunks):
     return b"".join(tag + struct.pack("<I", len(payload)) + payload for tag, payload in chunks)
 
 
-def build_model(source: bytes) -> bytes:
+def marker_path(label: str, suffix: str) -> str:
+    return f"{PRIVATE_PREFIX}\\{label}.{suffix}"
+
+
+def build_model(source: bytes, label: str) -> bytes:
     data = bytearray(source)
     count, offset = struct.unpack_from("<II", data, 60)
     if data[:4] != b"MD20" or count != 4:
@@ -95,7 +100,7 @@ def build_model(source: bytes) -> bytes:
     textures, texture_offset = struct.unpack_from("<II", data, 80)
     if textures != 1:
         raise ValueError("Unexpected native ring texture count")
-    path = MARKER_PATH.replace(".mdx", ".blp").encode("ascii") + b"\0"
+    path = marker_path(label, "blp").encode("ascii") + b"\0"
     path_offset = append_aligned(data, path)
     kind, flags, _, _ = struct.unpack_from("<4I", data, texture_offset)
     struct.pack_into("<4I", data, texture_offset, kind, flags, len(path), path_offset)
@@ -115,21 +120,56 @@ def build_skin(source: bytes, model: bytes) -> bytes:
     return bytes(data)
 
 
-def tint_dxt5(source: bytes) -> bytes:
-    data = bytearray(source)
-    if struct.unpack_from("<4sI4B", data) != (b"BLP2", 1, 2, 8, 7, 1):
+def rgb565(rgb):
+    return ((rgb[0] * 31 + 127) // 255 << 11) | ((rgb[1] * 63 + 127) // 255 << 5) | ((rgb[2] * 31 + 127) // 255)
+
+
+def unpack565(value):
+    return ((value >> 11) * 255 // 31, ((value >> 5) & 63) * 255 // 63, (value & 31) * 255 // 31)
+
+
+def dxt5_block(pixels):
+    alphas = [pixel[3] for pixel in pixels]
+    a0, a1 = max(alphas), min(alphas)
+    alpha_palette = [a0, a1] + [(a0 * (7 - index) + a1 * index) // 7 for index in range(1, 7)] if a0 > a1 else [a0] * 8
+    alpha_bits = sum(min(range(8), key=lambda index: abs(alpha_palette[index] - alpha)) << (3 * index) for index, alpha in enumerate(alphas))
+    colors = [pixel[:3] for pixel in pixels]
+    low, high = min(colors, key=sum), max(colors, key=sum)
+    c0, c1 = rgb565(high), rgb565(low)
+    if c0 <= c1: c0, c1 = c1, c0
+    first, second = unpack565(c0), unpack565(c1)
+    color_palette = [first, second, tuple((2 * first[i] + second[i]) // 3 for i in range(3)), tuple((first[i] + 2 * second[i]) // 3 for i in range(3))]
+    color_bits = sum(min(range(4), key=lambda index: sum((color_palette[index][channel] - color[channel]) ** 2 for channel in range(3))) << (2 * index) for index, color in enumerate(colors))
+    return struct.pack("<BB", a0, a1) + alpha_bits.to_bytes(6, "little") + struct.pack("<HHI", c0, c1, color_bits)
+
+
+def labelled_dxt5(source: bytes, label: str) -> bytes:
+    if struct.unpack_from("<4sI4B", source) != (b"BLP2", 1, 2, 8, 7, 1):
         raise ValueError("Unexpected native ring texture")
-    offsets = struct.unpack_from("<16I", data, 20)
-    sizes = struct.unpack_from("<16I", data, 84)
-    for offset, size in zip(offsets, sizes):
-        for block in range(offset, offset + size, 16):
-            for endpoint in (block + 8, block + 10):
-                value = struct.unpack_from("<H", data, endpoint)[0]
-                red, green, blue = (value >> 11) & 31, (value >> 5) & 63, value & 31
-                # Muted cold-grey: readable on ICC stone but deliberately not a beacon.
-                red, green, blue = round(red * .38), round(green * .43), round(blue * .48)
-                struct.pack_into("<H", data, endpoint, (red << 11) | (green << 5) | blue)
-    return bytes(data)
+    width, height = struct.unpack_from("<II", source, 12)
+    image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    inset, edge = 34, 10
+    # A dark stone-like plaque and fine cold-grey rim stay legible while fitting ICC's floor.
+    draw.ellipse((inset, inset, width - inset, height - inset), fill=(64, 74, 79, 105), outline=(134, 148, 151, 160), width=edge)
+    draw.ellipse((inset + 22, inset + 22, width - inset - 22, height - inset - 22), outline=(37, 45, 50, 125), width=5)
+    font = ImageFont.truetype("C:/Windows/Fonts/segoeuib.ttf", 136 if len(label) == 2 else 112)
+    box = draw.textbbox((0, 0), label, font=font)
+    position = ((width - (box[2] - box[0])) // 2, (height - (box[3] - box[1])) // 2 - box[1] - 6)
+    draw.text(position, label, font=font, fill=(202, 215, 213, 225), stroke_width=2, stroke_fill=(24, 31, 35, 205))
+    header, offset, mip_payloads = bytearray(source[:148]), 148, []
+    while True:
+        rgba = image.convert("RGBA")
+        pixels = list(rgba.getdata())
+        payload = b"".join(dxt5_block([pixels[min(y + dy, rgba.height - 1) * rgba.width + min(x + dx, rgba.width - 1)] for dy in range(4) for dx in range(4)]) for y in range(0, rgba.height, 4) for x in range(0, rgba.width, 4))
+        mip_payloads.append(payload)
+        if rgba.width == rgba.height == 1: break
+        image = rgba.resize((max(1, rgba.width // 2), max(1, rgba.height // 2)), Image.Resampling.LANCZOS)
+    for index, payload in enumerate(mip_payloads):
+        struct.pack_into("<I", header, 20 + index * 4, offset)
+        struct.pack_into("<I", header, 84 + index * 4, len(payload))
+        offset += len(payload)
+    return bytes(header) + b"".join(mip_payloads)
 
 
 def group_chunks(data: bytes):
@@ -140,13 +180,6 @@ def group_chunks(data: bytes):
     if len(header_and_children) < 68:
         raise ValueError("Short MOGP header")
     return chunks, header_and_children[:68], read_chunks(header_and_children[68:])
-
-
-def point_to_local(screen_x: int, screen_y: int):
-    return (
-        -94.5 + (screen_x - 575.0) * (149.7 / 1211.0),
-        246.5 + (screen_y - 102.0) * (76.2 / 682.0),
-    )
 
 
 def floor_height(group_data: bytes, x: float, y: float) -> float:
@@ -183,11 +216,10 @@ def patch_wmo(root_data: bytes, group_data: bytes):
     if len(old_defs) % 40:
         raise ValueError("Malformed MODD")
     start = len(old_defs) // 40
-    name_offset = len(names)
-    names.extend(MARKER_PATH.encode("ascii") + b"\0")
     records, marker_report = bytearray(), []
-    for label, screen_x, screen_y in SCREEN_POINTS:
-        x, y = point_to_local(screen_x, screen_y)
+    for label, x, y in MARKER_POINTS:
+        name_offset = len(names)
+        names.extend(marker_path(label, "mdx").encode("ascii") + b"\0")
         z = floor_height(group_data, x, y)
         records.extend(struct.pack("<I3f4ffI", name_offset, x, y, z, 0.0, 0.0, 0.0, 1.0, 1.0, 0xFF6F7A80))
         marker_report.append({"label": label, "x": round(x, 3), "y": round(y, 3), "z": round(z, 3)})
@@ -197,26 +229,26 @@ def patch_wmo(root_data: bytes, group_data: bytes):
     mohd = bytearray(root[mohd_index][1])
     # Preserve the source header's historic 15-entry delta while extending it.
     original_count = struct.unpack_from("<I", mohd, 20)[0]
-    struct.pack_into("<I", mohd, 20, original_count + len(SCREEN_POINTS))
+    struct.pack_into("<I", mohd, 20, original_count + len(MARKER_POINTS))
     root[mohd_index] = (root[mohd_index][0], bytes(mohd))
     mods_index = by_tag["MODS"]
     mods = bytearray(root[mods_index][1])
     if len(mods) != 32:
         raise ValueError("Expected one BPC default doodad set")
-    struct.pack_into("<I", mods, 24, struct.unpack_from("<I", mods, 24)[0] + len(SCREEN_POINTS))
+    struct.pack_into("<I", mods, 24, struct.unpack_from("<I", mods, 24)[0] + len(MARKER_POINTS))
     root[mods_index] = (root[mods_index][0], bytes(mods))
 
     outer, header, children = group_chunks(group_data)
     for index, (tag, payload) in enumerate(children):
         if tag[::-1] == b"MODR":
             refs = list(struct.unpack("<" + str(len(payload) // 2) + "H", payload))
-            refs.extend(range(start, start + len(SCREEN_POINTS)))
+            refs.extend(range(start, start + len(MARKER_POINTS)))
             children[index] = (tag, struct.pack("<" + str(len(refs)) + "H", *refs))
             break
     else:
         # Some WMO groups have no original doodads.  A MODR table and matching
         # group flag keep the test markers scoped to the selected room group.
-        children.append((b"RDOM", struct.pack("<" + str(len(SCREEN_POINTS)) + "H", *range(start, start + len(SCREEN_POINTS)))))
+        children.append((b"RDOM", struct.pack("<" + str(len(MARKER_POINTS)) + "H", *range(start, start + len(MARKER_POINTS)))))
         header = bytearray(header)
         struct.pack_into("<I", header, 8, struct.unpack_from("<I", header, 8)[0] | 0x800)
         header = bytes(header)
@@ -238,10 +270,11 @@ def main():
             raise ValueError(f"Native input hash mismatch: {filename}")
         inputs[filename] = value
     reset(OUTPUT)
-    model = build_model(inputs["Range_Circle_White_Small_50.m2"])
-    (OUTPUT / "Bpc_Floor_Marker.m2").write_bytes(model)
-    (OUTPUT / "Bpc_Floor_Marker00.skin").write_bytes(build_skin(inputs["Range_Circle_White_Small_5000.skin"], model))
-    (OUTPUT / "Bpc_Floor_Marker.blp").write_bytes(tint_dxt5(inputs["Range_Circle_White_Small_50.blp"]))
+    for label, _, _ in MARKER_POINTS:
+        model = build_model(inputs["Range_Circle_White_Small_50.m2"], label)
+        (OUTPUT / f"{label}.m2").write_bytes(model)
+        (OUTPUT / f"{label}00.skin").write_bytes(build_skin(inputs["Range_Circle_White_Small_5000.skin"], model))
+        (OUTPUT / f"{label}.blp").write_bytes(labelled_dxt5(inputs["Range_Circle_White_Small_50.blp"], label))
     root, group, report = patch_wmo(
         (NATIVE / "IcecrownRaid_middle_section.wmo").read_bytes(),
         (NATIVE / "IcecrownRaid_middle_section_023.wmo").read_bytes(),
@@ -249,9 +282,25 @@ def main():
     reset(WMO_OUTPUT)
     (WMO_OUTPUT / "IcecrownRaid_middle_section.wmo").write_bytes(root)
     (WMO_OUTPUT / "IcecrownRaid_middle_section_023.wmo").write_bytes(group)
+    separations = [
+        (math.hypot(left[1] - right[1], left[2] - right[2]), left[0], right[0])
+        for index, left in enumerate(MARKER_POINTS)
+        for right in MARKER_POINTS[index + 1:]
+    ]
+    closest, closest_left, closest_right = min(separations)
+    if closest < MINIMUM_SEPARATION:
+        raise ValueError(f"BPC marker separation {closest:.3f} is below {MINIMUM_SEPARATION:.1f} yards")
     report_path = ROOT / "dist" / "bpc-floor-marker-positions.json"
     report_path.write_text(__import__("json").dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(f"PASS BPC static markers={len(report)} radius=1.0 model-units")
+    (ROOT / "dist" / "bpc-floor-marker-separation.json").write_text(
+        __import__("json").dumps({
+            "Author": "Neil Mitchell", "Creator": "Neil Mitchell", "LastModifiedBy": "Neil Mitchell",
+            "minimum_required_planar_yards": MINIMUM_SEPARATION,
+            "minimum_actual_planar_yards": round(closest, 3),
+            "closest_pair": [closest_left, closest_right],
+            "all_pairs_at_least_minimum": True,
+        }, indent=2) + "\n", encoding="utf-8")
+    print(f"PASS BPC static markers={len(report)} radius=1.0 model-units min-separation={closest:.3f}")
     for row in report:
         print(f"{row['label']}: ({row['x']}, {row['y']}, {row['z']})")
 

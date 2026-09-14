@@ -1,6 +1,6 @@
 """Build six scoped BPC static-floor-marker Patch-Y archives.
 
-Only the BPC middle-section root/group WMOs and three private marker assets are
+Only the BPC middle-section root/group WMOs and private marker assets are
 added.  No DBC, spell, executable, account, or SavedVariables content changes.
 Author/Creator/Modifier: Neil Mitchell.
 """
@@ -21,10 +21,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 PRIVATE_PREFIX = "Spells\\Lau_BPC_FloorMarkers"
 WMO_PREFIX = "World\\WMO\\Dungeon\\IcecrownRaid"
+MARKER_LABELS = tuple([f"M{index}" for index in range(1, 11)] + [f"H{index}" for index in range(1, 6)] + [f"R{index}" for index in range(1, 11)])
 EXPECTED_MEMBERS = {
-    f"{PRIVATE_PREFIX}\\Bpc_Floor_Marker.m2",
-    f"{PRIVATE_PREFIX}\\Bpc_Floor_Marker00.skin",
-    f"{PRIVATE_PREFIX}\\Bpc_Floor_Marker.blp",
+    *(f"{PRIVATE_PREFIX}\\{label}{suffix}" for label in MARKER_LABELS for suffix in (".m2", "00.skin", ".blp")),
     f"{WMO_PREFIX}\\IcecrownRaid_middle_section.wmo",
     f"{WMO_PREFIX}\\IcecrownRaid_middle_section_023.wmo",
 }
@@ -120,12 +119,14 @@ def main():
     (DIST / "baseline.json").write_text(json.dumps(baseline_catalog, indent=2) + "\n", encoding="utf-8")
     validation = {
         "Author": "Neil Mitchell", "Creator": "Neil Mitchell", "LastModifiedBy": "Neil Mitchell",
-        "prototype": "BPC fixed floor-marker Test 2",
+        "prototype": "BPC fixed floor-marker Test 3",
         "no_dbc_edits": True,
         "no_spell_or_gameplay_edits": True,
-        "scope": "BPC middle-section group 023 plus a private muted 1-yard marker model",
+        "scope": "BPC middle-section group 023 plus 25 private muted one-yard labelled marker models",
+        "labelled_markers": list(MARKER_LABELS),
         "position_source": "supplied BPC 25-player layout image",
         "marker_count": 25,
+        "position_separation": json.loads((DIST / "bpc-floor-marker-separation.json").read_text(encoding="utf-8")),
         "build_dependency": {
             "stormlib_sha256": digest(Path(os.environ["STORMLIB_DLL"]).read_bytes()),
             "stormlib_embedded_in_payload": False,

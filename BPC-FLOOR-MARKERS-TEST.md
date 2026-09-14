@@ -1,10 +1,15 @@
-# BPC Floor Markers — Test 2
+# BPC Floor Markers — Test 3
 
 Author/Creator/Modifier: Neil Mitchell
 
-This Windows-only test adds 25 small, muted, room-fixed floor markers in the
+This Windows-only test adds 25 small, muted, room-fixed floor decals labelled
+`M1`–`M10`, `H1`–`H5`, and `R1`–`R10` in the
 Blood Prince Council chamber: ten melee stage points, five healer anchors, and
-ten ranged anchors from the supplied position plan. It does not add player
+ten ranged anchors inferred from the supplied position plan. Every marker
+centre is at least 13 yards from every other marker centre, providing a one-yard
+margin over the 12-yard Vortex knockback threshold. The closest pair is
+measured automatically during the build and recorded in `POSITION-SEPARATION.json`.
+It does not add player
 circles and does not alter DBCs, spells, gameplay, addons, SavedVariables, or
 the client executable.
 
@@ -26,7 +31,7 @@ or its own installed files.
 
 - The 10 melee points remain on the stage and do not obscure the fight.
 - The five healer and 10 ranged anchors match the planner layout.
-- The muted one-yard markers are noticeable without turning the room into a
+- The muted, floor-matching labels are readable without turning the room into a
   field of circles.
 - No marker is floating, clipped into the floor, or visible outside BPC.
 

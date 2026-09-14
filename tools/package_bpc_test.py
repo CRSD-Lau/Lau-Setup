@@ -4,7 +4,7 @@ import hashlib, json, zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 DIST=ROOT/'dist'
-FOLDER='Lau-BPC-Floor-Markers-Test2'
+FOLDER='Lau-BPC-Floor-Markers-Test3'
 ARCHIVE=DIST/(FOLDER+'-Windows.zip')
 
 def digest(path):
@@ -12,15 +12,17 @@ def digest(path):
 
 def main():
     scope=json.loads((DIST/'scope-validation.json').read_text())
-    if not (scope['marker_count']==25 and scope['no_dbc_edits'] and scope['no_spell_or_gameplay_edits']):raise ValueError('Invalid BPC scope')
+    separation=scope['position_separation']
+    if not (scope['marker_count']==25 and scope['no_dbc_edits'] and scope['no_spell_or_gameplay_edits'] and separation['all_pairs_at_least_minimum'] and separation['minimum_actual_planar_yards']>=separation['minimum_required_planar_yards']>=13.0):raise ValueError('Invalid BPC scope')
     editions=sorted(k for k in json.loads((DIST/'catalog.json').read_text())['Assets'] if k.startswith('Y-'))
-    if len(editions)!=6 or not all(row['archive_snapshot_readback_exact'] and len(row['added'])==5 and not row['changed_existing_members'] for row in scope['results']):raise ValueError('Payload validation failed')
+    if len(editions)!=6 or not all(row['archive_snapshot_readback_exact'] and len(row['added'])==77 and not row['changed_existing_members'] for row in scope['results']):raise ValueError('Payload validation failed')
     files={
       'LauBpcFloorMarkersTest.exe':DIST/'LauBpcFloorMarkersTest.exe',
       'LauBpcFloorMarkersTest.exe.config':DIST/'LauBpcFloorMarkersTest.exe.config',
       'START-HERE.md':ROOT/'BPC-FLOOR-MARKERS-TEST.md',
       'SCOPE-VALIDATION.json':DIST/'scope-validation.json',
       'POSITION-COORDINATES.json':DIST/'bpc-floor-marker-positions.json',
+      'POSITION-SEPARATION.json':DIST/'bpc-floor-marker-separation.json',
     }
     for edition in editions:files['payload/'+edition+'.mpq']=DIST/'payload'/(edition+'.mpq')
     if not all(path.is_file() for path in files.values()):raise ValueError('Missing package input')
