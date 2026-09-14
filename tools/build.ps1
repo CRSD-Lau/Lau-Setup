@@ -12,7 +12,7 @@ if($Release) {
 $dist=if($OutputDirectory){[IO.Path]::GetFullPath($OutputDirectory)}else{Join-Path $project 'dist'}
 [IO.Directory]::CreateDirectory($dist)|Out-Null
 $app=Join-Path $project 'app'
-$buildArgs=@('/nologo','/target:winexe','/platform:anycpu','/optimize+','/warn:4',"/out:$dist\LauSetup.exe","/win32manifest:$app\App.manifest","/resource:$catalog,LauSetup.Catalog.json",'/reference:System.dll','/reference:System.Core.dll','/reference:System.Drawing.dll','/reference:System.Windows.Forms.dll','/reference:System.Web.Extensions.dll',"$app\AssemblyInfo.cs","$app\Core.cs","$app\MpqScan.cs","$app\Downloader.cs","$app\Main.cs")
+$buildArgs=@('/nologo','/target:winexe','/platform:anycpu','/optimize+','/warn:4',"/out:$dist\LauSetup.exe","/win32manifest:$app\App.manifest","/resource:$catalog,LauSetup.Catalog.json",'/reference:System.dll','/reference:System.Core.dll','/reference:System.Drawing.dll','/reference:System.Windows.Forms.dll','/reference:System.Web.Extensions.dll',"$app\AssemblyInfo.cs","$app\Core.cs","$app\MpqScan.cs","$app\MapAddons.cs","$app\Downloader.cs","$app\Main.cs")
 $buildArgs += @("/win32icon:$app\assets\Lau.ico","/resource:$app\assets\Lau.ico,LauSetup.Icon.ico")
 $buildArgs += @("$app\Localization.cs","/resource:$app\translations.json,LauSetup.Translations.json")
 & $compiler @buildArgs

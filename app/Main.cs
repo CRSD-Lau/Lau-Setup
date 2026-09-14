@@ -56,8 +56,8 @@ public sealed class SetupForm:Form {
     }
     readonly Catalog catalog;
     readonly Color ink=Color.FromArgb(241,245,251),muted=Color.FromArgb(190,204,224),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
-    TextBox folder;Label detected,download,status;CheckBox cons,spells,maps,basePatch;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
-    FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded;Button back,next;int step;bool navigationBlocked,previewing;
+    TextBox folder;Label detected,download,status;CheckBox cons,spells,maps,basePatch,executable,artwork;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
+    FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded,reviewWarning;Button back,next;int step;bool navigationBlocked,previewing;
     protected override bool ShowWithoutActivation { get { return previewing; } }
     ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly;
     sealed class PhraseValue { readonly string key;public PhraseValue(string key){this.key=key;}public override string ToString(){return Ui.T(key);} }
@@ -107,15 +107,18 @@ public sealed class SetupForm:Form {
         folder=new TextBox{ReadOnly=true,Dock=DockStyle.Fill,BackColor=surface,ForeColor=ink,BorderStyle=BorderStyle.FixedSingle,Margin=new Padding(0,8,12,3),AccessibleName=Ui.T("Game folder")};row.Controls.Add(folder);
         browse=Button("Choose folder…",false);browse.Dock=DockStyle.Fill;browse.Click+=Choose;row.Controls.Add(browse);AddPage(0,row,52);
         detected=Label("Language and model setup will be detected automatically.",11,FontStyle.Regular,muted);AddPage(0,detected,90);
-        AddPage(0,Label("Automatic backups. Existing addons and personal settings are preserved.",11,FontStyle.Regular,muted),65);
+        AddPage(0,Label("Files Setup replaces are backed up. Other patches and personal settings stay untouched. Manage renamed duplicate patches yourself.",11,FontStyle.Regular,muted),65);
         AddPage(1,Label("Choose the look you want.",16,FontStyle.Bold,ink),44);
         basePatch=Check("Patch-Y Non-HD",true);basePatch.Enabled=false;AddOption(basePatch,Label("Selected for your detected client. A full HD model pack is not included.",10,FontStyle.Regular,muted));
+        executable=Check("Install compatible WoW.exe",false);AddOption(executable,Label("Turn on to replace your game executable. Off keeps your current WoW.exe.",10,FontStyle.Regular,muted));
+        artwork=Check("Loading screens and artwork (Patch-Q)",false);AddOption(artwork,Label("Turn on for Lau's loading screens and artwork. Off keeps your current files.",10,FontStyle.Regular,muted));
         cons=Check("Enhanced Consecration",false);AddOption(cons,Label("Uses Lau's custom ground effect for Consecration. Turn off for the original appearance.",10,FontStyle.Regular,muted));
         spells=Check("New spell visuals  ·  available with HD models",false);spells.Enabled=false;AddOption(spells,Label("Adds upgraded spell effects. Requires an existing HD model client.",10,FontStyle.Regular,muted));
-        maps=Check("Upgrade maps and minimap  ·  optional extra download",false);AddOption(maps,Label("Sharper world maps and minimap textures. Downloads extra files; installed map upgrades are kept.",10,FontStyle.Regular,muted));
+        maps=Check("Upgrade maps and minimap  ·  optional extra download",false);AddOption(maps,Label("Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.",10,FontStyle.Regular,muted));
         AddPage(2,Label("Review your choices before installing.",16,FontStyle.Bold,ink),56);
         reviewFolder=Label("",11,FontStyle.Regular,ink);AddPage(2,reviewFolder,40);
         reviewChoices=Label("",11,FontStyle.Regular,ink);AddPage(2,reviewChoices,80);
+        reviewWarning=Label("",10,FontStyle.Regular,gold);AddPage(2,reviewWarning,110);
         reviewIncluded=Label("",10,FontStyle.Regular,ink);AddPage(2,reviewIncluded,125);
         download=Label("Select your folder to see the download size.",11,FontStyle.Bold,gold);AddPage(2,download,45);
         AddPage(2,Label("Setup preserves existing files before replacing or moving them. Keep LauSetupBackups to restore the originals.",11,FontStyle.Regular,muted),65);
@@ -131,7 +134,7 @@ public sealed class SetupForm:Form {
         cancel=Button("Cancel",false);cancel.Visible=false;cancel.Click+=(s,e)=>{if(cancellation!=null)cancellation.Cancel();};actions.Controls.Add(cancel);
         restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);grid.Controls.Add(actions,0,7);
         var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);grid.Controls.Add(release,0,8);
-        cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;
+        cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;executable.CheckedChanged+=RefreshPlan;artwork.CheckedChanged+=RefreshPlan;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;SetText(status,"Please wait for this operation to finish, or use Cancel.");}};
         ShowStep(0);
     }
@@ -142,8 +145,9 @@ public sealed class SetupForm:Form {
     }
     void UpdateReview(){
         SetText(reviewFolder,"Folder: {0}",folder.Text);
-        SetText(reviewIncluded,"Included automatically\nWoW.exe: compatible game executable\nPatch-Y (Lau patch): spell indicators and your Consecration choice\nPatch-Q: loading screens and regional artwork\nMatching language patches: {0}",client==null?Language("enUS"):Language(client.Locale));
-        var choices=new List<string>{Ui.T("Patch-Y (Lau’s version)")};if(cons.Checked)choices.Add(Ui.T("Enhanced Consecration"));if(spells.Checked)choices.Add(Ui.T("New Spells"));if(maps.Checked)choices.Add(Ui.T("Map Upgrade"));SetText(reviewChoices,"Your choices: {0}",String.Join(" + ",choices));
+        SetText(reviewIncluded,"Patch-Y and matching language patches: {0}\nWoW.exe: {1}\nLoading screens and artwork (Patch-Q): {2}",client==null?Language("enUS"):Language(client.Locale),Phrase(executable.Checked?"Install":"Keep existing"),Phrase(artwork.Checked?"Install":"Keep existing"));
+        reviewWarning.Visible=plan!=null&&plan.Warnings.Count>0;if(reviewWarning.Visible)SetText(reviewWarning,"Unrecognized Patch-V kept in Data. Compatibility could not be verified. You can continue installing; this file will not be changed.");
+        var choices=new List<string>{Ui.T("Patch-Y (Lau’s version)")};if(cons.Checked)choices.Add(Ui.T("Enhanced Consecration"));if(spells.Checked)choices.Add(Ui.T("New Spells"));if(maps.Checked)choices.Add(Ui.T("Map Upgrade"));if(executable.Checked)choices.Add(Ui.T("Install compatible WoW.exe"));if(artwork.Checked)choices.Add(Ui.T("Loading screens and artwork (Patch-Q)"));SetText(reviewChoices,"Your choices: {0}",String.Join(" + ",choices));
     }
     void ShowStep(int value){
         step=value;for(int i=0;i<pages.Length;i++){pages[i].Visible=i==step;stepLabels[i].BackColor=i==step?gold:surface;stepLabels[i].ForeColor=i==step?BackColor:muted;}pages[step].BringToFront();UpdateReview();UpdateNavigation();
@@ -199,8 +203,8 @@ public sealed class SetupForm:Form {
     async void RefreshPlan(object sender,EventArgs args) {
         if(refreshing||busy||client==null||recoveryOnly)return;SetBusy(true);SetText(status,"Checking installed files…");
         try {
-            bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;
-            plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));
+            bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=artwork.Checked;
+            plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));
             UpdatePlanDisplay();
             SetText(status,Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S becomes .mpq.disabled. Any older disabled copy is preserved separately. Restore previous install reverses the change.":"Ready. A verified backup is created before any game files change."));
             if(Transaction.Pending(client.Root)==null&&plan.Operations.Any(o=>o.ExtraPatch))SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",plan.Operations.Count(o=>o.ExtraPatch));
@@ -242,11 +246,11 @@ public sealed class SetupForm:Form {
     }
     internal async Task RestoreRecord(string record){
         SetBusy(true);plan=null;SetText(status,"Restoring your previous install…");
-        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();ShowStep(0);SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps));UpdatePlanDisplay();ShowStep(0);}
+        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();ShowStep(0);SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=artwork.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));UpdatePlanDisplay();ShowStep(0);}
         catch(Exception ex){SetMessage(status,ex.Message);}finally{SetBusy(false);}
     }
     void SetBusy(bool value) {
-        busy=value;language.Enabled=true;browse.Enabled=!value;cons.Enabled=!value&&!recoveryOnly;spells.Enabled=!value&&!recoveryOnly&&client!=null&&client.Hd;maps.Enabled=!value&&!recoveryOnly&&client!=null&&!client.MapsInstalled;restore.Enabled=false;navigationBlocked=false;
+        busy=value;executable.Enabled=!value&&!recoveryOnly;artwork.Enabled=!value&&!recoveryOnly;language.Enabled=true;browse.Enabled=!value;cons.Enabled=!value&&!recoveryOnly;spells.Enabled=!value&&!recoveryOnly&&client!=null&&client.Hd;maps.Enabled=!value&&!recoveryOnly&&client!=null&&!client.MapsInstalled;restore.Enabled=false;navigationBlocked=false;
         if(!value&&client!=null)try{restore.Enabled=Transaction.Journals(client.Root).Any(f=>new[]{"STAGING","COMMITTING","RESTORING","RECOVERY_REQUIRED","INSTALLED"}.Contains(Transaction.Status(f)));navigationBlocked=Transaction.Pending(client.Root)!=null;}catch(Exception ex){navigationBlocked=true;SetMessage(status,ex.Message);}
         UpdateReview();UpdateNavigation();
     }
@@ -261,6 +265,7 @@ public sealed class SetupForm:Form {
         if(state=="recovery"){SetText(detected,"{0}  ·  Interrupted installation found",Language("enUS"));SetText(status,"Click Restore previous install to recover your game files.");install.Enabled=false;restore.Enabled=true;}
         if(state=="error")SetMessage(status,@"Cannot safely check patch: Data\patch-test.mpq. No game files changed. Check this archive before retrying. Unsupported MPQ table layout.");
         if(state=="conflicts")SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",3);
+        if(state=="patch-v")plan=new InstallPlan{Warnings=new List<string>{@"Data\patch-v.mpq"}};
         ShowStep(state=="initial"||state=="recovery"||state=="error"?0:state=="options"?1:state=="finished"?3:2);
         if(state!="initial"){next.Enabled=state!="busy"&&state!="recovery";install.Enabled=step==2&&state!="busy";restore.Enabled=state=="recovery"||state=="finished";}
         CreateControl();ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;Location=WineHost.Active?Point.Empty:new Point(-32000,-32000);Show();PerformLayout();Refresh();Application.DoEvents();
@@ -279,7 +284,7 @@ public sealed class SetupForm:Form {
     static void CollectPreview(Control parent,List<object> controls){foreach(Control c in parent.Controls){if(c.Visible&&(c is Label||c is Button||c is CheckBox||c is ComboBox)){var measured=TextRenderer.MeasureText(c.Text,c.Font,new Size(Math.Max(1,c.ClientSize.Width-c.Padding.Horizontal),Int32.MaxValue),TextFormatFlags.WordBreak|TextFormatFlags.NoPrefix);controls.Add(new{Type=c.GetType().Name,c.Text,c.Width,c.Height,c.Top,c.Left,ParentHeight=c.Parent.ClientSize.Height,ParentWidth=c.Parent.ClientSize.Width,TextHeight=measured.Height,Scrollable=c.Parent is Panel&&((Panel)c.Parent).AutoScroll});}CollectPreview(c,controls);}}
     public static string FormatSize(long bytes){return bytes>=1000000000?(bytes/1000000000.0).ToString("0.00")+" GB":(bytes/1000000.0).ToString("0.0")+" MB";}
     public static string Language(string locale){switch(locale){case "enUS":return "English (US)";case "deDE":return "Deutsch";case "frFR":return "Français";case "esES":return "Español (España)";case "esMX":return "Español (México)";case "koKR":return "한국어";case "ruRU":return "Русский";case "zhCN":return "简体中文";case "zhTW":return "繁體中文";default:return locale;}}
-    static string Friendly(string id){return id=="Maps"?"maps and minimap":id.StartsWith("Y-")?"spell indicators":id.Contains("Q-")?"loading screens and regional artwork":id=="Executable"?"the compatible game executable":"spell visuals";}
+    static string Friendly(string id){return id=="Maps"||id.StartsWith("MapDetails-")||id.StartsWith("MapAddon-")?"maps and minimap":id.StartsWith("Y-")?"spell indicators":id.Contains("Q-")?"loading screens and regional artwork":id=="Executable"?"the compatible game executable":"spell visuals";}
 }
 public static class Program {
     [STAThread] public static int Main(string[] args) {

@@ -73,7 +73,7 @@ Enabling new spells journals removal of the plain root and active-locale disable
 
 **Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
 
-Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+Setup leaves unrelated MPQs alone and does not parse them for conflicts. If you rename patch-y.mpq to patch-lau.mpq, that copy stays in place; manage renamed duplicates yourself. Setup backs up files it replaces. Empty Data\patch-v.mpq is the only additional automatic cleanup; nonempty V stays with a warning.
 
 ## Historical Setup 1.1.8 renamed-patch preflight
 
@@ -88,4 +88,6 @@ See [scanner limits](../KNOWN-LIMITATIONS.md#setup-118-overlap-detection). Windo
 
 Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
 
-**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.
+**Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. Recognized Lau upgrade copies are also backed up. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
+
+Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.

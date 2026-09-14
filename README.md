@@ -33,8 +33,8 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 2. Download **LauSetup.zip**, right-click it, choose **Extract All**, and open the extracted `LauSetup` folder.
 3. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
 4. **Game folder:** select **Choose folder…**, choose the folder directly containing `WoW.exe`, then click **Next**.
-5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. Click **Next**.
-6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen also lists the compatible **WoW.exe**, **Patch-Q** artwork, matching language patches, download size and automatic backups. Use **Back** to change choices.
+5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. **Install compatible WoW.exe** and **Loading screens and artwork (Patch-Q)** are separate options, also off by default; leave them off to keep those files. Click **Next**.
+6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen explicitly says **Install** or **Keep existing** for **WoW.exe** and **Patch-Q** artwork, and lists matching language patches, download size and automatic backups. Use **Back** to change choices.
 7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.8 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
 
 **Wrong interface language?** Use **Interface language** at the top of any step. The manual choice is remembered; **Automatic** follows your system again. It changes setup text only. **Next** does not download or change game files.
@@ -53,7 +53,7 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 
 Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
 
-**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.
+**Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. Recognized Lau upgrade copies are also backed up. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
 
 
 - **Cannot find `LauSetup.exe`** — extract the ZIP first, then open the extracted `LauSetup` folder. Its File Explorer type is **Application**.
@@ -63,7 +63,7 @@ Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, 
 - **WoW is running** — close it and retry. Under Wine, close every WoW instance in every prefix.
 - **An interrupted install needs restoring first** — choose the same client folder, select **Restore previous install**, and keep `LauSetupBackups` in place.
 - **A game file was changed by another update** — restore stops to preserve that file. Keep all files and backups, then [report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose). Do not delete or force-replace files to bypass the check.
-- **Extra upgrade patches** — click **Install upgrade** as usual. Setup automatically backs up recognized extra upgrade files in `LauSetupBackups` and continues. **Restore previous install** puts them back. No manual moving is needed.
+- **Other patches** — Setup leaves them alone. Renamed duplicate patches are your responsibility. Files Setup replaces are backed up in `LauSetupBackups`.
 - **Cannot safely check patch** — first download the latest setup; 1.2.1 fixes the old large-table restriction. If it still stops, keep the named archive and your backups. [Report the exact message, filename, and a screenshot](https://github.com/CRSD-Lau/Lau-Setup/issues/new/choose); do not force-replace files to bypass the check.
 
 For prior hotfix behavior and historical indicator changes, see the [changelog](CHANGELOG.md). Setup checks actual SHA-256 hashes; an older installer keeps its embedded catalog, so download and extract the current `LauSetup.zip` before updating.
@@ -113,7 +113,7 @@ Setup follows your client's active locale. Install the appropriate language file
 
 **Before Setup replaces or moves an existing game file, it preserves the original automatically.** Keep `LauSetupBackups` in your game folder; **Restore previous install** uses it to put the originals back. Unrelated files stay in place.
 
-Most users do not need to rename patches. The supplied `WoW.exe` supports additional patch names, but Setup uses its standard Q/M/S/Y names. For example, if you renamed an identical `patch-y.mpq` to `patch-lau.mpq`, Setup recognizes the contents, backs up `patch-lau.mpq`, and installs the selected `patch-y.mpq`. Restore returns the backed-up file under its original name. A name change alone does not make it a different patch; support for additional names does not guarantee every custom name or loading order.
+Setup leaves unrelated MPQs alone and does not parse them for conflicts. If you rename patch-y.mpq to patch-lau.mpq, that copy stays in place; manage renamed duplicates yourself. Setup backs up files it replaces. Empty Data\patch-v.mpq is the only additional automatic cleanup; nonempty V stays with a warning.
 
 ## Restore with your backups
 
@@ -123,7 +123,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.4.0 adds the guided wizard while retaining automatic backups for recognized extra upgrade patches. See [current validation and release notes](docs/RELEASE-1.4.0.md). The following 1.2.0 results are retained as historical interface and release evidence.
+Setup 1.4.0 is in development: the wizard keeps 1.1.7-style handling of unrelated patches. See [current scope and validation](docs/RELEASE-1.4.0.md). Earlier release evidence below does not validate this candidate.
 
 Setup 1.2.0 passed **62 regression groups on Windows and 62 on Wine**. Wine ran 35 groups before the busy-state completion fix, then the affected GUI group and the remaining 26 after it; final Wine localization and packaged-window checks also passed. The validation records 50 Windows and 21 normal-user Wine interface states, 185 keys across all ten bundled interface languages, and 31 package, translation, and host tests. Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
 
@@ -155,3 +155,5 @@ Game payloads are distributed through GitHub Releases. This repository contains 
 ## DBC change tracking
 
 See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.8 also leave the DBC data unchanged.
+
+Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.

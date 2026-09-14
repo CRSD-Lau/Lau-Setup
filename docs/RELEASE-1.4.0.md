@@ -1,35 +1,35 @@
-# Lau Setup 1.4.0 — guided setup wizard
+# Lau Setup 1.4.0 — work in progress
 
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-Game folder → Your visuals → Review → Finished. Choose your existing game
-folder, use Next to choose visuals, review the full install, then select
-Install upgrade. Next never downloads or changes game files.
+## Scope
+Build the beginner-friendly wizard using Setup 1.1.7 as the reference for installation behavior: leave unrelated MPQs alone. This supersedes earlier requirements to scan or automatically remove renamed Lau patches. Retain current backup/recovery safeguards and the shared Windows/Linux ZIP.
 
-- A fixed Patch-Y HD or Patch-Y Non-HD selection follows the detected client.
-  Extras start off. Existing map upgrades are explicitly kept.
-- Review builds Your choices from Patch-Y (Lau’s version) plus enabled extras.
-  Compatible WoW.exe, Patch-Q artwork and matching language patches are also
-  listed, along with download size and automatic backups.
-- Interface language remains available on every step, including recovery.
-  Manual selection updates the wizard immediately and is remembered.
-  Automatic follows the host language again; game locale is separate.
-- Restore remains accessible. Verified backups, cancellation, path/process/hash
-  guards and automatic recognized-extra-patch preservation remain in place.
-- One LauSetup.zip serves Windows and the documented Linux/Wine environment.
+## Required behavior
+- Game folder → Options → Review and install → Finished; Next alone does not change files.
+- Automatic interface-language detection, a persistent manual selector, case-insensitive game locale resolution, and installer version 1.4.0 separately from game 3.0.8 in the footer.
+- Fixed Patch-Y HD / Non-HD based on the detected client.
+- Separate optional checkboxes, initially off: Enhanced Consecration, compatible WoW.exe, maps/minimaps, loading screens, and New Spell Visuals (requires existing HD models).
+- Merge Trimitor WDM Classic/TBC dungeon/raid and cave maps into Lau's maps option, including required WDM/!Astrolabe support files. Maps must work independently of loading screens and executable replacement.
+- Review explicitly lists Patch-Y and all selected options; unchecked EXE/artwork remain unchanged. Explain replaced files are backed up in LauSetupBackups.
+- Do not parse/classify arbitrary patches or remove renamed duplicate patches. Players manage their own renamed duplicates.
+- Preserve the separately requested empty Patch-V backup exception. Nonempty V stays, with a nonblocking compatibility warning and no parsing.
+- Preserve unrelated addons, custom files and SavedVariables. Selected WDM support files may be updated with verified backups; do not claim every addon file is untouched.
+- One clean LauSetup.zip serves Windows and supported Linux/Wine; no duplicate platform download cards.
 
-See [exact beginner steps](../START-HERE.txt). Release validation is published
-in VALIDATION.json with the assets. In-game visual acceptance remains separate
-from installer tests. Translations are machine-assisted; native review remains
-open. Full translated-document refresh remains on the existing rate-limit follow-up.
+## Completion gates
+- [ ] Final Windows and normal-user Wine transaction, recovery, option and language tests.
+- [ ] Verify final packaged UI and shared ZIP.
+- [ ] Verify map payload member parity, required addon dependencies, and map-only content separation.
+- [ ] Andre/player testing: maps, dungeon/cave navigation, old combined Q compatibility, and chosen executable.
+- [ ] Publish installer and verify downloads; retain draft PR until approved.
+- [ ] Align repository documentation, changelogs, website sections and existing Discord release posts.
 
-Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
+## Current status
+In progress on draft PR #28. Test1 is older and does not implement this revised scope. No test2 or stable 1.4.0 release yet. Local map-content parity passed for all nine game locales; all 102 addon TOC/XML references resolve across 115 packaged files. New independent map install/restore and interruption regressions pass locally; final Windows/Wine/package checks are underway.
 
-**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.
+Patch-Y 3.0.8 remains unchanged. The optional map pack introduces upstream map DBC overrides: do not describe this addition as having no DBC changes. The cave expansion is upstream beta and still needs in-game acceptance.
 
-## DBC changes
-
-No DBC edits. Game payload 3.0.8, all 28 assets, nine game locales, asset hashes
-and download segments are unchanged. /pyversion continues to show 3.0.8 Lau.
+Keep this ticket In progress until release and public-surface verification are complete. The existing translation-rate-limit follow-up remains active. Prior website changes were blocked by automatic approval review; public website/Discord alignment is still pending.

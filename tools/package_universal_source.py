@@ -7,7 +7,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 META = b'Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell'
 ADDITIONS = [
-    'app/Localization.cs', 'app/translations.json', 'app/MpqScan.cs',
+    'app/Localization.cs', 'app/translations.json', 'app/MpqScan.cs', 'app/MapAddons.cs', 'tools/build_wdm_catalog.py',
     'tools/test.ps1', 'tools/package_universal.py', 'tools/package_universal_source.py',
     'tools/translate_installer.py', 'tools/test_universal_windows.py', 'tools/test_universal_wine.py', 'tests/Tests.cs', 'tests/LocalizationTests.cs',
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',

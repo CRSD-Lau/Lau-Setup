@@ -103,10 +103,7 @@ Before Setup replaces or moves an existing game file, it preserves the
 original automatically. Keep LauSetupBackups; Restore previous install
 puts the originals back. Unrelated files stay in place.
 
-Most users do not need to rename patches. If you renamed an identical
-patch-y.mpq to patch-lau.mpq, Setup recognizes it, backs up patch-lau.mpq,
-and installs the selected patch-y.mpq. Restore returns the original name
-and file. Just click Install upgrade; no manual moving is needed.
+Setup leaves unrelated MPQs alone and does not parse them for conflicts. If you rename patch-y.mpq to patch-lau.mpq, that copy stays in place; manage renamed duplicates yourself. Setup backs up files it replaces. Empty Data\patch-v.mpq is the only additional automatic cleanup; nonempty V stays with a warning.
 
 Cannot safely check patch? Download the latest setup; 1.2.1 fixed the old
 large-table restriction. If it still stops, keep the archive and backups and
@@ -141,9 +138,11 @@ checked. This is not certification for every Linux distribution, filesystem,
 display scale, Wine version, translation nuance, or game encounter.
 
 EXTRA UPGRADE FILES
-Click Install upgrade as usual. Setup backs up recognized extra upgrade
-files in LauSetupBackups and continues. Restore previous install returns
-them. You do not need to move or rename these files yourself.
+Setup leaves other patches alone without parsing them. Manage renamed
+duplicate patches yourself. Files Setup replaces are backed up.
 
-OLD PATCH-V: Install normally. Setup automatically backs up the retired Data\patch-v.mpq, including empty copies. Keep LauSetupBackups; use this setup version or newer to Restore previous install.
-Game-language codes are matched regardless of letter case, without changing Config.wtf. Both setup and game versions appear at the bottom of the window.
+PATCH-V: Empty Data\patch-v.mpq is backed up. Nonempty V remains unchanged with a nonblocking warning; its contents are not parsed.
+
+YOUR CHOICE: WoW.exe and loading screens/artwork (Patch-Q) each have a separate checkbox on Your visuals. Both start off. Review says Install or Keep existing for each. Patch-Y and its matching language patch remain included.
+
+Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.

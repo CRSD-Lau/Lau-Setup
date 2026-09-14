@@ -883,8 +883,1621 @@
           "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.8/e841709e455f70dd3255a691b337b28ecf1761fef8e758570db4038ba7a2d062.bin"
         }
       ]
+    },
+    "MapDetails-deDE": {
+      "Id": "MapDetails-deDE",
+      "Bytes": 69150718,
+      "Sha256": "bde0c9f2f6d42ae1f305803c3d015e806a9320bf8cf1d2cae106e40c42c177c6",
+      "Parts": [
+        {
+          "Sha256": "bde0c9f2f6d42ae1f305803c3d015e806a9320bf8cf1d2cae106e40c42c177c6",
+          "Bytes": 69150718,
+          "FileName": "bde0c9f2f6d42ae1f305803c3d015e806a9320bf8cf1d2cae106e40c42c177c6.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/bde0c9f2f6d42ae1f305803c3d015e806a9320bf8cf1d2cae106e40c42c177c6.bin"
+        }
+      ]
+    },
+    "MapDetails-enUS": {
+      "Id": "MapDetails-enUS",
+      "Bytes": 69180155,
+      "Sha256": "de4b833b1d1ca1e98272e1ca79e73d941836d282ab9d33daed43eceb8bb8b2d2",
+      "Parts": [
+        {
+          "Sha256": "de4b833b1d1ca1e98272e1ca79e73d941836d282ab9d33daed43eceb8bb8b2d2",
+          "Bytes": 69180155,
+          "FileName": "de4b833b1d1ca1e98272e1ca79e73d941836d282ab9d33daed43eceb8bb8b2d2.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/de4b833b1d1ca1e98272e1ca79e73d941836d282ab9d33daed43eceb8bb8b2d2.bin"
+        }
+      ]
+    },
+    "MapDetails-esES": {
+      "Id": "MapDetails-esES",
+      "Bytes": 69178783,
+      "Sha256": "838a707a998ef6e5f787d962f53475afc292beaa8fb13bdb8050805be9d29c1f",
+      "Parts": [
+        {
+          "Sha256": "838a707a998ef6e5f787d962f53475afc292beaa8fb13bdb8050805be9d29c1f",
+          "Bytes": 69178783,
+          "FileName": "838a707a998ef6e5f787d962f53475afc292beaa8fb13bdb8050805be9d29c1f.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/838a707a998ef6e5f787d962f53475afc292beaa8fb13bdb8050805be9d29c1f.bin"
+        }
+      ]
+    },
+    "MapDetails-esMX": {
+      "Id": "MapDetails-esMX",
+      "Bytes": 69176981,
+      "Sha256": "3e175f7768e9fa897efa61e32cb07f300a36e55c38ad3706f390f63a0d48a384",
+      "Parts": [
+        {
+          "Sha256": "3e175f7768e9fa897efa61e32cb07f300a36e55c38ad3706f390f63a0d48a384",
+          "Bytes": 69176981,
+          "FileName": "3e175f7768e9fa897efa61e32cb07f300a36e55c38ad3706f390f63a0d48a384.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/3e175f7768e9fa897efa61e32cb07f300a36e55c38ad3706f390f63a0d48a384.bin"
+        }
+      ]
+    },
+    "MapDetails-frFR": {
+      "Id": "MapDetails-frFR",
+      "Bytes": 69153972,
+      "Sha256": "9b7188b64a7dcd1122f612864f299c47a7c90960cb88614774d57c1acd0f7e3d",
+      "Parts": [
+        {
+          "Sha256": "9b7188b64a7dcd1122f612864f299c47a7c90960cb88614774d57c1acd0f7e3d",
+          "Bytes": 69153972,
+          "FileName": "9b7188b64a7dcd1122f612864f299c47a7c90960cb88614774d57c1acd0f7e3d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9b7188b64a7dcd1122f612864f299c47a7c90960cb88614774d57c1acd0f7e3d.bin"
+        }
+      ]
+    },
+    "MapDetails-koKR": {
+      "Id": "MapDetails-koKR",
+      "Bytes": 69179870,
+      "Sha256": "8eda0394691c57bc97e5984c2556ff1618fd692335cb6677ea49241d62071c1f",
+      "Parts": [
+        {
+          "Sha256": "8eda0394691c57bc97e5984c2556ff1618fd692335cb6677ea49241d62071c1f",
+          "Bytes": 69179870,
+          "FileName": "8eda0394691c57bc97e5984c2556ff1618fd692335cb6677ea49241d62071c1f.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/8eda0394691c57bc97e5984c2556ff1618fd692335cb6677ea49241d62071c1f.bin"
+        }
+      ]
+    },
+    "MapDetails-ruRU": {
+      "Id": "MapDetails-ruRU",
+      "Bytes": 69099900,
+      "Sha256": "e0064166c8dd48eb2839644812987b7b028418c94330f31b46a554f3f341f060",
+      "Parts": [
+        {
+          "Sha256": "e0064166c8dd48eb2839644812987b7b028418c94330f31b46a554f3f341f060",
+          "Bytes": 69099900,
+          "FileName": "e0064166c8dd48eb2839644812987b7b028418c94330f31b46a554f3f341f060.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e0064166c8dd48eb2839644812987b7b028418c94330f31b46a554f3f341f060.bin"
+        }
+      ]
+    },
+    "MapDetails-zhCN": {
+      "Id": "MapDetails-zhCN",
+      "Bytes": 69170109,
+      "Sha256": "4b44f3d866384236bf373628d68f68df8262175db76907f7b78c11185eba8856",
+      "Parts": [
+        {
+          "Sha256": "4b44f3d866384236bf373628d68f68df8262175db76907f7b78c11185eba8856",
+          "Bytes": 69170109,
+          "FileName": "4b44f3d866384236bf373628d68f68df8262175db76907f7b78c11185eba8856.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/4b44f3d866384236bf373628d68f68df8262175db76907f7b78c11185eba8856.bin"
+        }
+      ]
+    },
+    "MapDetails-zhTW": {
+      "Id": "MapDetails-zhTW",
+      "Bytes": 69166015,
+      "Sha256": "413c06fc92b0f40e0b53b2c538ed80819a5fbc16b31b74dad12e47e3920f531a",
+      "Parts": [
+        {
+          "Sha256": "413c06fc92b0f40e0b53b2c538ed80819a5fbc16b31b74dad12e47e3920f531a",
+          "Bytes": 69166015,
+          "FileName": "413c06fc92b0f40e0b53b2c538ed80819a5fbc16b31b74dad12e47e3920f531a.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/413c06fc92b0f40e0b53b2c538ed80819a5fbc16b31b74dad12e47e3920f531a.bin"
+        }
+      ]
+    },
+    "MapAddon-1f4def9ba56dcdea": {
+      "Id": "MapAddon-1f4def9ba56dcdea",
+      "Bytes": 268,
+      "Sha256": "f07cc12bcc1d66da2bee002b114456f069a3aa25c27d093259002f5cccb8d2e8",
+      "Parts": [
+        {
+          "Sha256": "f07cc12bcc1d66da2bee002b114456f069a3aa25c27d093259002f5cccb8d2e8",
+          "Bytes": 268,
+          "FileName": "f07cc12bcc1d66da2bee002b114456f069a3aa25c27d093259002f5cccb8d2e8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f07cc12bcc1d66da2bee002b114456f069a3aa25c27d093259002f5cccb8d2e8.bin"
+        }
+      ]
+    },
+    "MapAddon-3b195ed0cd1d82f6": {
+      "Id": "MapAddon-3b195ed0cd1d82f6",
+      "Bytes": 67365,
+      "Sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+      "Parts": [
+        {
+          "Sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+          "Bytes": 67365,
+          "FileName": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015.bin"
+        }
+      ]
+    },
+    "MapAddon-3bdca8627bd91243": {
+      "Id": "MapAddon-3bdca8627bd91243",
+      "Bytes": 8066,
+      "Sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+      "Parts": [
+        {
+          "Sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+          "Bytes": 8066,
+          "FileName": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02.bin"
+        }
+      ]
+    },
+    "MapAddon-877fc6509c860dbb": {
+      "Id": "MapAddon-877fc6509c860dbb",
+      "Bytes": 4068,
+      "Sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+      "Parts": [
+        {
+          "Sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+          "Bytes": 4068,
+          "FileName": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c.bin"
+        }
+      ]
+    },
+    "MapAddon-d91ee76164c60bc0": {
+      "Id": "MapAddon-d91ee76164c60bc0",
+      "Bytes": 284,
+      "Sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+      "Parts": [
+        {
+          "Sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+          "Bytes": 284,
+          "FileName": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093.bin"
+        }
+      ]
+    },
+    "MapAddon-fe22dff8fa11a9ea": {
+      "Id": "MapAddon-fe22dff8fa11a9ea",
+      "Bytes": 26436,
+      "Sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+      "Parts": [
+        {
+          "Sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+          "Bytes": 26436,
+          "FileName": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a.bin"
+        }
+      ]
+    },
+    "MapAddon-b5c6b89978be7329": {
+      "Id": "MapAddon-b5c6b89978be7329",
+      "Bytes": 2508,
+      "Sha256": "2673f12124786892dd93cb7c9eb67cc812ba852d39d87fe34934ecdf5cfa89eb",
+      "Parts": [
+        {
+          "Sha256": "2673f12124786892dd93cb7c9eb67cc812ba852d39d87fe34934ecdf5cfa89eb",
+          "Bytes": 2508,
+          "FileName": "2673f12124786892dd93cb7c9eb67cc812ba852d39d87fe34934ecdf5cfa89eb.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/2673f12124786892dd93cb7c9eb67cc812ba852d39d87fe34934ecdf5cfa89eb.bin"
+        }
+      ]
+    },
+    "MapAddon-42f1465ff70e6289": {
+      "Id": "MapAddon-42f1465ff70e6289",
+      "Bytes": 2444,
+      "Sha256": "1af49da2ed97ac3811f32794de65138a5cc9d22906e1f6a324d736968e36b7a4",
+      "Parts": [
+        {
+          "Sha256": "1af49da2ed97ac3811f32794de65138a5cc9d22906e1f6a324d736968e36b7a4",
+          "Bytes": 2444,
+          "FileName": "1af49da2ed97ac3811f32794de65138a5cc9d22906e1f6a324d736968e36b7a4.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/1af49da2ed97ac3811f32794de65138a5cc9d22906e1f6a324d736968e36b7a4.bin"
+        }
+      ]
+    },
+    "MapAddon-4dba1ca6f07639c2": {
+      "Id": "MapAddon-4dba1ca6f07639c2",
+      "Bytes": 31196,
+      "Sha256": "f5f9f52266df6d4e396b0f541fa5eddc99d529fc8d2a175e92bd3ba7265360c3",
+      "Parts": [
+        {
+          "Sha256": "f5f9f52266df6d4e396b0f541fa5eddc99d529fc8d2a175e92bd3ba7265360c3",
+          "Bytes": 31196,
+          "FileName": "f5f9f52266df6d4e396b0f541fa5eddc99d529fc8d2a175e92bd3ba7265360c3.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f5f9f52266df6d4e396b0f541fa5eddc99d529fc8d2a175e92bd3ba7265360c3.bin"
+        }
+      ]
+    },
+    "MapAddon-6861a6103b0d905c": {
+      "Id": "MapAddon-6861a6103b0d905c",
+      "Bytes": 9860,
+      "Sha256": "9ba64d9fe495f86e26369430556ed51180848b14577ef3e21de965722f59ed99",
+      "Parts": [
+        {
+          "Sha256": "9ba64d9fe495f86e26369430556ed51180848b14577ef3e21de965722f59ed99",
+          "Bytes": 9860,
+          "FileName": "9ba64d9fe495f86e26369430556ed51180848b14577ef3e21de965722f59ed99.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9ba64d9fe495f86e26369430556ed51180848b14577ef3e21de965722f59ed99.bin"
+        }
+      ]
+    },
+    "MapAddon-742344918c4555a7": {
+      "Id": "MapAddon-742344918c4555a7",
+      "Bytes": 802,
+      "Sha256": "acc3a5e55d6be4a7895db8afbaaaea8c2036f04fbf9441efda86189950840cd0",
+      "Parts": [
+        {
+          "Sha256": "acc3a5e55d6be4a7895db8afbaaaea8c2036f04fbf9441efda86189950840cd0",
+          "Bytes": 802,
+          "FileName": "acc3a5e55d6be4a7895db8afbaaaea8c2036f04fbf9441efda86189950840cd0.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/acc3a5e55d6be4a7895db8afbaaaea8c2036f04fbf9441efda86189950840cd0.bin"
+        }
+      ]
+    },
+    "MapAddon-39bf2968004633ca": {
+      "Id": "MapAddon-39bf2968004633ca",
+      "Bytes": 24779,
+      "Sha256": "ac4ad38324cc6f55fa98a9e9af70417ceca7aae705f7d7e5fd4c3682300c8254",
+      "Parts": [
+        {
+          "Sha256": "ac4ad38324cc6f55fa98a9e9af70417ceca7aae705f7d7e5fd4c3682300c8254",
+          "Bytes": 24779,
+          "FileName": "ac4ad38324cc6f55fa98a9e9af70417ceca7aae705f7d7e5fd4c3682300c8254.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ac4ad38324cc6f55fa98a9e9af70417ceca7aae705f7d7e5fd4c3682300c8254.bin"
+        }
+      ]
+    },
+    "MapAddon-fbc61938be5ccf05": {
+      "Id": "MapAddon-fbc61938be5ccf05",
+      "Bytes": 211,
+      "Sha256": "b9820071648e42f9167882ef2a08602644a301cefd5d7e57c82aa36ca1439259",
+      "Parts": [
+        {
+          "Sha256": "b9820071648e42f9167882ef2a08602644a301cefd5d7e57c82aa36ca1439259",
+          "Bytes": 211,
+          "FileName": "b9820071648e42f9167882ef2a08602644a301cefd5d7e57c82aa36ca1439259.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/b9820071648e42f9167882ef2a08602644a301cefd5d7e57c82aa36ca1439259.bin"
+        }
+      ]
+    },
+    "MapAddon-67524acf41aceb2f": {
+      "Id": "MapAddon-67524acf41aceb2f",
+      "Bytes": 10446,
+      "Sha256": "19bc0201ee8d646ce816d1d672dc3eb8df119408b0ed8ddb10696e8bc4616a3d",
+      "Parts": [
+        {
+          "Sha256": "19bc0201ee8d646ce816d1d672dc3eb8df119408b0ed8ddb10696e8bc4616a3d",
+          "Bytes": 10446,
+          "FileName": "19bc0201ee8d646ce816d1d672dc3eb8df119408b0ed8ddb10696e8bc4616a3d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/19bc0201ee8d646ce816d1d672dc3eb8df119408b0ed8ddb10696e8bc4616a3d.bin"
+        }
+      ]
+    },
+    "MapAddon-bfc9c6c0a8cfde44": {
+      "Id": "MapAddon-bfc9c6c0a8cfde44",
+      "Bytes": 212,
+      "Sha256": "e4e964436c8b56ef3a20e6c3c9bbb2d0f6b33246545755258c1190687a1e5a3d",
+      "Parts": [
+        {
+          "Sha256": "e4e964436c8b56ef3a20e6c3c9bbb2d0f6b33246545755258c1190687a1e5a3d",
+          "Bytes": 212,
+          "FileName": "e4e964436c8b56ef3a20e6c3c9bbb2d0f6b33246545755258c1190687a1e5a3d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e4e964436c8b56ef3a20e6c3c9bbb2d0f6b33246545755258c1190687a1e5a3d.bin"
+        }
+      ]
+    },
+    "MapAddon-6302b13f8549031c": {
+      "Id": "MapAddon-6302b13f8549031c",
+      "Bytes": 11438,
+      "Sha256": "5b1d45852501b8d661cbead20cc997d69149c19f6a5870e23d09d4eba07dcd2e",
+      "Parts": [
+        {
+          "Sha256": "5b1d45852501b8d661cbead20cc997d69149c19f6a5870e23d09d4eba07dcd2e",
+          "Bytes": 11438,
+          "FileName": "5b1d45852501b8d661cbead20cc997d69149c19f6a5870e23d09d4eba07dcd2e.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5b1d45852501b8d661cbead20cc997d69149c19f6a5870e23d09d4eba07dcd2e.bin"
+        }
+      ]
+    },
+    "MapAddon-95f8016396e780b4": {
+      "Id": "MapAddon-95f8016396e780b4",
+      "Bytes": 248,
+      "Sha256": "a250107c2aa6c1474c881146f774c3797aee38e5ee4c0762b09461d316ba75ee",
+      "Parts": [
+        {
+          "Sha256": "a250107c2aa6c1474c881146f774c3797aee38e5ee4c0762b09461d316ba75ee",
+          "Bytes": 248,
+          "FileName": "a250107c2aa6c1474c881146f774c3797aee38e5ee4c0762b09461d316ba75ee.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/a250107c2aa6c1474c881146f774c3797aee38e5ee4c0762b09461d316ba75ee.bin"
+        }
+      ]
+    },
+    "MapAddon-c0a55ad628866345": {
+      "Id": "MapAddon-c0a55ad628866345",
+      "Bytes": 14434,
+      "Sha256": "b577b11c4c7b49c19b13f3603a5f2cf6bf4ba77ebfd3db4d3e9910b960ab6a61",
+      "Parts": [
+        {
+          "Sha256": "b577b11c4c7b49c19b13f3603a5f2cf6bf4ba77ebfd3db4d3e9910b960ab6a61",
+          "Bytes": 14434,
+          "FileName": "b577b11c4c7b49c19b13f3603a5f2cf6bf4ba77ebfd3db4d3e9910b960ab6a61.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/b577b11c4c7b49c19b13f3603a5f2cf6bf4ba77ebfd3db4d3e9910b960ab6a61.bin"
+        }
+      ]
+    },
+    "MapAddon-06a6fdbdf5acf3dd": {
+      "Id": "MapAddon-06a6fdbdf5acf3dd",
+      "Bytes": 2183,
+      "Sha256": "e393b49c61d06a12340d3e1f36fdc6df170bc5bd652d8c09b404aa61df06f04b",
+      "Parts": [
+        {
+          "Sha256": "e393b49c61d06a12340d3e1f36fdc6df170bc5bd652d8c09b404aa61df06f04b",
+          "Bytes": 2183,
+          "FileName": "e393b49c61d06a12340d3e1f36fdc6df170bc5bd652d8c09b404aa61df06f04b.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e393b49c61d06a12340d3e1f36fdc6df170bc5bd652d8c09b404aa61df06f04b.bin"
+        }
+      ]
+    },
+    "MapAddon-371a26c477e69959": {
+      "Id": "MapAddon-371a26c477e69959",
+      "Bytes": 473,
+      "Sha256": "72e34a78a8f8d0377d4e62cc33d8bacff42f4871d4f04f58ebc169b92c0ae347",
+      "Parts": [
+        {
+          "Sha256": "72e34a78a8f8d0377d4e62cc33d8bacff42f4871d4f04f58ebc169b92c0ae347",
+          "Bytes": 473,
+          "FileName": "72e34a78a8f8d0377d4e62cc33d8bacff42f4871d4f04f58ebc169b92c0ae347.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/72e34a78a8f8d0377d4e62cc33d8bacff42f4871d4f04f58ebc169b92c0ae347.bin"
+        }
+      ]
+    },
+    "MapAddon-14259a5195c98139": {
+      "Id": "MapAddon-14259a5195c98139",
+      "Bytes": 23282,
+      "Sha256": "c38fd096b19305c3d1f83e95b6c583d5a6526e7a7c3fa206096cf0b855817021",
+      "Parts": [
+        {
+          "Sha256": "c38fd096b19305c3d1f83e95b6c583d5a6526e7a7c3fa206096cf0b855817021",
+          "Bytes": 23282,
+          "FileName": "c38fd096b19305c3d1f83e95b6c583d5a6526e7a7c3fa206096cf0b855817021.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c38fd096b19305c3d1f83e95b6c583d5a6526e7a7c3fa206096cf0b855817021.bin"
+        }
+      ]
+    },
+    "MapAddon-fa7a6e4170a0b7be": {
+      "Id": "MapAddon-fa7a6e4170a0b7be",
+      "Bytes": 215,
+      "Sha256": "db2f8281fbed72fe1ac5f65a4e063011f45aff4d4841b8dd2aad0d50a0813164",
+      "Parts": [
+        {
+          "Sha256": "db2f8281fbed72fe1ac5f65a4e063011f45aff4d4841b8dd2aad0d50a0813164",
+          "Bytes": 215,
+          "FileName": "db2f8281fbed72fe1ac5f65a4e063011f45aff4d4841b8dd2aad0d50a0813164.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/db2f8281fbed72fe1ac5f65a4e063011f45aff4d4841b8dd2aad0d50a0813164.bin"
+        }
+      ]
+    },
+    "MapAddon-ff6ff613c52e2043": {
+      "Id": "MapAddon-ff6ff613c52e2043",
+      "Bytes": 54836,
+      "Sha256": "1c3ab2e2669ae630cd2823ab7980f654eb5c6ae050f11a32e1993e018d5cbf14",
+      "Parts": [
+        {
+          "Sha256": "1c3ab2e2669ae630cd2823ab7980f654eb5c6ae050f11a32e1993e018d5cbf14",
+          "Bytes": 54836,
+          "FileName": "1c3ab2e2669ae630cd2823ab7980f654eb5c6ae050f11a32e1993e018d5cbf14.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/1c3ab2e2669ae630cd2823ab7980f654eb5c6ae050f11a32e1993e018d5cbf14.bin"
+        }
+      ]
+    },
+    "MapAddon-a738395f2ca7dfe3": {
+      "Id": "MapAddon-a738395f2ca7dfe3",
+      "Bytes": 218,
+      "Sha256": "c10388710651ef39d7c8e5920e9ef232b8bb9abcc3eb8fbf179ba9ac1c77e413",
+      "Parts": [
+        {
+          "Sha256": "c10388710651ef39d7c8e5920e9ef232b8bb9abcc3eb8fbf179ba9ac1c77e413",
+          "Bytes": 218,
+          "FileName": "c10388710651ef39d7c8e5920e9ef232b8bb9abcc3eb8fbf179ba9ac1c77e413.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c10388710651ef39d7c8e5920e9ef232b8bb9abcc3eb8fbf179ba9ac1c77e413.bin"
+        }
+      ]
+    },
+    "MapAddon-714119995def63ed": {
+      "Id": "MapAddon-714119995def63ed",
+      "Bytes": 11810,
+      "Sha256": "cf2da7103076faf842252100be64365bc149b1c6571129545d861e16a2ff7aec",
+      "Parts": [
+        {
+          "Sha256": "cf2da7103076faf842252100be64365bc149b1c6571129545d861e16a2ff7aec",
+          "Bytes": 11810,
+          "FileName": "cf2da7103076faf842252100be64365bc149b1c6571129545d861e16a2ff7aec.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/cf2da7103076faf842252100be64365bc149b1c6571129545d861e16a2ff7aec.bin"
+        }
+      ]
+    },
+    "MapAddon-4d2619d71c445e18": {
+      "Id": "MapAddon-4d2619d71c445e18",
+      "Bytes": 220,
+      "Sha256": "9ef73f2e0598eb51564f53b71d66179768a950cce0d6602746070556e3a25fed",
+      "Parts": [
+        {
+          "Sha256": "9ef73f2e0598eb51564f53b71d66179768a950cce0d6602746070556e3a25fed",
+          "Bytes": 220,
+          "FileName": "9ef73f2e0598eb51564f53b71d66179768a950cce0d6602746070556e3a25fed.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9ef73f2e0598eb51564f53b71d66179768a950cce0d6602746070556e3a25fed.bin"
+        }
+      ]
+    },
+    "MapAddon-7dc0ff1e51d12799": {
+      "Id": "MapAddon-7dc0ff1e51d12799",
+      "Bytes": 8339,
+      "Sha256": "5e5f3df1e23a43a632f232f375a5746062de6b4465e2d7281ade61a536b2fa83",
+      "Parts": [
+        {
+          "Sha256": "5e5f3df1e23a43a632f232f375a5746062de6b4465e2d7281ade61a536b2fa83",
+          "Bytes": 8339,
+          "FileName": "5e5f3df1e23a43a632f232f375a5746062de6b4465e2d7281ade61a536b2fa83.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5e5f3df1e23a43a632f232f375a5746062de6b4465e2d7281ade61a536b2fa83.bin"
+        }
+      ]
+    },
+    "MapAddon-cdcd912a7ff2f0c1": {
+      "Id": "MapAddon-cdcd912a7ff2f0c1",
+      "Bytes": 213,
+      "Sha256": "19b0494a1f16f9d7147cf0e0f601aa4e0fbaa61490037af0e8969fabcc2f185b",
+      "Parts": [
+        {
+          "Sha256": "19b0494a1f16f9d7147cf0e0f601aa4e0fbaa61490037af0e8969fabcc2f185b",
+          "Bytes": 213,
+          "FileName": "19b0494a1f16f9d7147cf0e0f601aa4e0fbaa61490037af0e8969fabcc2f185b.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/19b0494a1f16f9d7147cf0e0f601aa4e0fbaa61490037af0e8969fabcc2f185b.bin"
+        }
+      ]
+    },
+    "MapAddon-39b1252a19a664b0": {
+      "Id": "MapAddon-39b1252a19a664b0",
+      "Bytes": 24116,
+      "Sha256": "a166c49eaca36ed7b6eb54575f91059a79a3b488ef1197449019b82555ee2b64",
+      "Parts": [
+        {
+          "Sha256": "a166c49eaca36ed7b6eb54575f91059a79a3b488ef1197449019b82555ee2b64",
+          "Bytes": 24116,
+          "FileName": "a166c49eaca36ed7b6eb54575f91059a79a3b488ef1197449019b82555ee2b64.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/a166c49eaca36ed7b6eb54575f91059a79a3b488ef1197449019b82555ee2b64.bin"
+        }
+      ]
+    },
+    "MapAddon-2b243d694d506ebd": {
+      "Id": "MapAddon-2b243d694d506ebd",
+      "Bytes": 208,
+      "Sha256": "5b3873c68d76a76fb52bbb9232d4d63b13f99cda5b3f95c86205d8022786d184",
+      "Parts": [
+        {
+          "Sha256": "5b3873c68d76a76fb52bbb9232d4d63b13f99cda5b3f95c86205d8022786d184",
+          "Bytes": 208,
+          "FileName": "5b3873c68d76a76fb52bbb9232d4d63b13f99cda5b3f95c86205d8022786d184.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5b3873c68d76a76fb52bbb9232d4d63b13f99cda5b3f95c86205d8022786d184.bin"
+        }
+      ]
+    },
+    "MapAddon-1177c40d46e4f91b": {
+      "Id": "MapAddon-1177c40d46e4f91b",
+      "Bytes": 18501,
+      "Sha256": "821f7cdae33b8560b48f70341db4f983c795566003e69116ad0e2df5ff5bc4bb",
+      "Parts": [
+        {
+          "Sha256": "821f7cdae33b8560b48f70341db4f983c795566003e69116ad0e2df5ff5bc4bb",
+          "Bytes": 18501,
+          "FileName": "821f7cdae33b8560b48f70341db4f983c795566003e69116ad0e2df5ff5bc4bb.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/821f7cdae33b8560b48f70341db4f983c795566003e69116ad0e2df5ff5bc4bb.bin"
+        }
+      ]
+    },
+    "MapAddon-185ebbfd915ad4a3": {
+      "Id": "MapAddon-185ebbfd915ad4a3",
+      "Bytes": 215,
+      "Sha256": "37caa69558e131e0f13fad3a8cc05c10c3927446e35cf251ff255349b1bcf060",
+      "Parts": [
+        {
+          "Sha256": "37caa69558e131e0f13fad3a8cc05c10c3927446e35cf251ff255349b1bcf060",
+          "Bytes": 215,
+          "FileName": "37caa69558e131e0f13fad3a8cc05c10c3927446e35cf251ff255349b1bcf060.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/37caa69558e131e0f13fad3a8cc05c10c3927446e35cf251ff255349b1bcf060.bin"
+        }
+      ]
+    },
+    "MapAddon-f06b8da647688321": {
+      "Id": "MapAddon-f06b8da647688321",
+      "Bytes": 4698,
+      "Sha256": "69a099d4b2cf303751f531cde6d4ee7ad0efa5c67c2c6d6c07fd8ae2aa6f8c29",
+      "Parts": [
+        {
+          "Sha256": "69a099d4b2cf303751f531cde6d4ee7ad0efa5c67c2c6d6c07fd8ae2aa6f8c29",
+          "Bytes": 4698,
+          "FileName": "69a099d4b2cf303751f531cde6d4ee7ad0efa5c67c2c6d6c07fd8ae2aa6f8c29.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/69a099d4b2cf303751f531cde6d4ee7ad0efa5c67c2c6d6c07fd8ae2aa6f8c29.bin"
+        }
+      ]
+    },
+    "MapAddon-f0db6ac7e7a8ae5f": {
+      "Id": "MapAddon-f0db6ac7e7a8ae5f",
+      "Bytes": 211,
+      "Sha256": "9a9c0b14a8eda4509d45422cb1ac065ba9165879ef291816f1689bf6be3bcbc4",
+      "Parts": [
+        {
+          "Sha256": "9a9c0b14a8eda4509d45422cb1ac065ba9165879ef291816f1689bf6be3bcbc4",
+          "Bytes": 211,
+          "FileName": "9a9c0b14a8eda4509d45422cb1ac065ba9165879ef291816f1689bf6be3bcbc4.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9a9c0b14a8eda4509d45422cb1ac065ba9165879ef291816f1689bf6be3bcbc4.bin"
+        }
+      ]
+    },
+    "MapAddon-faf1b51f3e69afe5": {
+      "Id": "MapAddon-faf1b51f3e69afe5",
+      "Bytes": 23422,
+      "Sha256": "12609c88da79599408f8687a2bb30780f86e3c5ca455d418dbf799932ebe4f29",
+      "Parts": [
+        {
+          "Sha256": "12609c88da79599408f8687a2bb30780f86e3c5ca455d418dbf799932ebe4f29",
+          "Bytes": 23422,
+          "FileName": "12609c88da79599408f8687a2bb30780f86e3c5ca455d418dbf799932ebe4f29.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/12609c88da79599408f8687a2bb30780f86e3c5ca455d418dbf799932ebe4f29.bin"
+        }
+      ]
+    },
+    "MapAddon-f0f3e2fffd432a0a": {
+      "Id": "MapAddon-f0f3e2fffd432a0a",
+      "Bytes": 1451,
+      "Sha256": "e54bd15393700719dbec2b1b433e570a3f364fa5e927f9227f63037eb16ad522",
+      "Parts": [
+        {
+          "Sha256": "e54bd15393700719dbec2b1b433e570a3f364fa5e927f9227f63037eb16ad522",
+          "Bytes": 1451,
+          "FileName": "e54bd15393700719dbec2b1b433e570a3f364fa5e927f9227f63037eb16ad522.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e54bd15393700719dbec2b1b433e570a3f364fa5e927f9227f63037eb16ad522.bin"
+        }
+      ]
+    },
+    "MapAddon-50638ea145e4fe06": {
+      "Id": "MapAddon-50638ea145e4fe06",
+      "Bytes": 3491,
+      "Sha256": "9ef06000191a3f5ddfc009c3f8fe651e27afc0e6569b27fbcbee4b210d54e0c2",
+      "Parts": [
+        {
+          "Sha256": "9ef06000191a3f5ddfc009c3f8fe651e27afc0e6569b27fbcbee4b210d54e0c2",
+          "Bytes": 3491,
+          "FileName": "9ef06000191a3f5ddfc009c3f8fe651e27afc0e6569b27fbcbee4b210d54e0c2.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9ef06000191a3f5ddfc009c3f8fe651e27afc0e6569b27fbcbee4b210d54e0c2.bin"
+        }
+      ]
+    },
+    "MapAddon-266d16627e0ad66e": {
+      "Id": "MapAddon-266d16627e0ad66e",
+      "Bytes": 4503,
+      "Sha256": "f12dcc4aa09a0aaf6231bdb0ab5869a9c18fa56a0066a967cb47959075d5641e",
+      "Parts": [
+        {
+          "Sha256": "f12dcc4aa09a0aaf6231bdb0ab5869a9c18fa56a0066a967cb47959075d5641e",
+          "Bytes": 4503,
+          "FileName": "f12dcc4aa09a0aaf6231bdb0ab5869a9c18fa56a0066a967cb47959075d5641e.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f12dcc4aa09a0aaf6231bdb0ab5869a9c18fa56a0066a967cb47959075d5641e.bin"
+        }
+      ]
+    },
+    "MapAddon-828b6f29b492b934": {
+      "Id": "MapAddon-828b6f29b492b934",
+      "Bytes": 8824,
+      "Sha256": "701efcf82849f998b27ba68591a9d0019813e5353c8ef517fcf26aacde84eeb5",
+      "Parts": [
+        {
+          "Sha256": "701efcf82849f998b27ba68591a9d0019813e5353c8ef517fcf26aacde84eeb5",
+          "Bytes": 8824,
+          "FileName": "701efcf82849f998b27ba68591a9d0019813e5353c8ef517fcf26aacde84eeb5.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/701efcf82849f998b27ba68591a9d0019813e5353c8ef517fcf26aacde84eeb5.bin"
+        }
+      ]
+    },
+    "MapAddon-982ff009bd0da2c4": {
+      "Id": "MapAddon-982ff009bd0da2c4",
+      "Bytes": 2946,
+      "Sha256": "8a39f0eee1e8a3a4544d06c21646ef4ad007e3b17af256d376f4fa250fc44b61",
+      "Parts": [
+        {
+          "Sha256": "8a39f0eee1e8a3a4544d06c21646ef4ad007e3b17af256d376f4fa250fc44b61",
+          "Bytes": 2946,
+          "FileName": "8a39f0eee1e8a3a4544d06c21646ef4ad007e3b17af256d376f4fa250fc44b61.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/8a39f0eee1e8a3a4544d06c21646ef4ad007e3b17af256d376f4fa250fc44b61.bin"
+        }
+      ]
+    },
+    "MapAddon-4b52f51bb0286a4a": {
+      "Id": "MapAddon-4b52f51bb0286a4a",
+      "Bytes": 6489,
+      "Sha256": "43442c44c925d4dbcd2cbb4d6def5d5e1910c173124e0f80358554c0733dcf94",
+      "Parts": [
+        {
+          "Sha256": "43442c44c925d4dbcd2cbb4d6def5d5e1910c173124e0f80358554c0733dcf94",
+          "Bytes": 6489,
+          "FileName": "43442c44c925d4dbcd2cbb4d6def5d5e1910c173124e0f80358554c0733dcf94.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/43442c44c925d4dbcd2cbb4d6def5d5e1910c173124e0f80358554c0733dcf94.bin"
+        }
+      ]
+    },
+    "MapAddon-ade9a66d05445bd8": {
+      "Id": "MapAddon-ade9a66d05445bd8",
+      "Bytes": 1890,
+      "Sha256": "d65968489c0fa5749d2e35be69c60d0dd7969189aa14a9031f0654715625d214",
+      "Parts": [
+        {
+          "Sha256": "d65968489c0fa5749d2e35be69c60d0dd7969189aa14a9031f0654715625d214",
+          "Bytes": 1890,
+          "FileName": "d65968489c0fa5749d2e35be69c60d0dd7969189aa14a9031f0654715625d214.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/d65968489c0fa5749d2e35be69c60d0dd7969189aa14a9031f0654715625d214.bin"
+        }
+      ]
+    },
+    "MapAddon-c9eb0f2b6d6834f3": {
+      "Id": "MapAddon-c9eb0f2b6d6834f3",
+      "Bytes": 10062,
+      "Sha256": "7af6116b8afcf93a222ddc4a7d897c32e2ee7e539901376dbb11c092bb123393",
+      "Parts": [
+        {
+          "Sha256": "7af6116b8afcf93a222ddc4a7d897c32e2ee7e539901376dbb11c092bb123393",
+          "Bytes": 10062,
+          "FileName": "7af6116b8afcf93a222ddc4a7d897c32e2ee7e539901376dbb11c092bb123393.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7af6116b8afcf93a222ddc4a7d897c32e2ee7e539901376dbb11c092bb123393.bin"
+        }
+      ]
+    },
+    "MapAddon-eef28301eb3c0ffd": {
+      "Id": "MapAddon-eef28301eb3c0ffd",
+      "Bytes": 18764,
+      "Sha256": "35294593938f9d8e14a854ad3d9f255e4aec63d4423200c4350ba6790fbd239d",
+      "Parts": [
+        {
+          "Sha256": "35294593938f9d8e14a854ad3d9f255e4aec63d4423200c4350ba6790fbd239d",
+          "Bytes": 18764,
+          "FileName": "35294593938f9d8e14a854ad3d9f255e4aec63d4423200c4350ba6790fbd239d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/35294593938f9d8e14a854ad3d9f255e4aec63d4423200c4350ba6790fbd239d.bin"
+        }
+      ]
+    },
+    "MapAddon-39126bc80fea3b22": {
+      "Id": "MapAddon-39126bc80fea3b22",
+      "Bytes": 9726,
+      "Sha256": "bd927384490922ac8c95f487cce34fa04d1a743c82fa23cdbaa67664504fb742",
+      "Parts": [
+        {
+          "Sha256": "bd927384490922ac8c95f487cce34fa04d1a743c82fa23cdbaa67664504fb742",
+          "Bytes": 9726,
+          "FileName": "bd927384490922ac8c95f487cce34fa04d1a743c82fa23cdbaa67664504fb742.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/bd927384490922ac8c95f487cce34fa04d1a743c82fa23cdbaa67664504fb742.bin"
+        }
+      ]
+    },
+    "MapAddon-74c10dea4a45d10d": {
+      "Id": "MapAddon-74c10dea4a45d10d",
+      "Bytes": 2460,
+      "Sha256": "41fc03de5c51b4c2ebb42db31945a8d6e15afcb13647ea06409994325a0e0c75",
+      "Parts": [
+        {
+          "Sha256": "41fc03de5c51b4c2ebb42db31945a8d6e15afcb13647ea06409994325a0e0c75",
+          "Bytes": 2460,
+          "FileName": "41fc03de5c51b4c2ebb42db31945a8d6e15afcb13647ea06409994325a0e0c75.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/41fc03de5c51b4c2ebb42db31945a8d6e15afcb13647ea06409994325a0e0c75.bin"
+        }
+      ]
+    },
+    "MapAddon-a02a6e49091858f2": {
+      "Id": "MapAddon-a02a6e49091858f2",
+      "Bytes": 7799,
+      "Sha256": "f8d8fc6afd9e11f5e65b9e38821f18a4afd5fe735218cb1814d2d0e5a00b4231",
+      "Parts": [
+        {
+          "Sha256": "f8d8fc6afd9e11f5e65b9e38821f18a4afd5fe735218cb1814d2d0e5a00b4231",
+          "Bytes": 7799,
+          "FileName": "f8d8fc6afd9e11f5e65b9e38821f18a4afd5fe735218cb1814d2d0e5a00b4231.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f8d8fc6afd9e11f5e65b9e38821f18a4afd5fe735218cb1814d2d0e5a00b4231.bin"
+        }
+      ]
+    },
+    "MapAddon-40cfc663c4745446": {
+      "Id": "MapAddon-40cfc663c4745446",
+      "Bytes": 5327,
+      "Sha256": "60aaa249f4efbc727c74a2e6afb0f464c7e263b6e859da8a11868727c2506aa7",
+      "Parts": [
+        {
+          "Sha256": "60aaa249f4efbc727c74a2e6afb0f464c7e263b6e859da8a11868727c2506aa7",
+          "Bytes": 5327,
+          "FileName": "60aaa249f4efbc727c74a2e6afb0f464c7e263b6e859da8a11868727c2506aa7.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/60aaa249f4efbc727c74a2e6afb0f464c7e263b6e859da8a11868727c2506aa7.bin"
+        }
+      ]
+    },
+    "MapAddon-59253da1bfcda925": {
+      "Id": "MapAddon-59253da1bfcda925",
+      "Bytes": 10360,
+      "Sha256": "ff8f3303f0cf2a1cb20d5856467cd6163fd32efb1d2e3bebe1c7c1c26ae9407c",
+      "Parts": [
+        {
+          "Sha256": "ff8f3303f0cf2a1cb20d5856467cd6163fd32efb1d2e3bebe1c7c1c26ae9407c",
+          "Bytes": 10360,
+          "FileName": "ff8f3303f0cf2a1cb20d5856467cd6163fd32efb1d2e3bebe1c7c1c26ae9407c.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ff8f3303f0cf2a1cb20d5856467cd6163fd32efb1d2e3bebe1c7c1c26ae9407c.bin"
+        }
+      ]
+    },
+    "MapAddon-9c844fed4aaf793a": {
+      "Id": "MapAddon-9c844fed4aaf793a",
+      "Bytes": 17544,
+      "Sha256": "45550ea5d70e641051279cccbbac765247d798f487325c432e88d8afaba6124b",
+      "Parts": [
+        {
+          "Sha256": "45550ea5d70e641051279cccbbac765247d798f487325c432e88d8afaba6124b",
+          "Bytes": 17544,
+          "FileName": "45550ea5d70e641051279cccbbac765247d798f487325c432e88d8afaba6124b.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/45550ea5d70e641051279cccbbac765247d798f487325c432e88d8afaba6124b.bin"
+        }
+      ]
+    },
+    "MapAddon-252207b577872cc6": {
+      "Id": "MapAddon-252207b577872cc6",
+      "Bytes": 6564,
+      "Sha256": "418ff3e8a885c8fa4b6a4d49d7ef62ed16464742eb916efc57f430ac5cc9d518",
+      "Parts": [
+        {
+          "Sha256": "418ff3e8a885c8fa4b6a4d49d7ef62ed16464742eb916efc57f430ac5cc9d518",
+          "Bytes": 6564,
+          "FileName": "418ff3e8a885c8fa4b6a4d49d7ef62ed16464742eb916efc57f430ac5cc9d518.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/418ff3e8a885c8fa4b6a4d49d7ef62ed16464742eb916efc57f430ac5cc9d518.bin"
+        }
+      ]
+    },
+    "MapAddon-e41bb5b41c558a11": {
+      "Id": "MapAddon-e41bb5b41c558a11",
+      "Bytes": 2216,
+      "Sha256": "4a75e4316320b15903682c058d77250636e6e19d7a2d6c43ef7d79e3c35446b1",
+      "Parts": [
+        {
+          "Sha256": "4a75e4316320b15903682c058d77250636e6e19d7a2d6c43ef7d79e3c35446b1",
+          "Bytes": 2216,
+          "FileName": "4a75e4316320b15903682c058d77250636e6e19d7a2d6c43ef7d79e3c35446b1.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/4a75e4316320b15903682c058d77250636e6e19d7a2d6c43ef7d79e3c35446b1.bin"
+        }
+      ]
+    },
+    "MapAddon-26ec5e39f20a3eae": {
+      "Id": "MapAddon-26ec5e39f20a3eae",
+      "Bytes": 3992,
+      "Sha256": "c3d823092993162a85cf6c1d6b3e33a26918225ae615d7bd06a51c7a039461ef",
+      "Parts": [
+        {
+          "Sha256": "c3d823092993162a85cf6c1d6b3e33a26918225ae615d7bd06a51c7a039461ef",
+          "Bytes": 3992,
+          "FileName": "c3d823092993162a85cf6c1d6b3e33a26918225ae615d7bd06a51c7a039461ef.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c3d823092993162a85cf6c1d6b3e33a26918225ae615d7bd06a51c7a039461ef.bin"
+        }
+      ]
+    },
+    "MapAddon-f84e6c1dad87cdce": {
+      "Id": "MapAddon-f84e6c1dad87cdce",
+      "Bytes": 2814,
+      "Sha256": "fa8407b129286d7ea6aacf3e5d44be4182b23500b4034029c4b94d68707cc16f",
+      "Parts": [
+        {
+          "Sha256": "fa8407b129286d7ea6aacf3e5d44be4182b23500b4034029c4b94d68707cc16f",
+          "Bytes": 2814,
+          "FileName": "fa8407b129286d7ea6aacf3e5d44be4182b23500b4034029c4b94d68707cc16f.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/fa8407b129286d7ea6aacf3e5d44be4182b23500b4034029c4b94d68707cc16f.bin"
+        }
+      ]
+    },
+    "MapAddon-f5bff87293b4eb1b": {
+      "Id": "MapAddon-f5bff87293b4eb1b",
+      "Bytes": 6285,
+      "Sha256": "9378b8b2bc1f101d0339657a8dcb8e6500dca0ea7c05a6b4e9bcbeb141c7a17d",
+      "Parts": [
+        {
+          "Sha256": "9378b8b2bc1f101d0339657a8dcb8e6500dca0ea7c05a6b4e9bcbeb141c7a17d",
+          "Bytes": 6285,
+          "FileName": "9378b8b2bc1f101d0339657a8dcb8e6500dca0ea7c05a6b4e9bcbeb141c7a17d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9378b8b2bc1f101d0339657a8dcb8e6500dca0ea7c05a6b4e9bcbeb141c7a17d.bin"
+        }
+      ]
+    },
+    "MapAddon-d754171531d2112c": {
+      "Id": "MapAddon-d754171531d2112c",
+      "Bytes": 4327,
+      "Sha256": "c2c2f3a07fb9dea33e4433e80835754b19bc93a4c69b9cd1d0ebbb64396508cd",
+      "Parts": [
+        {
+          "Sha256": "c2c2f3a07fb9dea33e4433e80835754b19bc93a4c69b9cd1d0ebbb64396508cd",
+          "Bytes": 4327,
+          "FileName": "c2c2f3a07fb9dea33e4433e80835754b19bc93a4c69b9cd1d0ebbb64396508cd.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c2c2f3a07fb9dea33e4433e80835754b19bc93a4c69b9cd1d0ebbb64396508cd.bin"
+        }
+      ]
+    },
+    "MapAddon-0543e55aa56099ed": {
+      "Id": "MapAddon-0543e55aa56099ed",
+      "Bytes": 9392,
+      "Sha256": "0e27cc3d4db1b550db8ee6a1f243ad57fb1eace9a16787e62b54c838727eb647",
+      "Parts": [
+        {
+          "Sha256": "0e27cc3d4db1b550db8ee6a1f243ad57fb1eace9a16787e62b54c838727eb647",
+          "Bytes": 9392,
+          "FileName": "0e27cc3d4db1b550db8ee6a1f243ad57fb1eace9a16787e62b54c838727eb647.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/0e27cc3d4db1b550db8ee6a1f243ad57fb1eace9a16787e62b54c838727eb647.bin"
+        }
+      ]
+    },
+    "MapAddon-5224b663664d1427": {
+      "Id": "MapAddon-5224b663664d1427",
+      "Bytes": 7974,
+      "Sha256": "8d1f78eb8d0326213527c3bfebab43ff02994f3701c5da7981371af239119f93",
+      "Parts": [
+        {
+          "Sha256": "8d1f78eb8d0326213527c3bfebab43ff02994f3701c5da7981371af239119f93",
+          "Bytes": 7974,
+          "FileName": "8d1f78eb8d0326213527c3bfebab43ff02994f3701c5da7981371af239119f93.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/8d1f78eb8d0326213527c3bfebab43ff02994f3701c5da7981371af239119f93.bin"
+        }
+      ]
+    },
+    "MapAddon-7ddca69bd41d9fa9": {
+      "Id": "MapAddon-7ddca69bd41d9fa9",
+      "Bytes": 19112,
+      "Sha256": "8715815ff33a773cd5b5f52f72dfe259e7c7e9ba3dccfc725093bbaa3b248064",
+      "Parts": [
+        {
+          "Sha256": "8715815ff33a773cd5b5f52f72dfe259e7c7e9ba3dccfc725093bbaa3b248064",
+          "Bytes": 19112,
+          "FileName": "8715815ff33a773cd5b5f52f72dfe259e7c7e9ba3dccfc725093bbaa3b248064.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/8715815ff33a773cd5b5f52f72dfe259e7c7e9ba3dccfc725093bbaa3b248064.bin"
+        }
+      ]
+    },
+    "MapAddon-f5484fbd76ba642f": {
+      "Id": "MapAddon-f5484fbd76ba642f",
+      "Bytes": 210,
+      "Sha256": "85bcbb10046c613cd86cbd99b8e3cb645cbb05982480af7e3a667a101a56bc04",
+      "Parts": [
+        {
+          "Sha256": "85bcbb10046c613cd86cbd99b8e3cb645cbb05982480af7e3a667a101a56bc04",
+          "Bytes": 210,
+          "FileName": "85bcbb10046c613cd86cbd99b8e3cb645cbb05982480af7e3a667a101a56bc04.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/85bcbb10046c613cd86cbd99b8e3cb645cbb05982480af7e3a667a101a56bc04.bin"
+        }
+      ]
+    },
+    "MapAddon-fec668051c28acf7": {
+      "Id": "MapAddon-fec668051c28acf7",
+      "Bytes": 5757,
+      "Sha256": "5aa414f062ef86f2696b9d02ab52c1f40b36a556e1403ca55817c578f2a353fa",
+      "Parts": [
+        {
+          "Sha256": "5aa414f062ef86f2696b9d02ab52c1f40b36a556e1403ca55817c578f2a353fa",
+          "Bytes": 5757,
+          "FileName": "5aa414f062ef86f2696b9d02ab52c1f40b36a556e1403ca55817c578f2a353fa.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5aa414f062ef86f2696b9d02ab52c1f40b36a556e1403ca55817c578f2a353fa.bin"
+        }
+      ]
+    },
+    "MapAddon-08f13e8dc57f5584": {
+      "Id": "MapAddon-08f13e8dc57f5584",
+      "Bytes": 212,
+      "Sha256": "ad70df709b297effd04410ddf242188fd3811793ae55814a482ac41f5895eaef",
+      "Parts": [
+        {
+          "Sha256": "ad70df709b297effd04410ddf242188fd3811793ae55814a482ac41f5895eaef",
+          "Bytes": 212,
+          "FileName": "ad70df709b297effd04410ddf242188fd3811793ae55814a482ac41f5895eaef.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ad70df709b297effd04410ddf242188fd3811793ae55814a482ac41f5895eaef.bin"
+        }
+      ]
+    },
+    "MapAddon-7ac554955ace7a62": {
+      "Id": "MapAddon-7ac554955ace7a62",
+      "Bytes": 8786,
+      "Sha256": "47ca4214b4615e7dce7694e44fa02c5b50f598122b143b769ddf6dfdc111097b",
+      "Parts": [
+        {
+          "Sha256": "47ca4214b4615e7dce7694e44fa02c5b50f598122b143b769ddf6dfdc111097b",
+          "Bytes": 8786,
+          "FileName": "47ca4214b4615e7dce7694e44fa02c5b50f598122b143b769ddf6dfdc111097b.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/47ca4214b4615e7dce7694e44fa02c5b50f598122b143b769ddf6dfdc111097b.bin"
+        }
+      ]
+    },
+    "MapAddon-0bf9b2027af5b934": {
+      "Id": "MapAddon-0bf9b2027af5b934",
+      "Bytes": 216,
+      "Sha256": "7d578832f12c3f4eb1311e1dbebb2156950202d61aa6c299f3fd05a6ab69d496",
+      "Parts": [
+        {
+          "Sha256": "7d578832f12c3f4eb1311e1dbebb2156950202d61aa6c299f3fd05a6ab69d496",
+          "Bytes": 216,
+          "FileName": "7d578832f12c3f4eb1311e1dbebb2156950202d61aa6c299f3fd05a6ab69d496.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7d578832f12c3f4eb1311e1dbebb2156950202d61aa6c299f3fd05a6ab69d496.bin"
+        }
+      ]
+    },
+    "MapAddon-9b3ff61bd8fcfe56": {
+      "Id": "MapAddon-9b3ff61bd8fcfe56",
+      "Bytes": 19138,
+      "Sha256": "b8a55572bb7d31faf1ee6a0b55b533f9a1d4181bd7f94f309f61379e06da93a8",
+      "Parts": [
+        {
+          "Sha256": "b8a55572bb7d31faf1ee6a0b55b533f9a1d4181bd7f94f309f61379e06da93a8",
+          "Bytes": 19138,
+          "FileName": "b8a55572bb7d31faf1ee6a0b55b533f9a1d4181bd7f94f309f61379e06da93a8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/b8a55572bb7d31faf1ee6a0b55b533f9a1d4181bd7f94f309f61379e06da93a8.bin"
+        }
+      ]
+    },
+    "MapAddon-3181e880119dddc9": {
+      "Id": "MapAddon-3181e880119dddc9",
+      "Bytes": 210,
+      "Sha256": "fb5e8bd48ca053c33f0e5e9cbe87d06ce447380923447adad69c1df7543966e5",
+      "Parts": [
+        {
+          "Sha256": "fb5e8bd48ca053c33f0e5e9cbe87d06ce447380923447adad69c1df7543966e5",
+          "Bytes": 210,
+          "FileName": "fb5e8bd48ca053c33f0e5e9cbe87d06ce447380923447adad69c1df7543966e5.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/fb5e8bd48ca053c33f0e5e9cbe87d06ce447380923447adad69c1df7543966e5.bin"
+        }
+      ]
+    },
+    "MapAddon-d43c770d6a412a55": {
+      "Id": "MapAddon-d43c770d6a412a55",
+      "Bytes": 17508,
+      "Sha256": "4a47e33d920258db1b16f706f2c7327057a767c184ca64e4c0902e28339f2fca",
+      "Parts": [
+        {
+          "Sha256": "4a47e33d920258db1b16f706f2c7327057a767c184ca64e4c0902e28339f2fca",
+          "Bytes": 17508,
+          "FileName": "4a47e33d920258db1b16f706f2c7327057a767c184ca64e4c0902e28339f2fca.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/4a47e33d920258db1b16f706f2c7327057a767c184ca64e4c0902e28339f2fca.bin"
+        }
+      ]
+    },
+    "MapAddon-5d02d4e365923dee": {
+      "Id": "MapAddon-5d02d4e365923dee",
+      "Bytes": 211,
+      "Sha256": "c6f5ceece38bd9705e0371443ee16568c547b49a71ac2008ad648c079d4f3446",
+      "Parts": [
+        {
+          "Sha256": "c6f5ceece38bd9705e0371443ee16568c547b49a71ac2008ad648c079d4f3446",
+          "Bytes": 211,
+          "FileName": "c6f5ceece38bd9705e0371443ee16568c547b49a71ac2008ad648c079d4f3446.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c6f5ceece38bd9705e0371443ee16568c547b49a71ac2008ad648c079d4f3446.bin"
+        }
+      ]
+    },
+    "MapAddon-f5d590d72320b11b": {
+      "Id": "MapAddon-f5d590d72320b11b",
+      "Bytes": 67365,
+      "Sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+      "Parts": [
+        {
+          "Sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+          "Bytes": 67365,
+          "FileName": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015.bin"
+        }
+      ]
+    },
+    "MapAddon-57937e50123bce1d": {
+      "Id": "MapAddon-57937e50123bce1d",
+      "Bytes": 8066,
+      "Sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+      "Parts": [
+        {
+          "Sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+          "Bytes": 8066,
+          "FileName": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02.bin"
+        }
+      ]
+    },
+    "MapAddon-186c630d9736b80a": {
+      "Id": "MapAddon-186c630d9736b80a",
+      "Bytes": 4068,
+      "Sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+      "Parts": [
+        {
+          "Sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+          "Bytes": 4068,
+          "FileName": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c.bin"
+        }
+      ]
+    },
+    "MapAddon-f0cc8e121214845d": {
+      "Id": "MapAddon-f0cc8e121214845d",
+      "Bytes": 284,
+      "Sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+      "Parts": [
+        {
+          "Sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+          "Bytes": 284,
+          "FileName": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093.bin"
+        }
+      ]
+    },
+    "MapAddon-1f30d7fed8fb9bb9": {
+      "Id": "MapAddon-1f30d7fed8fb9bb9",
+      "Bytes": 26436,
+      "Sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+      "Parts": [
+        {
+          "Sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+          "Bytes": 26436,
+          "FileName": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a.bin"
+        }
+      ]
+    },
+    "MapAddon-7cce8777394de8d9": {
+      "Id": "MapAddon-7cce8777394de8d9",
+      "Bytes": 9005,
+      "Sha256": "82a1236018598853d579b56a73a7a056a71b96d97fc55171518d1ad3b1af6714",
+      "Parts": [
+        {
+          "Sha256": "82a1236018598853d579b56a73a7a056a71b96d97fc55171518d1ad3b1af6714",
+          "Bytes": 9005,
+          "FileName": "82a1236018598853d579b56a73a7a056a71b96d97fc55171518d1ad3b1af6714.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/82a1236018598853d579b56a73a7a056a71b96d97fc55171518d1ad3b1af6714.bin"
+        }
+      ]
+    },
+    "MapAddon-84fa9121aad246eb": {
+      "Id": "MapAddon-84fa9121aad246eb",
+      "Bytes": 218,
+      "Sha256": "9310765c5310a395652e60a04f378e836785deb6f0b7181a448c74751d6f0185",
+      "Parts": [
+        {
+          "Sha256": "9310765c5310a395652e60a04f378e836785deb6f0b7181a448c74751d6f0185",
+          "Bytes": 218,
+          "FileName": "9310765c5310a395652e60a04f378e836785deb6f0b7181a448c74751d6f0185.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/9310765c5310a395652e60a04f378e836785deb6f0b7181a448c74751d6f0185.bin"
+        }
+      ]
+    },
+    "MapAddon-ee2727cd4f40d738": {
+      "Id": "MapAddon-ee2727cd4f40d738",
+      "Bytes": 979,
+      "Sha256": "1f3adb622dcf9bf45a9ea53a68810d260cfff83f9d764fd161b80c10803e83ee",
+      "Parts": [
+        {
+          "Sha256": "1f3adb622dcf9bf45a9ea53a68810d260cfff83f9d764fd161b80c10803e83ee",
+          "Bytes": 979,
+          "FileName": "1f3adb622dcf9bf45a9ea53a68810d260cfff83f9d764fd161b80c10803e83ee.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/1f3adb622dcf9bf45a9ea53a68810d260cfff83f9d764fd161b80c10803e83ee.bin"
+        }
+      ]
+    },
+    "MapAddon-359ceba6678b8edb": {
+      "Id": "MapAddon-359ceba6678b8edb",
+      "Bytes": 7941,
+      "Sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+      "Parts": [
+        {
+          "Sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+          "Bytes": 7941,
+          "FileName": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926.bin"
+        }
+      ]
+    },
+    "MapAddon-c78c6fc9b89250f9": {
+      "Id": "MapAddon-c78c6fc9b89250f9",
+      "Bytes": 1089586,
+      "Sha256": "52d06f9b5f90150859499fbc96f678b462429ab67dc7b4de7befbf0f6bb6c81b",
+      "Parts": [
+        {
+          "Sha256": "52d06f9b5f90150859499fbc96f678b462429ab67dc7b4de7befbf0f6bb6c81b",
+          "Bytes": 1089586,
+          "FileName": "52d06f9b5f90150859499fbc96f678b462429ab67dc7b4de7befbf0f6bb6c81b.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/52d06f9b5f90150859499fbc96f678b462429ab67dc7b4de7befbf0f6bb6c81b.bin"
+        }
+      ]
+    },
+    "MapAddon-785b6e57563884af": {
+      "Id": "MapAddon-785b6e57563884af",
+      "Bytes": 533,
+      "Sha256": "e04ab9c1b53a88e241483346b7d927b2e87e69eba4a84b59e8414d4e61a9dd31",
+      "Parts": [
+        {
+          "Sha256": "e04ab9c1b53a88e241483346b7d927b2e87e69eba4a84b59e8414d4e61a9dd31",
+          "Bytes": 533,
+          "FileName": "e04ab9c1b53a88e241483346b7d927b2e87e69eba4a84b59e8414d4e61a9dd31.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e04ab9c1b53a88e241483346b7d927b2e87e69eba4a84b59e8414d4e61a9dd31.bin"
+        }
+      ]
+    },
+    "MapAddon-39e7296bfa0833fb": {
+      "Id": "MapAddon-39e7296bfa0833fb",
+      "Bytes": 1367,
+      "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "Parts": [
+        {
+          "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+          "Bytes": 1367,
+          "FileName": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin"
+        }
+      ]
+    },
+    "MapAddon-57df2935c1f16364": {
+      "Id": "MapAddon-57df2935c1f16364",
+      "Bytes": 259,
+      "Sha256": "25c5821ad24ccc2463917c047d9c92cc1eaa7d94363d576064d395ac34e9cfe5",
+      "Parts": [
+        {
+          "Sha256": "25c5821ad24ccc2463917c047d9c92cc1eaa7d94363d576064d395ac34e9cfe5",
+          "Bytes": 259,
+          "FileName": "25c5821ad24ccc2463917c047d9c92cc1eaa7d94363d576064d395ac34e9cfe5.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/25c5821ad24ccc2463917c047d9c92cc1eaa7d94363d576064d395ac34e9cfe5.bin"
+        }
+      ]
+    },
+    "MapAddon-81898ad2c4ca4ec4": {
+      "Id": "MapAddon-81898ad2c4ca4ec4",
+      "Bytes": 7941,
+      "Sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+      "Parts": [
+        {
+          "Sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+          "Bytes": 7941,
+          "FileName": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926.bin"
+        }
+      ]
+    },
+    "MapAddon-bc16f70d6a0edb2d": {
+      "Id": "MapAddon-bc16f70d6a0edb2d",
+      "Bytes": 95292,
+      "Sha256": "2bf95c4db35f3fa553be00dc0f7fc5254ec03f73a7714eb27e852df3b332f0b2",
+      "Parts": [
+        {
+          "Sha256": "2bf95c4db35f3fa553be00dc0f7fc5254ec03f73a7714eb27e852df3b332f0b2",
+          "Bytes": 95292,
+          "FileName": "2bf95c4db35f3fa553be00dc0f7fc5254ec03f73a7714eb27e852df3b332f0b2.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/2bf95c4db35f3fa553be00dc0f7fc5254ec03f73a7714eb27e852df3b332f0b2.bin"
+        }
+      ]
+    },
+    "MapAddon-b2b7188c099200b4": {
+      "Id": "MapAddon-b2b7188c099200b4",
+      "Bytes": 636,
+      "Sha256": "7d2329855c59927ef815a9e41831035accb2cb9e255933bff2af8d8833e2d099",
+      "Parts": [
+        {
+          "Sha256": "7d2329855c59927ef815a9e41831035accb2cb9e255933bff2af8d8833e2d099",
+          "Bytes": 636,
+          "FileName": "7d2329855c59927ef815a9e41831035accb2cb9e255933bff2af8d8833e2d099.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7d2329855c59927ef815a9e41831035accb2cb9e255933bff2af8d8833e2d099.bin"
+        }
+      ]
+    },
+    "MapAddon-6d958f4265141b6e": {
+      "Id": "MapAddon-6d958f4265141b6e",
+      "Bytes": 1367,
+      "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "Parts": [
+        {
+          "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+          "Bytes": 1367,
+          "FileName": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin"
+        }
+      ]
+    },
+    "MapAddon-b9f7eecd11e22891": {
+      "Id": "MapAddon-b9f7eecd11e22891",
+      "Bytes": 255,
+      "Sha256": "27824c47da2cc5de1747578f1357827c5a5736c37a8082a509ffabe9731b95c9",
+      "Parts": [
+        {
+          "Sha256": "27824c47da2cc5de1747578f1357827c5a5736c37a8082a509ffabe9731b95c9",
+          "Bytes": 255,
+          "FileName": "27824c47da2cc5de1747578f1357827c5a5736c37a8082a509ffabe9731b95c9.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/27824c47da2cc5de1747578f1357827c5a5736c37a8082a509ffabe9731b95c9.bin"
+        }
+      ]
+    },
+    "MapAddon-04c5ea3b1dee645a": {
+      "Id": "MapAddon-04c5ea3b1dee645a",
+      "Bytes": 1367,
+      "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "Parts": [
+        {
+          "Sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+          "Bytes": 1367,
+          "FileName": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8.bin"
+        }
+      ]
+    },
+    "MapAddon-fb154bd176641f0b": {
+      "Id": "MapAddon-fb154bd176641f0b",
+      "Bytes": 10917,
+      "Sha256": "25a9e52c0b07cf7ba64b01ce0bb63dfac010e02de1cec80eed6d8d78b1048746",
+      "Parts": [
+        {
+          "Sha256": "25a9e52c0b07cf7ba64b01ce0bb63dfac010e02de1cec80eed6d8d78b1048746",
+          "Bytes": 10917,
+          "FileName": "25a9e52c0b07cf7ba64b01ce0bb63dfac010e02de1cec80eed6d8d78b1048746.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/25a9e52c0b07cf7ba64b01ce0bb63dfac010e02de1cec80eed6d8d78b1048746.bin"
+        }
+      ]
+    },
+    "MapAddon-3cda0c6795195719": {
+      "Id": "MapAddon-3cda0c6795195719",
+      "Bytes": 9541,
+      "Sha256": "f7c7a56be3cf543ed5beeb32561eaffe7a38b8695881f391b172f90baecff2f8",
+      "Parts": [
+        {
+          "Sha256": "f7c7a56be3cf543ed5beeb32561eaffe7a38b8695881f391b172f90baecff2f8",
+          "Bytes": 9541,
+          "FileName": "f7c7a56be3cf543ed5beeb32561eaffe7a38b8695881f391b172f90baecff2f8.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f7c7a56be3cf543ed5beeb32561eaffe7a38b8695881f391b172f90baecff2f8.bin"
+        }
+      ]
+    },
+    "MapAddon-48840da4f3006403": {
+      "Id": "MapAddon-48840da4f3006403",
+      "Bytes": 10695,
+      "Sha256": "aa4b89f53d9a63a205f23f8a019b27f013990ff6c37735de8a8c85cd1bdd69c5",
+      "Parts": [
+        {
+          "Sha256": "aa4b89f53d9a63a205f23f8a019b27f013990ff6c37735de8a8c85cd1bdd69c5",
+          "Bytes": 10695,
+          "FileName": "aa4b89f53d9a63a205f23f8a019b27f013990ff6c37735de8a8c85cd1bdd69c5.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/aa4b89f53d9a63a205f23f8a019b27f013990ff6c37735de8a8c85cd1bdd69c5.bin"
+        }
+      ]
+    },
+    "MapAddon-aec363e61334aecd": {
+      "Id": "MapAddon-aec363e61334aecd",
+      "Bytes": 10714,
+      "Sha256": "0bc1bc50a95f111933d19334d7901aadc65a4e5eabbc57d2aee75764dcfb9b29",
+      "Parts": [
+        {
+          "Sha256": "0bc1bc50a95f111933d19334d7901aadc65a4e5eabbc57d2aee75764dcfb9b29",
+          "Bytes": 10714,
+          "FileName": "0bc1bc50a95f111933d19334d7901aadc65a4e5eabbc57d2aee75764dcfb9b29.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/0bc1bc50a95f111933d19334d7901aadc65a4e5eabbc57d2aee75764dcfb9b29.bin"
+        }
+      ]
+    },
+    "MapAddon-ecb7a27e13f01549": {
+      "Id": "MapAddon-ecb7a27e13f01549",
+      "Bytes": 10705,
+      "Sha256": "cf51aac141a6342e2b2fa65434bbcd7fbb2bc8fff0ec0fc7c6bb352e54a4b2c2",
+      "Parts": [
+        {
+          "Sha256": "cf51aac141a6342e2b2fa65434bbcd7fbb2bc8fff0ec0fc7c6bb352e54a4b2c2",
+          "Bytes": 10705,
+          "FileName": "cf51aac141a6342e2b2fa65434bbcd7fbb2bc8fff0ec0fc7c6bb352e54a4b2c2.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/cf51aac141a6342e2b2fa65434bbcd7fbb2bc8fff0ec0fc7c6bb352e54a4b2c2.bin"
+        }
+      ]
+    },
+    "MapAddon-100cd74209032d0e": {
+      "Id": "MapAddon-100cd74209032d0e",
+      "Bytes": 10705,
+      "Sha256": "c167cac362aafaf24d51e11b5eab3bc1192e32dfdba921970b0cc07c95d0f171",
+      "Parts": [
+        {
+          "Sha256": "c167cac362aafaf24d51e11b5eab3bc1192e32dfdba921970b0cc07c95d0f171",
+          "Bytes": 10705,
+          "FileName": "c167cac362aafaf24d51e11b5eab3bc1192e32dfdba921970b0cc07c95d0f171.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c167cac362aafaf24d51e11b5eab3bc1192e32dfdba921970b0cc07c95d0f171.bin"
+        }
+      ]
+    },
+    "MapAddon-ea858e229af98fb2": {
+      "Id": "MapAddon-ea858e229af98fb2",
+      "Bytes": 10633,
+      "Sha256": "c6147dc8e2cdcb05f52aca0f5043c73769101eb18af34f85c22ae0010ffb74ac",
+      "Parts": [
+        {
+          "Sha256": "c6147dc8e2cdcb05f52aca0f5043c73769101eb18af34f85c22ae0010ffb74ac",
+          "Bytes": 10633,
+          "FileName": "c6147dc8e2cdcb05f52aca0f5043c73769101eb18af34f85c22ae0010ffb74ac.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/c6147dc8e2cdcb05f52aca0f5043c73769101eb18af34f85c22ae0010ffb74ac.bin"
+        }
+      ]
+    },
+    "MapAddon-2ae07f962dd568e3": {
+      "Id": "MapAddon-2ae07f962dd568e3",
+      "Bytes": 10888,
+      "Sha256": "7ce9a4fa202d6d8093dc707963e6427e427c5b9af8529452d22a4a296e8746ee",
+      "Parts": [
+        {
+          "Sha256": "7ce9a4fa202d6d8093dc707963e6427e427c5b9af8529452d22a4a296e8746ee",
+          "Bytes": 10888,
+          "FileName": "7ce9a4fa202d6d8093dc707963e6427e427c5b9af8529452d22a4a296e8746ee.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7ce9a4fa202d6d8093dc707963e6427e427c5b9af8529452d22a4a296e8746ee.bin"
+        }
+      ]
+    },
+    "MapAddon-ee56309ee7bb5f16": {
+      "Id": "MapAddon-ee56309ee7bb5f16",
+      "Bytes": 15669,
+      "Sha256": "f55c8363d8082d6dc63b76525d91ae1ba55b9d73d4e423b18d8a16615ae21274",
+      "Parts": [
+        {
+          "Sha256": "f55c8363d8082d6dc63b76525d91ae1ba55b9d73d4e423b18d8a16615ae21274",
+          "Bytes": 15669,
+          "FileName": "f55c8363d8082d6dc63b76525d91ae1ba55b9d73d4e423b18d8a16615ae21274.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/f55c8363d8082d6dc63b76525d91ae1ba55b9d73d4e423b18d8a16615ae21274.bin"
+        }
+      ]
+    },
+    "MapAddon-518e185a5263663f": {
+      "Id": "MapAddon-518e185a5263663f",
+      "Bytes": 9541,
+      "Sha256": "0fcca418049284830116514e07ef33feeb5da6bc45c7635caa10c225530460a0",
+      "Parts": [
+        {
+          "Sha256": "0fcca418049284830116514e07ef33feeb5da6bc45c7635caa10c225530460a0",
+          "Bytes": 9541,
+          "FileName": "0fcca418049284830116514e07ef33feeb5da6bc45c7635caa10c225530460a0.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/0fcca418049284830116514e07ef33feeb5da6bc45c7635caa10c225530460a0.bin"
+        }
+      ]
+    },
+    "MapAddon-90439368da69bceb": {
+      "Id": "MapAddon-90439368da69bceb",
+      "Bytes": 9592,
+      "Sha256": "092e6d658c6a6f1daae1fdb0821e5592de45db60cfedae861e2c99277c8ce29e",
+      "Parts": [
+        {
+          "Sha256": "092e6d658c6a6f1daae1fdb0821e5592de45db60cfedae861e2c99277c8ce29e",
+          "Bytes": 9592,
+          "FileName": "092e6d658c6a6f1daae1fdb0821e5592de45db60cfedae861e2c99277c8ce29e.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/092e6d658c6a6f1daae1fdb0821e5592de45db60cfedae861e2c99277c8ce29e.bin"
+        }
+      ]
+    },
+    "MapAddon-ecaa20ef6f35db85": {
+      "Id": "MapAddon-ecaa20ef6f35db85",
+      "Bytes": 8618,
+      "Sha256": "d9dde1743c98d8b6e087db05615a3d9968e2b849b9698755fe24a901333ea9fa",
+      "Parts": [
+        {
+          "Sha256": "d9dde1743c98d8b6e087db05615a3d9968e2b849b9698755fe24a901333ea9fa",
+          "Bytes": 8618,
+          "FileName": "d9dde1743c98d8b6e087db05615a3d9968e2b849b9698755fe24a901333ea9fa.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/d9dde1743c98d8b6e087db05615a3d9968e2b849b9698755fe24a901333ea9fa.bin"
+        }
+      ]
+    },
+    "MapAddon-63395e667bf7ca5e": {
+      "Id": "MapAddon-63395e667bf7ca5e",
+      "Bytes": 7849,
+      "Sha256": "99df5f400ae6af37d9c2d310821aba8cbc0bcb0e0a163a55d32ff44fcf808faa",
+      "Parts": [
+        {
+          "Sha256": "99df5f400ae6af37d9c2d310821aba8cbc0bcb0e0a163a55d32ff44fcf808faa",
+          "Bytes": 7849,
+          "FileName": "99df5f400ae6af37d9c2d310821aba8cbc0bcb0e0a163a55d32ff44fcf808faa.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/99df5f400ae6af37d9c2d310821aba8cbc0bcb0e0a163a55d32ff44fcf808faa.bin"
+        }
+      ]
+    },
+    "MapAddon-4f7382f8c2d6e5f8": {
+      "Id": "MapAddon-4f7382f8c2d6e5f8",
+      "Bytes": 8237,
+      "Sha256": "76e9017c97587876b159889256bc91279c94c653c9fb4511fec4ac01003cdba7",
+      "Parts": [
+        {
+          "Sha256": "76e9017c97587876b159889256bc91279c94c653c9fb4511fec4ac01003cdba7",
+          "Bytes": 8237,
+          "FileName": "76e9017c97587876b159889256bc91279c94c653c9fb4511fec4ac01003cdba7.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/76e9017c97587876b159889256bc91279c94c653c9fb4511fec4ac01003cdba7.bin"
+        }
+      ]
+    },
+    "MapAddon-b5d5d31f53c816db": {
+      "Id": "MapAddon-b5d5d31f53c816db",
+      "Bytes": 8237,
+      "Sha256": "e4b776abee037abb34622bfa1640a1514922bb194a56e9dccd4fd4c626eed1fb",
+      "Parts": [
+        {
+          "Sha256": "e4b776abee037abb34622bfa1640a1514922bb194a56e9dccd4fd4c626eed1fb",
+          "Bytes": 8237,
+          "FileName": "e4b776abee037abb34622bfa1640a1514922bb194a56e9dccd4fd4c626eed1fb.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e4b776abee037abb34622bfa1640a1514922bb194a56e9dccd4fd4c626eed1fb.bin"
+        }
+      ]
+    },
+    "MapAddon-1b349b750fd1ec63": {
+      "Id": "MapAddon-1b349b750fd1ec63",
+      "Bytes": 8760,
+      "Sha256": "ca77fd65c7ab07ae088c3fde77176f77185c39e6b683b492026c932e930666bb",
+      "Parts": [
+        {
+          "Sha256": "ca77fd65c7ab07ae088c3fde77176f77185c39e6b683b492026c932e930666bb",
+          "Bytes": 8760,
+          "FileName": "ca77fd65c7ab07ae088c3fde77176f77185c39e6b683b492026c932e930666bb.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/ca77fd65c7ab07ae088c3fde77176f77185c39e6b683b492026c932e930666bb.bin"
+        }
+      ]
+    },
+    "MapAddon-f5894caef448dc00": {
+      "Id": "MapAddon-f5894caef448dc00",
+      "Bytes": 8760,
+      "Sha256": "bd8d79627082ebef72d279c994b7ee665bca4da1daaa0d015d6497d194ec58b3",
+      "Parts": [
+        {
+          "Sha256": "bd8d79627082ebef72d279c994b7ee665bca4da1daaa0d015d6497d194ec58b3",
+          "Bytes": 8760,
+          "FileName": "bd8d79627082ebef72d279c994b7ee665bca4da1daaa0d015d6497d194ec58b3.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/bd8d79627082ebef72d279c994b7ee665bca4da1daaa0d015d6497d194ec58b3.bin"
+        }
+      ]
+    },
+    "MapAddon-cb118d14f72ddc23": {
+      "Id": "MapAddon-cb118d14f72ddc23",
+      "Bytes": 8899,
+      "Sha256": "d59e112c2bf3d1bb831969d6ddfda3d37e3251254f06e7bce4bc7e0f07928557",
+      "Parts": [
+        {
+          "Sha256": "d59e112c2bf3d1bb831969d6ddfda3d37e3251254f06e7bce4bc7e0f07928557",
+          "Bytes": 8899,
+          "FileName": "d59e112c2bf3d1bb831969d6ddfda3d37e3251254f06e7bce4bc7e0f07928557.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/d59e112c2bf3d1bb831969d6ddfda3d37e3251254f06e7bce4bc7e0f07928557.bin"
+        }
+      ]
+    },
+    "MapAddon-2809860e0ce14ac5": {
+      "Id": "MapAddon-2809860e0ce14ac5",
+      "Bytes": 8442,
+      "Sha256": "99590fecf9c0192d5efc0f8a123b3fcee3ca78e67186842447004dfa49989c1a",
+      "Parts": [
+        {
+          "Sha256": "99590fecf9c0192d5efc0f8a123b3fcee3ca78e67186842447004dfa49989c1a",
+          "Bytes": 8442,
+          "FileName": "99590fecf9c0192d5efc0f8a123b3fcee3ca78e67186842447004dfa49989c1a.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/99590fecf9c0192d5efc0f8a123b3fcee3ca78e67186842447004dfa49989c1a.bin"
+        }
+      ]
+    },
+    "MapAddon-63b6f2c0137e8c9c": {
+      "Id": "MapAddon-63b6f2c0137e8c9c",
+      "Bytes": 10523,
+      "Sha256": "171c822712cb762f7258a3a472deb9f3219c7f0f276c1900f888a8a876219e49",
+      "Parts": [
+        {
+          "Sha256": "171c822712cb762f7258a3a472deb9f3219c7f0f276c1900f888a8a876219e49",
+          "Bytes": 10523,
+          "FileName": "171c822712cb762f7258a3a472deb9f3219c7f0f276c1900f888a8a876219e49.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/171c822712cb762f7258a3a472deb9f3219c7f0f276c1900f888a8a876219e49.bin"
+        }
+      ]
+    },
+    "MapAddon-01c84956fb90fe73": {
+      "Id": "MapAddon-01c84956fb90fe73",
+      "Bytes": 7849,
+      "Sha256": "6071fa4ec181f0c127a4392df145fc52847d7c80f14b39037ed4619d0bf34975",
+      "Parts": [
+        {
+          "Sha256": "6071fa4ec181f0c127a4392df145fc52847d7c80f14b39037ed4619d0bf34975",
+          "Bytes": 7849,
+          "FileName": "6071fa4ec181f0c127a4392df145fc52847d7c80f14b39037ed4619d0bf34975.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/6071fa4ec181f0c127a4392df145fc52847d7c80f14b39037ed4619d0bf34975.bin"
+        }
+      ]
+    },
+    "MapAddon-c50f873349ad5d9c": {
+      "Id": "MapAddon-c50f873349ad5d9c",
+      "Bytes": 7872,
+      "Sha256": "be4e06afd38ba68408fdf756f50ca7df8cff14e054d17a92c0d8336dc9b5b6a5",
+      "Parts": [
+        {
+          "Sha256": "be4e06afd38ba68408fdf756f50ca7df8cff14e054d17a92c0d8336dc9b5b6a5",
+          "Bytes": 7872,
+          "FileName": "be4e06afd38ba68408fdf756f50ca7df8cff14e054d17a92c0d8336dc9b5b6a5.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/be4e06afd38ba68408fdf756f50ca7df8cff14e054d17a92c0d8336dc9b5b6a5.bin"
+        }
+      ]
+    },
+    "MapAddon-e03fe5c122fce847": {
+      "Id": "MapAddon-e03fe5c122fce847",
+      "Bytes": 903,
+      "Sha256": "46504071e78f8f4aa44b5a20b966e9aa9482d74efe111265cd577a5fac16554d",
+      "Parts": [
+        {
+          "Sha256": "46504071e78f8f4aa44b5a20b966e9aa9482d74efe111265cd577a5fac16554d",
+          "Bytes": 903,
+          "FileName": "46504071e78f8f4aa44b5a20b966e9aa9482d74efe111265cd577a5fac16554d.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/46504071e78f8f4aa44b5a20b966e9aa9482d74efe111265cd577a5fac16554d.bin"
+        }
+      ]
+    },
+    "MapAddon-bdebb07d774ebfe4": {
+      "Id": "MapAddon-bdebb07d774ebfe4",
+      "Bytes": 11554,
+      "Sha256": "726007071e13357cdaaa058206567556e994a49673a57ad06e86d3c29fa73078",
+      "Parts": [
+        {
+          "Sha256": "726007071e13357cdaaa058206567556e994a49673a57ad06e86d3c29fa73078",
+          "Bytes": 11554,
+          "FileName": "726007071e13357cdaaa058206567556e994a49673a57ad06e86d3c29fa73078.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/726007071e13357cdaaa058206567556e994a49673a57ad06e86d3c29fa73078.bin"
+        }
+      ]
+    },
+    "MapAddon-600d1ae4fd16a3bb": {
+      "Id": "MapAddon-600d1ae4fd16a3bb",
+      "Bytes": 1826,
+      "Sha256": "dbc6c2c04bfc6c92e75dc9fd984782b9cde6fb1795c1d1d0fa16566b4efcce37",
+      "Parts": [
+        {
+          "Sha256": "dbc6c2c04bfc6c92e75dc9fd984782b9cde6fb1795c1d1d0fa16566b4efcce37",
+          "Bytes": 1826,
+          "FileName": "dbc6c2c04bfc6c92e75dc9fd984782b9cde6fb1795c1d1d0fa16566b4efcce37.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/dbc6c2c04bfc6c92e75dc9fd984782b9cde6fb1795c1d1d0fa16566b4efcce37.bin"
+        }
+      ]
+    },
+    "MapAddon-84a5167274b02d22": {
+      "Id": "MapAddon-84a5167274b02d22",
+      "Bytes": 4195476,
+      "Sha256": "da2f7a734527945cdcd999667cb3f392c5492bfa757e49fa4baea7448facb2d7",
+      "Parts": [
+        {
+          "Sha256": "da2f7a734527945cdcd999667cb3f392c5492bfa757e49fa4baea7448facb2d7",
+          "Bytes": 4195476,
+          "FileName": "da2f7a734527945cdcd999667cb3f392c5492bfa757e49fa4baea7448facb2d7.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/da2f7a734527945cdcd999667cb3f392c5492bfa757e49fa4baea7448facb2d7.bin"
+        }
+      ]
+    },
+    "MapAddon-b1a8c9eba21b8b56": {
+      "Id": "MapAddon-b1a8c9eba21b8b56",
+      "Bytes": 3940,
+      "Sha256": "e8e3376007fff3e743481412cd775593b2664cefa9a69ffec941614e81a50865",
+      "Parts": [
+        {
+          "Sha256": "e8e3376007fff3e743481412cd775593b2664cefa9a69ffec941614e81a50865",
+          "Bytes": 3940,
+          "FileName": "e8e3376007fff3e743481412cd775593b2664cefa9a69ffec941614e81a50865.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/e8e3376007fff3e743481412cd775593b2664cefa9a69ffec941614e81a50865.bin"
+        }
+      ]
+    },
+    "MapAddon-4e0ebb717cbaafb8": {
+      "Id": "MapAddon-4e0ebb717cbaafb8",
+      "Bytes": 5041,
+      "Sha256": "7614469fa87f0261a88644eb385d3321a48da01d59be802d96751b6636d07b04",
+      "Parts": [
+        {
+          "Sha256": "7614469fa87f0261a88644eb385d3321a48da01d59be802d96751b6636d07b04",
+          "Bytes": 5041,
+          "FileName": "7614469fa87f0261a88644eb385d3321a48da01d59be802d96751b6636d07b04.bin",
+          "Url": "https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-maps-1.4.0/7614469fa87f0261a88644eb385d3321a48da01d59be802d96751b6636d07b04.bin"
+        }
+      ]
     }
   },
-  "PublicReady": true,
-  "DownloadHost": "GitHub Releases"
+  "PublicReady": false,
+  "DownloadHost": "GitHub Releases",
+  "MapPackVersion": "WDM-2.4.5"
 }

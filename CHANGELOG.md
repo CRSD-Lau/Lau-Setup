@@ -1,16 +1,13 @@
-# Lau Setup 1.4.0 — guided setup wizard
+# Lau Setup 1.4.0 — candidate in progress
 
-- Game folder → Your visuals → Review → Finished, with Next and Back.
-- Fixed detected Patch-Y HD/Non-HD base; optional extras start off. Existing upgraded maps are kept.
-- Your choices lists Patch-Y (Lau’s version) plus each selected extra. Review also discloses WoW.exe, Patch-Q, language patches, download size and backups.
-- Manual Interface language remains available on every step and is remembered. Automatic follows the host language; game language stays separate.
-- Next only navigates; Install upgrade performs the update. Restore and existing safety checks remain available.
-- Game-language codes now match regardless of letter case, without editing player settings.
-- Retired Data\patch-v.mpq is automatically backed up, including empty placeholders; Restore returns it.
-- The window displays Setup 1.4.0 and game release 3.0.8 separately.
-- One shared LauSetup.zip. Game 3.0.8 unchanged. No DBC edits.
+- Restore 1.1.7-style handling of unrelated patches: no broad MPQ scan or automatic renamed-copy cleanup.
+- Keep the Next/Back wizard, automatic and manual interface language, case-insensitive game locale detection, and separate installer/game version labels.
+- Independent optional Consecration, WoW.exe, maps/minimaps, loading screens, and HD spell visuals.
+- Merge Trimitor WDM dungeon/raid and cave maps into Lau's maps option, with required support addons. Loading screens are independent.
+- Back up replaced files. Preserve unrelated patches, addons and personal settings; empty Patch-V is backed up, nonempty V stays with a warning.
+- Keep one Windows/Linux LauSetup.zip. Patch-Y remains 3.0.8; the optional map pack adds upstream map DBC overrides. Cave maps are upstream beta.
 
-See [beginner steps](START-HERE.txt) and [1.4.0 release notes](docs/RELEASE-1.4.0.md).
+This candidate is not yet released. See [scope and validation](docs/RELEASE-1.4.0.md).
 
 # Lau Setup 1.3.0 — automatic extra-patch backups
 
