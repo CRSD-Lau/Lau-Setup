@@ -96,7 +96,8 @@ public sealed class Catalog {
         foreach(var loc in Locales) { Get("LoadingQ-"+loc); Get("MapsQ-"+loc); }
         foreach(var mode in new[]{"Non-HD","HD-NewSpells-On","HD-NewSpells-Off"}) foreach(var cons in new[]{"On","Off"}) Get("Y-"+mode+"-Consecration-"+cons);
     }
-    public static bool ValidDownloadUrl(Part part) { return new[]{"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0"}.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
+    internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0"};
+    public static bool ValidDownloadUrl(Part part) { return DownloadTags.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
     public Asset Get(string id) { Asset a; if(!Assets.TryGetValue(id,out a)) throw new InvalidDataException("Missing release component: "+id); return a; }
 }
 public static class Json {

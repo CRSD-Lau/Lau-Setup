@@ -1,4 +1,4 @@
-Lau Setup 1.4.0-test2 shared Windows/Linux test candidate
+Lau Setup 1.4.0-test3 shared Windows/Linux test candidate
 Author / Creator / Last Modified By: Neil Mitchell
 
 Patch-Y remains Lau 3.0.8; optional maps add upstream map tables. This package contains one LauSetup folder with

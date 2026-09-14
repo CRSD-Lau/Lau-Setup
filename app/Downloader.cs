@@ -98,11 +98,11 @@ public sealed class Downloader {
         }
         throw new IOException("The download host redirected too many times. Please try later.");
     }
-    void CheckHost(Uri uri) {
+    internal void CheckHost(Uri uri) {
         if(TestUrl!=null&&uri.IsLoopback&&uri.Scheme=="http")return;
         var host=uri.DnsSafeHost.ToLowerInvariant();
         if(uri.Scheme!="https"||!uri.IsDefaultPort||!String.IsNullOrEmpty(uri.UserInfo)||!(host=="github.com"||host=="release-assets.githubusercontent.com"||host=="objects.githubusercontent.com"))throw new IOException("Unexpected download destination.");
-        if(host=="github.com"&&!(uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.4/",StringComparison.Ordinal)||uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.5/",StringComparison.Ordinal)||uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.6/",StringComparison.Ordinal)||uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.7/",StringComparison.Ordinal)||uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/payload-3.0.8/",StringComparison.Ordinal)))throw new IOException("Unexpected download destination.");
+        if(host=="github.com"&&!Catalog.DownloadTags.Any(tag=>uri.AbsolutePath.StartsWith("/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/",StringComparison.Ordinal)))throw new IOException("Unexpected download destination.");
     }
 }
 }

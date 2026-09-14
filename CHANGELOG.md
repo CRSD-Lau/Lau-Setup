@@ -1,3 +1,12 @@
+# Lau Setup 1.4.0-test3 — map download correction
+
+Test2 rejected the new map payload with “Unexpected download destination.”
+The catalog and downloader now share one approved release-tag list. This
+fix retains the restricted GitHub/CDN destinations and hash verification.
+A real download through the application downloader is part of regression testing.
+Extract the entire shared LauSetup.zip before starting. Extraction alone does
+not fix the test2 bug. Game payloads and wizard options are unchanged.
+
 # Lau Setup 1.4.0 — candidate in progress
 
 - Restore 1.1.7-style handling of unrelated patches: no broad MPQ scan or automatic renamed-copy cleanup.
