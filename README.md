@@ -95,7 +95,7 @@ Game files download during setup. An English core installation is about **472 MB
 
 <p align="center"><img src="docs/assets/installer-windows.png" alt="Lau Setup on Windows: choose a WoW folder, select visuals, install or restore" width="836" /></p>
 
-Your addons, SavedVariables, fonts, login artwork, realm settings and unrelated patches stay in place. No personal UI, credentials or analytics are included.
+SavedVariables, fonts, login artwork, realm settings, unlisted addons and unrelated patches stay in place. The optional map upgrade can replace selected WDM/!Astrolabe support files, with backups. No personal UI, credentials or analytics are included.
 
 ## Ten interface languages; nine game locales
 
@@ -123,11 +123,9 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.4.0 is in development: the wizard keeps 1.1.7-style handling of unrelated patches. See [current scope and validation](docs/RELEASE-1.4.0.md). Earlier release evidence below does not validate this candidate.
+Setup 1.4.0 passed **73 regression groups on Windows and 73 on Wine**, including all six actual 3.0.8-to-3.0.9 upgrades, repeat-install detection and exact restore. **100 Windows and 120 normal-user Wine interface previews** passed the final layout checks. See [release scope and validation](docs/RELEASE-1.4.0.md).
 
-Setup 1.2.0 passed **62 regression groups on Windows and 62 on Wine**. Wine ran 35 groups before the busy-state completion fix, then the affected GUI group and the remaining 26 after it; final Wine localization and packaged-window checks also passed. The validation records 50 Windows and 21 normal-user Wine interface states, 185 keys across all ten bundled interface languages, and 31 package, translation, and host tests. Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
-
-Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage, including the supplied launcher as a normal user. Halion meteor-fire geometry matches tester-approved v2 exactly. Coldflame, animation tracks, native fire and spell tables remain byte-identical to 3.0.7. Website animations are illustrative mockups. These tests do not certify every Linux distribution or in-game encounter.
+Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage through the supplied launcher. Installer tests do not certify every Linux distribution, custom patch combination or in-game encounter. Cave maps remain upstream beta. Website animations and older gallery screenshots retain their original illustrative context.
 
 Lutris, Proton and macOS integrations are outside this release. The executable is unsigned.
 

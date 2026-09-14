@@ -7,7 +7,7 @@ Last Modified By: Neil Mitchell
 The single maps/minimaps checkbox installs Lau's existing shared map archive
 plus map-only localized content from [Trimitor WDM](https://github.com/Trimitor/WDM-patch).
 Classic/TBC dungeon and raid maps use 2.4.5-stable. The optional upstream cave
-expansion uses 2.4.5-beta; it is included in this combined candidate and requires
+expansion uses 2.4.5-beta; it is included in this optional component and requires
 in-game acceptance. Loading screens and executable replacement share one optional checkbox; maps remain independent.
 
 ## Contents and provenance
