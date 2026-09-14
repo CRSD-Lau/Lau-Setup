@@ -144,3 +144,6 @@ EXTRA UPGRADE FILES
 Click Install upgrade as usual. Setup backs up recognized extra upgrade
 files in LauSetupBackups and continues. Restore previous install returns
 them. You do not need to move or rename these files yourself.
+
+OLD PATCH-V: Install normally. Setup automatically backs up the retired Data\patch-v.mpq, including empty copies. Keep LauSetupBackups; use this setup version or newer to Restore previous install.
+Game-language codes are matched regardless of letter case, without changing Config.wtf. Both setup and game versions appear at the bottom of the window.

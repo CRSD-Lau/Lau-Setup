@@ -47,6 +47,9 @@ public static class MpqScan {
             Budget(watch,token);return found[0]||found.Skip(1).Count(value=>value)>=2;
         }
     }
+    // Retired HD beta building patch. Its filename is the policy, including empty
+    // removal placeholders; all other extra archives still require recognition.
+    internal static bool IsRetiredPatch(string relative){return relative.Equals(@"Data\patch-v.mpq",StringComparison.OrdinalIgnoreCase);}
     public static void Check(string root,string locale,Catalog catalog,CancellationToken token){Find(root,locale,catalog,token);}
     public static List<PatchConflict> Find(string root,string locale,Catalog catalog,CancellationToken token){
         root=SafePaths.Root(root);var watch=Stopwatch.StartNew();int count=0;
@@ -61,7 +64,10 @@ public static class MpqScan {
                 if(++count>2048)throw new IOException("Too many MPQ files to scan safely. No game files changed.");
                 try{
                     SafePaths.Plain(path);
-                    var conflict=Identify(path,catalog,watch,token);
+                    PatchConflict conflict;
+                    if(IsRetiredPatch(relative)){
+                        using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read))conflict=new PatchConflict{Bytes=stream.Length,Sha256=TimedHash(stream,watch,token)};
+                    }else conflict=Identify(path,catalog,watch,token);
                     if(conflict!=null){SafePaths.ExtraPatch(root,relative,locale);conflict.Relative=relative;conflicts.Add(conflict);}
                 }
                 catch(OperationCanceledException){throw;}
@@ -83,9 +89,9 @@ public static class MpqScan {
             return new PatchConflict{Sha256=hash,Bytes=bytes};
         }
     }
-    internal static void VerifyOriginal(string path,string hash,long bytes,Catalog catalog){
+    internal static void VerifyOriginal(string path,string hash,long bytes,Catalog catalog,bool retired=false){
         if(!Hash.Matches(path,hash,bytes))throw new IOException("An original backup has changed: "+path);
-        if(!KnownHash(hash,bytes,catalog)&&!HasMarkers(path,Stopwatch.StartNew(),CancellationToken.None))throw new IOException("Invalid backup entry.");
+        if(!retired&&!KnownHash(hash,bytes,catalog)&&!HasMarkers(path,Stopwatch.StartNew(),CancellationToken.None))throw new IOException("Invalid backup entry.");
     }
     public static void ValidatePlan(InstallPlan plan,Catalog catalog,CancellationToken token){
         var actual=Find(plan.Root,plan.Locale,catalog,token);var expected=plan.Operations.Where(o=>o.ExtraPatch).ToArray();

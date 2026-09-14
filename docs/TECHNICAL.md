@@ -84,3 +84,8 @@ Setup 1.1.8 Hotfix checks active root and client-locale MPQs for renamed Patch-Y
 `app/MpqScan.cs` implements bounded classic hash-table probes in managed C#, with no archive extraction, decompression, external process or native parser. It runs during plan creation, under the client lease before GUI downloads, at transaction preflight and after staging immediately before commit. It does not change restoration semantics or expand the write allowlist. Files remain vulnerable to unrelated external changes after a check; close WoW and avoid concurrent manual changes.
 
 See [scanner limits](../KNOWN-LIMITATIONS.md#setup-118-overlap-detection). Windows and Wine regression cases include missing-listfile detection, normal placements, generic shared members, disabled/other-locale files, current-catalog copies, malformed/bounded tables, pre-transaction drift and cancellation.
+
+
+Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
+
+**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.

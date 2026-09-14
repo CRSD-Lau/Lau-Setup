@@ -196,6 +196,26 @@ public static class Tests {
                 }
             });
             Test("Catalog rejects size, hash and language tampering",()=>{var f=new Fixture();string json=Json.Text(f.Catalog);Fails(()=>Catalog.Load(json.Replace("enUS","xxXX")));f.Catalog.Get("Maps").Bytes++;Fails(()=>f.Catalog.Validate(),"sizes");f=new Fixture();f.Catalog.Get("Maps").Sha256="../evil";Fails(()=>f.Catalog.Validate(),"Invalid asset");});
+            Test("Configured locale casing resolves every supported language without editing settings",()=>{
+                foreach(var loc in new Fixture().Catalog.Locales){var f=new Fixture(loc);File.Copy(realExe,Path.Combine(f.Root,"WoW.exe"),true);Put(Path.Combine(f.Root,@"Data\common.mpq"),"fixture");Put(Path.Combine(f.Root,@"Data\"+loc+@"\locale-"+loc+".mpq"),"fixture");
+                    foreach(var value in new[]{loc.ToLowerInvariant(),loc.ToUpperInvariant(),loc}){string config=Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \""+value+"\"\r\n");string hash=Hash.FileHash(config);Check(Client.Inspect(f.Root,f.Catalog).Locale==loc,"Locale not canonicalized: "+value);Check(Hash.FileHash(config)==hash,"Config changed");}
+                    Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \"xxXX\"\r\n");Fails(()=>Client.Inspect(f.Root,f.Catalog),"matching language files");
+                }
+            });
+            Test("Retired Patch V empty malformed and valid copies back up and restore",()=>{
+                foreach(var bytes in new[]{new byte[0],Encoding.UTF8.GetBytes("retired beta"),ScanFixture()}){var f=new Fixture();Put(Path.Combine(f.Root,@"Data\PaTcH-V.MpQ"),bytes);AutoConflict(f);}
+            });
+            Test("Retired Patch V policy excludes lookalikes disabled and inactive locale files",()=>{
+                Check(!MpqScan.IsRetiredPatch(@"Data\patch-v2.mpq")&&!MpqScan.IsRetiredPatch(@"Data\enUS\patch-v.mpq")&&!MpqScan.IsRetiredPatch(@"Data\patch-v.mpq.disabled"),"Retired scope broadened");
+                var f=new Fixture();Put(Path.Combine(f.Root,@"Data\deDE\patch-v.mpq"),new byte[0]);Put(Path.Combine(f.Root,@"Data\patch-v.mpq.disabled"),new byte[0]);f.Plan();Put(Path.Combine(f.Root,@"Data\patch-v2.mpq"),new byte[0]);Fails(()=>f.Plan(),"No supported MPQ header");
+            });
+            Test("Retired Patch V drift and backup tampering remain protected",()=>{
+                var f=new Fixture();string path=Put(Path.Combine(f.Root,@"Data\patch-v.mpq"),new byte[0]);var plan=f.Plan();Put(path,"changed");f.Before=f.Snapshot();Fails(()=>f.Tx().Install(plan,f.Files,CancellationToken.None),"Game files changed");f.Original();
+                string record=f.Tx().Install(f.Plan(),f.Files,CancellationToken.None);Put(Path.Combine(Path.GetDirectoryName(record),@"before\Data\patch-v.mpq"),"tampered");Fails(()=>f.Tx().Restore(record),"backup has changed");Check(!File.Exists(path),"Tampered backup restored");
+            });
+            Test("Empty retired Patch V recovers from an interrupted installation",()=>{
+                var f=new Fixture();Put(Path.Combine(f.Root,@"Data\patch-v.mpq"),new byte[0]);f.Before=f.Snapshot();var tx=f.Tx();tx.AfterMove=n=>{throw new IOException("V interruption");};Fails(()=>tx.Install(f.Plan(),f.Files,CancellationToken.None),"V interruption");f.Original();
+            });
             Test("Correct client build, locale and HD detection",()=>{var f=new Fixture();File.Copy(realExe,Path.Combine(f.Root,"WoW.exe"),true);Put(Path.Combine(f.Root,@"Data\common.mpq"),"fixture");Put(Path.Combine(f.Root,@"Data\enUS\locale-enUS.mpq"),"fixture");Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \"enUS\"\r\n");Check(!Client.Inspect(f.Root,f.Catalog).Hd,"NonHD misdetected.");Put(Path.Combine(f.Root,@"Data\patch-f.mpq"),"fixture");Fails(()=>Client.Inspect(f.Root,f.Catalog),"incomplete");Put(Path.Combine(f.Root,@"Data\enUS\patch-enUS-F.MPQ"),"fixture");Check(Client.Inspect(f.Root,f.Catalog).Hd,"HD not detected.");Put(Path.Combine(f.Root,@"WTF\Config.wtf"),"SET locale \"enUS\"\r\nSET locale \"deDE\"");Fails(()=>Client.Inspect(f.Root,f.Catalog),"ambiguous");});
             Test("Exact running client is refused; another folder allowed",()=>{var f=new Fixture();File.Copy(System.Reflection.Assembly.GetExecutingAssembly().Location,Path.Combine(f.Root,"WoW.exe"),true);using(var p=Process.Start(new ProcessStartInfo(Path.Combine(f.Root,"WoW.exe"),"--hold"){UseShellExecute=false,CreateNoWindow=true})){try{Thread.Sleep(300);Fails(()=>Client.AssertClosed(f.Root),WineHost.Active?"Close all WoW":"Close this WoW client");if(WineHost.Active)Fails(()=>Client.AssertClosed(Path.Combine(f.Root,"other")));else Client.AssertClosed(Path.Combine(f.Root,"other"));}finally{if(!p.HasExited)p.Kill();p.WaitForExit();}}});
             Test("Catalog pins the repository, release and filename",()=>{var f=new Fixture();var p=f.Catalog.Get("Executable").Parts[0];string valid=p.Url;foreach(string bad in new[]{valid.Replace("https:","http:"),valid.Replace("CRSD-Lau","other"),valid.Replace("payload-3.0.4","latest"),valid+"?redirect=1",valid.Replace(p.Sha256,new string('0',64))}){p.Url=bad;Fails(()=>f.Catalog.Validate());}p.Url=null;f.Catalog.PublicReady=true;Fails(()=>f.Catalog.Validate(),"URL is missing");});

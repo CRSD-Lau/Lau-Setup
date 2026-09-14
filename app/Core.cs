@@ -182,7 +182,7 @@ public static class Client {
         if(File.Exists(config)) {
             var matches=Regex.Matches(File.ReadAllText(config),"(?m)^SET locale \"([A-Za-z]{4})\"\\s*$");
             if(matches.Count>1) throw new IOException("The client language settings are ambiguous.");
-            if(matches.Count==1) locale=matches[0].Groups[1].Value;
+            if(matches.Count==1) { string configured=matches[0].Groups[1].Value;locale=catalog.Locales.FirstOrDefault(l=>l.Equals(configured,StringComparison.OrdinalIgnoreCase))??configured; }
         }
         if(locale==null) {
             var candidates=catalog.Locales.Where(l=>File.Exists(SafePaths.Under(root,@"Data\"+l+@"\locale-"+l+".mpq"))).ToArray();
@@ -326,7 +326,7 @@ public sealed class Transaction {
             var seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach(var op in plan.Operations) {
                 if(!seen.Add(op.Relative))throw new IOException("Duplicate install destination.");
-                if(op.ExtraPatch&&(!op.Existed||op.OldBytes<=0||!Hash.Valid(op.OldHash)||op.AssetId!=null||op.SourceRelative!=null||op.SourceHash!=null||op.SourceBytes!=0))throw new IOException("Invalid backup entry.");
+                if(op.ExtraPatch&&(!op.Existed||(op.OldBytes<0||(op.OldBytes==0&&!MpqScan.IsRetiredPatch(op.Relative)))||!Hash.Valid(op.OldHash)||op.AssetId!=null||op.SourceRelative!=null||op.SourceHash!=null||op.SourceBytes!=0))throw new IOException("Invalid backup entry.");
                 var path=SafePaths.Target(plan.Root,op.Relative,plan.Locale,op.ExtraPatch);
                 if(op.SourceRelative!=null){
                     bool disable=op.SourceRelative.EndsWith("s.mpq",StringComparison.OrdinalIgnoreCase)&&op.Relative.Equals(op.SourceRelative+".disabled",StringComparison.OrdinalIgnoreCase);
@@ -402,9 +402,9 @@ public sealed class Transaction {
             if(e==null||!seen.Add(e.Relative)||e.OldBytes<0||(e.Existed&&!Hash.Valid(e.OldHash))||(!e.Existed&&(e.OldHash!=null||e.OldBytes!=0))||(e.NewHash!=null&&(!Hash.Valid(e.NewHash)||e.NewBytes<=0))||(e.NewHash==null&&e.NewBytes!=0))throw new IOException("Invalid backup entry.");
             var original=SafePaths.Target(root,e.Relative,j.Locale,e.ExtraPatch);
             if(e.ExtraPatch){
-                if(!e.Existed||e.OldBytes<=0||e.NewHash!=null||e.NewBytes!=0)throw new IOException("Invalid backup entry.");
+                if(!e.Existed||(e.OldBytes<0||(e.OldBytes==0&&!MpqScan.IsRetiredPatch(e.Relative)))||e.NewHash!=null||e.NewBytes!=0)throw new IOException("Invalid backup entry.");
                 var before=SafePaths.Under(Path.GetDirectoryName(record),@"before\"+e.Relative);
-                MpqScan.VerifyOriginal(File.Exists(before)?before:original,e.OldHash,e.OldBytes,catalog);
+                MpqScan.VerifyOriginal(File.Exists(before)?before:original,e.OldHash,e.OldBytes,catalog,MpqScan.IsRetiredPatch(e.Relative));
             }
         }
         return j;

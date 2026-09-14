@@ -25,6 +25,10 @@ in VALIDATION.json with the assets. In-game visual acceptance remains separate
 from installer tests. Translations are machine-assisted; native review remains
 open. Full translated-document refresh remains on the existing rate-limit follow-up.
 
+Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
+
+**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.
+
 ## DBC changes
 
 No DBC edits. Game payload 3.0.8, all 28 assets, nine game locales, asset hashes

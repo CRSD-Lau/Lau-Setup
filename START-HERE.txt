@@ -127,3 +127,6 @@ Project Reforged contributors (HD artwork), Blizzard (original artwork and
 localized text), Lau (adaptation, compatibility, indicators, testing).
 
 Author / Creator / Last Modified By: Neil Mitchell
+
+OLD PATCH-V: Just install normally. Setup backs up the retired Data\patch-v.mpq automatically, including empty copies. Restore previous install puts it back. Keep LauSetupBackups.
+Language codes such as enus and enUS are accepted equally; you do not need to edit Config.wtf. The footer identifies both the installer and game versions.

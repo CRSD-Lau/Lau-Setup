@@ -51,6 +51,11 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 
 ## Common setup messages
 
+Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
+
+**Old Patch-V present?** Install normally. Setup automatically moves `Data\patch-v.mpq` (any letter case), the retired HD beta building patch, into its verified `LauSetupBackups` transaction. This includes empty leftover files. You do not need to rename, delete or move it yourself. **Restore previous install** puts the original file back. Other unrecognized archives retain their existing checks; this is not a promise that every custom patch is compatible.
+
+
 - **Cannot find `LauSetup.exe`** — extract the ZIP first, then open the extracted `LauSetup` folder. Its File Explorer type is **Application**.
 - **Choose the folder containing `WoW.exe`** — choose the game folder itself, not `Data`, a launcher folder, a drive root, network share, or linked folder.
 - **.NET Framework 4.8 is missing** — use the Microsoft runtime prompt, then reopen setup.

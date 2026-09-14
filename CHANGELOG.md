@@ -5,6 +5,9 @@
 - Your choices lists Patch-Y (Lau’s version) plus each selected extra. Review also discloses WoW.exe, Patch-Q, language patches, download size and backups.
 - Manual Interface language remains available on every step and is remembered. Automatic follows the host language; game language stays separate.
 - Next only navigates; Install upgrade performs the update. Restore and existing safety checks remain available.
+- Game-language codes now match regardless of letter case, without editing player settings.
+- Retired Data\patch-v.mpq is automatically backed up, including empty placeholders; Restore returns it.
+- The window displays Setup 1.4.0 and game release 3.0.8 separately.
 - One shared LauSetup.zip. Game 3.0.8 unchanged. No DBC edits.
 
 See [beginner steps](START-HERE.txt) and [1.4.0 release notes](docs/RELEASE-1.4.0.md).

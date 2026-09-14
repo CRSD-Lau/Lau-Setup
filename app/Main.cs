@@ -130,7 +130,7 @@ public sealed class SetupForm:Form {
         install=Button("Install upgrade",true);install.Enabled=false;install.Click+=Install;actions.Controls.Add(install);
         cancel=Button("Cancel",false);cancel.Visible=false;cancel.Click+=(s,e)=>{if(cancellation!=null)cancellation.Cancel();};actions.Controls.Add(cancel);
         restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);grid.Controls.Add(actions,0,7);
-        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Release {0} Lau  •  {1}  •  Existing build 12340 required",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11");grid.Controls.Add(release,0,8);
+        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);grid.Controls.Add(release,0,8);
         cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;SetText(status,"Please wait for this operation to finish, or use Cancel.");}};
         ShowStep(0);
