@@ -1438,7 +1438,7 @@
       "Patch-Y Non-HD": "Patch-Y Non-HD",
       "Path escapes the selected folder.": "Путь выходит за пределы выбранной папки.",
       "Please wait for this operation to finish, or use Cancel.": "Пожалуйста, дождитесь завершения этой операции или нажмите «Отмена».",
-      "Previous install restored and verified.": "Предыдущая установка восстановлена ​​и проверена.",
+      "Previous install restored and verified.": "Предыдущая установка восстановлена и проверена.",
       "Public download URL is missing.": "Публичный URL-адрес загрузки отсутствует.",
       "Ready. A verified backup is created before any game files change.": "Готовый. Проверенная резервная копия создается перед изменением каких-либо файлов игры.",
       "Record too large.": "Запись слишком большая.",
@@ -1484,7 +1484,7 @@
       "The Wine runtime registry is too large to inspect safely.": "Реестр времени выполнения Wine слишком велик для безопасной проверки.",
       "There is no previous install to restore.": "Нет предыдущей установки для восстановления.",
       "This backup belongs to another client.": "Эта резервная копия принадлежит другому клиенту.",
-      "This backup has already been restored or was not installed.": "Эта резервная копия уже восстановлена ​​или не установлена.",
+      "This backup has already been restored or was not installed.": "Эта резервная копия уже восстановлена или не установлена.",
       "This file is linked to another file: {0}": "Этот файл связан с другим файлом: {0}.",
       "This is not a complete existing WoW client. Select its game folder.": "Это не полный существующий клиент WoW. Выберите папку с игрой.",
       "This language is active for this session, but the preference could not be saved.": "Этот язык активен для этого сеанса, но настройки не удалось сохранить.",
@@ -1533,7 +1533,7 @@
       "First, choose your World of Warcraft folder.": "Сначала выберите папку World of Warcraft.",
       "Not sure which folder?": "Не знаете, в какой папке?",
       "Setup will check your game and choose the right files for it.": "Программа установки проверит вашу игру и выберет для нее нужные файлы.",
-      "Where is your game installed?": "Где установлена ​​ваша игра?",
+      "Where is your game installed?": "Где установлена ваша игра?",
       "Your existing game. Your choice of visuals.": "Ваша существующая игра. Визуализация на ваш выбор."
     },
     "zh-CN": {
