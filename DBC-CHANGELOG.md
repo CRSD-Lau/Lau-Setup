@@ -6,9 +6,16 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
-## Installer 1.4.0 — no DBC edits
+## Installer 1.4.0 candidate — optional upstream map overrides
 
-The wizard, optional-default changes and manual language controls change installer behavior only. No DBC edits. Game release 3.0.8, all 28 asset hashes, nine locales and download segments are unchanged from 1.3.0. `/pyversion` stays 3.0.8 Lau.
+Patch-Y remains 3.0.8. The optional merged map pack adds Trimitor WDM 2.4.5
+stable plus the 2.4.5 beta cave expansion. It supplies DungeonMap,
+DungeonMapChunk, WorldMapArea, WorldMapTransforms, AreaTable and WMOAreaTable.
+The cave WorldMapArea overrides the stable version; all installed table bytes
+match the selected upstream source. This is not a no-DBC-change release.
+
+[Per-locale table hashes and upstream provenance](docs/dbc/map-pack-1.4.0.json)
+· [Map contents, backup behavior and pending runtime acceptance](docs/MAP-PACK.md).
 
 ## Installer 1.2.0 — no DBC edits
 

@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.4.0 · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
+**Installer 1.4.0 test candidate (not stable) · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
 
 ## Download and start here
 

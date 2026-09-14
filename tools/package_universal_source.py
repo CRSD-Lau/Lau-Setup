@@ -12,7 +12,7 @@ ADDITIONS = [
     'tools/translate_installer.py', 'tools/test_universal_windows.py', 'tools/test_universal_wine.py', 'tests/Tests.cs', 'tests/LocalizationTests.cs',
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',
     'tests/LocalizationProbe.cs', 'tools/test_localization.ps1',
-    'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'CHANGELOG.md',
+    'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'CHANGELOG.md',
 ]
 
 def build(root=ROOT,output=None):
