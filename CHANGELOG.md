@@ -1,3 +1,9 @@
+# Lau Setup 1.4.0-test4 — combined EXE and loading screens
+
+One optional checkbox, off by default, now installs the compatible WoW.exe
+and loading screens together. Off preserves both. Maps remain independent.
+The review still explicitly lists whether each component is installed or kept.
+
 # Lau Setup 1.4.0-test3 — map download correction
 
 Test2 rejected the new map payload with “Unexpected download destination.”

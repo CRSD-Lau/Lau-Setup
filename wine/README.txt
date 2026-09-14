@@ -1,4 +1,4 @@
-Lau Setup 1.4.0-test3 shared Windows/Linux test candidate
+Lau Setup 1.4.0-test4 shared Windows/Linux test candidate
 Author / Creator / Last Modified By: Neil Mitchell
 
 Patch-Y remains Lau 3.0.8; optional maps add upstream map tables. This package contains one LauSetup folder with
@@ -21,8 +21,8 @@ This ZIP is an upgrade, not the complete game.
    for Lau's ground effect, New spell visuals for upgraded spells (HD only),
    or Upgrade maps and minimap for Lau maps plus Trimitor dungeon, raid and
    cave maps (cave expansion is upstream beta). WDM support addons are included.
-   WoW.exe and Loading screens are separate checkboxes, also off by default.
-   Maps do not require either checkbox. Existing complete map packs are kept.
+   Compatible WoW.exe + loading screens is one checkbox, off by default.
+   Maps do not require this checkbox. Existing complete map packs are kept.
    Click Next.
 6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
    extra. The review also lists WoW.exe, Patch-Q artwork, matching language
@@ -146,6 +146,6 @@ duplicate patches yourself. Files Setup replaces are backed up.
 
 PATCH-V: Empty Data\patch-v.mpq is backed up. Nonempty V remains unchanged with a nonblocking warning; its contents are not parsed.
 
-YOUR CHOICE: WoW.exe and loading screens/artwork (Patch-Q) each have a separate checkbox on Your visuals. Both start off. Review says Install or Keep existing for each. Patch-Y and its matching language patch remain included.
+YOUR CHOICE: Compatible WoW.exe + loading screens is one checkbox on Your visuals. It starts off. Review says Install or Keep existing for each. Patch-Y and its matching language patch remain included.
 
 Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.

@@ -16,8 +16,8 @@ Last Modified By: Neil Mitchell
    - New spell visuals: upgraded spell effects; requires existing HD models.
    - Maps/minimaps: Lau's maps plus Trimitor dungeon, raid and cave maps.
      Includes the WDM support addons. Cave maps are upstream beta.
-   - Loading screens: Lau's loading artwork, independently of maps.
-   - Compatible WoW.exe: replace your executable. Off keeps yours.
+   - Compatible WoW.exe + loading screens: install both together.
+     Off keeps both unchanged. Maps remain independent.
 6. Click Next. Read Your choices, the folder and download size.
 7. Click Install upgrade. Wait for Installed and verified.
 8. Open WoW. Test the selected visuals. Installer tests alone do not prove
