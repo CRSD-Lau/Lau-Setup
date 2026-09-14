@@ -2497,7 +2497,7 @@
       ]
     }
   },
-  "PublicReady": false,
+  "PublicReady": true,
   "DownloadHost": "GitHub Releases",
   "MapPackVersion": "WDM-2.4.5"
 }
