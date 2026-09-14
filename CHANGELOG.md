@@ -1,3 +1,55 @@
+# Lau Setup 1.4.0 — September 14, 2026
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+The stable release uses one [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) for Windows and supported Linux/Wine. Extract the whole ZIP before starting. Windows opens LauSetup.exe; Linux uses LauSetup.sh with the existing supported Wine prefix.
+
+## Your existing game, your choice of visuals
+
+1. Close WoW. Click **Browse...** and choose the folder containing **WoW.exe**, not Data.
+2. Click **Next**. Setup detects the game language and HD/Non-HD client. Interface language remains available on every step.
+3. Choose your extras. Patch-Y is selected for the detected client. All extras start off: **Compatible WoW.exe + loading screens**, **Enhanced Consecration**, **New spell visuals** (existing HD models required), and **Upgrade maps and minimap**. Installed map upgrades are kept.
+4. Click **Next**, review the folder, choices, Install/Keep existing states and download size, then click **Install upgrade**.
+5. Wait for **Finished**, start WoW and use `/pyversion` to confirm **3.0.9 Lau**.
+
+## What changed since stable 1.3.0
+
+- Four-step wizard, manual/automatic language selection, clearer review and progress through download, staging, installation and verification.
+- Approved dark layout with aligned controls, numbered steps and dividers, rounded folder field, placeholder and Browse button. Neil and Andre approved the visual candidate.
+- Optional executable and loading screens share one checkbox. Off keeps both unchanged. Maps work independently.
+- Maps combine Lau world/minimap textures with Trimitor WDM 2.4.5 dungeon/raid maps and its beta cave expansion, including required WDM/!Astrolabe support files.
+- Unrelated and renamed duplicate patches remain in place. Empty Patch-V is backed up; nonempty Patch-V stays with a nonblocking compatibility warning.
+- All six Patch-Y editions report 3.0.9 and are compacted for distribution, saving 58,774,086 bytes in total compared with 3.0.8. Setup does not compact player files or backups.
+
+
+See [full release notes and validation](docs/RELEASE-1.4.0.md). No Patch-Y DBC edits; optional upstream map overrides are documented in DBC-CHANGELOG.md.
+
+# Lau Setup 1.4.0-test4 — combined EXE and loading screens
+
+One optional checkbox, off by default, now installs the compatible WoW.exe
+and loading screens together. Off preserves both. Maps remain independent.
+The review still explicitly lists whether each component is installed or kept.
+
+# Lau Setup 1.4.0-test3 — map download correction
+
+Test2 rejected the new map payload with “Unexpected download destination.”
+The catalog and downloader now share one approved release-tag list. This
+fix retains the restricted GitHub/CDN destinations and hash verification.
+A real download through the application downloader is part of regression testing.
+Extract the entire shared LauSetup.zip before starting. Extraction alone does
+not fix the test2 bug. Game payloads and wizard options are unchanged.
+
+# Historical 1.4.0 development scope (superseded by stable release)
+
+- Restore 1.1.7-style handling of unrelated patches: no broad MPQ scan or automatic renamed-copy cleanup.
+- Keep the Next/Back wizard, automatic and manual interface language, case-insensitive game locale detection, and separate installer/game version labels.
+- Independent optional Consecration, WoW.exe, maps/minimaps, loading screens, and HD spell visuals.
+- Merge Trimitor WDM dungeon/raid and cave maps into Lau's maps option, with required support addons. Loading screens are independent.
+- Back up replaced files. Preserve unrelated patches, addons and personal settings; empty Patch-V is backed up, nonempty V stays with a warning.
+- Keep one Windows/Linux LauSetup.zip. Patch-Y is now 3.0.9; the optional map pack adds upstream map DBC overrides. Cave maps are upstream beta.
+
+This historical plan was superseded by stable 1.4.0. See [scope and validation](docs/RELEASE-1.4.0.md).
+
 # Lau Setup 1.3.0 — automatic extra-patch backups
 
 - Click Install upgrade as usual: recognized extra upgrade patches are backed up automatically and setup continues.

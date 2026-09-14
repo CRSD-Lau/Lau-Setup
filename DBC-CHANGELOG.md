@@ -6,6 +6,17 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Installer 1.4.0 stable — optional upstream map overrides
+
+Game 3.0.9 updates the embedded Patch-Y addon version and compacts its archives without DBC edits. The optional merged map pack adds Trimitor WDM 2.4.5
+stable plus the 2.4.5 beta cave expansion. It supplies DungeonMap,
+DungeonMapChunk, WorldMapArea, WorldMapTransforms, AreaTable and WMOAreaTable.
+The cave WorldMapArea overrides the stable version; all installed table bytes
+match the selected upstream source. This is not a no-DBC-change release.
+
+[Per-locale table hashes and upstream provenance](docs/dbc/map-pack-1.4.0.json)
+· [Map contents, backup behavior and pending runtime acceptance](docs/MAP-PACK.md).
+
 ## Installer 1.2.0 — no DBC edits
 
 Shared Windows/Linux packaging and automatic interface language selection change installer code and text only. The game remains 3.0.8. All 28 game assets, nine game locales, asset IDs, sizes, SHA-256 values and download segments are unchanged from installer 1.1.8. Interface language never selects or changes the WoW client locale.

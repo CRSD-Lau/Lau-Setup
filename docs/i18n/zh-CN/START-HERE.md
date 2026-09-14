@@ -2,29 +2,13 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — 一个 ZIP 现在同时包含 Windows 安装程序和 Linux/Wine 启动器。界面会在十种选项中自动跟随操作系统语言，手动选择会被保存。游戏版本 3.0.8 和游戏文件没有变化，也没有 DBC 修改。
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **当前版本：Setup 1.4.0 / 游戏 3.0.9 Lau。** 关闭 WoW，完整解压 LauSetup.zip，在 Windows 中打开 LauSetup.exe，用 Browse... 选择包含 WoW.exe 的文件夹。下一步 → 视觉选项 → 下一步 → 检查 → 安装 → 完成。所有额外选项默认关闭。WoW.exe 和加载画面是同一个选项；地图独立，并包含 WDM 支持文件。已安装的地图会保留。重命名的重复补丁保持原样；只有空的 Patch-V 会自动备份。被替换的文件保存在 LauSetupBackups 中。Patch-Y 没有 DBC 修改；可选地图添加了已记录来源的上游表。洞穴地图仍为测试版。Linux/Wine 请在文档要求的环境中使用 LauSetup.sh。Google HTTP 429 阻止了完整翻译更新。下面的旧内容仅供历史参考，当前操作请以英文原文为准。
 >
-> 由于 Google HTTP 429，完整指南刷新仍在等待中。下方正文可能已过时；请以当前英文来源和 1.3.0 发布说明为准。 [English](../../../START-HERE.txt) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
->
-> **当前下载：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解压含五个文件的 `LauSetup/` 文件夹：Windows 打开 `LauSetup.exe`；Linux/Wine 运行 `LauSetup.sh`。下方关于单独 EXE 或 Wine ZIP 的旧说明不适用于 1.3.0。
->
-> **1.3.0:** 已识别的额外升级文件会自动备份，然后继续安装。恢复操作会将文件放回原位。无需手动移动。 安装程序在替换或移动现有文件之前会自动保留原文件。无关文件保持不变。
+> [English](../../../START-HERE.txt) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
-
-<!-- BEGINNER-120-STEPS -->
-## 新手步骤
-
-1。完全关闭 WoW。
-2。只下载 `LauSetup.zip`。在 Windows 中右键点击，选择**全部提取**，打开 `LauSetup`，然后双击 `LauSetup.exe`。
-3。选择 **选择文件夹…**，并选择直接包含 `WoW.exe` 的文件夹，不要选择 `Data` 或启动器文件夹。
-4。**界面语言** 只改变 Setup 文本：自动跟随系统语言，手动选择会保存；它不会改变游戏的九种语言环境。
-5。**强化奉献** 默认启用。新法术效果需要检测到兼容的 HD 模型；地图和小地图是可选下载。
-6。选择 **安装升级**，等待完成且不要关闭 Setup。启动 WoW 后输入 `/pyversion`。如需恢复，请关闭 WoW，选择相同的游戏文件夹，再选择 **恢复上一次安装**。
-
-### Linux/Wine
-
-同一个 ZIP 只能在已有 64-bit Wine 前缀、Wine 11.0、Wine Mono 10.4.1、Python 3.9+、文档要求的字体和本地 Linux 存储准备好后使用。解压后运行 `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`；不要在 Wine 中直接运行 EXE。
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 自动翻译。 [英文来源](../../../START-HERE.txt)。如果措辞不同，则以英文来源为准。

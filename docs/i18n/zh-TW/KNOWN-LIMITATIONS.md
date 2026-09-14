@@ -2,14 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — 一個 ZIP 現在同時包含 Windows 安裝程式和 Linux/Wine 啟動器。介面會在十種選項中自動跟隨作業系統語言，手動選擇會被儲存。遊戲版本 3.0.8 和遊戲檔案均未變更，也沒有 DBC 修改。
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **目前版本：Setup 1.4.0 / 遊戲 3.0.9 Lau。** 關閉 WoW，完整解壓縮 LauSetup.zip，在 Windows 開啟 LauSetup.exe，用 Browse... 選擇包含 WoW.exe 的資料夾。下一步 → 視覺選項 → 下一步 → 檢查 → 安裝 → 完成。所有額外選項預設關閉。WoW.exe 和載入畫面是同一個選項；地圖獨立，並包含 WDM 支援檔案。已安裝的地圖會保留。重新命名的重複修補檔保持原樣；只有空的 Patch-V 會自動備份。被取代的檔案保存在 LauSetupBackups。Patch-Y 沒有 DBC 修改；可選地圖新增了已記錄來源的上游資料表。洞穴地圖仍為測試版。Linux/Wine 請在文件要求的環境中使用 LauSetup.sh。Google HTTP 429 阻止了完整翻譯更新。下方舊內容僅供歷史參考，目前操作請以英文原文為準。
 >
-> 由於 Google HTTP 429，完整指南更新仍在等待中。下方正文可能已過時；請以目前英文來源和 1.3.0 發行說明為準。 [English](../../../KNOWN-LIMITATIONS.md) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
->
-> **目前下載：** Windows 和 Linux/Wine 都使用 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)。解壓含五個檔案的 `LauSetup/` 資料夾：Windows 開啟 `LauSetup.exe`；Linux/Wine 執行 `LauSetup.sh`。下方關於個別 EXE 或 Wine ZIP 的舊說明不適用於 1.3.0。
->
-> **1.3.0:** 已識別的額外升級檔案會自動備份，然後繼續安裝。還原操作會將檔案放回原位。無需手動移動。 安裝程式在替換或移動現有檔案之前會自動保留原檔案。無關檔案保持不變。
+> [English](../../../KNOWN-LIMITATIONS.md) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

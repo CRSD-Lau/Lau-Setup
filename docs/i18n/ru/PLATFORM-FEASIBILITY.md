@@ -2,14 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — Один ZIP теперь содержит установщик Windows и программу запуска Linux/Wine. Интерфейс автоматически выбирает язык ОС из десяти вариантов; ручной выбор сохраняется. Версия игры 3.0.8 и игровые файлы не изменяются. Изменений DBC нет.
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **Текущая версия: Setup 1.4.0 / игра 3.0.9 Lau.** Закройте WoW, полностью распакуйте LauSetup.zip, откройте LauSetup.exe в Windows и через Browse... выберите папку с WoW.exe. Далее → визуальные эффекты → Далее → проверка → установка → завершение. Все дополнительные опции изначально выключены. WoW.exe и экраны загрузки включаются вместе; карты независимы и содержат файлы WDM. Установленные карты сохраняются. Переименованные дубликаты патчей остаются на месте; автоматически сохраняется только пустой Patch-V. Заменяемые файлы сохраняются в LauSetupBackups. DBC в Patch-Y не изменены; дополнительные карты добавляют документированные таблицы исходного проекта. Карты пещер остаются бета-версией. В Linux/Wine запускайте LauSetup.sh в документированной среде. Полное обновление перевода заблокировано ошибкой Google HTTP 429. Старый текст ниже служит только исторической справкой; актуальные инструкции находятся в английском источнике.
 >
-> Полное обновление руководств отложено из-за Google HTTP 429. Текст ниже может быть устаревшим; используйте текущий английский источник и примечания к версии 1.3.0. [English](../../../PLATFORM-FEASIBILITY.md) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
->
-> **Текущая загрузка:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) для Windows и Linux/Wine. Распакуйте папку `LauSetup/` с пятью файлами: в Windows откройте `LauSetup.exe`; в Linux/Wine запустите `LauSetup.sh`. Старые инструкции ниже об отдельных EXE или Wine ZIP не относятся к 1.3.0.
->
-> **1.3.0:** Распознанные дополнительные файлы обновления автоматически сохраняются в резервной копии, и установка продолжается. Восстановление возвращает их на место. Перемещать их вручную не нужно. Установщик автоматически сохраняет существующие файлы перед заменой или перемещением. Посторонние файлы остаются без изменений.
+> [English](../../../PLATFORM-FEASIBILITY.md) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

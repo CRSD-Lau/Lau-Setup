@@ -2,29 +2,13 @@
 [English](../../../../README.md) · [Deutsch](../../de/README.md) · [Español (España)](../../es-ES/README.md) · [Español (México)](../../es-MX/README.md) · [Français](../../fr/README.md) · [한국어](../README.md) · [Русский](../../ru/README.md) · [简体中文](../../zh-CN/README.md) · [繁體中文](../../zh-TW/README.md) · [Português (Brasil)](../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — 하나의 ZIP에 이제 Windows 설치 관리자와 Linux/Wine 실행기가 함께 들어 있습니다. 인터페이스는 열 가지 옵션 중 운영 체제 언어를 자동으로 따르며, 수동 선택은 저장됩니다. 게임 버전 3.0.8과 게임 파일은 변경되지 않습니다. DBC 변경도 없습니다.
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **현재 버전: Setup 1.4.0 / 게임 3.0.9 Lau.** WoW를 종료하고 LauSetup.zip 전체를 압축 해제한 뒤 Windows에서 LauSetup.exe를 여세요. Browse...로 WoW.exe가 있는 폴더를 선택하세요. 다음 → 시각 효과 → 다음 → 검토 → 설치 → 완료 순서입니다. 추가 옵션은 처음에 모두 꺼져 있습니다. WoW.exe와 로딩 화면은 하나의 옵션이며, 지도는 독립적이고 WDM 지원 파일을 포함합니다. 이미 설치된 지도는 유지됩니다. 이름을 바꾼 중복 패치는 그대로 남고, 빈 Patch-V만 자동 백업됩니다. 교체된 파일은 LauSetupBackups에 보관됩니다. Patch-Y의 DBC는 바뀌지 않았지만 선택 지도에는 문서화된 원본 프로젝트의 테이블이 추가됩니다. 동굴 지도는 베타입니다. Linux/Wine에서는 안내된 환경에서 LauSetup.sh를 사용하세요. Google HTTP 429로 전체 번역 갱신이 막혀 있습니다. 아래 예전 내용은 과거 참고용이며 현재 지침은 영어 원문을 확인하세요.
 >
-> Google HTTP 429로 전체 안내서 갱신은 아직 보류 중입니다. 아래 본문은 오래되었을 수 있으므로 현재 영어 원문과 1.3.0 릴리스 노트를 확인하세요. [English](../../../../wine/README.txt) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
->
-> **현재 다운로드:** Windows와 Linux/Wine용 [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)입니다. 다섯 파일이 있는 `LauSetup/` 폴더를 추출하세요. Windows에서는 `LauSetup.exe`를 열고 Linux/Wine에서는 `LauSetup.sh`를 실행합니다. 아래의 별도 EXE 또는 Wine ZIP 관련 이전 안내는 1.3.0에 적용되지 않습니다.
->
-> **1.3.0:** 인식된 추가 업그레이드 파일은 자동으로 백업되고 설치가 계속됩니다. 복원하면 파일이 원래 위치로 돌아갑니다. 직접 옮길 필요가 없습니다. 설치 프로그램은 기존 파일을 교체하거나 이동하기 전에 자동으로 보존합니다. 관련 없는 파일은 변경하지 않습니다.
+> [English](../../../../wine/README.txt) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
-
-<!-- BEGINNER-120-STEPS -->
-## 처음 시작하기
-
-1. WoW를 완전히 종료하세요.
-2. `LauSetup.zip`만 내려받으세요. Windows에서는 마우스 오른쪽 버튼을 눌러 **모두 추출**을 선택하고 `LauSetup`을 연 뒤 `LauSetup.exe`를 두 번 클릭합니다.
-3. `LauSetup.zip`을 추출하세요. `LauSetup/`의 다섯 파일을 함께 보관하세요: `LauSetup.exe`, `LauSetup.sh`, `lau_wine.py`, `lau-languages.json`, `README.txt`.
-4. **인터페이스 언어**는 Setup 텍스트만 바꿉니다. 자동은 시스템 언어를 따르고 선택은 저장되며, 게임의 9개 로케일은 바뀌지 않습니다.
-5. **강화된 신성화**은 기본으로 켜져 있습니다. 새 주문 효과에는 감지된 호환 HD 모델이 필요하며 지도/미니맵은 선택 다운로드입니다.
-6. **업그레이드 설치**을 선택하고 Setup을 닫지 말고 끝날 때까지 기다리세요. WoW를 시작한 뒤 `/pyversion`을 입력합니다. 복원하려면 WoW를 닫고 같은 폴더를 선택한 뒤 **이전 설치 복원**을 선택하세요.
-
-### Linux/Wine
-
-동일한 ZIP은 기존 64-bit Wine 접두사, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, 문서화된 글꼴 및 로컬 Linux 저장소가 준비된 경우에만 사용하세요. 압축을 풀고 `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`를 실행하세요. Wine에서 EXE를 직접 실행하지 마세요.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > 자동 번역. [영어 출처](../../../../wine/README.txt). 표현이 다를 경우 영어 출처가 권위가 있습니다.

@@ -1,0 +1,104 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "saved_bytes": 58774086,
+  "archives": [
+    {
+      "id": "Y-HD-NewSpells-Off-Consecration-Off",
+      "before_bytes": 50626756,
+      "after_bytes": 47561296,
+      "before_sha256": "0a7f2eef34085785b72f1d18b83108c25dac2c2deada412738182fee5e738a80",
+      "after_sha256": "6bb65df07ed1f18b832785755b0e08586dd2dee2594de8da82548e3b8f4241bf",
+      "saved_bytes": 3065460,
+      "member_count": 508,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 50627069,
+      "header_before_hex": "4d50511a2c000000c480040301000300046103030461040300100000fc010000",
+      "header_after_hex": "4d50511a2c00000050bad50201000300909ad402909ad50200100000fc010000"
+    },
+    {
+      "id": "Y-HD-NewSpells-Off-Consecration-On",
+      "before_bytes": 50626764,
+      "after_bytes": 47561314,
+      "before_sha256": "2941cbbf61bebcabd2e0ff51361268447e7b6739fafef7da175b2a31662991a3",
+      "after_sha256": "ad173fb9cdbcd5f54135aa48a8e443c7c756a80062e8498f21a0613a2908fbc0",
+      "saved_bytes": 3065450,
+      "member_count": 508,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 50627081,
+      "header_before_hex": "4d50511a2c000000cc800403010003000c6103030c61040300100000fc010000",
+      "header_after_hex": "4d50511a2c00000062bad50201000300a29ad402a29ad50200100000fc010000"
+    },
+    {
+      "id": "Y-HD-NewSpells-On-Consecration-Off",
+      "before_bytes": 66603332,
+      "after_bytes": 47470879,
+      "before_sha256": "270afe55b5d517ea4f0b976437b00c663da5bee52d9fb7f9969a5042e8d3fd8e",
+      "after_sha256": "f3d9ffcd56456977f63668c68ea992eb5369a938b9fe52d2af78b02e0e267dc3",
+      "saved_bytes": 19132453,
+      "member_count": 507,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 66603652,
+      "header_before_hex": "4d50511a200000004449f8030000030094a9f7039429f80300080000fb010000",
+      "header_after_hex": "4d50511a200000001f59d402000003006fb9d3026f39d40200080000fb010000"
+    },
+    {
+      "id": "Y-HD-NewSpells-On-Consecration-On",
+      "before_bytes": 66603340,
+      "after_bytes": 47470883,
+      "before_sha256": "508020eb056d73597d0d64fed17662018cbbe7236a401623b2088b051664d9f2",
+      "after_sha256": "4dca75ba695a2a8efecdc5fb3ee289763485efc9cd2d608d5c1a1a873b45703e",
+      "saved_bytes": 19132457,
+      "member_count": 507,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 66603656,
+      "header_before_hex": "4d50511a200000004c49f803000003009ca9f7039c29f80300080000fb010000",
+      "header_after_hex": "4d50511a200000002359d4020000030073b9d3027339d40200080000fb010000"
+    },
+    {
+      "id": "Y-Non-HD-Consecration-Off",
+      "before_bytes": 53797737,
+      "after_bytes": 46608600,
+      "before_sha256": "e841709e455f70dd3255a691b337b28ecf1761fef8e758570db4038ba7a2d062",
+      "after_sha256": "8009d97a8ab204ecbfc0d4353df606c339dfddd94cdbb4f6d4df7b83073a9c42",
+      "saved_bytes": 7189137,
+      "member_count": 500,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 53798049,
+      "header_before_hex": "4d50511a2000000069e33403000003002944340329c4340300080000f4010000",
+      "header_after_hex": "4d50511a20000000d830c702000003009891c6029811c70200080000f4010000"
+    },
+    {
+      "id": "Y-Non-HD-Consecration-On",
+      "before_bytes": 53797734,
+      "after_bytes": 46608605,
+      "before_sha256": "177445dee261bf6bea06fd8ca8cf1398b64c231ee26878329ff8faebfb1bce17",
+      "after_sha256": "80f2e74cc5a0100f22e941e8a4d3350b6d3655a5ebfd3000b74494e9116409f5",
+      "saved_bytes": 7189129,
+      "member_count": 500,
+      "metadata_changes": [],
+      "version_changes": [
+        "Interface\\AddOns\\!PYAndre\\!PYAndre.toc"
+      ],
+      "pre_compaction_bytes": 53798046,
+      "header_before_hex": "4d50511a2000000066e33403000003002644340326c4340300080000f4010000",
+      "header_after_hex": "4d50511a20000000dd30c702000003009d91c6029d11c70200080000f4010000"
+    }
+  ]
+}

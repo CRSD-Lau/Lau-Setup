@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-`LauSetup.zip` is the Lau Setup 1.3.0 release ZIP for Windows and Linux.
+`LauSetup.zip` is the Lau Setup 1.4.0 release ZIP for Windows and Linux.
 Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 `LauSetup.sh`, `lau_wine.py`, `lau-languages.json`, and `README.txt`.
 
@@ -15,15 +15,24 @@ Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 1. Close WoW completely. Right-click `LauSetup.zip`, choose **Extract All**,
    and open the extracted `LauSetup` folder.
 2. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
-3. Choose **Choose folder…**, then select the folder that directly contains
-   `WoW.exe`, not its `Data` folder or a launcher folder.
-4. **Enhanced Consecration** starts on; **New spell visuals** needs detected
-   compatible HD models; **Upgrade maps and minimap** is optional. Choose
-   **Install upgrade** and wait for completion.
-5. If setup says **Already installed**, the selected files already match this
-   release and no game update is needed. Otherwise start WoW and type
-   `/pyversion`. To undo an installation, close WoW, reopen setup with the
-   same folder, and choose **Restore previous install**.
+4. Click Browse... and select the game folder containing WoW.exe,
+   then click Next. Do not select Data or a launcher folder.
+5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
+   on your client. Optional extras start off. Enable Enhanced Consecration
+   for Lau's ground effect, New spell visuals for upgraded spells (HD only),
+   or Upgrade maps and minimap for sharper maps and an extra download.
+   Already installed map upgrades are kept. Click Next.
+6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
+   extra. The review also lists WoW.exe, Patch-Q artwork, matching language
+   patches, download size and automatic backups. Back lets you make changes.
+7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
+   and type /pyversion to check 3.0.9 Lau. If your selection is already
+   installed, click Finish; no game-file changes are needed.
+
+Interface language stays at the top of every step. Choose your language if
+Automatic detects it incorrectly. Your manual choice is remembered; choose
+Automatic to follow your system again. This changes setup text, not the game.
+Next does not download or change game files. Install upgrade performs the update.
 
 ### Linux / Wine
 
@@ -32,7 +41,7 @@ listed below. Close every WoW instance in every prefix, extract the ZIP, and
 run `WINEPREFIX="/absolute/path/to/prefix" sh LauSetup.sh` from the extracted
 `LauSetup` folder. Never start the EXE directly under Wine: the shell launcher
 supplies the host process, filesystem, and cross-prefix locking guard. Once it
-opens setup, follow the same **Choose folder…**, option, and **Install upgrade**
+opens setup, follow the same **Game folder → Your visuals → Review → Finished**
 steps above.
 
 If Windows cannot find `LauSetup.exe`, open the extracted `LauSetup` folder;
@@ -69,10 +78,10 @@ detect and preserve the nine supported 3.3.5a game locales: enUS, deDE, frFR,
 esES, esMX, koKR, ruRU, zhCN, and zhTW.
 
 Build a release only after placing the built input EXE at
-`dist/release-1.3.0/LauSetup.exe` and generating `app/translations.json`:
+`dist/release-1.4.0/LauSetup.exe` and generating `app/translations.json`:
 
 ```powershell
-python tools/package_universal.py --exe dist/release-1.3.0/LauSetup.exe --output dist/release-1.3.0/LauSetup.zip
+python tools/package_universal.py --exe dist/release-1.4.0/LauSetup.exe --output dist/release-1.4.0/LauSetup.zip
 ```
 
 For an isolated build, pass `--exe`, `--translations`, and
@@ -80,7 +89,8 @@ For an isolated build, pass `--exe`, `--translations`, and
 listed files, stamps ZIP metadata as Neil Mitchell, and gives the shell launcher
 an executable Unix mode. It bundles no game payloads or Wine runtime.
 
-Release validation passed 62 Windows and 62 Wine regression groups, 50 Windows
-and 21 normal-user Wine interface states, 185 translation keys across ten
-languages, and 31 package, translation, and host tests.
-Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
+Release evidence is recorded in [1.4.0 release notes](RELEASE-1.4.0.md) and
+VALIDATION.json alongside the release downloads. Installer translations are
+bundled and work offline. Full translated-document refresh has a separate
+rate-limit follow-up; fluent human review remains the language-quality limit.
+Game release 3.0.9 compacts six Patch-Y editions without Patch-Y DBC edits. The optional map component adds documented upstream table overrides; see DBC-CHANGELOG.md. Nine game locales remain supported.

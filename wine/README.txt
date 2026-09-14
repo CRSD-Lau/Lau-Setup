@@ -1,7 +1,7 @@
-Lau Setup 1.3.0 shared Windows/Linux release
+Lau Setup 1.4.0 stable / Game 3.0.9 Lau
 Author / Creator / Last Modified By: Neil Mitchell
 
-Game data remains Lau 3.0.8. This package contains one LauSetup folder with
+Patch-Y remains Lau 3.0.9; optional maps add upstream map tables. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 
@@ -14,13 +14,27 @@ This ZIP is an upgrade, not the complete game.
 2. If you have not already done so, right-click LauSetup.zip, choose Extract
    All, and open the extracted LauSetup folder.
 3. Double-click LauSetup.exe. Its File Explorer type is Application.
-4. Click Choose folder… and select the game folder that directly contains
-   WoW.exe, not its Data folder or a launcher folder.
-5. Leave Enhanced Consecration on for the custom look, or turn it off for the
-   original look. New spell visuals is available only with compatible HD
-   models. Upgrade maps and minimap is optional and adds a download.
-6. Click Install upgrade and wait until it finishes. Start WoW and type
-   /pyversion; it should show 3.0.8 Lau.
+4. Click Browse... and select the game folder containing WoW.exe,
+   then click Next. Do not select Data or a launcher folder.
+5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
+   on your client. Optional extras start off. Enable Enhanced Consecration
+   for Lau's ground effect, New spell visuals for upgraded spells (HD only),
+   or Upgrade maps and minimap for Lau maps plus Trimitor dungeon, raid and
+   cave maps (cave expansion is upstream beta). WDM support addons are included.
+   Compatible WoW.exe + loading screens is one checkbox, off by default.
+   Maps do not require this checkbox. Existing complete map packs are kept.
+   Click Next.
+6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
+   extra. The review also lists WoW.exe, Patch-Q artwork, matching language
+   patches, download size and automatic backups. Back lets you make changes.
+7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
+   and type /pyversion to check 3.0.9 Lau. If your selection is already
+   installed, click Finish; no game-file changes are needed.
+
+Interface language stays at the top of every step. Choose your language if
+Automatic detects it incorrectly. Your manual choice is remembered; choose
+Automatic to follow your system again. This changes setup text, not the game.
+Next does not download or change game files. Install upgrade performs the update.
 
 Already installed means your selected files match this release; no game update
 is needed. To undo an installation, close WoW, reopen Lau Setup, choose the
@@ -49,13 +63,8 @@ setup text only, not your game's language or files.
 
    Replace the example path with your existing Wine prefix path.
 
-5. In Lau Setup, choose **Choose folder…** and select the game folder that
-   directly contains `WoW.exe`, not its `Data` folder. Select your options,
-   choose **Install upgrade**, and wait for completion. **Enhanced
-   Consecration** starts on; **New spell visuals** needs detected compatible HD
-   models; **Upgrade maps and minimap** is optional. If setup says **Already
-   installed**, the selected files already match this release and no game
-   update is needed.
+5. Follow the same Game folder → Your visuals → Review → Finished wizard
+   above. Use Next between steps; Install upgrade begins the update.
 6. Start WoW and type `/pyversion`. To undo an installation, close WoW, reopen
    setup with the same game folder, and choose **Restore previous install**.
 
@@ -97,10 +106,7 @@ Before Setup replaces or moves an existing game file, it preserves the
 original automatically. Keep LauSetupBackups; Restore previous install
 puts the originals back. Unrelated files stay in place.
 
-Most users do not need to rename patches. If you renamed an identical
-patch-y.mpq to patch-lau.mpq, Setup recognizes it, backs up patch-lau.mpq,
-and installs the selected patch-y.mpq. Restore returns the original name
-and file. Just click Install upgrade; no manual moving is needed.
+Setup leaves unrelated MPQs alone and does not parse them for conflicts. If you rename patch-y.mpq to patch-lau.mpq, that copy stays in place; manage renamed duplicates yourself. Setup backs up files it replaces. Empty Data\patch-v.mpq is the only additional automatic cleanup; nonempty V stays with a warning.
 
 Cannot safely check patch? Download the latest setup; 1.2.1 fixed the old
 large-table restriction. If it still stops, keep the archive and backups and
@@ -123,7 +129,7 @@ limit for translation quality.
 Interface language is separate from game locale. The nine unchanged supported
 game locales are enUS, deDE, frFR, esES, esMX, koKR, ruRU, zhCN and zhTW.
 
-Setup 1.3.0 passed all 66 Wine regression groups, including large MPQ tables,
+Historical Setup 1.3.0 passed all 76 Wine regression groups, including large MPQ tables,
 conflict detection and rollback. See VALIDATION.json on the release for the
 packaged interface checks.
 
@@ -135,6 +141,12 @@ checked. This is not certification for every Linux distribution, filesystem,
 display scale, Wine version, translation nuance, or game encounter.
 
 EXTRA UPGRADE FILES
-Click Install upgrade as usual. Setup backs up recognized extra upgrade
-files in LauSetupBackups and continues. Restore previous install returns
-them. You do not need to move or rename these files yourself.
+Setup leaves other patches alone without parsing them. Manage renamed
+duplicate patches yourself. Files Setup replaces are backed up.
+
+PATCH-V: Empty Data\patch-v.mpq is backed up. Nonempty V remains unchanged with a nonblocking warning; its contents are not parsed.
+
+YOUR CHOICE: Compatible WoW.exe + loading screens is one checkbox on Your visuals. It starts off. Review says Install or Keep existing for each. Patch-Y and its matching language patch remain included.
+
+Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.
+Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.

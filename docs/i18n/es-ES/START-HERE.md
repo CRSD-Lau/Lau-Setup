@@ -2,29 +2,13 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.3.0** — Un solo ZIP incluye ahora el instalador de Windows y el iniciador para Linux/Wine. La interfaz sigue automáticamente el idioma del sistema operativo entre diez opciones; la elección manual se guarda. La versión 3.0.8 y los archivos del juego no cambian. No hay cambios en DBC.
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **Versión actual: Setup 1.4.0 / juego 3.0.9 Lau.** Cierra WoW, extrae todo LauSetup.zip, abre LauSetup.exe en Windows y usa Browse... para elegir la carpeta que contiene WoW.exe. Siguiente → opciones visuales → Siguiente → revisar → instalar → finalizar. Todos los extras empiezan desactivados. WoW.exe y las pantallas de carga son una sola opción; los mapas son independientes e incluyen archivos WDM. Se conservan los mapas ya instalados. Los parches duplicados renombrados permanecen; solo un Patch-V vacío se guarda automáticamente. Los archivos reemplazados se guardan en LauSetupBackups. No hay cambios DBC en Patch-Y; los mapas opcionales añaden tablas originales documentadas. Los mapas de cuevas siguen en beta. Linux/Wine usa LauSetup.sh con los requisitos documentados. Google HTTP 429 impide actualizar la traducción completa. El texto anterior que aparece abajo es solo una referencia histórica; las instrucciones actuales están en la fuente inglesa.
 >
-> La actualización completa de las guías sigue pendiente por un HTTP 429 de Google. El texto anterior puede estar desactualizado; consulta la fuente inglesa actual y las notas 1.3.0. [English](../../../START-HERE.txt) · [1.3.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.3.0)
->
-> **Descarga actual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows y Linux/Wine. Extrae la carpeta `LauSetup/` con cinco archivos: en Windows abre `LauSetup.exe`; en Linux/Wine ejecuta `LauSetup.sh`. Las instrucciones antiguas de abajo sobre ZIP Wine o EXE separados no se aplican a 1.3.0.
->
-> **1.3.0:** Los archivos adicionales de mejora reconocidos se guardan en una copia de seguridad y la instalación continúa. Restaurar los devuelve. No hay que moverlos manualmente. Setup conserva automáticamente los archivos existentes antes de reemplazarlos o moverlos. Los archivos ajenos a la actualización no se modifican.
+> [English](../../../START-HERE.txt) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
-
-<!-- BEGINNER-120-STEPS -->
-## Primeros pasos
-
-1. Cierre WoW por completo.
-2. Descargue solo `LauSetup.zip`. En Windows: clic derecho, **Extraer todo**, abra `LauSetup` y haga doble clic en `LauSetup.exe`.
-3. Elija **Elegir carpeta…** y la carpeta que contiene directamente `WoW.exe`, no `Data` ni una carpeta de lanzador.
-4. **Idioma de la interfaz** solo cambia el texto de Setup: Automático sigue el sistema y guarda la elección; no cambia los nueve idiomas del juego.
-5. **Consagración mejorada** está activada por defecto. Los nuevos efectos requieren modelos HD compatibles detectados; mapas/minimapa son opcionales.
-6. Elija **Instalar actualización**, espere sin cerrar Setup, inicie WoW y escriba `/pyversion`. Para restaurar, cierre WoW, use la misma carpeta y elija **Restaurar instalación anterior**.
-
-### Linux/Wine
-
-Use el mismo ZIP solo con un prefijo Wine 64-bit existente, Wine 11.0, Wine Mono 10.4.1, Python 3.9+, fuentes documentadas y almacenamiento Linux local. Extraiga y ejecute `WINEPREFIX="/path/to/prefix" sh LauSetup.sh`; nunca ejecute el EXE directamente en Wine.
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > Traducción automática. [Fuente en inglés](../../../START-HERE.txt). Si la redacción difiere, la fuente en inglés tiene autoridad.

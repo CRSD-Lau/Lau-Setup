@@ -47,25 +47,25 @@ public static class MpqScan {
             Budget(watch,token);return found[0]||found.Skip(1).Count(value=>value)>=2;
         }
     }
+    // Only an empty Patch-V is retired. Nonempty files are never classified.
+    internal static bool IsRetiredPatch(string relative){return relative.Equals(@"Data\patch-v.mpq",StringComparison.OrdinalIgnoreCase);}
     public static void Check(string root,string locale,Catalog catalog,CancellationToken token){Find(root,locale,catalog,token);}
-    public static List<PatchConflict> Find(string root,string locale,Catalog catalog,CancellationToken token){
-        root=SafePaths.Root(root);var watch=Stopwatch.StartNew();int count=0;
+    public static List<PatchConflict> Find(string root,string locale,Catalog catalog,CancellationToken token,List<string> warnings=null){
+        root=SafePaths.Root(root);token.ThrowIfCancellationRequested();
         var conflicts=new List<PatchConflict>();
-        var expected=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        foreach(char c in "qmsy"){expected.Add(@"Data\patch-"+c+".mpq");expected.Add(@"Data\"+locale+@"\patch-"+locale+"-"+c+".mpq");}
-        foreach(string relativeDir in new[]{"Data",@"Data\"+locale}){
-            string dir=SafePaths.Under(root,relativeDir);SafePaths.Plain(dir);if(!Directory.Exists(dir))continue;
-            foreach(string path in Directory.EnumerateFiles(dir)){
-                Budget(watch,token);if(!Path.GetExtension(path).Equals(".mpq",StringComparison.OrdinalIgnoreCase))continue;
-                string relative=relativeDir+"\\"+Path.GetFileName(path);if(expected.Contains(relative))continue;
-                if(++count>2048)throw new IOException("Too many MPQ files to scan safely. No game files changed.");
-                try{
-                    SafePaths.Plain(path);
-                    var conflict=Identify(path,catalog,watch,token);
-                    if(conflict!=null){SafePaths.ExtraPatch(root,relative,locale);conflict.Relative=relative;conflicts.Add(conflict);}
-                }
-                catch(OperationCanceledException){throw;}
-                catch(Exception ex){if(!(ex is IOException)&&!(ex is InvalidDataException)&&!(ex is UnauthorizedAccessException))throw;throw new IOException("Cannot safely check patch: "+relative+". No game files changed. Check this archive before retrying. "+ex.Message,ex);}
+        // Do not inspect or classify unrelated MPQs. Keep the explicitly requested
+        // empty-V cleanup; nonempty V is preserved without parsing its contents.
+        string dir=SafePaths.Under(root,"Data");SafePaths.Plain(dir);
+        if(!Directory.Exists(dir))return conflicts;
+        foreach(string path in Directory.EnumerateFiles(dir)){
+            token.ThrowIfCancellationRequested();
+            if(!Path.GetFileName(path).Equals("patch-v.mpq",StringComparison.OrdinalIgnoreCase))continue;
+            string relative=@"Data\"+Path.GetFileName(path);
+            SafePaths.Plain(path);
+            if(new FileInfo(path).Length!=0){if(warnings!=null)warnings.Add(relative);continue;}
+            using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read)){
+                if(stream.Length!=0)throw new IOException("Game files changed while downloading. No install was applied.");
+                conflicts.Add(new PatchConflict{Relative=relative,Bytes=0,Sha256=TimedHash(stream,Stopwatch.StartNew(),token)});
             }
         }
         return conflicts;
@@ -83,9 +83,9 @@ public static class MpqScan {
             return new PatchConflict{Sha256=hash,Bytes=bytes};
         }
     }
-    internal static void VerifyOriginal(string path,string hash,long bytes,Catalog catalog){
+    internal static void VerifyOriginal(string path,string hash,long bytes,Catalog catalog,bool retired=false){
         if(!Hash.Matches(path,hash,bytes))throw new IOException("An original backup has changed: "+path);
-        if(!KnownHash(hash,bytes,catalog)&&!HasMarkers(path,Stopwatch.StartNew(),CancellationToken.None))throw new IOException("Invalid backup entry.");
+        if(!(retired&&bytes==0)&&!KnownHash(hash,bytes,catalog)&&!HasMarkers(path,Stopwatch.StartNew(),CancellationToken.None))throw new IOException("Invalid backup entry.");
     }
     public static void ValidatePlan(InstallPlan plan,Catalog catalog,CancellationToken token){
         var actual=Find(plan.Root,plan.Locale,catalog,token);var expected=plan.Operations.Where(o=>o.ExtraPatch).ToArray();

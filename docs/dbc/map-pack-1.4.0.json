@@ -1,0 +1,1060 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "map_version": "WDM 2.4.5 stable + caves 2.4.5 beta",
+  "addons_commit": "621d4de79f9b9a24586a9d7cdce0f57d8c78e395",
+  "maps": [
+    {
+      "locale": "deDE",
+      "source_sha256": [
+        "8bdeef5976956945be346471311c0251503bb61de573ed5d174195f125c7f4ac",
+        "b69ec314f5b4d605cd986ae944b2d77ecd852fbdc5863137c1804d99df822eaf"
+      ],
+      "archive_sha256": "bde0c9f2f6d42ae1f305803c3d015e806a9320bf8cf1d2cae106e40c42c177c6",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "71bb6e1bcd8893fb40a728a97d58a5af3e41e6e6f86c8488511e0ca1b1303d32",
+        "DBFilesClient\\WMOAreaTable.dbc": "3a8edf76f5f24084b83aced1deee93d92e14d7444e325b9ae86599622f328a11"
+      }
+    },
+    {
+      "locale": "enUS",
+      "source_sha256": [
+        "b69713077e19498d20efa5eeaefdba98850764db6bdc99e292bfbdf7b1c858d6",
+        "ebb6543ae32c392e1d52d6927d3a059517fb413ec6b152db4f0beaad9a0bbf29"
+      ],
+      "archive_sha256": "de4b833b1d1ca1e98272e1ca79e73d941836d282ab9d33daed43eceb8bb8b2d2",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "68eb32da6571e54e996ac7a31cf164473db908b54811e12a54e7ea1c82f9ef11",
+        "DBFilesClient\\WMOAreaTable.dbc": "f63d57badc62e21925dc53684753ccb683e6b6e50c51db9a4640fc56e0eac3ad"
+      }
+    },
+    {
+      "locale": "esES",
+      "source_sha256": [
+        "9cca82740b7f7a589fae1cf8fc2304e455b101a55f0d2bbd1d4f4e49a872a838",
+        "c7f726056afab5d61003bc54e44ab7d21d9b95fcfd43886f10a8a4d645a43ad5"
+      ],
+      "archive_sha256": "838a707a998ef6e5f787d962f53475afc292beaa8fb13bdb8050805be9d29c1f",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "350c67c0fd241dd0abc7078beb42096e8d8e321efcd0e6f39e70262d2e4252d8",
+        "DBFilesClient\\WMOAreaTable.dbc": "8b5d2bb50406ee3a0b57d37a7235dea441e4dab16820ba4035388bf4feeedea4"
+      }
+    },
+    {
+      "locale": "esMX",
+      "source_sha256": [
+        "b4dbf6d091213bb63e91de3a3fb180288662462e25bd92ea786be12eda5006a4",
+        "842fe01aa50e66838ad9713b39b834ef2ea69814df96aa2b2b6a5e8d0934b5ac"
+      ],
+      "archive_sha256": "3e175f7768e9fa897efa61e32cb07f300a36e55c38ad3706f390f63a0d48a384",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "5cb43c4e9e29b7055bcdcadc2bc6f65d8248e5153387f20ad50fbdd0eafef95a",
+        "DBFilesClient\\WMOAreaTable.dbc": "5f9b9beaa00bbb829d3de15db166e3af0e40f4da5ddb2780874b90325abb9dc1"
+      }
+    },
+    {
+      "locale": "frFR",
+      "source_sha256": [
+        "489dda04d852e3b7920594b6c4a36c37c2463d7ae6f8ef93df06b973018f3529",
+        "9153469de81c5a509d9639b675c4ac9ed8dc4474c98b4ab8ac076008dc9b487a"
+      ],
+      "archive_sha256": "9b7188b64a7dcd1122f612864f299c47a7c90960cb88614774d57c1acd0f7e3d",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "d9ad76e0f111aff021acbaf07587e6970f7ead55a4b7d2b148a7f573139c13e3",
+        "DBFilesClient\\WMOAreaTable.dbc": "1b8dc92254821fe23069608f45983f32da783c3ab62d817c79b0453ef7b60491"
+      }
+    },
+    {
+      "locale": "koKR",
+      "source_sha256": [
+        "7575b3e19fab2cb109fec9d1aa0c55e8db1bfce1f8ad534a25242a0b8778cfa9",
+        "4cc2e6536fe28a79aeb2e11bd8032a2b70dc2de8ada6b33ec762707aa84b80af"
+      ],
+      "archive_sha256": "8eda0394691c57bc97e5984c2556ff1618fd692335cb6677ea49241d62071c1f",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "ff601a38c85e9e070348586e47ce5502db635bdfb661d29e89585311065dd760",
+        "DBFilesClient\\WMOAreaTable.dbc": "67477e0d598b30b48b1e87d4e5289c5ab6727033f2c8b293855fe9e373e8342f"
+      }
+    },
+    {
+      "locale": "ruRU",
+      "source_sha256": [
+        "2f26e4020ff5333f3bd7a82eb5a7e68e7674e70ba85b5a1ffecb1e7ae88c6150",
+        "e53259e1508d7d632f882989837c9cebe052997b2c4c20d4be8f6ac9528d9c91"
+      ],
+      "archive_sha256": "e0064166c8dd48eb2839644812987b7b028418c94330f31b46a554f3f341f060",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "942273a695f65dcb6c7726faa31292730a38244799a26fd71fce5a28c3886ceb",
+        "DBFilesClient\\WMOAreaTable.dbc": "f45b33b073543fc69c7917ebaeb2d42f09d8e6b394571bacb91557c2c62d0cef"
+      }
+    },
+    {
+      "locale": "zhCN",
+      "source_sha256": [
+        "757cdcbbf2a392ff0d189651d11c24841bd640f1105fb51f95388868bc8bc9eb",
+        "7be4c5c4e24115f08255630e77fc9ea3f3efb3859bfd99bb1d842c5918f50926"
+      ],
+      "archive_sha256": "4b44f3d866384236bf373628d68f68df8262175db76907f7b78c11185eba8856",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "825162ebff554dd16124bf8064e53e13e2e2f8486984b27f5a3775dea037b2b9",
+        "DBFilesClient\\WMOAreaTable.dbc": "316bb5543716e44977505cd8d7972e5221ffb364a70587e00f06647c147bc9f8"
+      }
+    },
+    {
+      "locale": "zhTW",
+      "source_sha256": [
+        "e99943552664974418c135f4373df713f443994d614ebada34e38a71ea177836",
+        "defe9bd8d005f676ad24f823c452b396204567c6a9b3cfa21aaa360d362c62e4"
+      ],
+      "archive_sha256": "413c06fc92b0f40e0b53b2c538ed80819a5fbc16b31b74dad12e47e3920f531a",
+      "members": 2190,
+      "byte_identical_to_selected_upstream": true,
+      "collisions": [
+        {
+          "member": "DBFilesClient\\WorldMapArea.dbc",
+          "winner": "caves",
+          "stable_sha256": "36dec01aa4c7a791b8c4a35f4452b9183954a04a9e5d1b0d1d0b20b497769771",
+          "caves_sha256": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b"
+        }
+      ],
+      "no_loading_members": true,
+      "member_sha256": {
+        "DBFilesClient\\DungeonMap.dbc": "d85699343a192e6e68f1f42ce6d728faf1cf3aa49c5e79145fde70b7ff1dcc46",
+        "DBFilesClient\\DungeonMapChunk.dbc": "d85e4fa293ab575080e809ff7b7da63af96a994fd9d2b21f93e3f7a5be3f03af",
+        "DBFilesClient\\WorldMapArea.dbc": "178b3832815d2881a543fbf440901226dad95b1fac1d85a065df7a813cc4571b",
+        "DBFilesClient\\WorldMapTransforms.dbc": "08aed1600bd10652ff75b6a42f21677eaaeb8a91c25bda22be272dc04aaa751f",
+        "DBFilesClient\\AreaTable.dbc": "bfa65518b250bbc5a1cc655d81da0b4156a570ef16a5575f988621ece7dd463a",
+        "DBFilesClient\\WMOAreaTable.dbc": "95a52b5d0e5c9b99b8811bb21530fe5e1a74c379b45e80e5950cf9dc269678d5"
+      }
+    }
+  ],
+  "addons": [
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\!Astrolabe.toc",
+      "asset": "MapAddon-1f4def9ba56dcdea",
+      "sha256": "f07cc12bcc1d66da2bee002b114456f069a3aa25c27d093259002f5cccb8d2e8",
+      "bytes": 268,
+      "upstream_blob": "147d089083064a99acd0fc50a5f371670d31e3b2"
+    },
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\Astrolabe.lua",
+      "asset": "MapAddon-3b195ed0cd1d82f6",
+      "sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+      "bytes": 67365,
+      "upstream_blob": "d0269cd9325d7fb253d521e0c530db32d86a7133"
+    },
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\AstrolabeMapMonitor.lua",
+      "asset": "MapAddon-3bdca8627bd91243",
+      "sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+      "bytes": 8066,
+      "upstream_blob": "58b83cc7bcf52df7a5fa87e8a1d21afce4d5faa6"
+    },
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\DongleStub.lua",
+      "asset": "MapAddon-877fc6509c860dbb",
+      "sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+      "bytes": 4068,
+      "upstream_blob": "b5211a9015ab799ad4f3b5ba652a8ad4126cacba"
+    },
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\Load.xml",
+      "asset": "MapAddon-d91ee76164c60bc0",
+      "sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+      "bytes": 284,
+      "upstream_blob": "c63266f1a0ce7ae90d2995a3f6d13f16ae6f1259"
+    },
+    {
+      "path": "Interface\\AddOns\\!Astrolabe\\lgpl.txt",
+      "asset": "MapAddon-fe22dff8fa11a9ea",
+      "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+      "bytes": 26436,
+      "upstream_blob": "5ab7695ab8cabe0c5c8a814bb0ab1e8066578fbb"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\WDM.lua",
+      "asset": "MapAddon-b5c6b89978be7329",
+      "sha256": "2673f12124786892dd93cb7c9eb67cc812ba852d39d87fe34934ecdf5cfa89eb",
+      "bytes": 2508,
+      "upstream_blob": "5e098c2841603d5529f518436f253c899f70be6d"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\WDM.toc",
+      "asset": "MapAddon-42f1465ff70e6289",
+      "sha256": "1af49da2ed97ac3811f32794de65138a5cc9d22906e1f6a324d736968e36b7a4",
+      "bytes": 2444,
+      "upstream_blob": "f3d8f7ecb17bd2b6c48bf5aec09ba1ef7bdf3519"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\_data.lua",
+      "asset": "MapAddon-4dba1ca6f07639c2",
+      "sha256": "f5f9f52266df6d4e396b0f541fa5eddc99d529fc8d2a175e92bd3ba7265360c3",
+      "bytes": 31196,
+      "upstream_blob": "22572069ae6be01faa1a406ff1e44fa09239462c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\atlaspoi.lua",
+      "asset": "MapAddon-6861a6103b0d905c",
+      "sha256": "9ba64d9fe495f86e26369430556ed51180848b14577ef3e21de965722f59ed99",
+      "bytes": 9860,
+      "upstream_blob": "f5bbc03eb3c6eb1b0bac3f109bc8291a4a20244e"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs.xml",
+      "asset": "MapAddon-742344918c4555a7",
+      "sha256": "acc3a5e55d6be4a7895db8afbaaaea8c2036f04fbf9441efda86189950840cd0",
+      "bytes": 802,
+      "upstream_blob": "406b4ba28bdf5434e9ae1589773b13e5ee261fdf"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceAddon-3.0\\AceAddon-3.0.lua",
+      "asset": "MapAddon-39bf2968004633ca",
+      "sha256": "ac4ad38324cc6f55fa98a9e9af70417ceca7aae705f7d7e5fd4c3682300c8254",
+      "bytes": 24779,
+      "upstream_blob": "6c89654b3750b59cb30b3671ad2e98994ed4b792"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceAddon-3.0\\AceAddon-3.0.xml",
+      "asset": "MapAddon-fbc61938be5ccf05",
+      "sha256": "b9820071648e42f9167882ef2a08602644a301cefd5d7e57c82aa36ca1439259",
+      "bytes": 211,
+      "upstream_blob": "e6ad639f537bff85d4690611b9c5b37f644a35b8"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceBucket-3.0\\AceBucket-3.0.lua",
+      "asset": "MapAddon-67524acf41aceb2f",
+      "sha256": "19bc0201ee8d646ce816d1d672dc3eb8df119408b0ed8ddb10696e8bc4616a3d",
+      "bytes": 10446,
+      "upstream_blob": "d5e1065ceb6535100d14e51e84826d014259c122"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceBucket-3.0\\AceBucket-3.0.xml",
+      "asset": "MapAddon-bfc9c6c0a8cfde44",
+      "sha256": "e4e964436c8b56ef3a20e6c3c9bbb2d0f6b33246545755258c1190687a1e5a3d",
+      "bytes": 212,
+      "upstream_blob": "43c6beeaa51bc6429457b26ca0b2f7097d69d424"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceComm-3.0\\AceComm-3.0.lua",
+      "asset": "MapAddon-6302b13f8549031c",
+      "sha256": "5b1d45852501b8d661cbead20cc997d69149c19f6a5870e23d09d4eba07dcd2e",
+      "bytes": 11438,
+      "upstream_blob": "ad5268f57b5ad5e4ff52bf4803219a25464f1beb"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceComm-3.0\\AceComm-3.0.xml",
+      "asset": "MapAddon-95f8016396e780b4",
+      "sha256": "a250107c2aa6c1474c881146f774c3797aee38e5ee4c0762b09461d316ba75ee",
+      "bytes": 248,
+      "upstream_blob": "09e8d874fb30060f612a930e781350c169ce4561"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceComm-3.0\\ChatThrottleLib.lua",
+      "asset": "MapAddon-c0a55ad628866345",
+      "sha256": "b577b11c4c7b49c19b13f3603a5f2cf6bf4ba77ebfd3db4d3e9910b960ab6a61",
+      "bytes": 14434,
+      "upstream_blob": "b0afc92adbc5b146524919a69d97eb3e66a1fac4"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfig-3.0.lua",
+      "asset": "MapAddon-06a6fdbdf5acf3dd",
+      "sha256": "e393b49c61d06a12340d3e1f36fdc6df170bc5bd652d8c09b404aa61df06f04b",
+      "bytes": 2183,
+      "upstream_blob": "3bedf8cad59a84946a9d20ad14ab2144c8fdc4da"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfig-3.0.xml",
+      "asset": "MapAddon-371a26c477e69959",
+      "sha256": "72e34a78a8f8d0377d4e62cc33d8bacff42f4871d4f04f58ebc169b92c0ae347",
+      "bytes": 473,
+      "upstream_blob": "87972add47d83b8fc81b13ef5157730ddbdba4e3"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigCmd-3.0\\AceConfigCmd-3.0.lua",
+      "asset": "MapAddon-14259a5195c98139",
+      "sha256": "c38fd096b19305c3d1f83e95b6c583d5a6526e7a7c3fa206096cf0b855817021",
+      "bytes": 23282,
+      "upstream_blob": "e764a99c6b8bb4f31ecce4dddd5a3065e02869b6"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigCmd-3.0\\AceConfigCmd-3.0.xml",
+      "asset": "MapAddon-fa7a6e4170a0b7be",
+      "sha256": "db2f8281fbed72fe1ac5f65a4e063011f45aff4d4841b8dd2aad0d50a0813164",
+      "bytes": 215,
+      "upstream_blob": "188d354e3f8b7504956f654c935b2bf8100cb5a0"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigDialog-3.0\\AceConfigDialog-3.0.lua",
+      "asset": "MapAddon-ff6ff613c52e2043",
+      "sha256": "1c3ab2e2669ae630cd2823ab7980f654eb5c6ae050f11a32e1993e018d5cbf14",
+      "bytes": 54836,
+      "upstream_blob": "36b0356d10795f2c4ec615dedd2a93ed283edd6a"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigDialog-3.0\\AceConfigDialog-3.0.xml",
+      "asset": "MapAddon-a738395f2ca7dfe3",
+      "sha256": "c10388710651ef39d7c8e5920e9ef232b8bb9abcc3eb8fbf179ba9ac1c77e413",
+      "bytes": 218,
+      "upstream_blob": "86ce057977d92a599d51ca2f8e5490ccea3cee21"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigRegistry-3.0\\AceConfigRegistry-3.0.lua",
+      "asset": "MapAddon-714119995def63ed",
+      "sha256": "cf2da7103076faf842252100be64365bc149b1c6571129545d861e16a2ff7aec",
+      "bytes": 11810,
+      "upstream_blob": "d98c020429d942522661b3a0d10d39014b9ae072"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConfig-3.0\\AceConfigRegistry-3.0\\AceConfigRegistry-3.0.xml",
+      "asset": "MapAddon-4d2619d71c445e18",
+      "sha256": "9ef73f2e0598eb51564f53b71d66179768a950cce0d6602746070556e3a25fed",
+      "bytes": 220,
+      "upstream_blob": "101bfda13f8083e490e2e3cfbfed455446c63a9d"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConsole-3.0\\AceConsole-3.0.lua",
+      "asset": "MapAddon-7dc0ff1e51d12799",
+      "sha256": "5e5f3df1e23a43a632f232f375a5746062de6b4465e2d7281ade61a536b2fa83",
+      "bytes": 8339,
+      "upstream_blob": "c001123286ba12caf190212ab7f00a2648ba29aa"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceConsole-3.0\\AceConsole-3.0.xml",
+      "asset": "MapAddon-cdcd912a7ff2f0c1",
+      "sha256": "19b0494a1f16f9d7147cf0e0f601aa4e0fbaa61490037af0e8969fabcc2f185b",
+      "bytes": 213,
+      "upstream_blob": "be9f47cef721251cc6eae37b23e38490cba21d88"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceDB-3.0\\AceDB-3.0.lua",
+      "asset": "MapAddon-39b1252a19a664b0",
+      "sha256": "a166c49eaca36ed7b6eb54575f91059a79a3b488ef1197449019b82555ee2b64",
+      "bytes": 24116,
+      "upstream_blob": "7a29450f648fae6421569858cc85a68cc07e95c4"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceDB-3.0\\AceDB-3.0.xml",
+      "asset": "MapAddon-2b243d694d506ebd",
+      "sha256": "5b3873c68d76a76fb52bbb9232d4d63b13f99cda5b3f95c86205d8022786d184",
+      "bytes": 208,
+      "upstream_blob": "46b20ba9d0ce6fb0ad461fe92ecb7052d0ec9d7c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceDBOptions-3.0\\AceDBOptions-3.0.lua",
+      "asset": "MapAddon-1177c40d46e4f91b",
+      "sha256": "821f7cdae33b8560b48f70341db4f983c795566003e69116ad0e2df5ff5bc4bb",
+      "bytes": 18501,
+      "upstream_blob": "bc56106775e3bc0651345e806ce8015a8d413578"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceDBOptions-3.0\\AceDBOptions-3.0.xml",
+      "asset": "MapAddon-185ebbfd915ad4a3",
+      "sha256": "37caa69558e131e0f13fad3a8cc05c10c3927446e35cf251ff255349b1bcf060",
+      "bytes": 215,
+      "upstream_blob": "2668fb068b2a0038336f72834bf6888640c2b505"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceEvent-3.0\\AceEvent-3.0.lua",
+      "asset": "MapAddon-f06b8da647688321",
+      "sha256": "69a099d4b2cf303751f531cde6d4ee7ad0efa5c67c2c6d6c07fd8ae2aa6f8c29",
+      "bytes": 4698,
+      "upstream_blob": "e9b18b14269666629a1be63d862f162f410fb185"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceEvent-3.0\\AceEvent-3.0.xml",
+      "asset": "MapAddon-f0db6ac7e7a8ae5f",
+      "sha256": "9a9c0b14a8eda4509d45422cb1ac065ba9165879ef291816f1689bf6be3bcbc4",
+      "bytes": 211,
+      "upstream_blob": "313ef4dfdfc533447fde1ba4172abe99557bd791"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\AceGUI-3.0.lua",
+      "asset": "MapAddon-faf1b51f3e69afe5",
+      "sha256": "12609c88da79599408f8687a2bb30780f86e3c5ca455d418dbf799932ebe4f29",
+      "bytes": 23422,
+      "upstream_blob": "53295bbaacd6f958cde377a9d3b66f5a36c9e6b9"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\AceGUI-3.0.xml",
+      "asset": "MapAddon-f0f3e2fffd432a0a",
+      "sha256": "e54bd15393700719dbec2b1b433e570a3f364fa5e927f9227f63037eb16ad522",
+      "bytes": 1451,
+      "upstream_blob": "b515077a29f53e9389d64114bb953ec9797024bb"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-BlizOptionsGroup.lua",
+      "asset": "MapAddon-50638ea145e4fe06",
+      "sha256": "9ef06000191a3f5ddfc009c3f8fe651e27afc0e6569b27fbcbee4b210d54e0c2",
+      "bytes": 3491,
+      "upstream_blob": "7f92d828bf4d90198d2ad1de82353cfcfa654d95"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-DropDownGroup.lua",
+      "asset": "MapAddon-266d16627e0ad66e",
+      "sha256": "f12dcc4aa09a0aaf6231bdb0ab5869a9c18fa56a0066a967cb47959075d5641e",
+      "bytes": 4503,
+      "upstream_blob": "083a9f7c074191ac2cc62320fa918698a451ea6a"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-Frame.lua",
+      "asset": "MapAddon-828b6f29b492b934",
+      "sha256": "701efcf82849f998b27ba68591a9d0019813e5353c8ef517fcf26aacde84eeb5",
+      "bytes": 8824,
+      "upstream_blob": "b35797b4347b69636b07c6cc1111af76dee449b7"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-InlineGroup.lua",
+      "asset": "MapAddon-982ff009bd0da2c4",
+      "sha256": "8a39f0eee1e8a3a4544d06c21646ef4ad007e3b17af256d376f4fa250fc44b61",
+      "bytes": 2946,
+      "upstream_blob": "9413611c376cb0d2acd5e188d36d93f6ac9b6e58"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-ScrollFrame.lua",
+      "asset": "MapAddon-4b52f51bb0286a4a",
+      "sha256": "43442c44c925d4dbcd2cbb4d6def5d5e1910c173124e0f80358554c0733dcf94",
+      "bytes": 6489,
+      "upstream_blob": "10a4d58c7193642975b0613ce9a2c2b852ce8ac3"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-SimpleGroup.lua",
+      "asset": "MapAddon-ade9a66d05445bd8",
+      "sha256": "d65968489c0fa5749d2e35be69c60d0dd7969189aa14a9031f0654715625d214",
+      "bytes": 1890,
+      "upstream_blob": "57512c38fdf262ffa3868b7946c8c7f9a1bc2b4c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-TabGroup.lua",
+      "asset": "MapAddon-c9eb0f2b6d6834f3",
+      "sha256": "7af6116b8afcf93a222ddc4a7d897c32e2ee7e539901376dbb11c092bb123393",
+      "bytes": 10062,
+      "upstream_blob": "828769621497fb7dbb0cd69c7dd60dde32a391ba"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-TreeGroup.lua",
+      "asset": "MapAddon-eef28301eb3c0ffd",
+      "sha256": "35294593938f9d8e14a854ad3d9f255e4aec63d4423200c4350ba6790fbd239d",
+      "bytes": 18764,
+      "upstream_blob": "a5b7916b23da60abb5afa0bd68644d803a09bdcc"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIContainer-Window.lua",
+      "asset": "MapAddon-39126bc80fea3b22",
+      "sha256": "bd927384490922ac8c95f487cce34fa04d1a743c82fa23cdbaa67664504fb742",
+      "bytes": 9726,
+      "upstream_blob": "bb0a2a284c752afe1fa7aec88e1dec53fd6ccae2"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Button.lua",
+      "asset": "MapAddon-74c10dea4a45d10d",
+      "sha256": "41fc03de5c51b4c2ebb42db31945a8d6e15afcb13647ea06409994325a0e0c75",
+      "bytes": 2460,
+      "upstream_blob": "2f49a013ac80cfc6a08cf519ca113757ba85271c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-CheckBox.lua",
+      "asset": "MapAddon-a02a6e49091858f2",
+      "sha256": "f8d8fc6afd9e11f5e65b9e38821f18a4afd5fe735218cb1814d2d0e5a00b4231",
+      "bytes": 7799,
+      "upstream_blob": "34a25916377ae565e64516ed7973e4285d0bd026"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-ColorPicker.lua",
+      "asset": "MapAddon-40cfc663c4745446",
+      "sha256": "60aaa249f4efbc727c74a2e6afb0f464c7e263b6e859da8a11868727c2506aa7",
+      "bytes": 5327,
+      "upstream_blob": "ba026152e23d005ba746b36f6215e42aab153fb4"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-DropDown-Items.lua",
+      "asset": "MapAddon-59253da1bfcda925",
+      "sha256": "ff8f3303f0cf2a1cb20d5856467cd6163fd32efb1d2e3bebe1c7c1c26ae9407c",
+      "bytes": 10360,
+      "upstream_blob": "37baf044a3feaf719a8029bb0e572af9e9946673"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-DropDown.lua",
+      "asset": "MapAddon-9c844fed4aaf793a",
+      "sha256": "45550ea5d70e641051279cccbbac765247d798f487325c432e88d8afaba6124b",
+      "bytes": 17544,
+      "upstream_blob": "cbbba1a2e5111a45c872da1719dc39e32f31fdc6"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-EditBox.lua",
+      "asset": "MapAddon-252207b577872cc6",
+      "sha256": "418ff3e8a885c8fa4b6a4d49d7ef62ed16464742eb916efc57f430ac5cc9d518",
+      "bytes": 6564,
+      "upstream_blob": "34a2958e3e7069c223a40e43e90eb14960523e73"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Heading.lua",
+      "asset": "MapAddon-e41bb5b41c558a11",
+      "sha256": "4a75e4316320b15903682c058d77250636e6e19d7a2d6c43ef7d79e3c35446b1",
+      "bytes": 2216,
+      "upstream_blob": "1aaf3f50c6238940e5f5a4f8a471501f1c869dae"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Icon.lua",
+      "asset": "MapAddon-26ec5e39f20a3eae",
+      "sha256": "c3d823092993162a85cf6c1d6b3e33a26918225ae615d7bd06a51c7a039461ef",
+      "bytes": 3992,
+      "upstream_blob": "f25b586936851bd4339b461986da5fa192171e05"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-InteractiveLabel.lua",
+      "asset": "MapAddon-f84e6c1dad87cdce",
+      "sha256": "fa8407b129286d7ea6aacf3e5d44be4182b23500b4034029c4b94d68707cc16f",
+      "bytes": 2814,
+      "upstream_blob": "9e06049a7ff5156b4e0d4b9a337e17c7ad5bb92c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Keybinding.lua",
+      "asset": "MapAddon-f5bff87293b4eb1b",
+      "sha256": "9378b8b2bc1f101d0339657a8dcb8e6500dca0ea7c05a6b4e9bcbeb141c7a17d",
+      "bytes": 6285,
+      "upstream_blob": "f3043ff200f48e71a0d2152479551339062a5366"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Label.lua",
+      "asset": "MapAddon-d754171531d2112c",
+      "sha256": "c2c2f3a07fb9dea33e4433e80835754b19bc93a4c69b9cd1d0ebbb64396508cd",
+      "bytes": 4327,
+      "upstream_blob": "7f5f1c59513ed53bb39d261467b1a2bdcc4f088c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-MultiLineEditBox.lua",
+      "asset": "MapAddon-0543e55aa56099ed",
+      "sha256": "0e27cc3d4db1b550db8ee6a1f243ad57fb1eace9a16787e62b54c838727eb647",
+      "bytes": 9392,
+      "upstream_blob": "64d8dd71a763d0f1ff9301450f75ec09514dea34"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceGUI-3.0\\widgets\\AceGUIWidget-Slider.lua",
+      "asset": "MapAddon-5224b663664d1427",
+      "sha256": "8d1f78eb8d0326213527c3bfebab43ff02994f3701c5da7981371af239119f93",
+      "bytes": 7974,
+      "upstream_blob": "7f0bd5fb800d6da46cd04a593cd7ad6c5642f0df"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceHook-3.0\\AceHook-3.0.lua",
+      "asset": "MapAddon-7ddca69bd41d9fa9",
+      "sha256": "8715815ff33a773cd5b5f52f72dfe259e7c7e9ba3dccfc725093bbaa3b248064",
+      "bytes": 19112,
+      "upstream_blob": "096eb6f9cb691bf8ea4e2230aca0f5736237dc93"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceHook-3.0\\AceHook-3.0.xml",
+      "asset": "MapAddon-f5484fbd76ba642f",
+      "sha256": "85bcbb10046c613cd86cbd99b8e3cb645cbb05982480af7e3a667a101a56bc04",
+      "bytes": 210,
+      "upstream_blob": "add0f26b61a61363bf976d652355748909a7bd59"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceLocale-3.0\\AceLocale-3.0.lua",
+      "asset": "MapAddon-fec668051c28acf7",
+      "sha256": "5aa414f062ef86f2696b9d02ab52c1f40b36a556e1403ca55817c578f2a353fa",
+      "bytes": 5757,
+      "upstream_blob": "0f7c8fd6d646d0d8112639df3f99ae0e26047305"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceLocale-3.0\\AceLocale-3.0.xml",
+      "asset": "MapAddon-08f13e8dc57f5584",
+      "sha256": "ad70df709b297effd04410ddf242188fd3811793ae55814a482ac41f5895eaef",
+      "bytes": 212,
+      "upstream_blob": "e017af0cce55540da442429711e16b0659e7d838"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceSerializer-3.0\\AceSerializer-3.0.lua",
+      "asset": "MapAddon-7ac554955ace7a62",
+      "sha256": "47ca4214b4615e7dce7694e44fa02c5b50f598122b143b769ddf6dfdc111097b",
+      "bytes": 8786,
+      "upstream_blob": "b072a2b32f27b2ccb81336907ebfd18e7930ac47"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceSerializer-3.0\\AceSerializer-3.0.xml",
+      "asset": "MapAddon-0bf9b2027af5b934",
+      "sha256": "7d578832f12c3f4eb1311e1dbebb2156950202d61aa6c299f3fd05a6ab69d496",
+      "bytes": 216,
+      "upstream_blob": "94924af9155b573eeab8c7e190440d65a3841818"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceTab-3.0\\AceTab-3.0.lua",
+      "asset": "MapAddon-9b3ff61bd8fcfe56",
+      "sha256": "b8a55572bb7d31faf1ee6a0b55b533f9a1d4181bd7f94f309f61379e06da93a8",
+      "bytes": 19138,
+      "upstream_blob": "50891b5345fe4d9ee69414e92e837679a460792b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceTab-3.0\\AceTab-3.0.xml",
+      "asset": "MapAddon-3181e880119dddc9",
+      "sha256": "fb5e8bd48ca053c33f0e5e9cbe87d06ce447380923447adad69c1df7543966e5",
+      "bytes": 210,
+      "upstream_blob": "2e509043b2459fecd3d5818aca7e3dec9a5adace"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceTimer-3.0\\AceTimer-3.0.lua",
+      "asset": "MapAddon-d43c770d6a412a55",
+      "sha256": "4a47e33d920258db1b16f706f2c7327057a767c184ca64e4c0902e28339f2fca",
+      "bytes": 17508,
+      "upstream_blob": "fdb2cff861cd0f90db3a64056047553bff67b2f7"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\AceTimer-3.0\\AceTimer-3.0.xml",
+      "asset": "MapAddon-5d02d4e365923dee",
+      "sha256": "c6f5ceece38bd9705e0371443ee16568c547b49a71ac2008ad648c079d4f3446",
+      "bytes": 211,
+      "upstream_blob": "38e90216f8bfbf026c7f4a3cb96ecf78a3d51fcf"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\Astrolabe\\Astrolabe.lua",
+      "asset": "MapAddon-f5d590d72320b11b",
+      "sha256": "835b3453b80df255f016beb6a0e641665048b91b726ac1685cdc9448653c1015",
+      "bytes": 67365,
+      "upstream_blob": "d0269cd9325d7fb253d521e0c530db32d86a7133"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\Astrolabe\\AstrolabeMapMonitor.lua",
+      "asset": "MapAddon-57937e50123bce1d",
+      "sha256": "3e05da3a89b4db0a340eeed1d967894c3df88e8adfdc81cf34a928cb6d0bae02",
+      "bytes": 8066,
+      "upstream_blob": "58b83cc7bcf52df7a5fa87e8a1d21afce4d5faa6"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\Astrolabe\\DongleStub.lua",
+      "asset": "MapAddon-186c630d9736b80a",
+      "sha256": "7984133474098e3032507720a7eaafa5dd08966986e371c303f34ece349ba73c",
+      "bytes": 4068,
+      "upstream_blob": "b5211a9015ab799ad4f3b5ba652a8ad4126cacba"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\Astrolabe\\Load.xml",
+      "asset": "MapAddon-f0cc8e121214845d",
+      "sha256": "ae11e5cdbcded1d7f893bc0799f8c1a50308863d9cc09ccd8a499fab20324093",
+      "bytes": 284,
+      "upstream_blob": "c63266f1a0ce7ae90d2995a3f6d13f16ae6f1259"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\Astrolabe\\lgpl.txt",
+      "asset": "MapAddon-1f30d7fed8fb9bb9",
+      "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+      "bytes": 26436,
+      "upstream_blob": "5ab7695ab8cabe0c5c8a814bb0ab1e8066578fbb"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\CallbackHandler-1.0\\CallbackHandler-1.0.lua",
+      "asset": "MapAddon-7cce8777394de8d9",
+      "sha256": "82a1236018598853d579b56a73a7a056a71b96d97fc55171518d1ad3b1af6714",
+      "bytes": 9005,
+      "upstream_blob": "a1273017afc9b014a7da4c06847881c101cdb01b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\CallbackHandler-1.0\\CallbackHandler-1.0.xml",
+      "asset": "MapAddon-84fa9121aad246eb",
+      "sha256": "9310765c5310a395652e60a04f378e836785deb6f0b7181a448c74751d6f0185",
+      "bytes": 218,
+      "upstream_blob": "876df83ab65120f6f1d43f6a36d5523de434bfad"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\Changelog-LibBabble-SubZone-3.0-3.3-release6.txt",
+      "asset": "MapAddon-ee2727cd4f40d738",
+      "sha256": "1f3adb622dcf9bf45a9ea53a68810d260cfff83f9d764fd161b80c10803e83ee",
+      "bytes": 979,
+      "upstream_blob": "a791a218ce6072de30b7be9c462babb82a0d3abe"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\LibBabble-3.0.lua",
+      "asset": "MapAddon-359ceba6678b8edb",
+      "sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+      "bytes": 7941,
+      "upstream_blob": "fc4a0121522bbe6766cd97eb8a450478967d80db"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\LibBabble-SubZone-3.0.lua",
+      "asset": "MapAddon-c78c6fc9b89250f9",
+      "sha256": "52d06f9b5f90150859499fbc96f678b462429ab67dc7b4de7befbf0f6bb6c81b",
+      "bytes": 1089586,
+      "upstream_blob": "709c9f17d64f630b7c869d04b5c2c2e8e9d9ee16"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\LibBabble-SubZone-3.0.toc",
+      "asset": "MapAddon-785b6e57563884af",
+      "sha256": "e04ab9c1b53a88e241483346b7d927b2e87e69eba4a84b59e8414d4e61a9dd31",
+      "bytes": 533,
+      "upstream_blob": "b5ec8477f10bec87254312afb11ff375d3eecc97"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\LibStub\\LibStub.lua",
+      "asset": "MapAddon-39e7296bfa0833fb",
+      "sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "bytes": 1367,
+      "upstream_blob": "0a41ac04d56ccc96491989dc71d9875cd804fc6b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-SubZone-3.0\\lib.xml",
+      "asset": "MapAddon-57df2935c1f16364",
+      "sha256": "25c5821ad24ccc2463917c047d9c92cc1eaa7d94363d576064d395ac34e9cfe5",
+      "bytes": 259,
+      "upstream_blob": "13df2104be8c9661beecbf77f1cd8781ea1f147c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-Zone-3.0\\LibBabble-3.0.lua",
+      "asset": "MapAddon-81898ad2c4ca4ec4",
+      "sha256": "37591ede760a4c3d54756ea245e10fb7a60f3a099fc2043d95a3212b11b45926",
+      "bytes": 7941,
+      "upstream_blob": "fc4a0121522bbe6766cd97eb8a450478967d80db"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-Zone-3.0\\LibBabble-Zone-3.0.lua",
+      "asset": "MapAddon-bc16f70d6a0edb2d",
+      "sha256": "2bf95c4db35f3fa553be00dc0f7fc5254ec03f73a7714eb27e852df3b332f0b2",
+      "bytes": 95292,
+      "upstream_blob": "c54b15590602481c3b2ea76c3235aba1ef958101"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-Zone-3.0\\LibBabble-Zone-3.0.toc",
+      "asset": "MapAddon-b2b7188c099200b4",
+      "sha256": "7d2329855c59927ef815a9e41831035accb2cb9e255933bff2af8d8833e2d099",
+      "bytes": 636,
+      "upstream_blob": "b1dded8ad9ef82d1e17fb322622f8c795d945695"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-Zone-3.0\\LibStub\\LibStub.lua",
+      "asset": "MapAddon-6d958f4265141b6e",
+      "sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "bytes": 1367,
+      "upstream_blob": "0a41ac04d56ccc96491989dc71d9875cd804fc6b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibBabble-Zone-3.0\\lib.xml",
+      "asset": "MapAddon-b9f7eecd11e22891",
+      "sha256": "27824c47da2cc5de1747578f1357827c5a5736c37a8082a509ffabe9731b95c9",
+      "bytes": 255,
+      "upstream_blob": "a39f7a71411cd7e2bf9becb8e05fe3da54b07a4b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\libs\\LibStub\\LibStub.lua",
+      "asset": "MapAddon-04c5ea3b1dee645a",
+      "sha256": "a59b4c745c1fdb1b5ad22a86394814afecf8549516c18f6a16353960646b47f8",
+      "bytes": 1367,
+      "upstream_blob": "0a41ac04d56ccc96491989dc71d9875cd804fc6b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\dede.lua",
+      "asset": "MapAddon-fb154bd176641f0b",
+      "sha256": "25a9e52c0b07cf7ba64b01ce0bb63dfac010e02de1cec80eed6d8d78b1048746",
+      "bytes": 10917,
+      "upstream_blob": "0399297db8c1c28051bb8e25aeaceef4df8c7274"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\encn.lua",
+      "asset": "MapAddon-3cda0c6795195719",
+      "sha256": "f7c7a56be3cf543ed5beeb32561eaffe7a38b8695881f391b172f90baecff2f8",
+      "bytes": 9541,
+      "upstream_blob": "bd0006e306cdd39205f50dabea294735c6287290"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\engb.lua",
+      "asset": "MapAddon-48840da4f3006403",
+      "sha256": "aa4b89f53d9a63a205f23f8a019b27f013990ff6c37735de8a8c85cd1bdd69c5",
+      "bytes": 10695,
+      "upstream_blob": "c938b7df0347bb457ac87ec51c6c0500ad78bd3c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\enus.lua",
+      "asset": "MapAddon-aec363e61334aecd",
+      "sha256": "0bc1bc50a95f111933d19334d7901aadc65a4e5eabbc57d2aee75764dcfb9b29",
+      "bytes": 10714,
+      "upstream_blob": "45dc8b0acd7f707f4cde94a3a713298a1738162b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\eses.lua",
+      "asset": "MapAddon-ecb7a27e13f01549",
+      "sha256": "cf51aac141a6342e2b2fa65434bbcd7fbb2bc8fff0ec0fc7c6bb352e54a4b2c2",
+      "bytes": 10705,
+      "upstream_blob": "640747192decb8ec51aeabacc203a4b4acb7dfba"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\esmx.lua",
+      "asset": "MapAddon-100cd74209032d0e",
+      "sha256": "c167cac362aafaf24d51e11b5eab3bc1192e32dfdba921970b0cc07c95d0f171",
+      "bytes": 10705,
+      "upstream_blob": "c257e5c4a42c789edc741846579a24808e7dd9fb"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\frfr.lua",
+      "asset": "MapAddon-ea858e229af98fb2",
+      "sha256": "c6147dc8e2cdcb05f52aca0f5043c73769101eb18af34f85c22ae0010ffb74ac",
+      "bytes": 10633,
+      "upstream_blob": "982a1339775bac8e53a1fff917ea9d82b154a991"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\kokr.lua",
+      "asset": "MapAddon-2ae07f962dd568e3",
+      "sha256": "7ce9a4fa202d6d8093dc707963e6427e427c5b9af8529452d22a4a296e8746ee",
+      "bytes": 10888,
+      "upstream_blob": "ae8cb64555af7b159d594561ed5c15e4eed7fe45"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\ruru.lua",
+      "asset": "MapAddon-ee56309ee7bb5f16",
+      "sha256": "f55c8363d8082d6dc63b76525d91ae1ba55b9d73d4e423b18d8a16615ae21274",
+      "bytes": 15669,
+      "upstream_blob": "7dcf4a35daa95f5c79519490be77d8ac3da0c0be"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\zhcn.lua",
+      "asset": "MapAddon-518e185a5263663f",
+      "sha256": "0fcca418049284830116514e07ef33feeb5da6bc45c7635caa10c225530460a0",
+      "bytes": 9541,
+      "upstream_blob": "8d791980c7aead05ca4c0be7ee51530dbd1ee54d"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\addon\\zhtw.lua",
+      "asset": "MapAddon-90439368da69bceb",
+      "sha256": "092e6d658c6a6f1daae1fdb0821e5592de45db60cfedae861e2c99277c8ce29e",
+      "bytes": 9592,
+      "upstream_blob": "88dcdfcbee5a5bbf9aad00faf2d7721a6987d96b"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\dede.lua",
+      "asset": "MapAddon-ecaa20ef6f35db85",
+      "sha256": "d9dde1743c98d8b6e087db05615a3d9968e2b849b9698755fe24a901333ea9fa",
+      "bytes": 8618,
+      "upstream_blob": "15b51cd3c996664ff897947380d8a5e777f20e05"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\encn.lua",
+      "asset": "MapAddon-63395e667bf7ca5e",
+      "sha256": "99df5f400ae6af37d9c2d310821aba8cbc0bcb0e0a163a55d32ff44fcf808faa",
+      "bytes": 7849,
+      "upstream_blob": "32022bfc8667d506f3508dfca660620d8904153c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\engb.lua",
+      "asset": "MapAddon-4f7382f8c2d6e5f8",
+      "sha256": "76e9017c97587876b159889256bc91279c94c653c9fb4511fec4ac01003cdba7",
+      "bytes": 8237,
+      "upstream_blob": "a369191ea21f6ebf2b4bbbbdf818ac617e129a72"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\enus.lua",
+      "asset": "MapAddon-b5d5d31f53c816db",
+      "sha256": "e4b776abee037abb34622bfa1640a1514922bb194a56e9dccd4fd4c626eed1fb",
+      "bytes": 8237,
+      "upstream_blob": "ec9a9179c83d511e3813f069d692a610c3e55208"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\eses.lua",
+      "asset": "MapAddon-1b349b750fd1ec63",
+      "sha256": "ca77fd65c7ab07ae088c3fde77176f77185c39e6b683b492026c932e930666bb",
+      "bytes": 8760,
+      "upstream_blob": "b117d7ed3b28bc9e3c0c9207c9f08560981f729e"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\esmx.lua",
+      "asset": "MapAddon-f5894caef448dc00",
+      "sha256": "bd8d79627082ebef72d279c994b7ee665bca4da1daaa0d015d6497d194ec58b3",
+      "bytes": 8760,
+      "upstream_blob": "ad202bf3ad8c9450ad2ce3df52b39138521a3db2"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\frfr.lua",
+      "asset": "MapAddon-cb118d14f72ddc23",
+      "sha256": "d59e112c2bf3d1bb831969d6ddfda3d37e3251254f06e7bce4bc7e0f07928557",
+      "bytes": 8899,
+      "upstream_blob": "e17a835a25f27c9075d932eae5cf742d95fe69e5"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\kokr.lua",
+      "asset": "MapAddon-2809860e0ce14ac5",
+      "sha256": "99590fecf9c0192d5efc0f8a123b3fcee3ca78e67186842447004dfa49989c1a",
+      "bytes": 8442,
+      "upstream_blob": "3abe3a45f5264ac7b853e62649b4cb9d43e91f62"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\ruru.lua",
+      "asset": "MapAddon-63b6f2c0137e8c9c",
+      "sha256": "171c822712cb762f7258a3a472deb9f3219c7f0f276c1900f888a8a876219e49",
+      "bytes": 10523,
+      "upstream_blob": "b7fa7e88df5a430e900bc7d7afc4a9197944798c"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\zhcn.lua",
+      "asset": "MapAddon-01c84956fb90fe73",
+      "sha256": "6071fa4ec181f0c127a4392df145fc52847d7c80f14b39037ed4619d0bf34975",
+      "bytes": 7849,
+      "upstream_blob": "75963ee966751945eed0e026573e3e21f558458a"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\global\\zhtw.lua",
+      "asset": "MapAddon-c50f873349ad5d9c",
+      "sha256": "be4e06afd38ba68408fdf756f50ca7df8cff14e054d17a92c0d8336dc9b5b6a5",
+      "bytes": 7872,
+      "upstream_blob": "4529adfa95db186ec31b77198cec0980e5cbe5da"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\locales\\locales.xml",
+      "asset": "MapAddon-e03fe5c122fce847",
+      "sha256": "46504071e78f8f4aa44b5a20b966e9aa9482d74efe111265cd577a5fac16554d",
+      "bytes": 903,
+      "upstream_blob": "83cd824fb1ed32a9407b8ad45be148df48c5b981"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\microdungeons.lua",
+      "asset": "MapAddon-bdebb07d774ebfe4",
+      "sha256": "726007071e13357cdaaa058206567556e994a49673a57ad06e86d3c29fa73078",
+      "bytes": 11554,
+      "upstream_blob": "79e98dd5bd90f8f6c8e151235b3f00d5f3d507ab"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\minimap.lua",
+      "asset": "MapAddon-600d1ae4fd16a3bb",
+      "sha256": "dbc6c2c04bfc6c92e75dc9fd984782b9cde6fb1795c1d1d0fa16566b4efcce37",
+      "bytes": 1826,
+      "upstream_blob": "306f411a3263a43012dcbed96ad8a838f5344874"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\textures\\objecticonsatlas.blp",
+      "asset": "MapAddon-84a5167274b02d22",
+      "sha256": "da2f7a734527945cdcd999667cb3f392c5492bfa757e49fa4baea7448facb2d7",
+      "bytes": 4195476,
+      "upstream_blob": "b223573df0a0e40f16ef97daa60259e25a06b989"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\textures\\ui-minimap-worldmapsquare.blp",
+      "asset": "MapAddon-b1a8c9eba21b8b56",
+      "sha256": "e8e3376007fff3e743481412cd775593b2664cefa9a69ffec941614e81a50865",
+      "bytes": 3940,
+      "upstream_blob": "2115d26f5b6649f893aa3a10caef2d33df769f5e"
+    },
+    {
+      "path": "Interface\\AddOns\\WDM\\zonelevel.lua",
+      "asset": "MapAddon-4e0ebb717cbaafb8",
+      "sha256": "7614469fa87f0261a88644eb385d3321a48da01d59be802d96751b6636d07b04",
+      "bytes": 5041,
+      "upstream_blob": "05dae4b41cecbfd66cdb3428c39d7e84fac6a7ae"
+    }
+  ],
+  "runtime": "PENDING"
+}

@@ -1,53 +1,53 @@
 {
   "Author": "Neil Mitchell",
   "CHANGELOG.md": {
-    "output": "c7ba370383bf99e667e453ff9c9504f0c0fe05493bd1ff4bd784a409a34960cd",
+    "output": "5ea844bd83881fd14a77c071642f9b1d3babe1a343761de4a0e7bb80b6e6cd8c",
     "source": "febaece81bafc970ef7b3724db8ae374ebbc140f5a5f86276a6084503ad82b85"
   },
   "CONTRIBUTING.md": {
-    "output": "79c8c7c54e7d0a4d8c9fcea47ab9f5cb300c22afba080895ecc29cc77f00faee",
+    "output": "85e342bfb7688e4dad87f106b1ed3a3b32a48de6c4d7c21427aaf18cabc071fb",
     "source": "ce11985f605b67417478d001a7a5ff9960c22b2d13430f6f53db922c84654516"
   },
   "Creator": "Neil Mitchell",
   "DBC-CHANGELOG.md": {
-    "output": "f3c11d6580541932dfca3010e9599373b749ba4e7b87c709e01532954a3220b8",
+    "output": "ef1315ff38a90284f56be1b26cd06992d7309663b9e6d7d3df2724d57e47be3f",
     "source": "81bb8096f129007aff405b4b6e7193da3ef375d1b93d47033a5843aac00b2842"
   },
   "KNOWN-LIMITATIONS.md": {
-    "output": "b6fbb876e7b6ee0094238ff60211adf3fabcddfbacf4207e78e425f249da5899",
+    "output": "92c68151abe4d112b4db3f9898b6496131f472ad327905d2da398682a98fc025",
     "source": "c9db00e71af12b8bf291ff61d1bc66fb095fefac2b5ffc01bb851d7a9cdd2bc6"
   },
   "LastModifiedBy": "Neil Mitchell",
   "PLATFORM-FEASIBILITY.md": {
-    "output": "3f937e60dfc8058d8e332a84742b0c271bf671e1a2197e2ab02a57b1661cf9d7",
+    "output": "cc503f608353bba0be298af405f40f17c6048340f5532985c77d0e411219dfea",
     "source": "6bbc281b5f9c37ae068b21eb0b235aa30f1d81f52dde3b7e223c3a3e3a6e54d0"
   },
   "README.md": {
-    "output": "5ee8f37c11be100a3bc7dcbea82c8e7723d9b44f8d2bf3add75f1edc3b4cb3cd",
+    "output": "b7d0ae00e1c94f7bebdb8e156c55eb5b28a506fe58d2e0eae2c4aa48a0362b82",
     "source": "db3b88918257e65a89b18ffe853d551e523a171850065da522a5c20a88634ced"
   },
   "REVIEW.md": {
-    "output": "8fcaa166fcdcf8419d8a300697fa6629a714466cda45c023a1651170a36645a8",
+    "output": "993e4ab90beebbd8246046bccf385678613902c0c58ef85e98b0bd2a6b0cbfe7",
     "source": "d5fd79cd5cb728b1551c3a65b26472485313ef501d0dbbffafa58ca7834778b5"
   },
   "START-HERE.txt": {
-    "output": "9732f798dc8f0655145bf0860c7444325134784fca4cd03fbde49fcee2547c0a",
+    "output": "963c6c1a8ebb169e7bcbc2ea395a403c770361fb9cfc4f81ffca9baa841f6ea5",
     "source": "6e1bc2b12af03a18fb2dfb164c47579530bcf3d0074edaeb98e70be6544398b7"
   },
   "TRANSLATION.md": {
-    "output": "96ac0b5f11958c85fbedd6e62044541f66b5aec99304b41626c0bfc3a720553a",
+    "output": "41943c19d2cfa8ecb9446758688d8d0ef10d96effd81f54578cf085b6e9215c6",
     "source": "35630fab093b0ad73406d67161d07fa3a03b0e4a62b387038a103d413dfedb54"
   },
   "docs/TECHNICAL.md": {
-    "output": "493d8e82765ee0af04a979b2cad001062a539c95ad83f8a0677bced6cd5e6706",
+    "output": "14f590d1c14f850a65b89b21f7bacc7eec2f633562e013817d6579967876eaf4",
     "source": "d9c5dcfb68859974674ae45799147531403cdcf163c2a7ff83bd28d8042676d6"
   },
   "docs/dbc/history/INDIVIDUAL-EDITS.md": {
-    "output": "eb96b22c3bda48a1e3ef5f97bfcb595527ef62f2195c187a76defaee81542b0f",
+    "output": "338bb75d15e4b457a190cdd58f786a4bdb56cafcd993cec22ffa76e3e39a88fd",
     "source": "02821cbf31a7c6603a3737de33d5d0900334756ccc283e8f3c7e711f6f82dae9"
   },
   "wine/README.txt": {
-    "output": "9646cfa61f47dcdeb2f74b9d135f6c4ec523d62db4d91339a2cf113fd2c5e0b6",
+    "output": "1415c352ac904b569cf94a59d26ca6c3d1d95b1b5378bcfbfe2b971c2a51b9e4",
     "source": "78f63421dc63b7719b9b4e966ab2efd62481bcf96fc982ce29af901d982d36ad"
   }
 }

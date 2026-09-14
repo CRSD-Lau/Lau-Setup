@@ -3,7 +3,7 @@ param([string]$ClientExecutable,[switch]$CompileOnly)
 $ErrorActionPreference='Stop'
 $project=Split-Path -Parent $PSScriptRoot
 $compiler='C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe'
-$testArgs=@('/nologo','/target:exe','/main:Tests','/platform:anycpu','/optimize+','/warnaserror+','/warn:4',"/out:$project\build\Tests.exe",'/reference:System.dll','/reference:System.Core.dll','/reference:System.Web.Extensions.dll','/reference:System.Drawing.dll','/reference:System.Windows.Forms.dll',"$project\app\AssemblyInfo.cs","$project\app\Core.cs","$project\app\MpqScan.cs","$project\app\Downloader.cs","$project\app\Main.cs","$project\tests\Tests.cs")
+$testArgs=@('/nologo','/target:exe','/main:Tests','/platform:anycpu','/optimize+','/warnaserror+','/warn:4',"/out:$project\build\Tests.exe",'/reference:System.dll','/reference:System.Core.dll','/reference:System.Web.Extensions.dll','/reference:System.Drawing.dll','/reference:System.Windows.Forms.dll',"$project\app\AssemblyInfo.cs","$project\app\Core.cs","$project\app\MpqScan.cs","$project\app\MapAddons.cs","$project\app\Downloader.cs","$project\app\Main.cs","$project\tests\Tests.cs")
 $testArgs += @("$project\app\Localization.cs","$project\tests\LocalizationTests.cs","/resource:$project\app\translations.json,LauSetup.Translations.json")
 & $compiler @testArgs
 if($LASTEXITCODE-ne 0){throw 'Test build failed.'}
