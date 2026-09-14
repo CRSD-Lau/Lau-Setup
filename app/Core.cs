@@ -88,7 +88,7 @@ public sealed class Catalog {
             if(total!=a.Bytes) throw new InvalidDataException("Download sizes do not match.");
         }
         if(MapPackVersion!=null){
-            if(MapPackVersion!="WDM-2.4.5")throw new InvalidDataException("Invalid map pack version.");
+            if(MapPackVersion!="WDM-2.4.5")throw new InvalidDataException("Invalid release catalog.");
             foreach(string locale in Locales)Get("MapDetails-"+locale);
             foreach(string id in MapAddons.Paths.Values)Get(id);
         }

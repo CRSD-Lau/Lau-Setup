@@ -196,7 +196,7 @@ public sealed class SetupForm:Form {
         SetText(status,"Ready. A verified backup is created before any game files change.");
     }
     void UpdateClientDisplay(){
-        folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map Upgrade — already installed, kept":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=client.NewSpells;maps.Checked=client.MapsInstalled;refreshing=false;
+        folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map Upgrade — already installed, kept":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=false;maps.Checked=client.MapsInstalled;refreshing=false;
         SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language(client.Locale),client.Hd?Phrase("HD models detected"):Phrase("Original models detected"));
     }
     void UpdatePlanDisplay(){SetText(install,"Install upgrade");if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));}
