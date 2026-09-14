@@ -1,7 +1,7 @@
-Lau Setup 1.4.0 shared Windows/Linux release
+Lau Setup 1.4.0-test2 shared Windows/Linux test candidate
 Author / Creator / Last Modified By: Neil Mitchell
 
-Game data remains Lau 3.0.8. This package contains one LauSetup folder with
+Patch-Y remains Lau 3.0.8; optional maps add upstream map tables. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 
@@ -19,8 +19,11 @@ This ZIP is an upgrade, not the complete game.
 5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
    on your client. Optional extras start off. Enable Enhanced Consecration
    for Lau's ground effect, New spell visuals for upgraded spells (HD only),
-   or Upgrade maps and minimap for sharper maps and an extra download.
-   Already installed map upgrades are kept. Click Next.
+   or Upgrade maps and minimap for Lau maps plus Trimitor dungeon, raid and
+   cave maps (cave expansion is upstream beta). WDM support addons are included.
+   WoW.exe and Loading screens are separate checkboxes, also off by default.
+   Maps do not require either checkbox. Existing complete map packs are kept.
+   Click Next.
 6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
    extra. The review also lists WoW.exe, Patch-Q artwork, matching language
    patches, download size and automatic backups. Back lets you make changes.
