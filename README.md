@@ -135,6 +135,7 @@ Read [Known limitations and assumptions](KNOWN-LIMITATIONS.md) before suggesting
 
 ## For contributors
 
+- [Full MPQ edit breakdown and attribution](MPQ-EDIT-BREAKDOWN.md)
 - [Build, archive placement and recovery design](docs/TECHNICAL.md)
 - [Contribution and bug-report guidance](CONTRIBUTING.md)
 - [Implementation review](REVIEW.md)
@@ -152,7 +153,7 @@ Game payloads are distributed through GitHub Releases. This repository contains 
 
 ## DBC change tracking
 
-See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.8 also leave the DBC data unchanged.
+See the [full MPQ edit breakdown](MPQ-EDIT-BREAKDOWN.md) for Patch-Y models, textures, geometry, packaging, optional Q/S/M/T components, provenance and attribution. The [DBC changelog](DBC-CHANGELOG.md) provides individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.8 also leave the DBC data unchanged.
 
 Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.
 Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.
