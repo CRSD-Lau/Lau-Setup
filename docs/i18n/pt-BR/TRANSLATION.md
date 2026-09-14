@@ -2,17 +2,12 @@
 [English](../../../README.md) · [Deutsch](../de/README.md) · [Español (España)](../es-ES/README.md) · [Español (México)](../es-MX/README.md) · [Français](../fr/README.md) · [한국어](../ko/README.md) · [Русский](../ru/README.md) · [简体中文](../zh-CN/README.md) · [繁體中文](../zh-TW/README.md) · [Português (Brasil)](README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.4.0** — Um único ZIP agora contém o instalador do Windows e o iniciador para Linux/Wine. A interface segue automaticamente o idioma do sistema operacional entre dez opções; a escolha manual é salva. A versão 3.0.8 e os arquivos do jogo não mudam. Não há alterações de DBC.
->
-> A atualização completa dos guias continua pendente devido a um HTTP 429 do Google. O texto abaixo pode estar desatualizado; consulte a fonte atual em inglês e as notas da versão 1.4.0. [English](../../../TRANSLATION.md) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
->
-> **Download atual:** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) para Windows e Linux/Wine. Extraia a pasta `LauSetup/` com cinco arquivos: no Windows, abra `LauSetup.exe`; no Linux/Wine, execute `LauSetup.sh`. As instruções antigas abaixo sobre EXE ou ZIP Wine separados não se aplicam à versão 1.4.0.
->
-> **1.4.0:** Os arquivos extras de melhoria reconhecidos são salvos em backup e a instalação continua. A restauração os devolve. Não é preciso movê-los manualmente. O Setup preserva automaticamente os arquivos existentes antes de substituí-los ou movê-los. Os arquivos não relacionados permanecem intactos.
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
-
-> **1.4.0:** Escolher pasta do jogo → Avançar → escolher aparência → Avançar → revisar → Instalar atualização → Concluir. Patch-Y HD ou Patch-Y Non-HD fica fixo conforme o cliente detectado. Os extras começam desativados; os mapas já instalados são mantidos. A revisão mostra Patch-Y (versão do Lau) e extras escolhidos, WoW.exe, Patch-Q, arquivos de idioma, download e backups. Avançar não altera arquivos do jogo. Você pode escolher o idioma da interface em qualquer etapa; a escolha é salva e Automático volta ao idioma do sistema. Restaurar instalação anterior continua disponível.
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **Versão atual: Setup 1.4.0 / jogo 3.0.9 Lau.** Feche o WoW, extraia todo o LauSetup.zip, abra LauSetup.exe no Windows e use Browse... para escolher a pasta que contém WoW.exe. Avançar → opções visuais → Avançar → revisar → instalar → concluir. Todos os extras começam desativados. WoW.exe e telas de carregamento são uma opção conjunta; os mapas são independentes e incluem arquivos WDM. Mapas já instalados são mantidos. Patches duplicados renomeados permanecem; apenas um Patch-V vazio é salvo automaticamente. Arquivos substituídos são salvos em LauSetupBackups. Nenhum DBC do Patch-Y foi alterado; os mapas opcionais adicionam tabelas originais documentadas. Mapas de cavernas continuam em beta. Linux/Wine usa LauSetup.sh com os requisitos documentados. O erro Google HTTP 429 impede atualizar a tradução completa. O texto antigo abaixo é apenas referência histórica; consulte a fonte em inglês para as instruções atuais.
+>
+> [English](../../../TRANSLATION.md) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

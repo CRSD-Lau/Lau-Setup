@@ -1,3 +1,15 @@
+# Stable 1.4.0 final review
+
+Author: Neil Mitchell
+Creator: Neil Mitchell
+Last Modified By: Neil Mitchell
+
+The final wizard diff changes rendering/layout, text and translation bindings. It does not change the test5 installation engine, downloader or embedded 3.0.9 catalog. Folder placeholders remain separate from the actual selected path. Browse retains the normal folder dialog and validation. Language changes update placeholder/tooltips without changing client selection. Footer adapts at narrow widths; the native 100-preview matrix has no detected text/button clipping. Neil and Andre approved the Windows visual result.
+
+Final Windows regression: 73 groups passed, including 108 locale/edition/map install plans, recovery/interruption guards, options, language switching and upgrades/no-op/exact rollback for all six actual 3.0.8 editions. The first attempt used an excessively long test-output root and hit Windows MAX_PATH; the same suite passed from a short isolated fixture root. This is recorded as a fixture limitation, not hidden as a successful first run.
+
+Wine, source-package, public release and coordinated surface results are recorded in the stable VALIDATION.json. No personal client was modified. The previous review below is historical.
+
 # Wizard 1.4.0 review
 
 Author: Neil Mitchell
@@ -27,8 +39,8 @@ review is not an in-game acceptance result. Older review history follows.
 
 # Installer review
 
-Author: Neil Mitchell  
-Creator: Neil Mitchell  
+Author: Neil Mitchell
+Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
 ## Historical 1.2.0 validation evidence

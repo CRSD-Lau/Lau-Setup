@@ -2,17 +2,12 @@
 [English](../../../../../../README.md) · [Deutsch](../../../../de/README.md) · [Español (España)](../../../../es-ES/README.md) · [Español (México)](../../../../es-MX/README.md) · [Français](../../../README.md) · [한국어](../../../../ko/README.md) · [Русский](../../../../ru/README.md) · [简体中文](../../../../zh-CN/README.md) · [繁體中文](../../../../zh-TW/README.md) · [Português (Brasil)](../../../../pt-BR/README.md)
 <!-- LANGUAGES:END -->
 
-<!-- ZIP-ONLY-120-NOTICE -->
-> **Setup 1.4.0** — Une seule archive ZIP contient désormais l’installateur Windows et le lanceur Linux/Wine. L’interface suit automatiquement la langue du système d’exploitation parmi dix options ; un choix manuel est mémorisé. La version 3.0.8 et les fichiers du jeu restent inchangés. Aucune modification DBC.
->
-> La mise à jour complète des guides reste en attente à cause d’une erreur Google HTTP 429. Le texte ci-dessous peut être ancien ; consultez la source anglaise actuelle et les notes 1.4.0. [English](../../../../../dbc/history/INDIVIDUAL-EDITS.md) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
->
-> **Téléchargement actuel :** [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) pour Windows et Linux/Wine. Extrayez le dossier `LauSetup/` avec cinq fichiers : Windows ouvre `LauSetup.exe` ; Linux/Wine lance `LauSetup.sh`. Les anciennes instructions ci-dessous sur des ZIP Wine ou EXE séparés ne s’appliquent pas à 1.4.0.
->
-> **1.4.0:** Les fichiers de mise à niveau supplémentaires reconnus sont sauvegardés et l’installation continue. La restauration les remet en place. Aucun déplacement manuel nécessaire. Setup conserve automatiquement les fichiers existants avant de les remplacer ou de les déplacer. Les autres fichiers restent inchangés.
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
-
-> **1.4.0:** Choisir le dossier du jeu → Suivant → choisir l’apparence → Suivant → vérifier → Installer la mise à niveau → Terminer. Patch-Y HD ou Patch-Y Non-HD est fixé selon le client détecté. Les options supplémentaires commencent désactivées ; les cartes déjà installées sont conservées. La vérification affiche Patch-Y (version de Lau) et les options choisies, WoW.exe, Patch-Q, les fichiers de langue, le téléchargement et les sauvegardes. Suivant ne modifie aucun fichier du jeu. La langue de l’interface peut être choisie à chaque étape et est mémorisée ; Automatique suit à nouveau le système. La restauration reste disponible.
+<!-- STABLE-140-CURRENT-GUIDE -->
+> **Version actuelle : Setup 1.4.0 / jeu 3.0.9 Lau.** Fermez WoW, extrayez tout LauSetup.zip, ouvrez LauSetup.exe sous Windows et choisissez avec Browse... le dossier contenant WoW.exe. Suivant → visuels → Suivant → vérification → installation → terminé. Toutes les options supplémentaires sont désactivées au départ. WoW.exe et les écrans de chargement forment une seule option ; les cartes sont indépendantes et incluent les fichiers WDM. Les cartes déjà installées sont conservées. Les doublons renommés restent en place ; seul un Patch-V vide est sauvegardé automatiquement. Les fichiers remplacés sont sauvegardés dans LauSetupBackups. Aucun DBC de Patch-Y ne change ; les cartes optionnelles ajoutent des tables amont documentées. Les cartes de grottes restent en bêta. Linux/Wine utilise LauSetup.sh avec les prérequis documentés. La traduction complète reste bloquée par Google HTTP 429. Le texte ancien ci-dessous sert uniquement de référence historique ; consultez la source anglaise pour les instructions actuelles.
+>
+> [English](../../../../../dbc/history/INDIVIDUAL-EDITS.md) · [LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip) · [1.4.0](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/v1.4.0)
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 

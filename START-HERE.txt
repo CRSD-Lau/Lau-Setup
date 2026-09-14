@@ -1,4 +1,4 @@
-LAU SETUP 1.4.0 — TEST CANDIDATE, NOT YET RELEASED
+LAU SETUP 1.4.0 — STABLE RELEASE
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
@@ -26,7 +26,7 @@ Last Modified By: Neil Mitchell
 YOUR FILES
 Files Setup replaces are backed up in LauSetupBackups. Keep that folder.
 Restore previous install puts those originals back. Use Setup 1.4.0 or newer
-for backups made by this candidate with map-support addons.
+for backups made by this release with map-support addons.
 Other patches are not parsed or removed. If you renamed a patch, manage
 any duplicate yourself. Empty Patch-V is backed up; nonempty V stays with
 a warning. Personal settings and unrelated addons are not changed.

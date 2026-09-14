@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.4.0 test candidate (not stable) · Game release 3.0.9 Lau · Ten interface languages · Nine game locales**
+**Installer 1.4.0 stable · Game release 3.0.9 Lau · Ten interface languages · Nine game locales**
 
 ## Download and start here
 
@@ -32,7 +32,7 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 1. **Close WoW completely.**
 2. Download **LauSetup.zip**, right-click it, choose **Extract All**, and open the extracted `LauSetup` folder.
 3. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
-4. **Game folder:** select **Choose folder…**, choose the folder directly containing `WoW.exe`, then click **Next**.
+4. **Game folder:** select **Browse...**, choose the folder directly containing `WoW.exe`, then click **Next**.
 5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. **Compatible WoW.exe + loading screens** is one optional checkbox, off by default; leave it off to keep both unchanged. Click **Next**.
 6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen explicitly says **Install** or **Keep existing** for **WoW.exe** and **Patch-Q** artwork, and lists matching language patches, download size and automatic backups. Use **Back** to change choices.
 7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.9 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
@@ -53,7 +53,7 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 
 Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
 
-**Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. Recognized Lau upgrade copies are also backed up. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
+**Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
 
 
 - **Cannot find `LauSetup.exe`** — extract the ZIP first, then open the extracted `LauSetup` folder. Its File Explorer type is **Application**.

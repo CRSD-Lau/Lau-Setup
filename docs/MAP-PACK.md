@@ -37,7 +37,7 @@ original path for Restore. Use Setup 1.4.0 or newer for these backups.
 
 This optional component supplies DungeonMap, DungeonMapChunk, WorldMapArea,
 WorldMapTransforms, AreaTable and WMOAreaTable overrides. It copies upstream
-bytes without custom table edits. Patch-Y remains game version 3.0.8, but it
+bytes without custom table edits. Patch-Y reports game version 3.0.9, but it
 would be inaccurate to say this map addition introduces no DBC changes.
 
 Static checks do not establish client patch precedence. Player testing must

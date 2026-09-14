@@ -14,24 +14,15 @@ For the shared 1.2.0 release, build with `tools/build.ps1 -OutputDirectory dist/
 
 `build/catalog.json` names every asset and download segment by size and SHA-256, together with observed GitHub Release URLs. The catalog pins the repository, release tag and hash-named file. The installer downloads anonymously and checks every redirect before following it. No GitHub account, signed-in browser or API credential is required by the installer. In the full development checkout, `tools/refresh_github_catalog.py` associates uploaded assets without changing hashes, and `tools/verify-public.ps1` verifies every segment and reconstructed asset through the same downloader used by the app.
 
-## File placement
+## File placement and recovery in 1.4.0
 
-| Component | Destination |
-|---|---|
-| Compatible executable | `WoW.exe` |
-| Selected regional Q | Identical copies in root `Data/patch-q.mpq` and active locale `Data/<locale>/patch-<locale>-Q.MPQ` |
-| Selected edition Y | Identical copies in root `Data/patch-y.mpq` and active locale `Data/<locale>/patch-<locale>-Y.MPQ` |
-| New spell assets, when selected | Root `Data/patch-s.mpq` |
-| Matching localized spell tables, when selected | Active locale `Data/<locale>/patch-<locale>-S.MPQ` |
-| Optional maps/minimap | Root `Data/patch-m.mpq`; the superseded active-locale M is backed up |
+Patch-Y goes to the root Data folder and the active game locale. Optional new-spell assets and localized tables use the corresponding Patch-S paths. Turning new spell visuals off preserves the scoped S files as disabled copies.
 
-Core Q retains the release's LoadingScreens.dbc, localized Map.dbc and loading images byte for byte. It omits the added world-map definitions and world-map artwork. Full map mode uses the original regional Q and shared M without repacking them. The two S placements contain different archives. Turning new spells off preserves the scoped root/locale S pair as .mpq.disabled; re-enabling moves the plain disabled copies into verified transaction backups, as described in the Setup 1.1.7 section below. HD detection requires the matching existing root and locale F patches.
+Compatible WoW.exe and loading screens are one optional choice. Off keeps the current executable and Patch-Q. On backs up and replaces WoW.exe plus matching root/locale loading Q archives. Maps are independent: Patch-M supplies world/minimap textures, the active locale's Patch-T supplies upstream map data, and an exact WDM/!Astrolabe allowlist supplies addon support. Existing localized M/N archives, unlisted addon files and SavedVariables remain in place.
 
-## Recovery design
+One client lock covers downloading, staging and installation. Downloads, staged files and installed destinations are hash-verified. Existing files and recovery journals are retained under LauSetupBackups/transactions. Addon backup storage uses short names; journals retain original paths. A failed commit restores originals when safe. Interrupted installs/restores remain recoverable, including a missing WoW.exe.
 
-One client lock covers downloading, staging and installation. Files are verified before staging and again after placement. Existing files move into `LauSetupBackups/transactions/<id>/before/`, preserving their bytes and timestamps; the journal is written durably before commit. A failed commit restores originals when safe. Interrupted commits and interrupted restores remain discoverable when the app is reopened, even without WoW.exe.
-
-Restore refuses files changed by another update and keeps the backup for manual resolution. Managed replacements are restricted to exact root/active-locale Q/M/S/Y paths and WoW.exe. Setup 1.3.0 additionally journals backup-only moves for recognized extra MPQs directly in Data or the active locale; stock paths and unrelated content remain protected. Traversal, alternate streams and reparse points are rejected; writable resumed files must have one hardlink. Journal and assembly temporaries use unique names and exclusive creation. The application never enumerates an archive into the client filesystem.
+Restore refuses files changed after installation. Managed paths are exact allowlisted root/locale Q/M/S/T/Y paths, WoW.exe and selected map-support addon files. Arbitrary and renamed duplicate patches are not scanned or removed. An empty Patch-V is the backup-only exception; a nonempty V stays with a warning. Traversal, alternate streams, linked paths and hardlink hazards retain their safety checks. Setup never extracts arbitrary archive entries into the client filesystem.
 
 ## Release boundaries
 

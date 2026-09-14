@@ -16,12 +16,22 @@ namespace LauSetup {
 public class RoundedPanel:Panel {
     public Color BorderColor=Color.FromArgb(48,70,87);
     public RoundedPanel(){DoubleBuffered=true;}
+    protected override void OnPaintBackground(PaintEventArgs e){e.Graphics.Clear(Parent==null?BackColor:Parent.BackColor);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;using(var path=Shape(new Rectangle(0,0,Width-1,Height-1),10))using(var fill=new SolidBrush(BackColor))e.Graphics.FillPath(fill,path);}
     protected override void OnPaint(PaintEventArgs e){base.OnPaint(e);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;using(var path=Shape(new Rectangle(0,0,Width-1,Height-1),10))using(var pen=new Pen(BorderColor))e.Graphics.DrawPath(pen,path);}
     internal static GraphicsPath Shape(Rectangle r,int radius){var p=new GraphicsPath();int d=radius*2;p.AddArc(r.Left,r.Top,d,d,180,90);p.AddArc(r.Right-d,r.Top,d,d,270,90);p.AddArc(r.Right-d,r.Bottom-d,d,d,0,90);p.AddArc(r.Left,r.Bottom-d,d,d,90,90);p.CloseFigure();return p;}
 }
 public sealed class WizardStep:Label {
     public int Number,Current;
-    protected override void OnPaint(PaintEventArgs e){e.Graphics.Clear(BackColor);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;int y=(Height-32)/2;var color=Number==Current?Color.FromArgb(223,181,104):Number<Current?Color.FromArgb(97,148,132):Color.FromArgb(36,55,70);using(var b=new SolidBrush(color))e.Graphics.FillEllipse(b,0,y,32,32);TextRenderer.DrawText(e.Graphics,Number.ToString(),Font,new Rectangle(0,y,32,32),Number<=Current?BackColor:ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter);TextRenderer.DrawText(e.Graphics,Text,Font,new Rectangle(42,0,Width-46,Height),ForeColor,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);}
+    protected override void OnPaint(PaintEventArgs e){
+        e.Graphics.Clear(BackColor);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;
+        int diameter=32,y=(Height-diameter)/2;
+        var color=Number==Current?Color.FromArgb(223,181,104):Number<Current?Color.FromArgb(97,148,132):Color.FromArgb(36,55,70);
+        using(var b=new SolidBrush(color))e.Graphics.FillEllipse(b,0,y,diameter,diameter);
+        using(var bold=new Font(Font,FontStyle.Bold))TextRenderer.DrawText(e.Graphics,Number.ToString(),bold,new Rectangle(0,y,diameter,diameter),Number<=Current?BackColor:ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.NoPadding|TextFormatFlags.SingleLine);
+        int rule=Number<4?Math.Min(60,Width/5):0;
+        using(var face=new Font(Font,Number==Current?FontStyle.Bold:FontStyle.Regular))TextRenderer.DrawText(e.Graphics,Text,face,new Rectangle(42,0,Math.Max(1,Width-50-rule),Height),ForeColor,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
+        if(rule>0)using(var pen=new Pen(Color.FromArgb(48,70,87),2))e.Graphics.DrawLine(pen,Width-rule,Height/2,Width-8,Height/2);
+    }
 }
 public sealed class ReadableButton:Button {
     protected override void OnPaint(PaintEventArgs e) {
@@ -66,6 +76,8 @@ public sealed class SetupForm:Form {
         throw new InvalidOperationException("No supported interface font was found. Install Liberation Sans fonts in your Wine environment, then reopen Lau Setup.");
     }
     readonly Catalog catalog;
+    readonly ToolTip folderTip=new ToolTip();
+    Label folderPlaceholder;
     readonly Color ink=Color.FromArgb(237,243,247),muted=Color.FromArgb(169,189,204),surface=Color.FromArgb(20,35,50),gold=Color.FromArgb(223,181,104);
     TextBox folder;Label detected,download,status,baseDescription;CheckBox cons,spells,maps,basePatch,executable;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
     FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded,reviewWarning;Button back,next;int step;bool navigationBlocked,previewing;
@@ -85,24 +97,24 @@ public sealed class SetupForm:Form {
         foreach(Control child in control.Controls)RefreshUiFont(child,family);
     }
     internal void ChangeLanguage(string choice,bool persist){
-        Ui.Select(choice,persist);SuspendLayout();RefreshUiFont(this,UiFont);TranslateControls(this);UpdateReview();language.Refresh();folder.AccessibleName=Ui.T("Game folder");ResumeLayout(true);
+        Ui.Select(choice,persist);SuspendLayout();RefreshUiFont(this,UiFont);TranslateControls(this);UpdateReview();language.Refresh();folder.AccessibleName=Ui.T("Game folder");folderTip.SetToolTip(folder,Ui.T("Choose the folder containing WoW.exe. Do not choose the Data folder."));folderTip.SetToolTip(folderPlaceholder,Ui.T("Choose the folder containing WoW.exe. Do not choose the Data folder."));ResumeLayout(true);
         if(!String.IsNullOrEmpty(Ui.LastPreferenceError))SetText(status,"This language is active for this session, but the preference could not be saved.");
     }
     public SetupForm(Catalog catalog) {
-        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(11,20,32);MinimumSize=new Size(900,650);ClientSize=new Size(Math.Min(1100,Screen.PrimaryScreen.WorkingArea.Width-40),Math.Min(880,Screen.PrimaryScreen.WorkingArea.Height-80));StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
+        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(11,20,32);MinimumSize=new Size(900,650);ClientSize=new Size(Math.Min(1100,Screen.PrimaryScreen.WorkingArea.Width-40),Math.Min(790,Screen.PrimaryScreen.WorkingArea.Height-80));StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
         using(var icon=typeof(SetupForm).Assembly.GetManifestResourceStream("LauSetup.Icon.ico"))if(icon!=null)Icon=new Icon(icon);
         var grid=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(48,22,48,14),ColumnCount=1,RowCount=9};Controls.Add(grid);grid.Paint+=(sender,e)=>{using(var brush=new SolidBrush(gold))e.Graphics.FillRectangle(brush,0,0,grid.Width,5);};
-        foreach(int h in new[]{48,32,12,62,1,44,20,68,26})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
+        foreach(int h in new[]{48,32,12,62,1,44,20,80,0})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
         var header=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2};header.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,60));header.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,40));header.Controls.Add(Label("LAU SETUP",20,FontStyle.Bold,ink),0,0);grid.Controls.Add(header,0,0);grid.SetRowSpan(header,2);
-        header.RowCount=2;header.RowStyles.Add(new RowStyle(SizeType.Percent,65));header.RowStyles.Add(new RowStyle(SizeType.Percent,35));header.Controls.Add(Label("Your client. Your language. One simple install.",11,FontStyle.Regular,muted),0,1);
+        header.RowCount=2;header.RowStyles.Add(new RowStyle(SizeType.Percent,65));header.RowStyles.Add(new RowStyle(SizeType.Percent,35));header.Controls.Add(Label("Your existing game. Your choice of visuals.",11,FontStyle.Regular,muted),0,1);
         var languageRow=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,Margin=new Padding(0,0,0,8)};
         languageRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));languageRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));
-        var languageLabel=Label("Interface language",10,FontStyle.Regular,muted);languageLabel.AutoSize=true;languageLabel.Margin=new Padding(0,0,16,0);languageRow.Controls.Add(languageLabel);
-        language=new ComboBox{Name="interfaceLanguage",DropDownStyle=ComboBoxStyle.DropDownList,Dock=DockStyle.Fill,BackColor=surface,ForeColor=ink,DisplayMember="Name",ValueMember="Code",AccessibleName=Ui.T("Interface language")};
+        var languageLabel=Label("Interface language",10,FontStyle.Regular,muted);languageLabel.AutoSize=true;languageLabel.Dock=DockStyle.None;languageLabel.Anchor=AnchorStyles.Left;languageLabel.Margin=new Padding(0,0,16,0);languageRow.Controls.Add(languageLabel);
+        language=new ComboBox{Name="interfaceLanguage",DropDownStyle=ComboBoxStyle.DropDownList,Anchor=AnchorStyles.Left|AnchorStyles.Right,BackColor=surface,ForeColor=ink,DisplayMember="Name",ValueMember="Code",AccessibleName=Ui.T("Interface language")};
         foreach(var option in Ui.Languages)language.Items.Add(option);
         language.SelectedIndex=Array.FindIndex(Ui.Languages,x=>x.Code==Ui.Choice);if(language.SelectedIndex<0)language.SelectedIndex=0;
         language.SelectedIndexChanged+=(s,e)=>{if(language.SelectedItem!=null){ChangeLanguage(((LanguageOption)language.SelectedItem).Code,true);language.AccessibleName=Ui.T("Interface language");}};
-        languageRow.Controls.Add(language);header.Controls.Add(languageRow,1,0);header.SetRowSpan(languageRow,2);languageRow.Padding=new Padding(0,15,0,0);
+        languageRow.Controls.Add(language);header.Controls.Add(languageRow,1,0);header.SetRowSpan(languageRow,2);languageRow.Padding=new Padding(0);languageRow.RowStyles.Add(new RowStyle(SizeType.Percent,100));
         var steps=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=4,Margin=new Padding(0,0,0,8)};
         stepLabels=new Label[4];var stepNames=new[]{"Game folder","Your visuals","Review","Finished"};for(int n=0;n<4;n++){stepLabels[n]=new WizardStep{Number=n+1,Dock=DockStyle.Fill,Font=new Font(UiFont,11),BackColor=BackColor,ForeColor=muted};SetText(stepLabels[n],stepNames[n]);}
         foreach(var label in stepLabels){steps.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,25));label.Padding=new Padding(9,0,2,0);steps.Controls.Add(label);}grid.Controls.Add(steps,0,3);
@@ -112,13 +124,22 @@ public sealed class SetupForm:Form {
             var page=new FlowLayoutPanel{Dock=DockStyle.Fill,AutoScroll=true,FlowDirection=FlowDirection.TopDown,WrapContents=false,Margin=new Padding(0)};
             page.Resize+=(s,e)=>{foreach(Control c in page.Controls)c.Width=Math.Max(200,page.ClientSize.Width-SystemInformation.VerticalScrollBarWidth-6);};pages[i]=page;host.Controls.Add(page);
         }
-        AddPage(0,Label("Choose your existing WoW 3.3.5a folder",23,FontStyle.Bold,ink),70);
-        AddPage(0,Label("Select your World of Warcraft folder (the folder containing WoW.exe).",11,FontStyle.Regular,muted),60);
-        var row=new TableLayoutPanel{ColumnCount=2,Margin=new Padding(0,12,0,4)};row.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));row.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
-        folder=new TextBox{ReadOnly=true,Dock=DockStyle.Fill,BackColor=surface,ForeColor=ink,BorderStyle=BorderStyle.FixedSingle,Margin=new Padding(0,8,12,3),AccessibleName=Ui.T("Game folder")};row.Controls.Add(folder);
-        browse=Button("Choose folder…",false);browse.Dock=DockStyle.Fill;browse.Click+=Choose;row.Controls.Add(browse);var folderCard=new RoundedPanel{BackColor=surface,Padding=new Padding(24,24,24,24)};row.Dock=DockStyle.Fill;folderCard.Controls.Add(row);AddPage(0,folderCard,136);
-        detected=Label("Language and model setup will be detected automatically.",11,FontStyle.Regular,muted);AddPage(0,detected,70);
-        AddPage(0,Label("Files Setup replaces are backed up. Other patches and personal settings stay untouched. Manage renamed duplicate patches yourself.",11,FontStyle.Regular,muted),65);
+        AddPage(0,Label("First, choose your World of Warcraft folder.",23,FontStyle.Bold,ink),60);
+        AddPage(0,Label("Setup will check your game and choose the right files for it.",14,FontStyle.Regular,muted),48);
+        var row=new TableLayoutPanel{ColumnCount=2,Dock=DockStyle.Fill,Margin=new Padding(0),BackColor=surface};row.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute,216));row.RowCount=1;row.RowStyles.Add(new RowStyle(SizeType.Percent,100));
+        var field=new RoundedPanel{Dock=DockStyle.Fill,BackColor=BackColor,Margin=new Padding(0,0,18,0),Padding=new Padding(18,1,18,1)};
+        folder=new TextBox{ReadOnly=true,BackColor=BackColor,ForeColor=ink,BorderStyle=BorderStyle.None,Font=new Font(UiFont,14),AccessibleName=Ui.T("Game folder")};
+        var placeholder=folderPlaceholder=Label("Choose your game folder to get started",14,FontStyle.Regular,muted);placeholder.Dock=DockStyle.Fill;placeholder.Margin=new Padding(0);field.Controls.Add(folder);field.Controls.Add(placeholder);
+        field.Resize+=(sender,e)=>{folder.SetBounds(18,(field.Height-folder.PreferredHeight)/2,Math.Max(1,field.Width-36),folder.PreferredHeight);};
+        folder.TextChanged+=(sender,e)=>{placeholder.Visible=String.IsNullOrEmpty(folder.Text);folder.Visible=!placeholder.Visible;};folder.Visible=false;
+        folderTip.SetToolTip(placeholder,Ui.T("Choose the folder containing WoW.exe. Do not choose the Data folder."));folderTip.SetToolTip(folder,Ui.T("Choose the folder containing WoW.exe. Do not choose the Data folder."));
+        row.Controls.Add(field,0,0);
+        browse=Button("Browse...",false);browse.AutoSize=false;browse.Dock=DockStyle.Fill;browse.Margin=new Padding(0);browse.Font=new Font(UiFont,14,FontStyle.Bold);browse.BackColor=Color.FromArgb(36,55,70);browse.Click+=Choose;row.Controls.Add(browse,1,0);
+        var folderCard=new RoundedPanel{BackColor=surface,Padding=new Padding(24,20,24,28)};
+        var picker=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=1,RowCount=2,Margin=new Padding(0)};picker.RowStyles.Add(new RowStyle(SizeType.Absolute,42));picker.RowStyles.Add(new RowStyle(SizeType.Percent,100));picker.Controls.Add(Label("Where is your game installed?",15,FontStyle.Bold,ink),0,0);picker.Controls.Add(row,0,1);folderCard.Controls.Add(picker);AddPage(0,folderCard,166);
+        var help=Label("Not sure which folder?",16,FontStyle.Bold,ink);help.Padding=new Padding(0,22,0,0);AddPage(0,help,64);
+        AddPage(0,Label("Choose the folder containing WoW.exe. Do not choose the Data folder.\nClose World of Warcraft before continuing.",14,FontStyle.Regular,muted),64);
+        detected=Label("",11,FontStyle.Regular,muted);detected.TextChanged+=(sender,e)=>detected.Visible=!String.IsNullOrEmpty(detected.Text);AddPage(0,detected,44);detected.Visible=false;
         AddPage(1,Label("Choose the look you want.",23,FontStyle.Bold,ink),60);
         basePatch=Check("Patch-Y Non-HD",true);basePatch.Enabled=false;baseDescription=Label("Selected for your detected client. A full HD model pack is not included.",10,FontStyle.Regular,muted);AddOption(basePatch,baseDescription);
         executable=Check("Compatible WoW.exe + loading screens",false);AddOption(executable,Label("Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.",10,FontStyle.Regular,muted));
@@ -145,9 +166,10 @@ public sealed class SetupForm:Form {
         next=Button("Next",true);next.Click+=(s,e)=>Advance();actions.Controls.Add(next);
         install=Button("Install upgrade",true);install.Enabled=false;install.Click+=Install;actions.Controls.Add(install);
         cancel=Button("Cancel",false);cancel.Visible=false;cancel.Click+=(s,e)=>{if(cancellation!=null)cancellation.Cancel();};actions.Controls.Add(cancel);
-        restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);actions.FlowDirection=FlowDirection.RightToLeft;actions.Controls.SetChildIndex(next,0);actions.Controls.SetChildIndex(install,1);actions.Controls.SetChildIndex(back,2);actions.Controls.SetChildIndex(cancel,3);actions.Controls.SetChildIndex(restore,4);grid.Controls.Add(actions,0,7);
-        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);grid.Controls.Add(release,0,8);
+        restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);actions.FlowDirection=FlowDirection.RightToLeft;actions.Controls.SetChildIndex(next,0);actions.Controls.SetChildIndex(install,1);actions.Controls.SetChildIndex(back,2);actions.Controls.SetChildIndex(cancel,3);actions.Controls.SetChildIndex(restore,4);var footer=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,Margin=new Padding(0),Padding=new Padding(0,12,0,0)};footer.RowCount=1;footer.RowStyles.Add(new RowStyle(SizeType.Percent,100));footer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));footer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));actions.AutoSize=true;footer.Controls.Add(actions,1,0);actions.Margin=new Padding(0);actions.Padding=new Padding(0,8,0,0);footer.Paint+=(sender,e)=>{using(var pen=new Pen(Color.FromArgb(48,70,87)))e.Graphics.DrawLine(pen,0,0,footer.Width,0);};grid.Controls.Add(footer,0,7);
+        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);footer.Controls.Add(release,0,0);footer.Resize+=(sender,e)=>{bool compact=footer.Width<950;foreach(Button action in new[]{back,next,install,cancel,restore}){action.MinimumSize=new Size(action==next||action==install?(compact?180:210):(compact?100:130),52);if(action.Font.Size!=(compact?10F:11F)){var previous=action.Font;action.Font=new Font(UiFont,compact?10F:11F,FontStyle.Bold);previous.Dispose();}}};
         cons.CheckedChanged+=ChoicesChanged;spells.CheckedChanged+=ChoicesChanged;maps.CheckedChanged+=ChoicesChanged;executable.CheckedChanged+=ChoicesChanged;
+        FormClosed+=(s,e)=>folderTip.Dispose();
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;SetText(status,"Please wait for this operation to finish, or use Cancel.");}};
         var stripe=new Panel{Dock=DockStyle.Top,Height=5,BackColor=gold};Controls.Add(stripe);stripe.BringToFront();
         ShowStep(0);
@@ -185,10 +207,10 @@ public sealed class SetupForm:Form {
         AcceptButton=install.Visible&&install.Enabled?install:next.Visible&&next.Enabled?next:null;
     }
     Label Label(string text,float size,FontStyle style,Color color) { var label=new Label{Font=new Font(UiFont,size,style),ForeColor=color,Dock=DockStyle.Fill,AutoEllipsis=false,Margin=new Padding(0),TextAlign=ContentAlignment.MiddleLeft};SetText(label,text);return label; }
-    Button Button(string text,bool primary) { var b=new ReadableButton{Height=52,AutoSize=true,AutoSizeMode=AutoSizeMode.GrowAndShrink,MinimumSize=new Size(primary?210:130,52),Padding=new Padding(12,0,12,0),FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font(UiFont,10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);SetText(b,text);return b; }
+    Button Button(string text,bool primary) { var b=new ReadableButton{Height=52,AutoSize=true,AutoSizeMode=AutoSizeMode.GrowAndShrink,MinimumSize=new Size(primary?210:130,52),Padding=new Padding(12,0,12,0),FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font(UiFont,11,FontStyle.Bold)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);SetText(b,text);return b; }
     CheckBox Check(string text,bool check) { var box=new ReadableCheckBox{Checked=check,Dock=DockStyle.Fill,AutoSize=false,Margin=new Padding(0),Padding=new Padding(0,2,0,2),ForeColor=ink};SetText(box,text);return box; }
     async void Choose(object sender,EventArgs args) {
-        using(var dialog=new FolderBrowserDialog{Description=Ui.T("Select your World of Warcraft folder (the folder containing WoW.exe)."),ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
+        using(var dialog=new FolderBrowserDialog{Description=Ui.T("Setup will check your game and choose the right files for it."),ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
             if(dialog.ShowDialog(this)!=DialogResult.OK)return;
             SetBusy(true);SetText(status,"Checking your client…");
             try {
@@ -302,7 +324,7 @@ public sealed class SetupForm:Form {
         // Preview does not perform an installation and must not trip the busy-close guard.
         busy=false;Close();
     }
-    static void CollectPreview(Control parent,List<object> controls){foreach(Control c in parent.Controls){if(c.Visible&&(c is Label||c is Button||c is CheckBox||c is ComboBox)){var measured=TextRenderer.MeasureText(c.Text,c.Font,new Size(Math.Max(1,c.ClientSize.Width-c.Padding.Horizontal),Int32.MaxValue),TextFormatFlags.WordBreak|TextFormatFlags.NoPrefix);controls.Add(new{Type=c.GetType().Name,c.Text,c.Width,c.Height,c.Top,c.Left,ParentHeight=c.Parent.ClientSize.Height,ParentWidth=c.Parent.ClientSize.Width,TextHeight=measured.Height,Scrollable=c.Parent is Panel&&((Panel)c.Parent).AutoScroll});}CollectPreview(c,controls);}}
+    static void CollectPreview(Control parent,List<object> controls){foreach(Control c in parent.Controls){if(c.Visible&&(c is Label||c is Button||c is CheckBox||c is ComboBox||c is TextBox)){var measured=TextRenderer.MeasureText(c.Text,c.Font,new Size(Math.Max(1,c.ClientSize.Width-c.Padding.Horizontal),Int32.MaxValue),TextFormatFlags.WordBreak|TextFormatFlags.NoPrefix);controls.Add(new{Type=c.GetType().Name,c.Text,c.Width,c.Height,c.Top,c.Left,ParentHeight=c.Parent.ClientSize.Height,ParentWidth=c.Parent.ClientSize.Width,TextHeight=measured.Height,Scrollable=c.Parent is Panel&&((Panel)c.Parent).AutoScroll});}CollectPreview(c,controls);}}
     public static string FormatSize(long bytes){return bytes>=1000000000?(bytes/1000000000.0).ToString("0.00")+" GB":(bytes/1000000.0).ToString("0.0")+" MB";}
     public static string Language(string locale){switch(locale){case "enUS":return "English (US)";case "deDE":return "Deutsch";case "frFR":return "Français";case "esES":return "Español (España)";case "esMX":return "Español (México)";case "koKR":return "한국어";case "ruRU":return "Русский";case "zhCN":return "简体中文";case "zhTW":return "繁體中文";default:return locale;}}
     static string Friendly(string id){return id=="Maps"||id.StartsWith("MapDetails-")||id.StartsWith("MapAddon-")?"maps and minimap":id.StartsWith("Y-")?"spell indicators":id.Contains("Q-")?"loading screens and regional artwork":id=="Executable"?"the compatible game executable":"spell visuals";}

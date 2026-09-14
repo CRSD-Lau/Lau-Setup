@@ -1,8 +1,10 @@
-# MPQ conflict scanning
+# MPQ conflict scanning history
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 > **First time installing?** Use [Start here](../START-HERE.txt); this document explains a technical safety check.
+
+**Current 1.4.0 behavior:** Setup does not parse or classify arbitrary patches or clean up renamed duplicates. Players manage those files. Only an empty Patch-V is backed up automatically; nonempty V stays with a nonblocking warning. Exact managed replacements retain their path and hash checks. The reader notes below describe historical 1.3.0 behavior.
 
 Setup 1.3.0 uses a small managed C# reader for classic MPQ headers/hash tables. StormLib was assessed and an official library package obtained, but the hotfix does not bundle or load it. Reading known-name hashes requires neither native code nor decompression; broader archive inspection remains separate work.
 

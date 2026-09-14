@@ -1,4 +1,4 @@
-Lau Setup 1.4.0-test5 shared Windows/Linux test candidate
+Lau Setup 1.4.0 stable / Game 3.0.9 Lau
 Author / Creator / Last Modified By: Neil Mitchell
 
 Patch-Y remains Lau 3.0.9; optional maps add upstream map tables. This package contains one LauSetup folder with
@@ -14,7 +14,7 @@ This ZIP is an upgrade, not the complete game.
 2. If you have not already done so, right-click LauSetup.zip, choose Extract
    All, and open the extracted LauSetup folder.
 3. Double-click LauSetup.exe. Its File Explorer type is Application.
-4. Click Choose folder… and select the game folder containing WoW.exe,
+4. Click Browse... and select the game folder containing WoW.exe,
    then click Next. Do not select Data or a launcher folder.
 5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
    on your client. Optional extras start off. Enable Enhanced Consecration

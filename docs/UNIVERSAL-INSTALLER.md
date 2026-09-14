@@ -15,7 +15,7 @@ Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
 1. Close WoW completely. Right-click `LauSetup.zip`, choose **Extract All**,
    and open the extracted `LauSetup` folder.
 2. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
-4. Click Choose folder… and select the game folder containing WoW.exe,
+4. Click Browse... and select the game folder containing WoW.exe,
    then click Next. Do not select Data or a launcher folder.
 5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
    on your client. Optional extras start off. Enable Enhanced Consecration
@@ -93,4 +93,4 @@ Release evidence is recorded in [1.4.0 release notes](RELEASE-1.4.0.md) and
 VALIDATION.json alongside the release downloads. Installer translations are
 bundled and work offline. Full translated-document refresh has a separate
 rate-limit follow-up; fluent human review remains the language-quality limit.
-Game release 3.0.8, its nine locales, 28 game assets, and DBC data are unchanged.
+Game release 3.0.9 compacts six Patch-Y editions without Patch-Y DBC edits. The optional map component adds documented upstream table overrides; see DBC-CHANGELOG.md. Nine game locales remain supported.
