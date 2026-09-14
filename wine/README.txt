@@ -1,7 +1,7 @@
-Lau Setup 1.4.0-test4 shared Windows/Linux test candidate
+Lau Setup 1.4.0-test5 shared Windows/Linux test candidate
 Author / Creator / Last Modified By: Neil Mitchell
 
-Patch-Y remains Lau 3.0.8; optional maps add upstream map tables. This package contains one LauSetup folder with
+Patch-Y remains Lau 3.0.9; optional maps add upstream map tables. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 
@@ -28,7 +28,7 @@ This ZIP is an upgrade, not the complete game.
    extra. The review also lists WoW.exe, Patch-Q artwork, matching language
    patches, download size and automatic backups. Back lets you make changes.
 7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
-   and type /pyversion to check 3.0.8 Lau. If your selection is already
+   and type /pyversion to check 3.0.9 Lau. If your selection is already
    installed, click Finish; no game-file changes are needed.
 
 Interface language stays at the top of every step. Choose your language if
@@ -149,3 +149,4 @@ PATCH-V: Empty Data\patch-v.mpq is backed up. Nonempty V remains unchanged with 
 YOUR CHOICE: Compatible WoW.exe + loading screens is one checkbox on Your visuals. It starts off. Review says Install or Keep existing for each. Patch-Y and its matching language patch remain included.
 
 Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.
+Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,24 +13,34 @@ using System.Diagnostics;
 namespace LauSetup {
 // Windows' default disabled text can turn nearly black on a dark control.
 // Keep real Enabled semantics and paint only the disabled appearance ourselves.
+public class RoundedPanel:Panel {
+    public Color BorderColor=Color.FromArgb(48,70,87);
+    public RoundedPanel(){DoubleBuffered=true;}
+    protected override void OnPaint(PaintEventArgs e){base.OnPaint(e);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;using(var path=Shape(new Rectangle(0,0,Width-1,Height-1),10))using(var pen=new Pen(BorderColor))e.Graphics.DrawPath(pen,path);}
+    internal static GraphicsPath Shape(Rectangle r,int radius){var p=new GraphicsPath();int d=radius*2;p.AddArc(r.Left,r.Top,d,d,180,90);p.AddArc(r.Right-d,r.Top,d,d,270,90);p.AddArc(r.Right-d,r.Bottom-d,d,d,0,90);p.AddArc(r.Left,r.Bottom-d,d,d,90,90);p.CloseFigure();return p;}
+}
+public sealed class WizardStep:Label {
+    public int Number,Current;
+    protected override void OnPaint(PaintEventArgs e){e.Graphics.Clear(BackColor);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;int y=(Height-32)/2;var color=Number==Current?Color.FromArgb(223,181,104):Number<Current?Color.FromArgb(97,148,132):Color.FromArgb(36,55,70);using(var b=new SolidBrush(color))e.Graphics.FillEllipse(b,0,y,32,32);TextRenderer.DrawText(e.Graphics,Number.ToString(),Font,new Rectangle(0,y,32,32),Number<=Current?BackColor:ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter);TextRenderer.DrawText(e.Graphics,Text,Font,new Rectangle(42,0,Width-46,Height),ForeColor,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);}
+}
 public sealed class ReadableButton:Button {
     protected override void OnPaint(PaintEventArgs e) {
-        if(Enabled){base.OnPaint(e);return;}
-        Color background=Color.FromArgb(35,47,64),text=Color.FromArgb(196,207,223);
-        using(var fill=new SolidBrush(background))e.Graphics.FillRectangle(fill,ClientRectangle);
-        using(var border=new Pen(Color.FromArgb(114,133,157)))e.Graphics.DrawRectangle(border,0,0,Math.Max(0,Width-1),Math.Max(0,Height-1));
-        TextRenderer.DrawText(e.Graphics,Text,Font,ClientRectangle,text,background,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis);
+        e.Graphics.Clear(Parent==null?BackColor:Parent.BackColor);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;
+        Color background=Enabled?BackColor:Color.FromArgb(35,47,64),text=Enabled?ForeColor:Color.FromArgb(196,207,223);
+        using(var path=RoundedPanel.Shape(new Rectangle(0,0,Width-1,Height-1),9))using(var fill=new SolidBrush(background))e.Graphics.FillPath(fill,path);
+        TextRenderer.DrawText(e.Graphics,Text,Font,ClientRectangle,text,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis);
+        if(Focused&&ShowFocusCues)ControlPaint.DrawFocusRectangle(e.Graphics,new Rectangle(5,5,Width-10,Height-10),text,background);
     }
 }
 public sealed class ReadableCheckBox:CheckBox {
     protected override void OnPaint(PaintEventArgs e) {
-        if(Enabled&&!WineHost.Active){base.OnPaint(e);return;}
+
         Color background=Parent==null?BackColor:Parent.BackColor,text=Enabled?ForeColor:Color.FromArgb(196,207,223);
         using(var fill=new SolidBrush(background))e.Graphics.FillRectangle(fill,ClientRectangle);
-        int size=Math.Max(14,Font.Height-1),left=2,top=(Height-size)/2;
-        using(var fill=new SolidBrush(Color.FromArgb(35,47,64)))e.Graphics.FillRectangle(fill,left,top,size,size);
+        int size=Math.Max(24,Font.Height-1),left=2,top=(Height-size)/2;
+        using(var fill=new SolidBrush(Checked?Color.FromArgb(223,181,104):Color.FromArgb(11,20,32)))e.Graphics.FillRectangle(fill,left,top,size,size);
         using(var pen=new Pen(Color.FromArgb(154,173,197)))e.Graphics.DrawRectangle(pen,left,top,size,size);
-        if(Checked)using(var pen=new Pen(text,2F))e.Graphics.DrawLines(pen,new[]{new Point(left+3,top+size/2),new Point(left+size/2,top+size-4),new Point(left+size-3,top+3)});
+        if(Checked)using(var pen=new Pen(Color.FromArgb(11,20,32),3F))e.Graphics.DrawLines(pen,new[]{new Point(left+3,top+size/2),new Point(left+size/2,top+size-4),new Point(left+size-3,top+3)});
         var bounds=new Rectangle(left+size+8,0,Math.Max(0,Width-left-size-8),Height);
         TextRenderer.DrawText(e.Graphics,Text,Font,bounds,text,background,TextFormatFlags.Left|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
         if(Enabled&&Focused&&ShowFocusCues)ControlPaint.DrawFocusRectangle(e.Graphics,bounds,text,background);
@@ -55,11 +66,11 @@ public sealed class SetupForm:Form {
         throw new InvalidOperationException("No supported interface font was found. Install Liberation Sans fonts in your Wine environment, then reopen Lau Setup.");
     }
     readonly Catalog catalog;
-    readonly Color ink=Color.FromArgb(241,245,251),muted=Color.FromArgb(190,204,224),surface=Color.FromArgb(23,33,49),gold=Color.FromArgb(224,179,98);
-    TextBox folder;Label detected,download,status;CheckBox cons,spells,maps,basePatch,executable;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
+    readonly Color ink=Color.FromArgb(237,243,247),muted=Color.FromArgb(169,189,204),surface=Color.FromArgb(20,35,50),gold=Color.FromArgb(223,181,104);
+    TextBox folder;Label detected,download,status,baseDescription;CheckBox cons,spells,maps,basePatch,executable;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
     FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded,reviewWarning;Button back,next;int step;bool navigationBlocked,previewing;
     protected override bool ShowWithoutActivation { get { return previewing; } }
-    ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly;
+    ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly,choicesDirty;
     sealed class PhraseValue { readonly string key;public PhraseValue(string key){this.key=key;}public override string ToString(){return Ui.T(key);} }
     sealed class TextBinding {
         public string Key;public object[] Arguments;public bool Message;
@@ -78,12 +89,12 @@ public sealed class SetupForm:Form {
         if(!String.IsNullOrEmpty(Ui.LastPreferenceError))SetText(status,"This language is active for this session, but the preference could not be saved.");
     }
     public SetupForm(Catalog catalog) {
-        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(12,20,33);MinimumSize=new Size(900,650);ClientSize=new Size(Math.Min(1000,Screen.PrimaryScreen.WorkingArea.Width-40),Math.Min(830,Screen.PrimaryScreen.WorkingArea.Height-80));StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
+        this.catalog=catalog;Text="Lau Setup";Font=new Font(UiFont,10F);ForeColor=ink;BackColor=Color.FromArgb(11,20,32);MinimumSize=new Size(900,650);ClientSize=new Size(Math.Min(1100,Screen.PrimaryScreen.WorkingArea.Width-40),Math.Min(880,Screen.PrimaryScreen.WorkingArea.Height-80));StartPosition=FormStartPosition.CenterScreen;AutoScaleMode=AutoScaleMode.Dpi;
         using(var icon=typeof(SetupForm).Assembly.GetManifestResourceStream("LauSetup.Icon.ico"))if(icon!=null)Icon=new Icon(icon);
-        var grid=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(30,22,30,18),ColumnCount=1,RowCount=9};Controls.Add(grid);
-        foreach(int h in new[]{40,30,48,42,1,60,24,64,32})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
-        grid.Controls.Add(Label("LAU  /  WRATH VISUAL UPGRADE",18,FontStyle.Bold,ink),0,0);
-        grid.Controls.Add(Label("Your client. Your language. One simple install.",11,FontStyle.Regular,muted),0,1);
+        var grid=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(48,22,48,14),ColumnCount=1,RowCount=9};Controls.Add(grid);grid.Paint+=(sender,e)=>{using(var brush=new SolidBrush(gold))e.Graphics.FillRectangle(brush,0,0,grid.Width,5);};
+        foreach(int h in new[]{48,32,12,62,1,44,20,68,26})grid.RowStyles.Add(new RowStyle(h==1?SizeType.Percent:SizeType.Absolute,h==1?100:h));
+        var header=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2};header.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,60));header.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,40));header.Controls.Add(Label("LAU SETUP",20,FontStyle.Bold,ink),0,0);grid.Controls.Add(header,0,0);grid.SetRowSpan(header,2);
+        header.RowCount=2;header.RowStyles.Add(new RowStyle(SizeType.Percent,65));header.RowStyles.Add(new RowStyle(SizeType.Percent,35));header.Controls.Add(Label("Your client. Your language. One simple install.",11,FontStyle.Regular,muted),0,1);
         var languageRow=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,Margin=new Padding(0,0,0,8)};
         languageRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));languageRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));
         var languageLabel=Label("Interface language",10,FontStyle.Regular,muted);languageLabel.AutoSize=true;languageLabel.Margin=new Padding(0,0,16,0);languageRow.Controls.Add(languageLabel);
@@ -91,9 +102,9 @@ public sealed class SetupForm:Form {
         foreach(var option in Ui.Languages)language.Items.Add(option);
         language.SelectedIndex=Array.FindIndex(Ui.Languages,x=>x.Code==Ui.Choice);if(language.SelectedIndex<0)language.SelectedIndex=0;
         language.SelectedIndexChanged+=(s,e)=>{if(language.SelectedItem!=null){ChangeLanguage(((LanguageOption)language.SelectedItem).Code,true);language.AccessibleName=Ui.T("Interface language");}};
-        languageRow.Controls.Add(language);grid.Controls.Add(languageRow,0,2);
+        languageRow.Controls.Add(language);header.Controls.Add(languageRow,1,0);header.SetRowSpan(languageRow,2);languageRow.Padding=new Padding(0,15,0,0);
         var steps=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=4,Margin=new Padding(0,0,0,8)};
-        stepLabels=new[]{Label("Game folder",10,FontStyle.Bold,ink),Label("Your visuals",10,FontStyle.Bold,ink),Label("Review",10,FontStyle.Bold,ink),Label("Finished",10,FontStyle.Bold,ink)};
+        stepLabels=new Label[4];var stepNames=new[]{"Game folder","Your visuals","Review","Finished"};for(int n=0;n<4;n++){stepLabels[n]=new WizardStep{Number=n+1,Dock=DockStyle.Fill,Font=new Font(UiFont,11),BackColor=BackColor,ForeColor=muted};SetText(stepLabels[n],stepNames[n]);}
         foreach(var label in stepLabels){steps.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,25));label.Padding=new Padding(9,0,2,0);steps.Controls.Add(label);}grid.Controls.Add(steps,0,3);
         var host=new Panel{Dock=DockStyle.Fill,Margin=new Padding(0)};grid.Controls.Add(host,0,4);
         pages=new FlowLayoutPanel[4];
@@ -101,26 +112,29 @@ public sealed class SetupForm:Form {
             var page=new FlowLayoutPanel{Dock=DockStyle.Fill,AutoScroll=true,FlowDirection=FlowDirection.TopDown,WrapContents=false,Margin=new Padding(0)};
             page.Resize+=(s,e)=>{foreach(Control c in page.Controls)c.Width=Math.Max(200,page.ClientSize.Width-SystemInformation.VerticalScrollBarWidth-6);};pages[i]=page;host.Controls.Add(page);
         }
-        AddPage(0,Label("1   Choose your existing WoW 3.3.5a folder",16,FontStyle.Bold,ink),56);
+        AddPage(0,Label("Choose your existing WoW 3.3.5a folder",23,FontStyle.Bold,ink),70);
         AddPage(0,Label("Select your World of Warcraft folder (the folder containing WoW.exe).",11,FontStyle.Regular,muted),60);
         var row=new TableLayoutPanel{ColumnCount=2,Margin=new Padding(0,12,0,4)};row.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));row.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         folder=new TextBox{ReadOnly=true,Dock=DockStyle.Fill,BackColor=surface,ForeColor=ink,BorderStyle=BorderStyle.FixedSingle,Margin=new Padding(0,8,12,3),AccessibleName=Ui.T("Game folder")};row.Controls.Add(folder);
-        browse=Button("Choose folder…",false);browse.Dock=DockStyle.Fill;browse.Click+=Choose;row.Controls.Add(browse);AddPage(0,row,52);
-        detected=Label("Language and model setup will be detected automatically.",11,FontStyle.Regular,muted);AddPage(0,detected,90);
+        browse=Button("Choose folder…",false);browse.Dock=DockStyle.Fill;browse.Click+=Choose;row.Controls.Add(browse);var folderCard=new RoundedPanel{BackColor=surface,Padding=new Padding(24,24,24,24)};row.Dock=DockStyle.Fill;folderCard.Controls.Add(row);AddPage(0,folderCard,136);
+        detected=Label("Language and model setup will be detected automatically.",11,FontStyle.Regular,muted);AddPage(0,detected,70);
         AddPage(0,Label("Files Setup replaces are backed up. Other patches and personal settings stay untouched. Manage renamed duplicate patches yourself.",11,FontStyle.Regular,muted),65);
-        AddPage(1,Label("Choose the look you want.",16,FontStyle.Bold,ink),44);
-        basePatch=Check("Patch-Y Non-HD",true);basePatch.Enabled=false;AddOption(basePatch,Label("Selected for your detected client. A full HD model pack is not included.",10,FontStyle.Regular,muted));
+        AddPage(1,Label("Choose the look you want.",23,FontStyle.Bold,ink),60);
+        basePatch=Check("Patch-Y Non-HD",true);basePatch.Enabled=false;baseDescription=Label("Selected for your detected client. A full HD model pack is not included.",10,FontStyle.Regular,muted);AddOption(basePatch,baseDescription);
         executable=Check("Compatible WoW.exe + loading screens",false);AddOption(executable,Label("Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.",10,FontStyle.Regular,muted));
         cons=Check("Enhanced Consecration",false);AddOption(cons,Label("Uses Lau's custom ground effect for Consecration. Turn off for the original appearance.",10,FontStyle.Regular,muted));
         spells=Check("New spell visuals  ·  available with HD models",false);spells.Enabled=false;AddOption(spells,Label("Adds upgraded spell effects. Requires an existing HD model client.",10,FontStyle.Regular,muted));
         maps=Check("Upgrade maps and minimap  ·  optional extra download",false);AddOption(maps,Label("Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.",10,FontStyle.Regular,muted));
-        AddPage(2,Label("Review your choices before installing.",16,FontStyle.Bold,ink),56);
-        reviewFolder=Label("",11,FontStyle.Regular,ink);AddPage(2,reviewFolder,40);
-        reviewChoices=Label("",11,FontStyle.Regular,ink);AddPage(2,reviewChoices,80);
-        reviewWarning=Label("",10,FontStyle.Regular,gold);AddPage(2,reviewWarning,110);
-        reviewIncluded=Label("",10,FontStyle.Regular,ink);AddPage(2,reviewIncluded,125);
-        download=Label("Select your folder to see the download size.",11,FontStyle.Bold,gold);AddPage(2,download,45);
-        AddPage(2,Label("Setup preserves existing files before replacing or moving them. Keep LauSetupBackups to restore the originals.",11,FontStyle.Regular,muted),65);
+        AddPage(2,Label("Review your choices before installing.",23,FontStyle.Bold,ink),70);
+        var reviewCard=new RoundedPanel{BackColor=surface,Padding=new Padding(24,12,24,12)};
+        var reviewRows=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=1,RowCount=3};foreach(int h in new[]{40,86,100})reviewRows.RowStyles.Add(new RowStyle(SizeType.Absolute,h));reviewCard.Controls.Add(reviewRows);
+        reviewFolder=Label("",12,FontStyle.Regular,ink);reviewRows.Controls.Add(reviewFolder);
+        reviewChoices=Label("",12,FontStyle.Bold,ink);reviewRows.Controls.Add(reviewChoices);
+        reviewIncluded=Label("",11,FontStyle.Regular,muted);reviewRows.Controls.Add(reviewIncluded);AddPage(2,reviewCard,250);
+        reviewWarning=Label("",10,FontStyle.Regular,gold);AddPage(2,reviewWarning,90);
+        download=Label("Select your folder to see the download size.",12,FontStyle.Bold,gold);AddPage(2,download,45);
+        var backupCard=new RoundedPanel{BackColor=Color.FromArgb(26,46,51),Padding=new Padding(24,12,24,12)};
+        backupCard.Controls.Add(Label("Setup preserves existing files before replacing or moving them. Keep LauSetupBackups to restore the originals.",12,FontStyle.Regular,muted));AddPage(2,backupCard,100);
         AddPage(3,Label("Your game is ready.",18,FontStyle.Bold,gold),65);
         AddPage(3,Label("Installed and verified. Start WoW, run /pyversion, and test your chosen effects.\nYou can restore the previous install here at any time.",12,FontStyle.Regular,ink),125);
         AddPage(3,Label("Your backup is saved in the selected client’s LauSetupBackups folder.",11,FontStyle.Regular,muted),90);
@@ -131,16 +145,18 @@ public sealed class SetupForm:Form {
         next=Button("Next",true);next.Click+=(s,e)=>Advance();actions.Controls.Add(next);
         install=Button("Install upgrade",true);install.Enabled=false;install.Click+=Install;actions.Controls.Add(install);
         cancel=Button("Cancel",false);cancel.Visible=false;cancel.Click+=(s,e)=>{if(cancellation!=null)cancellation.Cancel();};actions.Controls.Add(cancel);
-        restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);grid.Controls.Add(actions,0,7);
+        restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);actions.FlowDirection=FlowDirection.RightToLeft;actions.Controls.SetChildIndex(next,0);actions.Controls.SetChildIndex(install,1);actions.Controls.SetChildIndex(back,2);actions.Controls.SetChildIndex(cancel,3);actions.Controls.SetChildIndex(restore,4);grid.Controls.Add(actions,0,7);
         var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);grid.Controls.Add(release,0,8);
-        cons.CheckedChanged+=RefreshPlan;spells.CheckedChanged+=RefreshPlan;maps.CheckedChanged+=RefreshPlan;executable.CheckedChanged+=RefreshPlan;
+        cons.CheckedChanged+=ChoicesChanged;spells.CheckedChanged+=ChoicesChanged;maps.CheckedChanged+=ChoicesChanged;executable.CheckedChanged+=ChoicesChanged;
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;SetText(status,"Please wait for this operation to finish, or use Cancel.");}};
+        var stripe=new Panel{Dock=DockStyle.Top,Height=5,BackColor=gold};Controls.Add(stripe);stripe.BringToFront();
         ShowStep(0);
     }
     void AddPage(int index,Control control,int height){control.Dock=DockStyle.None;control.Height=height;control.Width=900;control.Margin=new Padding(0,0,0,6);pages[index].Controls.Add(control);}
     void AddOption(CheckBox check,Label note){
-        var card=new Panel{BackColor=surface,Padding=new Padding(14,4,12,5)};check.Dock=DockStyle.Top;check.Height=40;check.Font=new Font(UiFont,11,FontStyle.Bold);
-        note.Dock=DockStyle.Fill;card.Controls.Add(note);card.Controls.Add(check);AddPage(1,card,94);
+        var card=new RoundedPanel{BackColor=surface,Padding=new Padding(22,6,16,7)};check.Dock=DockStyle.Top;check.Height=40;check.Font=new Font(UiFont,13,FontStyle.Bold);
+        note.Font=new Font(UiFont,11);note.Dock=DockStyle.Fill;note.Padding=new Padding(34,0,0,0);card.Controls.Add(note);card.Controls.Add(check);check.CheckedChanged+=(s,e)=>{card.BorderColor=check.Checked?gold:Color.FromArgb(48,70,87);card.Invalidate();};card.BorderColor=check.Checked?gold:Color.FromArgb(48,70,87);AddPage(1,card,88);
+        Action fit=()=>{int width=Math.Max(160,card.ClientSize.Width-card.Padding.Horizontal);int titleHeight=Math.Max(40,TextRenderer.MeasureText(check.Text,check.Font,new Size(width-40,0),TextFormatFlags.WordBreak).Height+8);int noteHeight=TextRenderer.MeasureText(note.Text,note.Font,new Size(width-34,0),TextFormatFlags.WordBreak).Height+8;check.Height=titleHeight;int height=Math.Max(88,card.Padding.Vertical+titleHeight+noteHeight);if(card.Height!=height)card.Height=height;};card.Resize+=(sender,e)=>fit();check.TextChanged+=(sender,e)=>fit();note.TextChanged+=(sender,e)=>fit();fit();
     }
     void UpdateReview(){
         SetText(reviewFolder,"Folder: {0}",folder.Text);
@@ -149,12 +165,14 @@ public sealed class SetupForm:Form {
         var choices=new List<string>{Ui.T("Patch-Y (Lau’s version)")};if(cons.Checked)choices.Add(Ui.T("Enhanced Consecration"));if(spells.Checked)choices.Add(Ui.T("New Spells"));if(maps.Checked)choices.Add(Ui.T("Map Upgrade"));if(executable.Checked)choices.Add(Ui.T("Compatible WoW.exe + loading screens"));SetText(reviewChoices,"Your choices: {0}",String.Join(" + ",choices));
     }
     void ShowStep(int value){
-        step=value;for(int i=0;i<pages.Length;i++){pages[i].Visible=i==step;stepLabels[i].BackColor=i==step?gold:surface;stepLabels[i].ForeColor=i==step?BackColor:muted;}pages[step].BringToFront();UpdateReview();UpdateNavigation();
+        step=value;for(int i=0;i<pages.Length;i++){pages[i].Visible=i==step;((WizardStep)stepLabels[i]).Current=step+1;stepLabels[i].ForeColor=i==step?ink:muted;stepLabels[i].Invalidate();}pages[step].BringToFront();UpdateReview();UpdateNavigation();
     }
-    void Advance(){
+    void ChoicesChanged(object sender,EventArgs args){if(refreshing||busy)return;choicesDirty=true;UpdateReview();}
+    async void Advance(){
         if(busy)return;
         if(step==3||(step==2&&plan!=null&&plan.Operations.Count==0)){Close();return;}
         if(client==null||recoveryOnly||navigationBlocked||plan==null)return;
+        if(step==1&&choicesDirty){await PreparePlan();if(plan==null)return;}
         if(step<2)ShowStep(step+1);
     }
     void UpdateNavigation(){
@@ -167,7 +185,7 @@ public sealed class SetupForm:Form {
         AcceptButton=install.Visible&&install.Enabled?install:next.Visible&&next.Enabled?next:null;
     }
     Label Label(string text,float size,FontStyle style,Color color) { var label=new Label{Font=new Font(UiFont,size,style),ForeColor=color,Dock=DockStyle.Fill,AutoEllipsis=false,Margin=new Padding(0),TextAlign=ContentAlignment.MiddleLeft};SetText(label,text);return label; }
-    Button Button(string text,bool primary) { var b=new ReadableButton{Height=40,AutoSize=true,AutoSizeMode=AutoSizeMode.GrowAndShrink,MinimumSize=new Size(140,40),Padding=new Padding(12,0,12,0),FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font(UiFont,10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);SetText(b,text);return b; }
+    Button Button(string text,bool primary) { var b=new ReadableButton{Height=52,AutoSize=true,AutoSizeMode=AutoSizeMode.GrowAndShrink,MinimumSize=new Size(primary?210:130,52),Padding=new Padding(12,0,12,0),FlatStyle=FlatStyle.Flat,BackColor=primary?gold:surface,ForeColor=primary?Color.FromArgb(12,20,33):ink,Cursor=Cursors.Hand,Margin=new Padding(0,0,10,0),Font=new Font(UiFont,10,primary?FontStyle.Bold:FontStyle.Regular)};b.FlatAppearance.BorderColor=primary?gold:Color.FromArgb(114,133,157);SetText(b,text);return b; }
     CheckBox Check(string text,bool check) { var box=new ReadableCheckBox{Checked=check,Dock=DockStyle.Fill,AutoSize=false,Margin=new Padding(0),Padding=new Padding(0,2,0,2),ForeColor=ink};SetText(box,text);return box; }
     async void Choose(object sender,EventArgs args) {
         using(var dialog=new FolderBrowserDialog{Description=Ui.T("Select your World of Warcraft folder (the folder containing WoW.exe)."),ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
@@ -195,38 +213,42 @@ public sealed class SetupForm:Form {
         SetText(status,"Ready. A verified backup is created before any game files change.");
     }
     void UpdateClientDisplay(){
+        SetText(baseDescription,client.Hd?"Your client has HD models active. The appropriate Patch-Y HD version will be installed.":"Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.");
         folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map Upgrade — already installed, kept":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=false;maps.Checked=client.MapsInstalled;refreshing=false;
         SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language(client.Locale),client.Hd?Phrase("HD models detected"):Phrase("Original models detected"));
     }
     void UpdatePlanDisplay(){SetText(install,"Install upgrade");if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));}
-    async void RefreshPlan(object sender,EventArgs args) {
-        if(refreshing||busy||client==null||recoveryOnly)return;SetBusy(true);SetText(status,"Checking installed files…");
+    async void RefreshPlan(object sender,EventArgs args) {await PreparePlan();}
+    async Task PreparePlan() {
+        if(refreshing||busy||client==null||recoveryOnly)return;SetBusy(true);progress.Visible=true;progress.Style=ProgressBarStyle.Marquee;SetText(status,"Checking installed files…");
         try {
             bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=executable.Checked;
             plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));
-            UpdatePlanDisplay();
+            choicesDirty=false;UpdatePlanDisplay();
             SetText(status,Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S becomes .mpq.disabled. Any older disabled copy is preserved separately. Restore previous install reverses the change.":"Ready. A verified backup is created before any game files change."));
             if(Transaction.Pending(client.Root)==null&&plan.Operations.Any(o=>o.ExtraPatch))SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",plan.Operations.Count(o=>o.ExtraPatch));
-        }catch(Exception ex){plan=null;SetMessage(status,ex.Message);}finally{SetBusy(false);}
+        }catch(Exception ex){plan=null;SetMessage(status,ex.Message);}finally{progress.Style=ProgressBarStyle.Continuous;progress.Visible=false;SetBusy(false);}
     }
     async void Install(object sender,EventArgs args) {
         if(plan==null||client==null||busy||step!=2)return;SetBusy(true);cancellation=new CancellationTokenSource();cancel.Visible=true;progress.Visible=true;progress.Value=0;
         try {
             Client.AssertClosed(client.Root);
             var current=plan;string state=Transaction.StateRoot(client.Root),cache=SafePaths.Under(state,"cache");
-            long done=0;
-            var transfer=new Progress<TransferProgress>(p=>{if(IsDisposed)return;SetText(status,"Downloading {0}  ·  {1} / {2}",Phrase(Friendly(p.Name)),FormatSize(p.Received),FormatSize(p.Total));progress.Value=Math.Max(0,Math.Min(1000,(int)(p.Overall*1000.0/Math.Max(1,current.DownloadBytes))));});
+            long done=0;var lastTransfer=System.Diagnostics.Stopwatch.StartNew();
+            var transfer=new Progress<TransferProgress>(p=>{if(IsDisposed)return;SetText(status,"Downloading {0}  ·  {1} / {2}",Phrase(Friendly(p.Name)),FormatSize(p.Received),FormatSize(p.Total));progress.Value=Math.Max(progress.Value,Math.Min(700,(int)(p.Overall*700.0/Math.Max(1,current.DownloadBytes))));});
             var messages=new Progress<string>(s=>SetMessage(status,s));
+            var installation=new Progress<int>(n=>{if(!IsDisposed)progress.Value=Math.Max(progress.Value,700+Math.Max(0,Math.Min(299,n*299/100)));});
             await Task.Run(()=>{
                 using(var lease=ClientLease.Acquire(current.Root)){
                 if(Transaction.Pending(current.Root)!=null)throw new IOException("An interrupted install needs restoring first.");
                 MpqScan.ValidatePlan(current,catalog,cancellation.Token);
-                var files=new Dictionary<string,string>();var loader=new Downloader(cache,Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload"),p=>{p.Overall=done+p.Received;((IProgress<TransferProgress>)transfer).Report(p);});
+                var files=new Dictionary<string,string>();var loader=new Downloader(cache,Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"payload"),p=>{p.Overall=done+p.Received;if(lastTransfer.ElapsedMilliseconds>=100||p.Received==p.Total){lastTransfer.Restart();((IProgress<TransferProgress>)transfer).Report(p);}});
                 foreach(var id in current.Operations.Where(o=>o.AssetId!=null&&o.SourceRelative==null).Select(o=>o.AssetId).Distinct()) {
                     cancellation.Token.ThrowIfCancellationRequested();
                     files[id]=loader.Fetch(catalog.Get(id),cancellation.Token);done+=catalog.Get(id).Bytes;
                 }
-                var transaction=new Transaction(catalog,s=>((IProgress<string>)messages).Report(s),null);transaction.InstallWithLease(current,files,cancellation.Token,lease);
+                ((IProgress<string>)messages).Report(Ui.T("Checking installed files…"));
+                var transaction=new Transaction(catalog,s=>((IProgress<string>)messages).Report(s),null);transaction.Progress=n=>((IProgress<int>)installation).Report(n);transaction.InstallWithLease(current,files,cancellation.Token,lease);
                 }
             });
             client=await Task.Run(()=>Client.Inspect(client.Root,catalog));UpdateClientDisplay();
@@ -257,7 +279,7 @@ public sealed class SetupForm:Form {
         previewing=true;
         if(state.StartsWith("small-",StringComparison.Ordinal)){Size=MinimumSize;state=state.Substring(6);}
         if(state!="initial"){
-            SetText(basePatch,"Patch-Y HD");folder.Text=@"D:\Games\World of Warcraft";SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language("enUS"),Phrase("HD models detected"));spells.Checked=state!="options";spells.Enabled=true;
+            SetText(basePatch,"Patch-Y HD");SetText(baseDescription,"Your client has HD models active. The appropriate Patch-Y HD version will be installed.");folder.Text=@"D:\Games\World of Warcraft";SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language("enUS"),Phrase("HD models detected"));spells.Checked=state!="options";spells.Enabled=true;
             SetText(download,"Download up to {0}  ·  {1}","472.4 MB",Phrase("Existing maps kept"));SetText(status,"Ready. A verified backup is created before any game files change.");install.Enabled=true;
         }
         if(state=="busy"){SetBusy(true);cancel.Visible=true;progress.Visible=true;progress.Value=420;SetText(status,"Downloading {0}  ·  {1} / {2}",Phrase("spell visuals"),"84.0 MB","200.0 MB");}

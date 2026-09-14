@@ -26,7 +26,7 @@ Extract it intact: it contains one `LauSetup/` folder with `LauSetup.exe`,
    extra. The review also lists WoW.exe, Patch-Q artwork, matching language
    patches, download size and automatic backups. Back lets you make changes.
 7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
-   and type /pyversion to check 3.0.8 Lau. If your selection is already
+   and type /pyversion to check 3.0.9 Lau. If your selection is already
    installed, click Finish; no game-file changes are needed.
 
 Interface language stays at the top of every step. Choose your language if

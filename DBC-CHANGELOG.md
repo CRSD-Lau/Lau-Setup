@@ -8,7 +8,7 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 ## Installer 1.4.0 candidate — optional upstream map overrides
 
-Patch-Y remains 3.0.8. The optional merged map pack adds Trimitor WDM 2.4.5
+Game 3.0.9 updates the embedded Patch-Y addon version and compacts its archives without DBC edits. The optional merged map pack adds Trimitor WDM 2.4.5
 stable plus the 2.4.5 beta cave expansion. It supplies DungeonMap,
 DungeonMapChunk, WorldMapArea, WorldMapTransforms, AreaTable and WMOAreaTable.
 The cave WorldMapArea overrides the stable version; all installed table bytes

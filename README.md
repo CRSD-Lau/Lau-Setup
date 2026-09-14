@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.4.0 test candidate (not stable) · Game release 3.0.8 Lau · Ten interface languages · Nine game locales**
+**Installer 1.4.0 test candidate (not stable) · Game release 3.0.9 Lau · Ten interface languages · Nine game locales**
 
 ## Download and start here
 
@@ -35,7 +35,7 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 4. **Game folder:** select **Choose folder…**, choose the folder directly containing `WoW.exe`, then click **Next**.
 5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. **Compatible WoW.exe + loading screens** is one optional checkbox, off by default; leave it off to keep both unchanged. Click **Next**.
 6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen explicitly says **Install** or **Keep existing** for **WoW.exe** and **Patch-Q** artwork, and lists matching language patches, download size and automatic backups. Use **Back** to change choices.
-7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.8 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
+7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.9 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
 
 **Wrong interface language?** Use **Interface language** at the top of any step. The manual choice is remembered; **Automatic** follows your system again. It changes setup text only. **Next** does not download or change game files.
 
@@ -157,3 +157,4 @@ Game payloads are distributed through GitHub Releases. This repository contains 
 See the [DBC changelog](DBC-CHANGELOG.md) for individual table/record/field edits and comparison evidence. **3.0.7 → 3.0.8 had no DBC edits**: the 90° indicator update changed model geometry. Setup 1.1.5–1.1.8 also leave the DBC data unchanged.
 
 Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.
+Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.

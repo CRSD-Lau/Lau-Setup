@@ -1,3 +1,11 @@
+# Setup 1.4.0 final-build candidate · Game 3.0.9
+
+- Game 3.0.9 includes the optional merged Lau/Trimitor maps. `/pyversion` reports 3.0.9.
+- Six Patch-Y editions compacted before packaging: 58,774,086 bytes saved in total. Original source files and player backups are untouched. No Patch-Y DBC edits.
+- Checkbox changes remain responsive; installed-file checks run when you click Next to review.
+- Clear detected Patch-Y HD/Non-HD explanation. Compatible WoW.exe and loading screens share one optional checkbox, off by default.
+- Progress advances through download, staging, installation and final verification; Finished confirms completion.
+
 # Lau Setup 1.4.0-test4 — combined EXE and loading screens
 
 One optional checkbox, off by default, now installs the compatible WoW.exe
@@ -20,7 +28,7 @@ not fix the test2 bug. Game payloads and wizard options are unchanged.
 - Independent optional Consecration, WoW.exe, maps/minimaps, loading screens, and HD spell visuals.
 - Merge Trimitor WDM dungeon/raid and cave maps into Lau's maps option, with required support addons. Loading screens are independent.
 - Back up replaced files. Preserve unrelated patches, addons and personal settings; empty Patch-V is backed up, nonempty V stays with a warning.
-- Keep one Windows/Linux LauSetup.zip. Patch-Y remains 3.0.8; the optional map pack adds upstream map DBC overrides. Cave maps are upstream beta.
+- Keep one Windows/Linux LauSetup.zip. Patch-Y is now 3.0.9; the optional map pack adds upstream map DBC overrides. Cave maps are upstream beta.
 
 This candidate is not yet released. See [scope and validation](docs/RELEASE-1.4.0.md).
 

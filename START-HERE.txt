@@ -33,5 +33,7 @@ a warning. Personal settings and unrelated addons are not changed.
 The maps option may replace WDM/!Astrolabe support files and the active
 language's Patch-T; their old files are backed up too.
 
-The installer version appears at the bottom. Patch-Y/game release is 3.0.8;
+The installer version appears at the bottom. Patch-Y/game release is 3.0.9;
 the installer has its own version. A full HD model pack is not included.
+
+Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.

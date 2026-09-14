@@ -4,7 +4,6 @@
   "LastModifiedBy": "Neil Mitchell",
   "languages": {
     "en-US": {
-      "1   Choose your existing WoW 3.3.5a folder": "1   Choose your existing WoW 3.3.5a folder",
       "A backup record is damaged. Keep the backups and contact support.": "A backup record is damaged. Keep the backups and contact support.",
       "A download cache file is linked to another file. Choose a normal local folder.": "A download cache file is linked to another file. Choose a normal local folder.",
       "A game file changed after the install was prepared. Please choose the folder again.": "A game file changed after the install was prepared. Please choose the folder again.",
@@ -91,7 +90,6 @@
       "Invalid release catalog.": "Invalid release catalog.",
       "Keep existing": "Keep existing",
       "Language and model setup will be detected automatically.": "Language and model setup will be detected automatically.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH VISUAL UPGRADE",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup requires Python 3.9 or newer for its Linux safety checks.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.",
@@ -215,10 +213,13 @@
       "Your visuals": "Your visuals",
       "{0}  ·  Interrupted installation found": "{0}  ·  Interrupted installation found",
       "{0}  ·  {1}  ·  Build 12340": "{0}  ·  {1}  ·  Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Your client has HD models active. The appropriate Patch-Y HD version will be installed.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.",
+      "Choose your existing WoW 3.3.5a folder": "Choose your existing WoW 3.3.5a folder",
+      "LAU SETUP": "LAU SETUP"
     },
     "de-DE": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Wählen Sie Ihren vorhandenen WoW 3.3.5a-Ordner",
       "A backup record is damaged. Keep the backups and contact support.": "Ein Sicherungsdatensatz ist beschädigt. Bewahren Sie die Backups auf und wenden Sie sich an den Support.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Eine Download-Cache-Datei ist mit einer anderen Datei verknüpft. Wählen Sie einen normalen lokalen Ordner.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Eine Spieldatei wurde geändert, nachdem die Installation vorbereitet wurde. Bitte wählen Sie den Ordner erneut aus.",
@@ -305,7 +306,6 @@
       "Invalid release catalog.": "Ungültiger Release-Katalog.",
       "Keep existing": "Vorhandene behalten",
       "Language and model setup will be detected automatically.": "Sprach- und Modelleinstellungen werden automatisch erkannt.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH – VISUELLES UPGRADE",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup erfordert .NET Framework 4.8. Die offizielle Runtime-Downloadseite von Microsoft öffnen?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup erfordert Python 3.9 oder neuer für seine Linux-Sicherheitsüberprüfungen.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Laus Karten und Minikarten plus Trimitors Dungeon-, Schlachtzugs- und Höhlenkarten. Mit WDM-Addons. Ladebilder sind separat.",
@@ -429,10 +429,13 @@
       "Your visuals": "Deine Grafik",
       "{0}  ·  Interrupted installation found": "{0} · Unterbrochene Installation gefunden",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} zusätzliche Upgrade-Patches werden automatisch in LauSetupBackups gesichert. Klicken Sie zum Fortfahren auf Upgrade installieren."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} zusätzliche Upgrade-Patches werden automatisch in LauSetupBackups gesichert. Klicken Sie zum Fortfahren auf Upgrade installieren.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Ihr Client verwendet HD-Modelle. Die passende Version von Patch-Y HD wird installiert.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Ihr Client verwendet keine HD-Modelle. Die passende Version von Patch-Y Non-HD wird installiert.",
+      "Choose your existing WoW 3.3.5a folder": "Wählen Sie Ihren vorhandenen WoW 3.3.5a-Ordner",
+      "LAU SETUP": "LAU SETUP"
     },
     "fr-FR": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Choisissez votre dossier WoW 3.3.5a existant",
       "A backup record is damaged. Keep the backups and contact support.": "Un enregistrement de sauvegarde est endommagé. Conservez les sauvegardes et contactez le support.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Un fichier cache de téléchargement est lié à un autre fichier. Choisissez un dossier local normal.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Un fichier de jeu modifié après la préparation de l'installation. Veuillez choisir à nouveau le dossier.",
@@ -519,7 +522,6 @@
       "Invalid release catalog.": "Catalogue de versions non valide.",
       "Keep existing": "Conserver les fichiers actuels",
       "Language and model setup will be detected automatically.": "La configuration de la langue et du modèle sera détectée automatiquement.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH – AMÉLIORATION VISUELLE",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup nécessite .NET Framework 4.8. Ouvrir la page de téléchargement officielle du runtime de Microsoft ?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup nécessite Python 3.9 ou une version plus récente pour ses contrôles de sécurité Linux.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Cartes et mini-cartes de Lau avec les cartes de donjons, raids et grottes de Trimitor. Addons WDM inclus. Écrans de chargement séparés.",
@@ -643,10 +645,13 @@
       "Your visuals": "Votre apparence",
       "{0}  ·  Interrupted installation found": "{0} · Installation interrompue trouvée",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} correctifs supplémentaires seront sauvegardés automatiquement dans LauSetupBackups. Cliquez sur Installer la mise à niveau pour continuer."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} correctifs supplémentaires seront sauvegardés automatiquement dans LauSetupBackups. Cliquez sur Installer la mise à niveau pour continuer.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Votre client utilise des modèles HD. La version adaptée de Patch-Y HD sera installée.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Votre client ne possède pas de modèles HD actifs. La version adaptée de Patch-Y Non-HD sera installée.",
+      "Choose your existing WoW 3.3.5a folder": "Choisissez votre dossier WoW 3.3.5a existant",
+      "LAU SETUP": "LAU SETUP"
     },
     "es-ES": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Elija su carpeta WoW 3.3.5a existente",
       "A backup record is damaged. Keep the backups and contact support.": "Un registro de respaldo está dañado. Guarde las copias de seguridad y comuníquese con el soporte.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Un archivo de caché de descarga está vinculado a otro archivo. Elija una carpeta local normal.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Un archivo del juego cambió después de que se preparó la instalación. Por favor elija la carpeta nuevamente.",
@@ -733,7 +738,6 @@
       "Invalid release catalog.": "Catálogo de versiones no válido.",
       "Keep existing": "Conservar los archivos actuales",
       "Language and model setup will be detected automatically.": "La configuración del idioma y del modelo se detectará automáticamente.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH – MEJORA VISUAL",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup requiere .NET Framework 4.8. ¿Abrir la página de descarga oficial del tiempo de ejecución de Microsoft?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup requiere Python 3.9 o más reciente para sus controles de seguridad Linux.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Mapas y minimapas de Lau con mapas de mazmorras, bandas y cuevas de Trimitor. Incluye addons WDM. Pantallas de carga independientes.",
@@ -857,10 +861,13 @@
       "Your visuals": "Tu aspecto",
       "{0}  ·  Interrupted installation found": "{0} · Se encontró instalación interrumpida",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Tu cliente tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y HD.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Tu cliente no tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y Non-HD.",
+      "Choose your existing WoW 3.3.5a folder": "Elija su carpeta WoW 3.3.5a existente",
+      "LAU SETUP": "LAU SETUP"
     },
     "es-MX": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Elija su carpeta WoW 3.3.5a existente",
       "A backup record is damaged. Keep the backups and contact support.": "Un registro de respaldo está dañado. Guarde las copias de seguridad y comuníquese con el soporte.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Un archivo de caché de descarga está vinculado a otro archivo. Elija una carpeta local normal.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Un archivo del juego cambió después de que se preparó la instalación. Por favor elija la carpeta nuevamente.",
@@ -947,7 +954,6 @@
       "Invalid release catalog.": "Catálogo de versiones no válido.",
       "Keep existing": "Conservar los archivos actuales",
       "Language and model setup will be detected automatically.": "La configuración del idioma y del modelo se detectará automáticamente.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH – MEJORA VISUAL",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup requiere .NET Framework 4.8. ¿Abrir la página de descarga oficial del tiempo de ejecución de Microsoft?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup requiere Python 3.9 o más reciente para sus controles de seguridad Linux.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Mapas y minimapas de Lau con mapas de mazmorras, bandas y cuevas de Trimitor. Incluye addons WDM. Pantallas de carga independientes.",
@@ -1071,10 +1077,13 @@
       "Your visuals": "Tu aspecto",
       "{0}  ·  Interrupted installation found": "{0} · Se encontró instalación interrumpida",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "Se guardará una copia de seguridad automática de {0} parches adicionales en LauSetupBackups. Haz clic en Instalar actualización para continuar.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Tu cliente tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y HD.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Tu cliente no tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y Non-HD.",
+      "Choose your existing WoW 3.3.5a folder": "Elija su carpeta WoW 3.3.5a existente",
+      "LAU SETUP": "LAU SETUP"
     },
     "ko-KR": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 기존 WoW 3.3.5a 폴더를 선택하세요",
       "A backup record is damaged. Keep the backups and contact support.": "백업 기록이 손상되었습니다. 백업을 보관하고 지원팀에 문의하세요.",
       "A download cache file is linked to another file. Choose a normal local folder.": "다운로드 캐시 파일이 다른 파일에 연결되어 있습니다. 일반 로컬 폴더를 선택하십시오.",
       "A game file changed after the install was prepared. Please choose the folder again.": "설치 준비 후 변경된 게임 파일입니다. 폴더를 다시 선택해 주세요.",
@@ -1161,7 +1170,6 @@
       "Invalid release catalog.": "릴리스 카탈로그가 잘못되었습니다.",
       "Keep existing": "기존 파일 유지",
       "Language and model setup will be detected automatically.": "언어 및 모델 설정이 자동으로 감지됩니다.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH 비주얼 업그레이드",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup에는 .NET Framework 4.8가 필요합니다. Microsoft의 공식 런타임 다운로드 페이지를 여시겠습니까?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup에는 Linux 안전 점검을 위해 Python 3.9 이상이 필요합니다.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Lau 지도와 미니맵에 Trimitor 던전, 공격대, 동굴 지도를 추가합니다. WDM 애드온 포함. 로딩 화면은 별도 선택입니다.",
@@ -1285,10 +1293,13 @@
       "Your visuals": "시각 효과",
       "{0}  ·  Interrupted installation found": "{0} · 중단된 설치 발견",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "추가 업그레이드 패치 {0}개를 LauSetupBackups에 자동으로 백업합니다. 계속하려면 업그레이드 설치를 클릭하세요."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "추가 업그레이드 패치 {0}개를 LauSetupBackups에 자동으로 백업합니다. 계속하려면 업그레이드 설치를 클릭하세요.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "클라이언트에 HD 모델이 활성화되어 있습니다. 적합한 Patch-Y HD 버전이 설치됩니다.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "클라이언트에 HD 모델이 활성화되어 있지 않습니다. 적합한 Patch-Y Non-HD 버전이 설치됩니다.",
+      "Choose your existing WoW 3.3.5a folder": "기존 WoW 3.3.5a 폴더를 선택하세요",
+      "LAU SETUP": "LAU SETUP"
     },
     "ru-RU": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Выберите существующую папку WoW 3.3.5a.",
       "A backup record is damaged. Keep the backups and contact support.": "Резервная запись повреждена. Сохраните резервные копии и обратитесь в службу поддержки.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Файл кэша загрузки связан с другим файлом. Выберите обычную локальную папку.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Файл игры изменился после подготовки установки. Пожалуйста, выберите папку еще раз.",
@@ -1375,7 +1386,6 @@
       "Invalid release catalog.": "Неверный каталог выпуска.",
       "Keep existing": "Сохранить текущие файлы",
       "Language and model setup will be detected automatically.": "Настройка языка и модели будет определена автоматически.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH — ВИЗУАЛЬНОЕ ОБНОВЛЕНИЕ",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Для Lau Setup требуется .NET Framework 4.8. Открыть официальную страницу загрузки среды выполнения Microsoft?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup требует Python 3.9 или более поздней версии для проверок безопасности Linux.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Карты и миникарты Lau вместе с картами подземелий, рейдов и пещер Trimitor. Включает аддоны WDM. Экраны загрузки выбираются отдельно.",
@@ -1499,10 +1509,13 @@
       "Your visuals": "Внешний вид",
       "{0}  ·  Interrupted installation found": "{0} · Обнаружена прерванная установка",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} дополнительных патчей будут автоматически сохранены в LauSetupBackups. Нажмите «Установить обновление», чтобы продолжить."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} дополнительных патчей будут автоматически сохранены в LauSetupBackups. Нажмите «Установить обновление», чтобы продолжить.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "В клиенте активны HD-модели. Будет установлена подходящая версия Patch-Y HD.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "В клиенте нет активных HD-моделей. Будет установлена подходящая версия Patch-Y Non-HD.",
+      "Choose your existing WoW 3.3.5a folder": "Выберите существующую папку WoW 3.3.5a.",
+      "LAU SETUP": "LAU SETUP"
     },
     "zh-CN": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 选择现有的 WoW 3.3.5a 文件夹",
       "A backup record is damaged. Keep the backups and contact support.": "备份记录已损坏。保留备份并联系支持人员。",
       "A download cache file is linked to another file. Choose a normal local folder.": "下载缓存文件链接到另一个文件。选择一个普通的本地文件夹。",
       "A game file changed after the install was prepared. Please choose the folder again.": "准备安装后游戏文件发生了变化。请再次选择文件夹。",
@@ -1589,7 +1602,6 @@
       "Invalid release catalog.": "发布目录无效。",
       "Keep existing": "保留现有文件",
       "Language and model setup will be detected automatically.": "将自动检测语言和模型设置。",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH 视觉升级",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup 需要 .NET Framework 4.8。要打开 Microsoft 官方运行时下载页面吗？",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup 需要 Python 3.9 或更新版本进行 Linux 安全检查。",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Lau 地图和小地图，加入 Trimitor 的地下城、团队副本及洞穴地图。包含 WDM 插件。加载画面单独选择。",
@@ -1713,10 +1725,13 @@
       "Your visuals": "视觉效果",
       "{0}  ·  Interrupted installation found": "{0} · 发现安装中断",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "将自动把 {0} 个额外升级补丁备份到 LauSetupBackups。点击“安装升级”继续。"
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "将自动把 {0} 个额外升级补丁备份到 LauSetupBackups。点击“安装升级”继续。",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "客户端已启用 HD 模型。将安装适用的 Patch-Y HD 版本。",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "客户端未启用 HD 模型。将安装适用的 Patch-Y Non-HD 版本。",
+      "Choose your existing WoW 3.3.5a folder": "选择现有的 WoW 3.3.5a 文件夹",
+      "LAU SETUP": "LAU SETUP"
     },
     "zh-TW": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 選擇現有的 WoW 3.3.5a 資料夾",
       "A backup record is damaged. Keep the backups and contact support.": "備份記錄已損壞。保留備份並聯絡支援人員。",
       "A download cache file is linked to another file. Choose a normal local folder.": "下載快取檔案連結到另一個檔案。選擇一個普通的本機資料夾。",
       "A game file changed after the install was prepared. Please choose the folder again.": "準備安裝後遊戲檔案發生了變化。請再次選擇資料夾。",
@@ -1803,7 +1818,6 @@
       "Invalid release catalog.": "發布目錄無效。",
       "Keep existing": "保留現有檔案",
       "Language and model setup will be detected automatically.": "將自動偵測語言和模型設定。",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH 視覺升級",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "Lau Setup 需要 .NET Framework 4.8。要開啟 Microsoft 官方執行階段下載頁面嗎？",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup 需要 Python 3.9 或更新版本進行 Linux 安全檢查。",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Lau 地圖和小地圖，加入 Trimitor 的地城、團隊副本及洞穴地圖。包含 WDM 插件。載入畫面單獨選擇。",
@@ -1927,10 +1941,13 @@
       "Your visuals": "視覺效果",
       "{0}  ·  Interrupted installation found": "{0} · 發現安裝中斷",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "將自動把 {0} 個額外升級修補程式備份至 LauSetupBackups。按一下「安裝升級」繼續。"
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "將自動把 {0} 個額外升級修補程式備份至 LauSetupBackups。按一下「安裝升級」繼續。",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "用戶端已啟用 HD 模型。將安裝適用的 Patch-Y HD 版本。",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "用戶端未啟用 HD 模型。將安裝適用的 Patch-Y Non-HD 版本。",
+      "Choose your existing WoW 3.3.5a folder": "選擇現有的 WoW 3.3.5a 資料夾",
+      "LAU SETUP": "LAU SETUP"
     },
     "pt-BR": {
-      "1   Choose your existing WoW 3.3.5a folder": "1 Escolha sua pasta WoW 3.3.5a existente",
       "A backup record is damaged. Keep the backups and contact support.": "Um registro de backup está danificado. Mantenha os backups e entre em contato com o suporte.",
       "A download cache file is linked to another file. Choose a normal local folder.": "Um arquivo de cache de download está vinculado a outro arquivo. Escolha uma pasta local normal.",
       "A game file changed after the install was prepared. Please choose the folder again.": "Um arquivo do jogo foi alterado após a preparação da instalação. Escolha a pasta novamente.",
@@ -2017,7 +2034,6 @@
       "Invalid release catalog.": "Catálogo de lançamento inválido.",
       "Keep existing": "Manter arquivos atuais",
       "Language and model setup will be detected automatically.": "A configuração de idioma e modelo será detectada automaticamente.",
-      "LAU  /  WRATH VISUAL UPGRADE": "LAU  /  WRATH — MELHORIA VISUAL",
       "Lau Setup requires .NET Framework 4.8. Open Microsoft's official runtime download page?": "O Lau Setup requer o .NET Framework 4.8. Abrir a página oficial de download do runtime da Microsoft?",
       "Lau Setup requires Python 3.9 or newer for its Linux safety checks.": "Lau Setup requer Python 3.9 ou mais recente para suas verificações de segurança Linux.",
       "Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.": "Mapas e minimapas de Lau com mapas de masmorras, raides e cavernas de Trimitor. Inclui addons WDM. Telas de carregamento separadas.",
@@ -2141,7 +2157,11 @@
       "Your visuals": "Sua aparência",
       "{0}  ·  Interrupted installation found": "{0} · Instalação interrompida encontrada",
       "{0}  ·  {1}  ·  Build 12340": "{0} · {1} · Build 12340",
-      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} patches extras serão salvos automaticamente em LauSetupBackups. Clique em Instalar atualização para continuar."
+      "{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.": "{0} patches extras serão salvos automaticamente em LauSetupBackups. Clique em Instalar atualização para continuar.",
+      "Your client has HD models active. The appropriate Patch-Y HD version will be installed.": "Seu cliente tem modelos HD ativos. A versão adequada do Patch-Y HD será instalada.",
+      "Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.": "Seu cliente não tem modelos HD ativos. A versão adequada do Patch-Y Non-HD será instalada.",
+      "Choose your existing WoW 3.3.5a folder": "Escolha sua pasta WoW 3.3.5a existente",
+      "LAU SETUP": "LAU SETUP"
     }
   }
 }

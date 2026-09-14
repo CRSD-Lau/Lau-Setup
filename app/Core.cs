@@ -74,7 +74,7 @@ public sealed class Catalog {
         using(var r=new StreamReader(s)) return Load(r.ReadToEnd());
     }
     public void Validate() {
-        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8") || Locales==null || Assets==null || Assets.Count>512 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
+        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8" && Version!="3.0.9") || Locales==null || Assets==null || Assets.Count>512 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
         foreach(string locale in Locales) if(!Regex.IsMatch(locale,@"^(enUS|deDE|frFR|esES|esMX|koKR|ruRU|zhCN|zhTW)$")) throw new InvalidDataException("Unsupported language.");
         foreach(var entry in Assets) {
             var a=entry.Value;
@@ -96,7 +96,7 @@ public sealed class Catalog {
         foreach(var loc in Locales) { Get("LoadingQ-"+loc); Get("MapsQ-"+loc); }
         foreach(var mode in new[]{"Non-HD","HD-NewSpells-On","HD-NewSpells-Off"}) foreach(var cons in new[]{"On","Off"}) Get("Y-"+mode+"-Consecration-"+cons);
     }
-    internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0"};
+    internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0","payload-3.0.9"};
     public static bool ValidDownloadUrl(Part part) { return DownloadTags.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
     public Asset Get(string id) { Asset a; if(!Assets.TryGetValue(id,out a)) throw new InvalidDataException("Missing release component: "+id); return a; }
 }
@@ -310,6 +310,8 @@ public sealed class ClientLease:IDisposable {
     public void Dispose(){if(stream!=null){stream.Dispose();stream=null;WineHost.Release(root);}}
 }
 public sealed class Transaction {
+    public Action<int> Progress;
+    void ReportProgress(int value){if(Progress!=null)Progress(value);}
     readonly Catalog catalog;readonly Action<string> report;readonly Action<string> guard;
     internal Action<int> AfterMove { get; set; }
     internal Action<int> AfterRestore { get; set; }
@@ -366,7 +368,9 @@ public sealed class Transaction {
             if(Encoding.UTF8.GetByteCount(Json.Text(journal))>8*1024*1024)throw new IOException("Invalid backup record.");
             Json.Save(record,journal);
             try {
+            int stagedCount=0;
             foreach(var op in plan.Operations) {
+                ReportProgress(stagedCount++*40/Math.Max(1,plan.Operations.Count));
                 token.ThrowIfCancellationRequested();var a=op.AssetId==null?null:catalog.Get(op.AssetId);
                 if(a!=null||op.SourceRelative!=null) {
                     string src,expectedHash;long expectedBytes;
@@ -386,6 +390,7 @@ public sealed class Transaction {
             journal.Status="COMMITTING";Json.Save(record,journal);
             try {
                 for(int i=0;i<journal.Files.Count;i++) {
+                    ReportProgress(40+i*50/Math.Max(1,journal.Files.Count));
                     token.ThrowIfCancellationRequested();guard(plan.Root);var entry=journal.Files[i];string path=SafePaths.Target(plan.Root,entry.Relative,plan.Locale,entry.ExtraPatch);
                     if(entry.Existed?!Hash.Matches(path,entry.OldHash,entry.OldBytes):File.Exists(path))throw new IOException("A game file changed before installation. Restoring your backup.");
                     if(entry.ExtraPatch)report("Backing up "+entry.Relative+"…");else report("Installing "+entry.Relative+"…");
@@ -393,11 +398,13 @@ public sealed class Transaction {
                     if(AfterMove!=null)AfterMove(i);
                     if(entry.NewHash!=null){SafePaths.DirectoryFor(path);File.Move(StoredPath(dir,"staged",entry.Relative),path);}
                 }
+                int verifiedCount=0;
                 foreach(var entry in journal.Files) {
+                    ReportProgress(90+verifiedCount++*10/Math.Max(1,journal.Files.Count));
                     var path=SafePaths.Target(plan.Root,entry.Relative,plan.Locale,entry.ExtraPatch);
                     if(entry.NewHash==null ? File.Exists(path) : !Hash.Matches(path,entry.NewHash,entry.NewBytes))throw new IOException("Final install verification failed.");
                 }
-                journal.Status="INSTALLED";Json.Save(record,journal);report("Installed and verified. Your backup is ready.");return record;
+                journal.Status="INSTALLED";Json.Save(record,journal);ReportProgress(100);report("Installed and verified. Your backup is ready.");return record;
             } catch(Exception original) {
                 try{RestoreInternal(record);report("The install did not finish. Your previous files were restored.");}
                 catch(Exception recovery){journal.Status="RECOVERY_REQUIRED";Json.Save(record,journal);throw new IOException("Installation stopped. Close WoW and use Restore previous install. Backup: "+dir+". "+recovery.Message,original);}

@@ -45,6 +45,7 @@ PROTECTED = re.compile(
 CALL_NAMES = ("Ui.T", "Ui.F", "Label", "Button", "Check", "SetText", "Phrase")
 EXCLUDED_INTERNAL = {"error", "Non-ASCII probe"}
 EXTRA_KEYS = {
+    "Game folder", "Your visuals", "Review", "Finished",
     # The Wine launcher translates this prefix before appending the allowlisted
     # language codes, so it is intentionally present alongside the full format
     # template extracted from parse_language().
@@ -388,7 +389,7 @@ def validate(data=None, keys=None, root=ROOT):
                 if translated.count(token) != source.count(token):
                     raise ValueError(f"{locale} changed protected token {token!r}: {source}")
             visible = PROTECTED.sub("", source)
-            if source not in {"Patch-Y HD", "Patch-Y Non-HD"} and locale != "en-US" and len(re.findall(r"[A-Za-z]{3,}", visible)) >= 2 and translated == source:
+            if source not in {"Patch-Y HD", "Patch-Y Non-HD", "LAU SETUP"} and locale != "en-US" and len(re.findall(r"[A-Za-z]{3,}", visible)) >= 2 and translated == source:
                 raise ValueError(f"{locale} silently falls back to English: {source}")
             if locale == "en-US" and translated != source: raise ValueError(f"en-US must be identity: {source}")
     print(f"Verified {len(keys)} source keys across {len(languages)} complete languages")
@@ -477,4 +478,15 @@ REVIEWED['ru'].update({'Compatible WoW.exe + loading screens': 'Совмести
 REVIEWED['ko'].update({'Compatible WoW.exe + loading screens': '호환 WoW.exe + 로딩 화면', "Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.": '호환 WoW.exe와 Lau 로딩 화면을 함께 설치합니다. 끄면 둘 다 그대로 유지됩니다.'})
 REVIEWED['zh-CN'].update({'Compatible WoW.exe + loading screens': '兼容 WoW.exe + 加载画面', "Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.": '一起安装兼容的 WoW.exe 和 Lau 加载画面。关闭则两者保持不变。'})
 REVIEWED['zh-TW'].update({'Compatible WoW.exe + loading screens': '相容 WoW.exe + 載入畫面', "Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.": '一起安裝相容的 WoW.exe 和 Lau 載入畫面。關閉則兩者保持不變。'})
+REVIEWED['de'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': 'Ihr Client verwendet HD-Modelle. Die passende Version von Patch-Y HD wird installiert.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': 'Ihr Client verwendet keine HD-Modelle. Die passende Version von Patch-Y Non-HD wird installiert.'})
+REVIEWED['fr'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': 'Votre client utilise des modèles HD. La version adaptée de Patch-Y HD sera installée.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': 'Votre client ne possède pas de modèles HD actifs. La version adaptée de Patch-Y Non-HD sera installée.'})
+REVIEWED['es'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': 'Tu cliente tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y HD.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': 'Tu cliente no tiene modelos HD activos. Se instalará la versión adecuada de Patch-Y Non-HD.'})
+REVIEWED['pt'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': 'Seu cliente tem modelos HD ativos. A versão adequada do Patch-Y HD será instalada.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': 'Seu cliente não tem modelos HD ativos. A versão adequada do Patch-Y Non-HD será instalada.'})
+REVIEWED['ru'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': 'В клиенте активны HD-модели. Будет установлена подходящая версия Patch-Y HD.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': 'В клиенте нет активных HD-моделей. Будет установлена подходящая версия Patch-Y Non-HD.'})
+REVIEWED['ko'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': '클라이언트에 HD 모델이 활성화되어 있습니다. 적합한 Patch-Y HD 버전이 설치됩니다.', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': '클라이언트에 HD 모델이 활성화되어 있지 않습니다. 적합한 Patch-Y Non-HD 버전이 설치됩니다.'})
+REVIEWED['zh-CN'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': '客户端已启用 HD 模型。将安装适用的 Patch-Y HD 版本。', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': '客户端未启用 HD 模型。将安装适用的 Patch-Y Non-HD 版本。'})
+REVIEWED['zh-TW'].update({'Your client has HD models active. The appropriate Patch-Y HD version will be installed.': '用戶端已啟用 HD 模型。將安裝適用的 Patch-Y HD 版本。', 'Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.': '用戶端未啟用 HD 模型。將安裝適用的 Patch-Y Non-HD 版本。'})
+for values in REVIEWED.values():
+    values['LAU SETUP']='LAU SETUP'
+    if '1   Choose your existing WoW 3.3.5a folder' in values:values['Choose your existing WoW 3.3.5a folder']=values['1   Choose your existing WoW 3.3.5a folder'].lstrip('1 .　')
 if __name__ == "__main__": main()
