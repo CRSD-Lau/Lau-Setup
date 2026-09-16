@@ -6,17 +6,15 @@
   "profiles": {
     "warmane": {
       "displayName": "Warmane",
+      "targetType": "server",
       "status": "current-baseline-target",
-      "knownRealmNames": ["Icecrown", "Lordaeron", "Onyxia"],
-      "databaseNotes": "Current Lau 3.0.9 routing and retained visual acceptance target. Encounter timing and visual boundaries still require exact realm/difficulty testing.",
-      "serverListEvidence": "https://github.com/Ridepad/uwu-logs/blob/685c8f3d726ef2a27f9860b9ed9033b44d7930b5/config/servers_main.json"
+      "databaseNotes": "Current Lau 3.0.9 routing and retained visual acceptance target. Encounter timing and visual boundaries still require testing on the exact server or realm and difficulty named in the pull request."
     },
     "wowcircle": {
       "displayName": "WoW Circle",
+      "targetType": "server",
       "status": "server-specific-evidence-required",
-      "knownRealmNames": ["WoW-Circle-x1", "WoW-Circle-x4", "WoW-Circle-x5", "WoW-Circle-x100", "WoW-Circle"],
-      "databaseNotes": "Halion twilight cutters move faster and meteor-strike fire radiuses are larger than the current Warmane-targeted assumptions. Exact DBC routing, timing and geometry values must be supplied and validated for the named WoW Circle realm/build; no numeric adjustment is inferred here.",
-      "serverListEvidence": "https://github.com/Ridepad/uwu-logs/blob/685c8f3d726ef2a27f9860b9ed9033b44d7930b5/config/servers_main.json"
+      "databaseNotes": "Halion twilight cutters move faster and meteor-strike fire radiuses are larger than the current Warmane-targeted assumptions. Exact DBC routing, timing and geometry values must be supplied and validated for the server or realm/build named in the pull request; no numeric adjustment is inferred here."
     }
   }
 }

@@ -6,6 +6,8 @@ on:
     paths:
       - 'patch-y/**'
       - 'tools/patch_y.py'
+      - 'tools/patch-y.ps1'
+      - 'tools/Patch-Y-Start.cmd'
       - 'tools/generate_patch_y_baseline.py'
       - 'tests/test_patch_y_source.py'
       - 'tests/test_patch_y_archive_integration.py'
@@ -13,6 +15,7 @@ on:
       - 'README.md'
       - 'CONTRIBUTING.md'
       - 'docs/PATCH-Y-DEVELOPMENT.md'
+      - 'docs/PATCH-Y-QUICKSTART-WINDOWS.md'
       - '.github/PULL_REQUEST_TEMPLATE.md'
       - '.github/workflows/patch-y-source.yml'
   push:
@@ -20,6 +23,8 @@ on:
     paths:
       - 'patch-y/**'
       - 'tools/patch_y.py'
+      - 'tools/patch-y.ps1'
+      - 'tools/Patch-Y-Start.cmd'
       - 'tools/generate_patch_y_baseline.py'
       - 'tests/test_patch_y_source.py'
       - 'tests/test_patch_y_archive_integration.py'
@@ -27,6 +32,7 @@ on:
       - 'README.md'
       - 'CONTRIBUTING.md'
       - 'docs/PATCH-Y-DEVELOPMENT.md'
+      - 'docs/PATCH-Y-QUICKSTART-WINDOWS.md'
       - '.github/workflows/patch-y-source.yml'
   workflow_dispatch:
     inputs:

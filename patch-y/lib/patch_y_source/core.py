@@ -138,11 +138,8 @@ def load_servers(path: Path) -> dict[str, dict[str, Any]]:
             raise OverlayError(f"Invalid server profile ID: {server}")
         if not str(profile.get("displayName", "")).strip() or not str(profile.get("databaseNotes", "")).strip():
             raise OverlayError(f"Server profile needs displayName and databaseNotes: {server}")
-        realms = profile.get("knownRealmNames")
-        if not isinstance(realms, list) or not realms or any(not isinstance(realm, str) or not realm.strip() for realm in realms):
-            raise OverlayError(f"Server profile needs one or more exact knownRealmNames: {server}")
-        if not str(profile.get("serverListEvidence", "")).startswith("https://"):
-            raise OverlayError(f"Server profile needs HTTPS naming evidence: {server}")
+        if profile.get("targetType") not in {"server", "realm"}:
+            raise OverlayError(f"Server profile targetType must be server or realm: {server}")
     return profiles
 
 

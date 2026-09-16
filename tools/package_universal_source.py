@@ -15,8 +15,8 @@ ADDITIONS = [
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',
     'tests/LocalizationProbe.cs', 'tools/test_localization.ps1',
     'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'CHANGELOG.md',
-    'MPQ-EDIT-BREAKDOWN.md', 'docs/PATCH-Y-DEVELOPMENT.md',
-    'tools/patch_y.py', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
+    'MPQ-EDIT-BREAKDOWN.md', 'docs/PATCH-Y-DEVELOPMENT.md', 'docs/PATCH-Y-QUICKSTART-WINDOWS.md',
+    'tools/patch_y.py', 'tools/patch-y.ps1', 'tools/Patch-Y-Start.cmd', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]
 
