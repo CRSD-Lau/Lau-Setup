@@ -13,7 +13,7 @@ Delete this section when the PR does not change Patch-Y source.
 - Exact server realm/build:
 - Server-specific DBC IDs, timing, radius or mechanic evidence:
 - Affected editions:
-- Source operations (`add`, `replace`, `delete`, `dbc`):
+- Source operations (`add`, `replace`, `delete`, `dbc`, `transform`):
 - Asset source and applicable permission:
 - Development `/pyversion`:
 - Test client, locale and difficulty:

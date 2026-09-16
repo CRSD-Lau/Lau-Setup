@@ -58,7 +58,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends libstorm9=9.22-1build1 libstorm-dev=9.22-1build1
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: patch-y/.cache
           key: patch-y-3.0.9-582d39cf51eea97d15f504aae364cf3c47448962a50f6dcfb2bc4039c2a25300
