@@ -15,11 +15,21 @@ ADDITIONS = [
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',
     'tests/LocalizationProbe.cs', 'tools/test_localization.ps1',
     'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'CHANGELOG.md',
+    'MPQ-EDIT-BREAKDOWN.md', 'docs/PATCH-Y-DEVELOPMENT.md',
+    'tools/patch_y.py', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
+    '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]
+
+PATCH_Y_EXCLUDED_PARTS = {'.cache', '.work', '__pycache__'}
 
 def build(root=ROOT,output=None):
     root=Path(root).resolve()
-    names=sorted(set(json.loads((root/'build/wine-public-allowlist.json').read_text(encoding='utf-8-sig'))+ADDITIONS))
+    patch_y_names = [
+        str(path.relative_to(root)).replace('\\', '/')
+        for path in (root / 'patch-y').rglob('*')
+        if path.is_file() and not PATCH_Y_EXCLUDED_PARTS.intersection(path.relative_to(root / 'patch-y').parts)
+    ]
+    names=sorted(set(json.loads((root/'build/wine-public-allowlist.json').read_text(encoding='utf-8-sig'))+ADDITIONS+patch_y_names))
     # Keep this manifest in the source bundle so it can reproduce its own archive.
     names.append('build/wine-public-allowlist.json')
     output=Path(output).resolve() if output else root/'dist/release-1.4.0/LauSetup-source-1.4.0.zip'

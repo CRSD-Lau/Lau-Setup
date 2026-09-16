@@ -1,0 +1,18 @@
+{
+  "action": "dbc",
+  "servers": ["wowcircle"],
+  "member": "DBFilesClient\\SpellVisual.dbc",
+  "expectedBeforeSha256": "replace-with-the-baseline-member-sha256",
+  "reason": "Describe why this exact table needs a structured change.",
+  "edits": [
+    {
+      "recordId": 0,
+      "fieldName": "Replace with the reviewed schema field name",
+      "fieldIndex": 0,
+      "valueType": "uint32",
+      "oldValue": 0,
+      "newValue": 0,
+      "reason": "Describe why this exact record and field must change."
+    }
+  ]
+}

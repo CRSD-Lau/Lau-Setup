@@ -26,9 +26,13 @@ Preserve the archive allowlist, hash checks, backup journals, process checks and
 
 The [technical reference](docs/TECHNICAL.md) explains the public build and the tests that require private local fixtures. Clearly separate a successful build, fixture testing and actual in-game validation in your PR.
 
+For Patch-Y mechanics and visual work, follow the [public Patch-Y development workflow](docs/PATCH-Y-DEVELOPMENT.md). Every operation must name its target server profile, and the PR must identify the exact server realm/build plus relevant database, timing or radius evidence. Submit declared source overlays and generated scope proof, not complete MPQs. CI rebuilds all affected editions from the hash-pinned 3.0.9 baseline and rejects undeclared member or DBC changes. A merged source PR is still a candidate until the normal in-game and release gates pass.
+
 ## Artwork and attribution
 
 Keep the established W-and-shield branding and upstream credits intact. Include the source and applicable permissions for proposed artwork. Do not introduce personal client state into public assets.
+
+Patch-Y includes inherited Blizzard, Andre, HD-client and Project Reforged assets. Do not claim inherited work as newly authored or commit extracted baseline trees. New binary assets need provenance and applicable redistribution permission.
 
 ## DBC release records
 

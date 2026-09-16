@@ -1,0 +1,9 @@
+{
+  "action": "replace",
+  "servers": ["warmane"],
+  "member": "Spells\\ExampleMarker.blp",
+  "source": "files/ExampleMarker.blp",
+  "sourceSha256": "replace-with-the-new-file-sha256",
+  "expectedBeforeSha256": "replace-with-the-baseline-member-sha256",
+  "reason": "Describe the visible encounter problem and intended result."
+}

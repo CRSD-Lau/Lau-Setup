@@ -2,3 +2,7 @@ dist/
 *.user
 
 __pycache__/
+
+patch-y/.cache/
+patch-y/.work/
+patch-y/**/__pycache__/

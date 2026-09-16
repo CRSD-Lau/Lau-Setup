@@ -1,0 +1,102 @@
+# Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell
+name: Patch-Y source
+
+on:
+  pull_request:
+    paths:
+      - 'patch-y/**'
+      - 'tools/patch_y.py'
+      - 'tools/generate_patch_y_baseline.py'
+      - 'tests/test_patch_y_source.py'
+      - 'tests/test_patch_y_archive_integration.py'
+      - 'tools/package_universal_source.py'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'docs/PATCH-Y-DEVELOPMENT.md'
+      - '.github/PULL_REQUEST_TEMPLATE.md'
+      - '.github/workflows/patch-y-source.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'patch-y/**'
+      - 'tools/patch_y.py'
+      - 'tools/generate_patch_y_baseline.py'
+      - 'tests/test_patch_y_source.py'
+      - 'tests/test_patch_y_archive_integration.py'
+      - 'tools/package_universal_source.py'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'docs/PATCH-Y-DEVELOPMENT.md'
+      - '.github/workflows/patch-y-source.yml'
+  workflow_dispatch:
+    inputs:
+      retain_candidates:
+        description: 'Upload candidate MPQs for maintainer testing'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: patch-y-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - name: Install pinned StormLib
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends libstorm9=9.22-1build1 libstorm-dev=9.22-1build1
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: patch-y/.cache
+          key: patch-y-3.0.9-582d39cf51eea97d15f504aae364cf3c47448962a50f6dcfb2bc4039c2a25300
+      - name: Unit and source-contract tests
+        run: python -m unittest discover -s tests -p test_patch_y_source.py -v
+      - name: Fetch and verify every baseline member
+        run: |
+          python tools/patch_y.py fetch
+          python tools/patch_y.py verify-baseline --report patch-y/.work/baseline-proof.json
+      - name: Exercise add, replace, delete and DBC overlays
+        env:
+          PATCH_Y_RUN_ARCHIVE_INTEGRATION: '1'
+        run: python -m unittest discover -s tests -p test_patch_y_archive_integration.py -v
+      - name: Build and verify all six candidates
+        run: |
+          for server in warmane wowcircle; do
+            python tools/patch_y.py build --server "$server" --label ci
+            python tools/patch_y.py verify --server "$server"
+            python tools/patch_y.py diff --server "$server"
+          done
+      - name: Reject generated or undeclared tracked output
+        run: git diff --exit-code && test -z "$(git status --short --untracked-files=all)"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: patch-y-scope-proof
+          path: |
+            patch-y/.work/baseline-proof.json
+            patch-y/.work/patch-y-diff-*.json
+            patch-y/.work/patch-y-diff-*.md
+            patch-y/.work/candidate/*/scope-report.json
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 14
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: github.event_name == 'workflow_dispatch' && inputs.retain_candidates
+        with:
+          name: patch-y-candidates-${{ github.sha }}
+          path: patch-y/.work/candidate/*/*.mpq
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 7

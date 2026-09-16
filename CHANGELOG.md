@@ -1,3 +1,13 @@
+# Unreleased contributor infrastructure — Patch-Y source workflow
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+- Added a public, hash-pinned manifest for every member in all six Patch-Y 3.0.9 editions.
+- Added reviewable common/edition overlays and structured record-level DBC operations.
+- Added required server targeting with distinct Warmane and WoW Circle profiles, realm-name evidence and explicit server-specific validation limits.
+- Added fetch, inspect, build, verify and diff commands plus secret-free CI and a visual-change PR checklist.
+- Generated baselines and candidate MPQs remain outside Git. Stable game payloads, installer behavior and DBC data are unchanged.
+
 # Lau Setup 1.4.0 — September 14, 2026
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->

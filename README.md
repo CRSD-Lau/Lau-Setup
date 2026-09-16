@@ -135,13 +135,15 @@ Read [Known limitations and assumptions](KNOWN-LIMITATIONS.md) before suggesting
 
 ## For contributors
 
+- [Develop and submit Patch-Y visual changes](docs/PATCH-Y-DEVELOPMENT.md)
+- [Browse the Patch-Y source manifest and overlays](patch-y/README.md)
 - [Full MPQ edit breakdown and attribution](MPQ-EDIT-BREAKDOWN.md)
 - [Build, archive placement and recovery design](docs/TECHNICAL.md)
 - [Contribution and bug-report guidance](CONTRIBUTING.md)
 - [Implementation review](REVIEW.md)
 - [Platform scope and feasibility](PLATFORM-FEASIBILITY.md)
 
-Game payloads are distributed through GitHub Releases. This repository contains the installer source, catalog, launcher and documentation; you do not need to clone it to install the upgrade.
+Game payloads are distributed through GitHub Releases. The repository includes a hash-pinned Patch-Y member manifest, source overlays and reproducible contributor tooling; it does not duplicate the six generated MPQs in Git. You do not need to clone it to install the upgrade.
 
 ## Built on community work
 

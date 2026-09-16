@@ -1,0 +1,14 @@
+{
+  "action": "transform",
+  "servers": ["wowcircle"],
+  "member": "Creature\\TwighlightDragon\\twighlightdragon.m2",
+  "expectedBeforeSha256": "replace-with-the-baseline-member-sha256",
+  "recipe": {
+    "kind": "scale_xy_vertices",
+    "offset": 0,
+    "count": 0,
+    "stride": 48,
+    "factor": 1.0
+  },
+  "reason": "Replace the placeholder values with reviewed offsets and the server-specific visual adjustment."
+}
