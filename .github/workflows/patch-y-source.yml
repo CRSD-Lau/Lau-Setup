@@ -90,6 +90,7 @@ jobs:
             patch-y/.work/patch-y-diff-*.md
             patch-y/.work/candidate/*/scope-report.json
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 14
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: github.event_name == 'workflow_dispatch' && inputs.retain_candidates
@@ -97,4 +98,5 @@ jobs:
           name: patch-y-candidates-${{ github.sha }}
           path: patch-y/.work/candidate/*/*.mpq
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 7
