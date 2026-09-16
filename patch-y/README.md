@@ -7,14 +7,18 @@ buildable without committing six duplicate trees of inherited binary game
 assets. The exact **3.0.9 Lau** release is the immutable baseline. Git tracks
 its complete member manifest, reviewable source overlays, transforms and tests.
 
-Start with the [Patch-Y development guide](../docs/PATCH-Y-DEVELOPMENT.md).
+New to Git or command-line tools? Start with the
+[Windows beginner quick start](../docs/PATCH-Y-QUICKSTART-WINDOWS.md). Use the
+[Patch-Y development guide](../docs/PATCH-Y-DEVELOPMENT.md) as the complete
+technical reference.
 
 ## What is tracked
 
 - `baseline.json` pins the public release ZIP, all six MPQs and every extracted
   member by size and SHA-256.
-- `servers.json` registers explicit server targets and their known database or
-  encounter differences. Every non-empty overlay operation names its servers.
+- `servers.json` registers explicit server or realm targets and their known
+  database or encounter differences. Every non-empty overlay operation names
+  its targets.
 - `overlays/common` applies a declared change to every edition.
 - `overlays/editions/<edition>` holds changes for one exact edition.
 - `lib/patch_y_source` contains the cross-platform archive, DBC, model and
@@ -42,4 +46,5 @@ private test fixtures.
 The current baseline targets Warmane. WoW Circle is tracked separately because
 its Halion twilight cutters move faster and its meteor-strike fire radiuses are
 larger. The profile records that difference without inventing unverified
-numeric values; a WoW Circle change must supply realm/build-specific evidence.
+numeric values; a WoW Circle change must supply evidence for the exact server
+or realm/build tested.

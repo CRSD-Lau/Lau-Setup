@@ -3,6 +3,7 @@
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 [Back to Lau Setup](../README.md) · [Source layout](../patch-y/README.md) ·
+[Windows beginner quick start](PATCH-Y-QUICKSTART-WINDOWS.md) ·
 [Current MPQ edit breakdown](../MPQ-EDIT-BREAKDOWN.md)
 
 This workflow lets contributors inspect the raw members of one released
@@ -54,19 +55,17 @@ directory. Add source files below that overlay and declare every operation in
 its `manifest.json`.
 
 Every operation also requires a non-empty `servers` list using IDs from
-`patch-y/servers.json`. Server targeting is independent from the six visual
-editions: do not apply one realm's DBC IDs, timing assumptions or geometry to
-another server merely because both run client build 12340. The current profiles
-are `warmane` and `wowcircle`. WoW Circle's faster Halion twilight cutters and
-larger meteor-strike fire radiuses are documented differences; exact values
-still require evidence from the named realm/build.
-
-Ridepad's [UwU Logs server registry](https://github.com/Ridepad/uwu-logs/blob/685c8f3d726ef2a27f9860b9ed9033b44d7930b5/config/servers_main.json)
-confirms distinct Warmane realm names and WoW Circle x1/x4/x5/x100 identities.
-It is evidence for naming and separation, not proof that two realms share DBC
-rows, animation timing or visual radiuses. If a PR targets another private
-server, add a reviewed profile to `servers.json` with its exact public name,
-realm/build identifiers, known database differences and evidence source.
+`patch-y/servers.json`. A target can represent a server or a specific realm;
+its `targetType` makes that distinction explicit. Targeting is independent
+from the six visual editions: do not apply one target's DBC IDs, timing
+assumptions or geometry to another merely because both run client build 12340.
+The current registered targets are `warmane` and `wowcircle`. WoW Circle's
+faster Halion twilight cutters and larger meteor-strike fire radiuses are
+documented differences; exact values still require evidence for the exact
+server or realm/build tested. If a PR needs another target, add a narrowly
+reviewed profile to `servers.json` with `targetType`, its public display name,
+and the known database or encounter differences. Do not add unrelated server
+directories or external server-list references.
 
 Supported operations are:
 
@@ -128,7 +127,7 @@ and were not tested.
 A visual PR must include:
 
 - The encounter/ability and user-visible problem.
-- The exact server, realm/build and relevant database or timing evidence.
+- The exact server or realm/build and relevant database or timing evidence.
 - The affected editions and declared source operations.
 - Asset provenance and applicable permission.
 - The generated scope report and commands run.
@@ -139,3 +138,77 @@ CI repeats the hash-pinned build without secrets and uploads only compact
 scope reports. Merging a source change does not make it stable: public release
 promotion still requires the installer/catalog, DBC history, rollback,
 Windows/Wine and in-game acceptance gates.
+
+## Windows commands
+
+The guided launcher is the easiest Windows path:
+
+```powershell
+.\tools\patch-y.ps1
+```
+
+If local PowerShell policy blocks scripts, use the included double-clickable
+`tools\Patch-Y-Start.cmd`, or run:
+
+```powershell
+powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File .\tools\patch-y.ps1
+```
+
+Direct commands remain available for contributors who prefer them:
+
+```powershell
+py -3.11 tools\patch_y.py fetch
+py -3.11 tools\patch_y.py inspect Y-HD-NewSpells-On-Consecration-On
+py -3.11 tools\patch_y.py build --server warmane --label my-change
+py -3.11 tools\patch_y.py verify --server warmane
+py -3.11 tools\patch_y.py diff --server warmane
+```
+
+## Linux commands
+
+Install Python 3.11+ and the pinned StormLib package described above, then run:
+
+```bash
+python3 tools/patch_y.py fetch
+python3 tools/patch_y.py inspect Y-HD-NewSpells-On-Consecration-On
+python3 tools/patch_y.py build --server warmane --label my-change
+python3 tools/patch_y.py verify --server warmane
+python3 tools/patch_y.py diff --server warmane
+```
+
+## Troubleshooting
+
+- **`python` or `py` not found:** install Python 3.11 or newer. On Windows,
+  select **Add python.exe to PATH** in the installer, close PowerShell and open
+  it again.
+- **StormLib not found:** on Windows, select the x64 Unicode `StormLib.dll`
+  when the launcher asks, or set `STORMLIB_DLL` to its full path. Do not copy
+  the DLL into the repository or WoW client.
+- **Wrong DLL architecture or `%1 is not a valid Win32 application`:** use an
+  x64 StormLib build with x64 Python. Do not mix 32-bit and 64-bit files.
+- **Baseline hash mismatch:** delete only `patch-y/.cache`, then fetch again.
+  Do not substitute another Patch-Y ZIP.
+- **Not enough disk space:** keep at least 900 MB free for the ZIP, extracted
+  baselines and candidates.
+- **Invalid or case-colliding path:** use an ASCII MPQ member path, preserve
+  its exact spelling and slashes, and do not use `..`, drive letters or two
+  paths that differ only by case.
+- **Build says an old value or hash differs:** stop and inspect the selected
+  3.0.9 baseline. Do not remove the guard value to force the build.
+
+## Glossary
+
+- **MPQ member:** one file stored inside an MPQ archive, addressed by its
+  internal path.
+- **Overlay:** the small tracked set of declared additions, replacements,
+  deletions or transformations applied over the pinned baseline.
+- **Edition:** one of the six Patch-Y combinations of HD/new-spell and
+  Consecration options.
+- **Server profile:** a registered build target in `servers.json`; despite the
+  historical field name, its `targetType` may be `server` or `realm`.
+- **DBC operation:** a structured change to named fields in a specific DBC
+  record, including guarded old and new values.
+- **Scope report:** generated JSON/Markdown proof of exactly which MPQ members
+  changed and which remained byte-identical.
+- **`/pyversion`:** the in-game command used to confirm the loaded Patch-Y
+  candidate and development label.

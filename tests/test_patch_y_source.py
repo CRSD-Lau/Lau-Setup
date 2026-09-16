@@ -54,10 +54,24 @@ class ManifestTests(unittest.TestCase):
         profiles = load_servers(ROOT / "patch-y" / "servers.json")
 
         self.assertEqual({"warmane", "wowcircle"}, set(profiles))
-        self.assertIn("Icecrown", profiles["warmane"]["knownRealmNames"])
-        self.assertIn("WoW-Circle-x100", profiles["wowcircle"]["knownRealmNames"])
+        self.assertEqual("server", profiles["warmane"]["targetType"])
+        self.assertEqual("server", profiles["wowcircle"]["targetType"])
         self.assertIn("cutters move faster", profiles["wowcircle"]["databaseNotes"])
         self.assertIn("fire radiuses are larger", profiles["wowcircle"]["databaseNotes"])
+
+    def test_public_patch_y_guidance_has_no_external_server_registry_reference(self):
+        paths = [
+            ROOT / "patch-y" / "servers.json",
+            ROOT / "patch-y" / "README.md",
+            ROOT / "docs" / "PATCH-Y-DEVELOPMENT.md",
+            ROOT / "docs" / "PATCH-Y-QUICKSTART-WINDOWS.md",
+            ROOT / ".github" / "PULL_REQUEST_TEMPLATE.md",
+        ]
+
+        combined = "\n".join(path.read_text(encoding="utf-8").lower() for path in paths)
+
+        self.assertNotIn("uwu", combined)
+        self.assertNotIn("knownrealmnames", combined)
 
     def test_overlay_requires_exact_source_hash_and_before_hash(self):
         baseline = load_baseline(ROOT / "patch-y" / "baseline.json")
@@ -215,7 +229,10 @@ class SourcePackageTests(unittest.TestCase):
                 names = set(archive.namelist())
             self.assertIn("LauSetup-source/patch-y/baseline.json", names)
             self.assertIn("LauSetup-source/tools/patch_y.py", names)
+            self.assertIn("LauSetup-source/tools/patch-y.ps1", names)
+            self.assertIn("LauSetup-source/tools/Patch-Y-Start.cmd", names)
             self.assertIn("LauSetup-source/docs/PATCH-Y-DEVELOPMENT.md", names)
+            self.assertIn("LauSetup-source/docs/PATCH-Y-QUICKSTART-WINDOWS.md", names)
             self.assertFalse(any("/.cache/" in name or "/.work/" in name or "__pycache__" in name for name in names))
             self.assertFalse(any(name.lower().endswith(".mpq") for name in names))
 

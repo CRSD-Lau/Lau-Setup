@@ -9,8 +9,8 @@ Describe the user-visible problem and the focused result.
 Delete this section when the PR does not change Patch-Y source.
 
 - Encounter / ability:
-- Server profile:
-- Exact server realm/build:
+- Registered target (`warmane`, `wowcircle`, or an added reviewed target):
+- Exact server or realm/build tested:
 - Server-specific DBC IDs, timing, radius or mechanic evidence:
 - Affected editions:
 - Source operations (`add`, `replace`, `delete`, `dbc`, `transform`):
@@ -23,7 +23,7 @@ Delete this section when the PR does not change Patch-Y source.
 ## Validation
 
 - [ ] `python tools/patch_y.py verify-baseline`
-- [ ] Every Patch-Y operation names one or more registered servers.
+- [ ] Every Patch-Y operation names one or more registered targets.
 - [ ] `python tools/patch_y.py build --server <server> --label <branch-label>`
 - [ ] `python tools/patch_y.py verify --server <server>`
 - [ ] `python tools/patch_y.py diff --server <server>`

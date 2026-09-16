@@ -26,7 +26,7 @@ Preserve the archive allowlist, hash checks, backup journals, process checks and
 
 The [technical reference](docs/TECHNICAL.md) explains the public build and the tests that require private local fixtures. Clearly separate a successful build, fixture testing and actual in-game validation in your PR.
 
-For Patch-Y mechanics and visual work, follow the [public Patch-Y development workflow](docs/PATCH-Y-DEVELOPMENT.md). Every operation must name its target server profile, and the PR must identify the exact server realm/build plus relevant database, timing or radius evidence. Submit declared source overlays and generated scope proof, not complete MPQs. CI rebuilds all affected editions from the hash-pinned 3.0.9 baseline and rejects undeclared member or DBC changes. A merged source PR is still a candidate until the normal in-game and release gates pass.
+For Patch-Y mechanics and visual work, beginners should start with the [Windows quick start](docs/PATCH-Y-QUICKSTART-WINDOWS.md); the [public Patch-Y development workflow](docs/PATCH-Y-DEVELOPMENT.md) is the full technical reference. Every operation must name its registered target, and the PR must identify the exact server or realm/build plus relevant database, timing or radius evidence. Submit declared source overlays and generated scope proof, not complete MPQs. CI rebuilds all affected editions from the hash-pinned 3.0.9 baseline and rejects undeclared member or DBC changes. A merged source PR is still a candidate until the normal in-game and release gates pass.
 
 ## Artwork and attribution
 
