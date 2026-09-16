@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "overlay": "common",
+  "description": "Changes applied to all six Patch-Y editions.",
+  "operations": []
+}
