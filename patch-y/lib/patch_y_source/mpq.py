@@ -23,11 +23,12 @@ INVALID_HANDLE = C.c_void_p(-1).value
 READ_ONLY = 0x100
 REPLACE_COMPRESS = 0x80000200
 ZLIB = 2
+STORM_MAX_PATH = 260 if sys.platform == "win32" else 1024
 
 
 class FindData(C.Structure):
     _fields_ = [
-        ("name", C.c_char * 260),
+        ("name", C.c_char * STORM_MAX_PATH),
         ("plain_name", C.c_void_p),
         ("hash_index", DWORD),
         ("block_index", DWORD),

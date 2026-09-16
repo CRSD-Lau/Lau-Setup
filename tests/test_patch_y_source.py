@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import ctypes
 import struct
 import sys
 import tempfile
@@ -21,6 +22,7 @@ from patch_y_source.blp import recolor_dxt1_endpoints, rgb888_to_rgb565
 from patch_y_source.core import OverlayError, load_baseline, load_operations, load_servers, normalize_member_path
 from patch_y_source.dbc import Wdbc, apply_edits
 from patch_y_source.models import replace_texture_reference, rewrite_bounds, scale_xy_vertices
+from patch_y_source.mpq import FindData, STORM_MAX_PATH
 from patch_y_source.workflow import build_candidates
 
 
@@ -240,6 +242,12 @@ class OutputSafetyTests(unittest.TestCase):
                 )
 
             self.assertEqual("keep", (output / "keep.txt").read_text(encoding="utf-8"))
+
+    def test_storm_find_data_uses_platform_abi_path_width(self):
+        expected = 260 if sys.platform == "win32" else 1024
+
+        self.assertEqual(expected, STORM_MAX_PATH)
+        self.assertGreaterEqual(ctypes.sizeof(FindData), expected + ctypes.sizeof(ctypes.c_void_p) + 32)
 
 
 if __name__ == "__main__":
