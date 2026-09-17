@@ -54,9 +54,11 @@ setup text only, not your game's language or files.
    `LauSetup/` folder together.
 2. Before starting, use an existing WoW 3.3.5a build 12340 client on local
    Linux storage, and close every WoW instance in every Wine prefix.
-3. Your existing environment must have Wine 11.0, Wine Mono 10.4.1, a 64-bit
-   prefix, Python 3.9+, and the fonts listed below. Lau Setup does not create
-   or repair these prerequisites.
+3. Your existing environment must have a parseable Wine version, installed
+   Wine Mono, a 64-bit prefix, Python 3.9+, and the fonts listed below. Wine
+   11.0 / Wine Mono 10.4.1 is the validated baseline; any other parseable
+   Wine or Mono version starts with a warning. Lau Setup does not create or
+   repair these prerequisites.
 4. In the extracted `LauSetup` folder, run:
 
    WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh
@@ -69,7 +71,11 @@ setup text only, not your game's language or files.
    setup with the same game folder, and choose **Restore previous install**.
 
 Linux requirements and limits
-- Wine 11.0, an existing 64-bit prefix, and Wine Mono 10.4.1 in that prefix.
+- A parseable Wine version, an existing 64-bit prefix, and installed Wine
+  Mono. Wine 11.0 / Wine Mono 10.4.1 is the tested baseline; other versions
+  are allowed but not yet certified and print a warning. If an older prefix
+  exposes Mono without a version, setup warns and continues; a missing Mono or
+  unreadable Wine version stops before Lau Setup starts.
 - Python 3.9+ for the standard-library host safety helper.
 - Liberation Sans or DejaVu Sans and Wine's complete font package for controls.
 - Korean and Chinese interface text needs Wine-visible Noto Sans CJK fonts

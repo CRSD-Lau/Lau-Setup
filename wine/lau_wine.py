@@ -10,6 +10,10 @@ import stat, subprocess, sys, threading
 GAME = re.compile(r'^(wow|wow-64|wowclassic)\.exe$', re.I)
 UI_LANGUAGES=('en-US','de-DE','fr-FR','es-ES','es-MX','pt-BR','ko-KR','ru-RU','zh-CN','zh-TW')
 UI_LANGUAGE_OPTIONS=UI_LANGUAGES+('auto',)
+WINE_BASELINE=(11,0,0)
+MONO_BASELINE=(10,4,1)
+WINE_VERSION=re.compile(r'^wine-(\d+)\.(\d+)(?:\.(\d+))?((?:[-+ ].*)?)$',re.I)
+SEMVER=re.compile(r'^(\d+)\.(\d+)(?:\.(\d+))?((?:[-+].*)?)$')
 
 def _locale_tag(value):
     """Map a GNU locale spelling to one of Lau Setup's BCP47 UI languages."""
@@ -60,6 +64,49 @@ def translate_error(message, language):
     prefix='The --language option needs one of: '
     if message.startswith(prefix):return translate(prefix,language)+message[len(prefix):]
     return translate(message,language)
+
+def _version(value, pattern, name):
+    """Return a comparable runtime version and suffix, rejecting ambiguous values."""
+    match=pattern.fullmatch((value or '').strip())
+    if not match:raise ValueError('Could not read '+name+' version: '+repr(value)+'.')
+    return tuple(int(part or 0) for part in match.group(1,2,3)),match.group(4) or ''
+
+def wine_version(value):
+    return _version(value,WINE_VERSION,'Wine')
+
+def mono_version(installed, prefix=None, wine_output=None):
+    """Find Wine Mono from package metadata or its standard installed runtime path."""
+    candidates=[]
+    for block in installed.split('\n['):
+        if '"DisplayName"="Wine Mono Runtime"' not in block:continue
+        match=re.search(r'"DisplayVersion"="([^"]+)"',block)
+        if match:candidates.append(match.group(1))
+    if not candidates:
+        runtime=prefix/'drive_c'/'windows'/'mono'/'mono-2.0' if prefix else None
+        if runtime and runtime.is_dir():return None,'installed (version not exposed by this prefix)',''
+        prefix='Detected Wine '+wine_output.strip()+'; ' if wine_output else ''
+        raise ValueError(prefix+'Wine Mono Runtime is missing from this prefix.')
+    parsed=[]
+    for candidate in candidates:
+        try:parsed.append((_version(candidate,SEMVER,'Wine Mono')[0],candidate))
+        except ValueError:continue
+    if not parsed:raise ValueError('Could not read Wine Mono version: '+repr(candidates[-1])+'.')
+    version,display=max(parsed)
+    return version,display,_version(display,SEMVER,'Wine Mono')[1]
+
+def runtime_compatibility(installed, wine_output, prefix=None):
+    """Allow parseable runtimes while retaining every real pre-write safety gate."""
+    wine,wine_suffix=wine_version(wine_output)
+    mono,mono_display,mono_suffix=mono_version(installed,prefix,wine_output)
+    detected='Detected Wine '+wine_output.strip()+'; Wine Mono '+mono_display+'.'
+    warnings=[]
+    if wine!=WINE_BASELINE or wine_suffix:
+        warnings.append('Wine '+wine_output.strip()+' differs from the validated Wine 11.0 baseline.')
+    if mono is None:
+        warnings.append('Wine Mono is installed but its version is not exposed by this prefix.')
+    elif mono!=MONO_BASELINE or mono_suffix:
+        warnings.append('Wine Mono '+mono_display+' differs from the validated Wine Mono 10.4.1 baseline.')
+    return detected,warnings
 
 def local_filesystem(path):
     mounts=[]
@@ -232,10 +279,9 @@ def main(args=None):
         installed=registry.read(32*1024*1024+1)
     if len(installed)>32*1024*1024:raise ValueError('The Wine runtime registry is too large to inspect safely.')
     if '#arch=win64' not in installed[:512]:raise ValueError('This release requires an existing 64-bit Wine prefix. It does not convert or replace older 32-bit prefixes.')
-    if not any('"DisplayName"="Wine Mono Runtime"' in block and '"DisplayVersion"="10.4.1"' in block for block in installed.split('\n[')):
-        raise ValueError('Install Wine Mono 10.4.1 in this prefix first: https://github.com/wine-mono/wine-mono/releases/tag/wine-mono-10.4.1')
     version=subprocess.check_output(['wine','--version'],text=True).strip()
-    if version.split()[0]!='wine-11.0':raise ValueError('This release is validated with Wine 11.0. Other Wine versions are not supported yet.')
+    detected,warnings=runtime_compatibility(installed,version,prefix)
+    for warning in warnings:print('Lau Setup warning: '+warning+' '+detected,file=sys.stderr)
     folder=pathlib.Path(__file__).resolve().parent
     exe=folder/'LauSetup.exe'
     if not exe.is_file() or not (folder/'lau-languages.json').is_file():raise ValueError('LauSetup.exe, lau_wine.py and lau-languages.json must stay together.')

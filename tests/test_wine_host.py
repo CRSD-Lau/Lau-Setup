@@ -85,5 +85,31 @@ class HostTests(unittest.TestCase):
             with self.assertRaises(urllib.error.HTTPError) as error:urllib.request.urlopen(req)
             self.assertEqual(error.exception.code,403)
         finally:service.shutdown();service.server_close();guard.close()
+    def test_runtime_baseline_is_accepted_without_warning(self):
+        registry='[Mono]\n"DisplayName"="Wine Mono Runtime"\n"DisplayVersion"="10.4.1"\n'
+        detected,warnings=host.runtime_compatibility(registry,'wine-11.0')
+        self.assertEqual(detected,'Detected Wine wine-11.0; Wine Mono 10.4.1.')
+        self.assertEqual(warnings,[])
+    def test_runtime_nonbaseline_versions_are_accepted_with_warnings(self):
+        registry='[Mono]\n"DisplayName"="Wine Mono Runtime"\n"DisplayVersion"="10.5.0"\n'
+        detected,warnings=host.runtime_compatibility(registry,'wine-11.7-staging')
+        self.assertIn('wine-11.7-staging',detected)
+        self.assertEqual(len(warnings),2)
+        detected,warnings=host.runtime_compatibility(registry,'wine-12.0 (Staging)')
+        self.assertIn('wine-12.0 (Staging)',detected)
+        self.assertEqual(len(warnings),2)
+        older='[Mono]\n"DisplayName"="Wine Mono Runtime"\n"DisplayVersion"="9.2.0"\n'
+        detected,warnings=host.runtime_compatibility(older,'wine-8.21')
+        self.assertIn('wine-8.21',detected)
+        self.assertEqual(len(warnings),2)
+    def test_runtime_rejects_missing_and_unparsable_versions(self):
+        baseline='[Mono]\n"DisplayName"="Wine Mono Runtime"\n"DisplayVersion"="10.4.1"\n'
+        with self.assertRaisesRegex(ValueError,'Detected Wine wine-11.0; Wine Mono Runtime is missing'):host.runtime_compatibility('', 'wine-11.0')
+        with self.assertRaisesRegex(ValueError,'Could not read Wine version'):host.runtime_compatibility(baseline,'wine-staging')
+    def test_runtime_accepts_installed_mono_without_registry_version(self):
+        runtime=self.root/'drive_c'/'windows'/'mono'/'mono-2.0';runtime.mkdir(parents=True)
+        detected,warnings=host.runtime_compatibility('', 'wine-9.0', self.root)
+        self.assertIn('version not exposed',detected)
+        self.assertEqual(len(warnings),2)
 
 if __name__=='__main__':unittest.main(verbosity=2)

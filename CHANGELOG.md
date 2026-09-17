@@ -1,3 +1,14 @@
+# Setup 1.4.2 Wine launcher compatibility hotfix · Game 3.0.9
+
+- Resolves [#36](https://github.com/CRSD-Lau/Lau-Setup/issues/36): the Linux launcher now accepts any parseable Wine and Wine Mono version rather than hard-blocking every version other than the exact tested pair.
+- Wine 11.0 / Wine Mono 10.4.1 remains the validated baseline. Older or newer stable, development, distribution, and staging version strings continue with a terminal warning that reports both detected versions.
+- A Wine Mono runtime installed in an older prefix but lacking registry version metadata warns and proceeds; only missing Mono or malformed Wine information stops before Lau Setup starts. Existing 64-bit-prefix, normal-user, path, process, storage, lock, and transaction checks are unchanged.
+- Installer-only change. Game version remains `3.0.9`; **no DBC edits.**
+
+See [1.4.2 hotfix notes](docs/RELEASE-1.4.2.md).
+
+---
+
 # Setup 1.4.1 installer-only hotfix · Game 3.0.9
 
 - Supports installed `enGB`, `ptBR`, and `itIT` clients without editing `Config.wtf`, renaming client archives, or treating them as `enUS` clients.

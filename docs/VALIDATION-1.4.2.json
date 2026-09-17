@@ -1,0 +1,23 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "InstallerVersion": "1.4.2",
+  "GameVersion": "3.0.9 Lau",
+  "Scope": "Installer-only Wine launcher compatibility hotfix; no Patch-Y or DBC changes.",
+  "AutomatedValidation": {
+    "result": "PASS",
+    "coverage": [
+      "4 Wine runtime policy tests",
+      "10 universal-package tests",
+      "74 Windows installer regression groups"
+    ]
+  },
+  "RuntimeValidation": {
+    "result": "PASS_WITH_LIMIT",
+    "environment": "Ubuntu 24.04 container, Wine 9.0, Wine Mono 10.4.1, disposable 64-bit prefix, Xvfb",
+    "coverage": "The real launcher started under older Wine and emitted the expected warning-only compatibility messages.",
+    "limit": "This does not replace a real WoW install, restore, or visual UI acceptance run."
+  },
+  "PackageValidation": {"installerZip": "PASS", "sourceZip": "PASS"}
+}

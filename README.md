@@ -41,7 +41,7 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 ### Linux / Wine
 
-Use the same ZIP, but first prepare an existing supported environment: Wine 11.0, Wine Mono 10.4.1, a 64-bit prefix, Python 3.9+, the documented fonts, and local Linux storage. Close every WoW instance in every prefix, extract the ZIP, then run this from the `LauSetup` folder:
+Use the same ZIP, but first prepare an existing supported environment: a parseable Wine version, installed Wine Mono, a 64-bit prefix, Python 3.9+, the documented fonts, and local Linux storage. Wine 11.0 / Wine Mono 10.4.1 is the tested baseline; any other parseable pair starts with a warning. Close every WoW instance in every prefix, extract the ZIP, then run this from the `LauSetup` folder:
 
 ```sh
 WINEPREFIX="/absolute/path/to/your/existing/prefix" sh LauSetup.sh

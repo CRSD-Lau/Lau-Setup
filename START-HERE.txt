@@ -1,4 +1,4 @@
-LAU SETUP 1.4.1 — INSTALLER-ONLY COMPATIBILITY HOTFIX
+LAU SETUP 1.4.2 — WINE LAUNCHER COMPATIBILITY HOTFIX
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
@@ -7,6 +7,8 @@ Last Modified By: Neil Mitchell
 2. Download LauSetup.zip and extract the WHOLE ZIP. Keep its files together.
 3. Windows: open LauSetup.exe. Linux/Wine: use the supplied launcher as
    explained in wine/README.txt. Both platforms use the same ZIP.
+   Wine 11.0 / Wine Mono 10.4.1 remains the tested baseline; older or newer
+   installed runtimes warn instead of being blocked.
 4. Choose your existing WoW 3.3.5a folder — the folder containing WoW.exe.
    Click Next. The installer detects your language and HD/Non-HD client.
    enGB, ptBR and itIT clients keep their selected locale and use the
@@ -28,7 +30,7 @@ Last Modified By: Neil Mitchell
 
 YOUR FILES
 Files Setup replaces are backed up in LauSetupBackups. Keep that folder.
-Restore previous install puts those originals back. Use Setup 1.4.1 or newer
+Restore previous install puts those originals back. Use Setup 1.4.2 or newer
 for backups made by this release with map-support addons.
 Other patches are not parsed or removed. If you renamed a patch, manage
 any duplicate yourself. Empty Patch-V is backed up; nonempty V stays with
