@@ -14,7 +14,7 @@ ADDITIONS = [
     'tools/translate_installer.py', 'tools/test_universal_windows.py', 'tools/test_universal_wine.py', 'tests/Tests.cs', 'tests/LocalizationTests.cs',
     'tests/test_universal_package.py', 'tests/test_translate_installer.py',
     'tests/LocalizationProbe.cs', 'tools/test_localization.ps1',
-    'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'CHANGELOG.md',
+    'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'docs/RELEASE-1.4.1.md', 'docs/ANNOUNCEMENT-1.4.1.md', 'docs/VALIDATION-1.4.1.json', 'CHANGELOG.md',
     'MPQ-EDIT-BREAKDOWN.md', 'docs/PATCH-Y-DEVELOPMENT.md', 'docs/PATCH-Y-QUICKSTART-WINDOWS.md',
     'tools/patch_y.py', 'tools/patch-y.ps1', 'tools/Patch-Y-Start.cmd', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
@@ -32,7 +32,7 @@ def build(root=ROOT,output=None):
     names=sorted(set(json.loads((root/'build/wine-public-allowlist.json').read_text(encoding='utf-8-sig'))+ADDITIONS+patch_y_names))
     # Keep this manifest in the source bundle so it can reproduce its own archive.
     names.append('build/wine-public-allowlist.json')
-    output=Path(output).resolve() if output else root/'dist/release-1.4.0/LauSetup-source-1.4.0.zip'
+    output=Path(output).resolve() if output else root/'dist/release-1.4.1/LauSetup-source-1.4.1.zip'
     output.parent.mkdir(parents=True,exist_ok=True)
     expected={}
     for name in names:

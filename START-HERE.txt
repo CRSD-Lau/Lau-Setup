@@ -1,4 +1,4 @@
-LAU SETUP 1.4.0 — STABLE RELEASE
+LAU SETUP 1.4.1 — INSTALLER-ONLY COMPATIBILITY HOTFIX
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
@@ -9,6 +9,9 @@ Last Modified By: Neil Mitchell
    explained in wine/README.txt. Both platforms use the same ZIP.
 4. Choose your existing WoW 3.3.5a folder — the folder containing WoW.exe.
    Click Next. The installer detects your language and HD/Non-HD client.
+   enGB, ptBR and itIT clients keep their selected locale and use the
+   verified English visual layer where Lau needs a visual asset. This does
+   not install a language pack or translated game text.
    Use Interface language at any time if its automatic choice is wrong.
 5. Choose your extras. Patch-Y is included for your detected client.
    All extras are optional:
@@ -25,7 +28,7 @@ Last Modified By: Neil Mitchell
 
 YOUR FILES
 Files Setup replaces are backed up in LauSetupBackups. Keep that folder.
-Restore previous install puts those originals back. Use Setup 1.4.0 or newer
+Restore previous install puts those originals back. Use Setup 1.4.1 or newer
 for backups made by this release with map-support addons.
 Other patches are not parsed or removed. If you renamed a patch, manage
 any duplicate yourself. Empty Patch-V is backed up; nonempty V stays with

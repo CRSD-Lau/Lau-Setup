@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.4.0 stable · Game release 3.0.9 Lau · Ten interface languages · Nine game locales**
+**Installer 1.4.1 installer-only hotfix · Game release 3.0.9 Lau · Ten interface languages · Nine localized game locales + three visual-compatibility locales**
 
 ## Download and start here
 
@@ -51,7 +51,7 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 
 ## Common setup messages
 
-Setup 1.4.0 also accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. The window shows both the installer version and game release.
+Setup 1.4.1 accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. It also accepts installed `enGB`, `ptBR`, and `itIT` clients for the visual upgrade. Those three compatibility paths preserve the selected client locale and use the verified English visual layer; they do **not** translate game text into English, Portuguese, or Italian. The window shows both the installer version and game release.
 
 **Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
 
@@ -81,7 +81,7 @@ Game files download during setup. An English core installation is about **472 MB
 
 [SHA-256 checksums](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [Release notes](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [Validation report](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
-> **Bring your existing client.** This is an upgrade, not a full game client, language pack or HD model base. Runtime installers are not bundled. The installer interface has ten languages; game content supports nine unchanged locales.
+> **Bring your existing client.** This is an upgrade, not a full game client, language pack or HD model base. Runtime installers are not bundled. The installer interface has ten languages; game content has nine localized locales and three visual-compatibility client locales.
 
 ## One setup. The details handled.
 
@@ -97,15 +97,21 @@ Game files download during setup. An English core installation is about **472 MB
 
 SavedVariables, fonts, login artwork, realm settings, unlisted addons and unrelated patches stay in place. The optional map upgrade can replace selected WDM/!Astrolabe support files, with backups. No personal UI, credentials or analytics are included.
 
-## Ten interface languages; nine game locales
+## Ten interface languages; nine localized game locales plus three visual-compatibility locales
 
 The installer interface automatically follows your Windows display language or Linux host locale. You can choose any interface language manually; the selection is saved, and **Automatic** follows the system again. This affects setup text only.
 
 English (US) · Deutsch · Français · Español (España) · Español (México) · Português (Brasil) · 한국어 · Русский · 简体中文 · 繁體中文
 
-Game locales (unchanged): English · Français · Deutsch · 한국어 · Русский · 简体中文 · 繁體中文 · Español (España) · Español (México)
+Localized game locales (unchanged): English · Français · Deutsch · 한국어 · Русский · 简体中文 · 繁體中文 · Español (España) · Español (México)
 
 `enUS` · `frFR` · `deDE` · `koKR` · `ruRU` · `zhCN` · `zhTW` · `esES` · `esMX`
+
+Visual-compatibility client locales: English (UK) · Português (Brasil) · Italiano
+
+`enGB` · `ptBR` · `itIT`
+
+These compatibility paths retain the locale already selected by the client and install Lau's verified English visual asset layer into that locale's Patch-Q and optional map targets. They do not add translated Portuguese or Italian game text, alter `Config.wtf`, or install a language pack.
 
 Setup follows your client's active locale. Install the appropriate language files and fonts before changing the configuration. Changing a config value alone does not install a language pack.
 
@@ -123,7 +129,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.4.0 passed **73 regression groups on Windows and 73 on Wine**, including all six actual 3.0.8-to-3.0.9 upgrades, repeat-install detection and exact restore. **100 Windows and 120 normal-user Wine interface previews** passed the final layout checks. See [release scope and validation](docs/RELEASE-1.4.0.md).
+Setup 1.4.1 passed **74 isolated Windows regression groups**, including configured-locale checks for `enGB`, `ptBR` and `itIT`, repeat-install detection and exact restore. See [release scope and validation](docs/RELEASE-1.4.1.md). Production feedback covers real edge-case client combinations.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage through the supplied launcher. Installer tests do not certify every Linux distribution, custom patch combination or in-game encounter. Cave maps remain upstream beta. Website animations and older gallery screenshots retain their original illustrative context.
 

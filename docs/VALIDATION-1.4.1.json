@@ -1,0 +1,27 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "InstallerVersion": "1.4.1",
+  "GameVersion": "3.0.9 Lau",
+  "Scope": "Installer-only visual compatibility for enGB, ptBR and itIT; no Patch-Y or DBC changes.",
+  "AutomatedValidation": {
+    "platform": "Windows isolated client fixture",
+    "passedRegressionGroups": 74,
+    "result": "PASS",
+    "coverage": [
+      "enGB, ptBR and itIT retain their configured client locale",
+      "English visual assets are written only to the active locale's managed targets",
+      "install, repeat install, option changes, interruptions and exact restore"
+    ]
+  },
+  "PackageValidation": {
+    "installerZip": "PASS",
+    "sourceZip": "PASS"
+  },
+  "RuntimeValidation": {
+    "status": "DEFERRED_TO_PRODUCTION",
+    "reason": "User-authorized edge-case hotfix; no representative real enGB, ptBR or itIT client was available locally.",
+    "requiredBugReportEvidence": ["client locale", "selected options", "installer log", "screenshot"]
+  }
+}

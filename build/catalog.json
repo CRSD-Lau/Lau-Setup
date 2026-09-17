@@ -3,7 +3,7 @@
   "Creator": "Neil Mitchell",
   "LastModifiedBy": "Neil Mitchell",
   "Version": "3.0.9",
-  "InstallerVersion": "1.4.0",
+  "InstallerVersion": "1.4.1",
   "Locales": [
     "deDE",
     "enUS",
@@ -15,6 +15,34 @@
     "zhCN",
     "zhTW"
   ],
+  "ClientLocales": [
+    "deDE",
+    "enGB",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "VisualAssetLocales": {
+    "deDE": "deDE",
+    "enGB": "enUS",
+    "enUS": "enUS",
+    "esES": "esES",
+    "esMX": "esMX",
+    "frFR": "frFR",
+    "itIT": "enUS",
+    "koKR": "koKR",
+    "ptBR": "enUS",
+    "ruRU": "ruRU",
+    "zhCN": "zhCN",
+    "zhTW": "zhTW"
+  },
   "Assets": {
     "Executable": {
       "Id": "Executable",

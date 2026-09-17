@@ -65,6 +65,11 @@ public sealed class Catalog {
     public string Author, Creator, LastModifiedBy, Version, InstallerVersion, MapPackVersion;
     public bool PublicReady;
     public List<string> Locales;
+    // Locales with released assets stay separate from client locales. A release
+    // may support a client by reusing a declared visual asset locale without
+    // pretending it supplies translated game text for that client.
+    public List<string> ClientLocales;
+    public Dictionary<string,string> VisualAssetLocales;
     public Dictionary<string,Asset> Assets;
     public static Catalog Load(string json) {
         var c=Json.Parse<Catalog>(json); c.Validate(); return c;
@@ -76,6 +81,15 @@ public sealed class Catalog {
     public void Validate() {
         if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8" && Version!="3.0.9") || Locales==null || Assets==null || Assets.Count>512 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
         foreach(string locale in Locales) if(!Regex.IsMatch(locale,@"^(enUS|deDE|frFR|esES|esMX|koKR|ruRU|zhCN|zhTW)$")) throw new InvalidDataException("Unsupported language.");
+        if(ClientLocales==null) {
+            ClientLocales=new List<string>(Locales);
+            VisualAssetLocales=Locales.ToDictionary(locale=>locale,locale=>locale,StringComparer.OrdinalIgnoreCase);
+        }
+        if(ClientLocales.Count<Locales.Count || ClientLocales.Count>16 || ClientLocales.Distinct(StringComparer.OrdinalIgnoreCase).Count()!=ClientLocales.Count || VisualAssetLocales==null || VisualAssetLocales.Count!=ClientLocales.Count) throw new InvalidDataException("Invalid client locale catalog.");
+        foreach(string locale in ClientLocales) {
+            string visualLocale;
+            if(!Regex.IsMatch(locale,@"^(enUS|enGB|deDE|frFR|esES|esMX|itIT|koKR|ptBR|ruRU|zhCN|zhTW)$") || !VisualAssetLocales.TryGetValue(locale,out visualLocale) || !Locales.Contains(visualLocale)) throw new InvalidDataException("Unsupported client language.");
+        }
         foreach(var entry in Assets) {
             var a=entry.Value;
             if(a==null || entry.Key!=a.Id || !Regex.IsMatch(a.Id,@"^[A-Za-z0-9-]+$") || !Hash.Valid(a.Sha256) || a.Bytes<=0 || a.Bytes>8L*1024*1024*1024 || a.Parts==null || a.Parts.Count==0 || a.Parts.Count>64) throw new InvalidDataException("Invalid asset.");
@@ -99,6 +113,7 @@ public sealed class Catalog {
     internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0","payload-3.0.9"};
     public static bool ValidDownloadUrl(Part part) { return DownloadTags.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
     public Asset Get(string id) { Asset a; if(!Assets.TryGetValue(id,out a)) throw new InvalidDataException("Missing release component: "+id); return a; }
+    public string VisualAssetLocale(string clientLocale) { string locale;if(ClientLocales==null || VisualAssetLocales==null || !ClientLocales.Contains(clientLocale) || !VisualAssetLocales.TryGetValue(clientLocale,out locale)) throw new InvalidDataException("Unsupported client language.");return locale; }
 }
 public static class Json {
     public static T Parse<T>(string value) { if(value.Length>8*1024*1024) throw new InvalidDataException("Record too large."); return new JavaScriptSerializer{MaxJsonLength=8*1024*1024}.Deserialize<T>(value); }
@@ -158,7 +173,7 @@ public static class SafePaths {
         string full=Under(root,relative);string[] parts=relative.Split('\\');
         bool folder=parts.Length==2&&parts[0].Equals("Data",StringComparison.OrdinalIgnoreCase)||parts.Length==3&&parts[0].Equals("Data",StringComparison.OrdinalIgnoreCase)&&parts[1].Equals(locale,StringComparison.OrdinalIgnoreCase);
         string name=parts[parts.Length-1];
-        string stock=@"^(common(?:-\d+)?|expansion|lichking|patch(?:-\d+)?|(?:backup|base|locale|speech|expansion-locale|expansion-speech|lichking-locale|lichking-speech|patch)-(?:enUS|enGB|deDE|frFR|esES|esMX|koKR|ruRU|zhCN|zhTW|ptBR)(?:-\d+)?)\.mpq$";
+        string stock=@"^(common(?:-\d+)?|expansion|lichking|patch(?:-\d+)?|(?:backup|base|locale|speech|expansion-locale|expansion-speech|lichking-locale|lichking-speech|patch)-(?:enUS|enGB|deDE|frFR|esES|esMX|itIT|koKR|ptBR|ruRU|zhCN|zhTW)(?:-\d+)?)\.mpq$";
         string managed=@"^patch-(?:"+Regex.Escape(locale)+@"-)?[qmsy]\.mpq$";
         if(!folder||!name.EndsWith(".mpq",StringComparison.OrdinalIgnoreCase)||Regex.IsMatch(name,stock,RegexOptions.IgnoreCase)||Regex.IsMatch(name,managed,RegexOptions.IgnoreCase)||Directory.Exists(full))throw new IOException("File is outside the install scope: "+relative);
         return full;
@@ -190,13 +205,13 @@ public static class Client {
         if(File.Exists(config)) {
             var matches=Regex.Matches(File.ReadAllText(config),"(?m)^SET locale \"([A-Za-z]{4})\"\\s*$");
             if(matches.Count>1) throw new IOException("The client language settings are ambiguous.");
-            if(matches.Count==1) { string configured=matches[0].Groups[1].Value;locale=catalog.Locales.FirstOrDefault(l=>l.Equals(configured,StringComparison.OrdinalIgnoreCase))??configured; }
+            if(matches.Count==1) { string configured=matches[0].Groups[1].Value;locale=catalog.ClientLocales.FirstOrDefault(l=>l.Equals(configured,StringComparison.OrdinalIgnoreCase))??configured; }
         }
         if(locale==null) {
-            var candidates=catalog.Locales.Where(l=>File.Exists(SafePaths.Under(root,@"Data\"+l+@"\locale-"+l+".mpq"))).ToArray();
+            var candidates=catalog.ClientLocales.Where(l=>File.Exists(SafePaths.Under(root,@"Data\"+l+@"\locale-"+l+".mpq"))).ToArray();
             if(candidates.Length!=1) throw new IOException("Launch WoW once to choose its language, then close it and try again.");locale=candidates[0];
         }
-        if(!catalog.Locales.Contains(locale) || !File.Exists(SafePaths.Under(root,@"Data\"+locale+@"\locale-"+locale+".mpq"))) throw new IOException("The selected client is missing its matching language files.");
+        if(!catalog.ClientLocales.Contains(locale) || !File.Exists(SafePaths.Under(root,@"Data\"+locale+@"\locale-"+locale+".mpq"))) throw new IOException("The selected client is missing its matching language files.");
         if(!File.Exists(SafePaths.Under(root,@"Data\common.mpq"))) throw new IOException("This is not a complete existing WoW client. Select its game folder.");
         bool rootF=File.Exists(SafePaths.Under(root,@"Data\patch-f.mpq")),localeF=File.Exists(SafePaths.Under(root,@"Data\"+locale+@"\patch-"+locale+"-F.MPQ"));
         if(rootF!=localeF) throw new IOException("The HD model patches are incomplete. Enable the matching model pack in your client before installing.");
@@ -207,7 +222,7 @@ public static class Client {
         Func<string,string,bool> matches=(path,id)=>{var a=catalog.Get(id);return Hash.Matches(SafePaths.Target(root,path,locale),a.Sha256,a.Bytes);};
         if(!matches(@"Data\patch-m.mpq","Maps"))return false;
         if(catalog.MapPackVersion==null)return true;
-        return matches(@"Data\"+locale+@"\patch-"+locale+"-T.MPQ","MapDetails-"+locale)&&MapAddons.Paths.All(file=>matches(file.Key,file.Value));
+        return matches(@"Data\"+locale+@"\patch-"+locale+"-T.MPQ","MapDetails-"+catalog.VisualAssetLocale(locale))&&MapAddons.Paths.All(file=>matches(file.Key,file.Value));
     }
     public static void AssertClosed(string root) {
         WineHost.Check(root);
@@ -232,7 +247,8 @@ public sealed class InstallPlan {
         string edition=(client.Hd ? (newSpells?"HD-NewSpells-On":"HD-NewSpells-Off") : "Non-HD")+"-Consecration-"+(consecration?"On":"Off");
         var plan=new InstallPlan{Root=SafePaths.Root(client.Root),Locale=client.Locale,Edition=edition,Maps=maps,Warnings=warnings};
         foreach(var conflict in conflicts)plan.Operations.Add(new Operation{Relative=conflict.Relative,Existed=true,ExtraPatch=true,OldHash=conflict.Sha256,OldBytes=conflict.Bytes});
-        if(!catalog.Locales.Contains(client.Locale)) throw new InvalidDataException("Unsupported language.");
+        if(!catalog.ClientLocales.Contains(client.Locale)) throw new InvalidDataException("Unsupported language.");
+        string visualLocale=catalog.VisualAssetLocale(client.Locale);
         string loc=@"Data\"+client.Locale+@"\patch-"+client.Locale+"-";
         Action<string,string> add=(path,id)=>{
             var target=SafePaths.Target(plan.Root,path,plan.Locale);bool exists=File.Exists(target);string old=exists?Hash.FileHash(target):null;
@@ -242,12 +258,12 @@ public sealed class InstallPlan {
             if(a!=null)plan.StageBytes=checked(plan.StageBytes+a.Bytes);
         };
         if(includeExecutable)add("WoW.exe","Executable");
-        var q="LoadingQ-"+client.Locale;
+        var q="LoadingQ-"+visualLocale;
         if(includeArtwork){add(@"Data\patch-q.mpq",q);add(loc+"Q.MPQ",q);}
         add(@"Data\patch-y.mpq","Y-"+edition);add(loc+"Y.MPQ","Y-"+edition);
         if(maps){
             add(@"Data\patch-m.mpq","Maps");
-            if(catalog.MapPackVersion!=null){add(loc+"T.MPQ","MapDetails-"+client.Locale);foreach(var file in MapAddons.Paths)add(file.Key,file.Value);}
+            if(catalog.MapPackVersion!=null){add(loc+"T.MPQ","MapDetails-"+visualLocale);foreach(var file in MapAddons.Paths)add(file.Key,file.Value);}
         }
         if(newSpells) {
             foreach(var pair in new[]{new[]{@"Data\patch-s.mpq","SpellAssets"},new[]{loc+"S.MPQ","SpellTables"}}) {
@@ -419,7 +435,7 @@ public sealed class Transaction {
     public Journal ReadBackup(string record) {
         Status(record);var j=Json.Parse<Journal>(File.ReadAllText(record));string root=SafePaths.Root(j.Root);
         string expected=SafePaths.Under(StateRoot(root),"transactions")+"\\";
-        if(!Path.GetFullPath(record).StartsWith(expected,StringComparison.OrdinalIgnoreCase)||!String.Equals(Path.GetDirectoryName(Path.GetDirectoryName(record))+"\\",expected,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(record)!="install.json"||!catalog.Locales.Contains(j.Locale)||j.Files==null||j.Files.Count>2048+SafePaths.ManagedLimit||j.Files.Count==0||j.Files.Any(e=>e==null)||j.Files.Count(e=>!e.ExtraPatch)>SafePaths.ManagedLimit||j.Files.Count(e=>e.ExtraPatch)>2048)throw new IOException("Invalid backup record.");
+        if(!Path.GetFullPath(record).StartsWith(expected,StringComparison.OrdinalIgnoreCase)||!String.Equals(Path.GetDirectoryName(Path.GetDirectoryName(record))+"\\",expected,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(record)!="install.json"||!catalog.ClientLocales.Contains(j.Locale)||j.Files==null||j.Files.Count>2048+SafePaths.ManagedLimit||j.Files.Count==0||j.Files.Any(e=>e==null)||j.Files.Count(e=>!e.ExtraPatch)>SafePaths.ManagedLimit||j.Files.Count(e=>e.ExtraPatch)>2048)throw new IOException("Invalid backup record.");
         if(!new[]{"INSTALLED","STAGING","COMMITTING","RESTORING","RECOVERY_REQUIRED"}.Contains(j.Status))throw new IOException("This backup has already been restored or was not installed.");
         var seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach(var e in j.Files) {

@@ -1,3 +1,14 @@
+# Setup 1.4.1 installer-only hotfix · Game 3.0.9
+
+- Supports installed `enGB`, `ptBR`, and `itIT` clients without editing `Config.wtf`, renaming client archives, or treating them as `enUS` clients.
+- The catalog explicitly maps those three client locales to the tested English **visual** assets while retaining their own Patch-Q and optional map target paths. This is compatibility support only: it does not supply Portuguese or Italian translated game text.
+- Existing nine localized game locales, all Patch-Y editions, game version `3.0.9`, and `/pyversion` remain unchanged.
+- Installer-only change. **No DBC edits.**
+
+See [1.4.1 hotfix notes](docs/RELEASE-1.4.1.md).
+
+---
+
 # Unreleased contributor infrastructure — Patch-Y source workflow
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
