@@ -48,6 +48,8 @@ def parse_language(args, environment=None):
     if len(args)==2 and args[0]=='--language' and args[1] in UI_LANGUAGE_OPTIONS:return args[1]
     raise ValueError('The --language option needs one of: '+', '.join(UI_LANGUAGE_OPTIONS)+'.')
 
+_catalog_cache={}
+
 def translate(message, language, folder=None):
     """Translate launcher-only messages from the sibling catalog when available.
 
@@ -55,7 +57,11 @@ def translate(message, language, folder=None):
     """
     try:
         catalog=pathlib.Path(folder or pathlib.Path(__file__).resolve().parent)/'lau-languages.json'
-        value=json.loads(catalog.read_text(encoding='utf-8'))
+        key=str(catalog)
+        value=_catalog_cache.get(key)
+        if value is None:
+            value=json.loads(catalog.read_text(encoding='utf-8'))
+            _catalog_cache[key]=value
         languages=value.get('languages',value)
         return languages.get(language,{}).get(message,message)
     except (OSError,ValueError,AttributeError):return message
@@ -244,9 +250,9 @@ def server(guard,secret):
     class Handler(http.server.BaseHTTPRequestHandler):
         def log_message(self,*args):pass
         def do_POST(self):
-            if self.path!='/guard' or not hmac.compare_digest(self.headers.get('X-Lau-Token',''),secret):
-                self.send_error(403);return
             try:
+                if self.path!='/guard' or not hmac.compare_digest(self.headers.get('X-Lau-Token',''),secret):
+                    self.send_error(403);return
                 length=int(self.headers.get('Content-Length','0'))
                 if not 0<length<=32768:raise ValueError('Invalid guard request size.')
                 value=guard.request(json.loads(self.rfile.read(length)))

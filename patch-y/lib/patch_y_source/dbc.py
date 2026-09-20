@@ -73,12 +73,13 @@ class Wdbc:
         new = edit["newValue"]
         if value_type == "uint32":
             actual = struct.unpack_from("<I", record, offset)[0]
-            if actual != old or not isinstance(new, int) or not 0 <= new <= 0xFFFFFFFF:
+            if actual != old or type(old) is not int or not 0 <= old <= 0xFFFFFFFF or type(new) is not int or not 0 <= new <= 0xFFFFFFFF:
                 raise OverlayError(f"DBC uint32 precondition/value failed for record {edit['recordId']} field {field}")
             struct.pack_into("<I", record, offset, new)
         elif value_type == "float32":
             actual = struct.unpack_from("<f", record, offset)[0]
-            if not isinstance(old, (int, float)) or not isinstance(new, (int, float)) or actual != float(old):
+            expected = struct.unpack("<f", struct.pack("<f", float(old)))[0]
+            if not isinstance(old, (int, float)) or not isinstance(new, (int, float)) or actual != expected:
                 raise OverlayError(f"DBC float32 precondition/value failed for record {edit['recordId']} field {field}")
             struct.pack_into("<f", record, offset, float(new))
         elif value_type == "string":
