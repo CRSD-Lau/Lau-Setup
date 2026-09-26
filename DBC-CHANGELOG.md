@@ -6,6 +6,10 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Local loading-screen framing test — no DBC edits
+
+The separately staged [loading-screen test fix](docs/LOADING-FRAMING-TEST.md) restores a native draw call and UV-table argument in the compatible executable. It changes eight executable bytes, with no changes to LoadingScreens.dbc, Patch-Q artwork, Patch-Y, or any other DBC table. It is not yet part of the packaged candidate. The separately installed Caverns fix retains its WorldMapArea changes documented below.
+
 ## Candidate Setup 1.5.0 / Patch-Y 3.1.0 — raid visuals and Caverns maps
 
 **Not published. DBC edits are included.** [All six old editions compared with the three standard candidates](docs/dbc/raid-visuals-3.1.0-candidate.json) records archive/table SHA-256 values, every changed field and all added records. Field indices below are zero-based, including record ID at index 0. Existing strings and unrelated records are preserved in each edition.
