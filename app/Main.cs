@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LauSetup {
 // Windows' default disabled text can turn nearly black on a dark control.
@@ -56,6 +58,50 @@ public sealed class ReadableCheckBox:CheckBox {
         if(Enabled&&Focused&&ShowFocusCues)ControlPaint.DrawFocusRectangle(e.Graphics,bounds,text,background);
     }
 }
+public static class SetupDiagnostics {
+    public static string Redact(string message) {
+        if(String.IsNullOrEmpty(message))return "Unknown error.";
+        // Keep the actual failure text while removing absolute and account paths.
+        string safe=Regex.Replace(message,@"(?i)(?:[a-z]:[\\/]|\\\\|/(?:[^/\s]+/)+)[^\r\n,;]+","[redacted path]");
+        safe=Regex.Replace(safe,@"(?i)/(?:tmp|srv|var|opt|home|users|mnt|private|etc)/[^\r\n,;]+","[redacted path]");
+        return Regex.Replace(safe,@"(?i)(?:WTF[\\/]Account|Users[\\/])[^\r\n,;]+","[redacted path]");
+    }
+    public static string Build(Catalog catalog,ClientInfo client,bool spells,bool maps,bool executable,string error) {
+        var report=new StringBuilder();
+        report.AppendLine("Lau Setup diagnostics");
+        report.AppendLine("Setup version: "+catalog.InstallerVersion);
+        report.AppendLine("Visual release: "+catalog.Version);
+        report.AppendLine("Client locale: "+(client==null?"not detected":client.Locale));
+        report.AppendLine("Client model mode: "+(client==null?"not detected":client.Hd?"HD":"Original"));
+        report.AppendLine("Selected options: standard Patch-Y with Consecration, New Spells="+spells+", Maps="+maps+", WoW.exe and loading screens="+executable);
+        report.AppendLine("Error: "+Redact(error));
+        return report.ToString();
+    }
+    public static string ReleaseState(InstallPlan plan) {
+        if(plan==null)return Ui.T("Checking");
+        if(plan.Operations.Count==0)return Ui.T("Current");
+        string patch=PatchYState(plan);
+        if(patch!=Ui.T("Current"))return patch;
+        return plan.Operations.All(o=>o.AssetId!=null&&!o.Existed)?Ui.T("Install"):Ui.T("Update or repair");
+    }
+    public static string PatchYState(InstallPlan plan) {
+        if(plan==null)return Ui.T("Checking");
+        string rootY=@"Data\patch-y.mpq",localeY=@"Data\"+plan.Locale+@"\patch-"+plan.Locale+"-Y.MPQ";
+        var root=plan.Operations.FirstOrDefault(o=>o.Relative.Equals(rootY,StringComparison.OrdinalIgnoreCase));
+        var locale=plan.Operations.FirstOrDefault(o=>o.Relative.Equals(localeY,StringComparison.OrdinalIgnoreCase));
+        if(root==null&&locale==null)return Ui.T("Current");
+        if(root==null||locale==null||root.Existed!=locale.Existed)return Ui.T("Repair");
+        return root.Existed?Ui.T("Update or repair"):Ui.T("Install");
+    }
+    public static string OptionState(InstallPlan plan,string asset,bool selected) {
+        if(!selected)return Ui.T("Keep existing");
+        if(plan==null)return Ui.T("Checking");
+        var changes=plan.Operations.Where(o=>o.AssetId!=null&&(asset=="Executable"?o.AssetId==asset:o.AssetId.StartsWith(asset,StringComparison.Ordinal))).ToArray();
+        if(changes.Length==0)return Ui.T("Current");
+        if(changes.Any(o=>o.Existed))return changes.Any(o=>!o.Existed)?Ui.T("Repair"):Ui.T("Update or repair");
+        return Ui.T("Install");
+    }
+}
 public sealed class SetupForm:Form {
     static readonly Dictionary<string,string> uiFonts=new Dictionary<string,string>(StringComparer.OrdinalIgnoreCase);
     static string UiFont { get { return ChooseFont(Ui.Locale); } }
@@ -79,10 +125,10 @@ public sealed class SetupForm:Form {
     readonly ToolTip folderTip=new ToolTip();
     Label folderPlaceholder;
     readonly Color ink=Color.FromArgb(237,243,247),muted=Color.FromArgb(169,189,204),surface=Color.FromArgb(20,35,50),gold=Color.FromArgb(223,181,104);
-    TextBox folder;Label detected,download,status,baseDescription;CheckBox cons,spells,maps,basePatch,executable;Button browse,install,restore,cancel;ProgressBar progress;ComboBox language;
+    TextBox folder;Label detected,download,status,baseDescription;CheckBox spells,maps,basePatch,executable;Button browse,install,restore,cancel,copyDiagnostics;ProgressBar progress;ComboBox language;
     FlowLayoutPanel[] pages;Label[] stepLabels;Label reviewFolder,reviewChoices,reviewIncluded,reviewWarning;Button back,next;int step;bool navigationBlocked,previewing;
     protected override bool ShowWithoutActivation { get { return previewing; } }
-    ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly,choicesDirty;
+    ClientInfo client;InstallPlan plan;CancellationTokenSource cancellation;bool busy,refreshing,recoveryOnly,choicesDirty;string lastError;
     sealed class PhraseValue { readonly string key;public PhraseValue(string key){this.key=key;}public override string ToString(){return Ui.T(key);} }
     sealed class TextBinding {
         public string Key;public object[] Arguments;public bool Message;
@@ -143,10 +189,12 @@ public sealed class SetupForm:Form {
         AddPage(1,Label("Choose the look you want.",23,FontStyle.Bold,ink),60);
         basePatch=Check("Patch-Y Non-HD",true);basePatch.Enabled=false;baseDescription=Label("Selected for your detected client. A full HD model pack is not included.",10,FontStyle.Regular,muted);AddOption(basePatch,baseDescription);
         executable=Check("Compatible WoW.exe + loading screens",false);AddOption(executable,Label("Installs the compatible WoW.exe and Lau's loading screens together. Off keeps both unchanged.",10,FontStyle.Regular,muted));
-        cons=Check("Enhanced Consecration",false);AddOption(cons,Label("Uses Lau's custom ground effect for Consecration. Turn off for the original appearance.",10,FontStyle.Regular,muted));
+        AddPage(1,Label("Enhanced Consecration is included in the standard Patch-Y visuals.",11,FontStyle.Regular,muted),50);
         spells=Check("New spell visuals  ·  available with HD models",false);spells.Enabled=false;AddOption(spells,Label("Adds upgraded spell effects. Requires an existing HD model client.",10,FontStyle.Regular,muted));
         maps=Check("Upgrade maps and minimap  ·  optional extra download",false);AddOption(maps,Label("Lau's maps and minimaps plus Trimitor's dungeon, raid and cave maps. Includes WDM support addons. Loading screens are separate.",10,FontStyle.Regular,muted));
+        AddPage(1,VisualsLink(),50);
         AddPage(2,Label("Review your choices before installing.",23,FontStyle.Bold,ink),70);
+        AddPage(2,VisualsLink(),46);
         var reviewCard=new RoundedPanel{BackColor=surface,Padding=new Padding(24,12,24,12)};
         var reviewRows=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=1,RowCount=3};foreach(int h in new[]{40,86,100})reviewRows.RowStyles.Add(new RowStyle(SizeType.Absolute,h));reviewCard.Controls.Add(reviewRows);
         reviewFolder=Label("",12,FontStyle.Regular,ink);reviewRows.Controls.Add(reviewFolder);
@@ -167,14 +215,21 @@ public sealed class SetupForm:Form {
         install=Button("Install upgrade",true);install.Enabled=false;install.Click+=Install;actions.Controls.Add(install);
         cancel=Button("Cancel",false);cancel.Visible=false;cancel.Click+=(s,e)=>{if(cancellation!=null)cancellation.Cancel();};actions.Controls.Add(cancel);
         restore=Button("Restore previous install",false);restore.Enabled=false;restore.Click+=Restore;actions.Controls.Add(restore);actions.FlowDirection=FlowDirection.RightToLeft;actions.Controls.SetChildIndex(next,0);actions.Controls.SetChildIndex(install,1);actions.Controls.SetChildIndex(back,2);actions.Controls.SetChildIndex(cancel,3);actions.Controls.SetChildIndex(restore,4);var footer=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,Margin=new Padding(0),Padding=new Padding(0,12,0,0)};footer.RowCount=1;footer.RowStyles.Add(new RowStyle(SizeType.Percent,100));footer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));footer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));actions.AutoSize=true;footer.Controls.Add(actions,1,0);actions.Margin=new Padding(0);actions.Padding=new Padding(0,8,0,0);footer.Paint+=(sender,e)=>{using(var pen=new Pen(Color.FromArgb(48,70,87)))e.Graphics.DrawLine(pen,0,0,footer.Width,0);};grid.Controls.Add(footer,0,7);
-        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);footer.Controls.Add(release,0,0);footer.Resize+=(sender,e)=>{bool compact=footer.Width<950;foreach(Button action in new[]{back,next,install,cancel,restore}){action.MinimumSize=new Size(action==next||action==install?(compact?180:210):(compact?100:130),52);if(action.Font.Size!=(compact?10F:11F)){var previous=action.Font;action.Font=new Font(UiFont,compact?10F:11F,FontStyle.Bold);previous.Dispose();}}};
-        cons.CheckedChanged+=ChoicesChanged;spells.CheckedChanged+=ChoicesChanged;maps.CheckedChanged+=ChoicesChanged;executable.CheckedChanged+=ChoicesChanged;
+        copyDiagnostics=Button("Copy diagnostics",false);copyDiagnostics.Visible=false;copyDiagnostics.Click+=(s,e)=>{if(lastError!=null)try{Clipboard.SetText(SetupDiagnostics.Build(catalog,client,spells.Checked,maps.Checked,executable.Checked,lastError));SetText(status,"Diagnostics copied. No account files or private folder paths were included.");}catch(Exception ex){SetMessage(status,ex.Message);}};actions.Controls.Add(copyDiagnostics);
+        var release=Label("",9,FontStyle.Regular,muted);SetText(release,"Setup {2}  •  Game {0} Lau  •  {1}  •  Build 12340",catalog.Version,WineHost.Active?"Wine 11 on Linux":"Windows 10 / 11",catalog.InstallerVersion);footer.Controls.Add(release,0,0);footer.Resize+=(sender,e)=>{bool compact=footer.Width<950;foreach(Button action in new[]{back,next,install,cancel,restore,copyDiagnostics}){action.MinimumSize=new Size(action==next||action==install?(compact?180:210):(compact?100:130),52);if(action.Font.Size!=(compact?10F:11F)){var previous=action.Font;action.Font=new Font(UiFont,compact?10F:11F,FontStyle.Bold);previous.Dispose();}}};
+        spells.CheckedChanged+=ChoicesChanged;maps.CheckedChanged+=ChoicesChanged;executable.CheckedChanged+=ChoicesChanged;
         FormClosed+=(s,e)=>folderTip.Dispose();
         FormClosing+=(s,e)=>{if(busy){e.Cancel=true;SetText(status,"Please wait for this operation to finish, or use Cancel.");}};
         var stripe=new Panel{Dock=DockStyle.Top,Height=5,BackColor=gold};Controls.Add(stripe);stripe.BringToFront();
         ShowStep(0);
     }
     void AddPage(int index,Control control,int height){control.Dock=DockStyle.None;control.Height=height;control.Width=900;control.Margin=new Padding(0,0,0,6);pages[index].Controls.Add(control);}
+    LinkLabel VisualsLink(){
+        var link=new LinkLabel{Font=new Font(UiFont,12,FontStyle.Bold),LinkColor=gold,ActiveLinkColor=ink,VisitedLinkColor=gold,TextAlign=ContentAlignment.MiddleLeft,LinkBehavior=LinkBehavior.HoverUnderline};
+        SetText(link,"See the new visuals (Discord)");
+        link.LinkClicked+=(s,e)=>{try{Process.Start(new ProcessStartInfo("https://discord.com/channels/858041817043042364/1352616642491842580"){UseShellExecute=true});}catch(Exception ex){ShowError(ex,false);}};
+        return link;
+    }
     void AddOption(CheckBox check,Label note){
         var card=new RoundedPanel{BackColor=surface,Padding=new Padding(22,6,16,7)};check.Dock=DockStyle.Top;check.Height=40;check.Font=new Font(UiFont,13,FontStyle.Bold);
         note.Font=new Font(UiFont,11);note.Dock=DockStyle.Fill;note.Padding=new Padding(34,0,0,0);card.Controls.Add(note);card.Controls.Add(check);check.CheckedChanged+=(s,e)=>{card.BorderColor=check.Checked?gold:Color.FromArgb(48,70,87);card.Invalidate();};card.BorderColor=check.Checked?gold:Color.FromArgb(48,70,87);AddPage(1,card,88);
@@ -182,9 +237,9 @@ public sealed class SetupForm:Form {
     }
     void UpdateReview(){
         SetText(reviewFolder,"Folder: {0}",folder.Text);
-        SetText(reviewIncluded,"Patch-Y and matching language patches: {0}\nWoW.exe: {1}\nLoading screens and artwork (Patch-Q): {2}",client==null?Language("enUS"):Language(client.Locale),Phrase(executable.Checked?"Install":"Keep existing"),Phrase(executable.Checked?"Install":"Keep existing"));
+        SetText(reviewIncluded,"Selected release: {0}\nPatch-Y: {1}  ·  {2}\nWoW.exe: {3}\nLoading screens and artwork (Patch-Q): {4}",SetupDiagnostics.ReleaseState(plan),SetupDiagnostics.PatchYState(plan),client==null?Language("enUS"):Language(client.Locale),SetupDiagnostics.OptionState(plan,"Executable",executable.Checked),SetupDiagnostics.OptionState(plan,"LoadingQ-",executable.Checked));
         reviewWarning.Visible=plan!=null&&plan.Warnings.Count>0;if(reviewWarning.Visible)SetText(reviewWarning,"Unrecognized Patch-V kept in Data. Compatibility could not be verified. You can continue installing; this file will not be changed.");
-        var choices=new List<string>{Ui.T("Patch-Y (Lau’s version)")};if(cons.Checked)choices.Add(Ui.T("Enhanced Consecration"));if(spells.Checked)choices.Add(Ui.T("New Spells"));if(maps.Checked)choices.Add(Ui.T("Map Upgrade"));if(executable.Checked)choices.Add(Ui.T("Compatible WoW.exe + loading screens"));SetText(reviewChoices,"Your choices: {0}",String.Join(" + ",choices));
+        var choices=new List<string>{Ui.T("Patch-Y (Lau’s version)"),Ui.T("Enhanced Consecration")};if(spells.Checked)choices.Add(Ui.T("New Spells"));if(maps.Checked)choices.Add(Ui.T("Map Upgrade"));if(executable.Checked)choices.Add(Ui.T("Compatible WoW.exe + loading screens"));SetText(reviewChoices,"Your choices: {0}",String.Join(" + ",choices));
     }
     void ShowStep(int value){
         step=value;for(int i=0;i<pages.Length;i++){pages[i].Visible=i==step;((WizardStep)stepLabels[i]).Current=step+1;stepLabels[i].ForeColor=i==step?ink:muted;stepLabels[i].Invalidate();}pages[step].BringToFront();UpdateReview();UpdateNavigation();
@@ -212,14 +267,18 @@ public sealed class SetupForm:Form {
     async void Choose(object sender,EventArgs args) {
         using(var dialog=new FolderBrowserDialog{Description=Ui.T("Setup will check your game and choose the right files for it."),ShowNewFolderButton=false,SelectedPath=client==null?"":client.Root}) {
             if(dialog.ShowDialog(this)!=DialogResult.OK)return;
-            SetBusy(true);SetText(status,"Checking your client…");
-            try {
-                await SelectRoot(dialog.SelectedPath);
-            }catch(Exception ex){client=null;plan=null;SetText(detected,"Client could not be prepared.");SetMessage(status,ex.Message);}
-            finally{SetBusy(false);}
-            if(client!=null&&!recoveryOnly)RefreshPlan(null,EventArgs.Empty);
+            await SelectRootWithFeedback(dialog.SelectedPath);
         }
     }
+    internal async Task SelectRootWithFeedback(string selected) {
+        SetBusy(true);SetText(status,"Checking your client…");
+        try {await SelectRoot(selected);ClearError();}
+        catch(Exception ex){client=null;plan=null;folder.Text=selected;SetText(detected,"Client could not be prepared.");ShowError(ex,true);}
+        finally{SetBusy(false);}
+        if(client!=null&&!recoveryOnly)RefreshPlan(null,EventArgs.Empty);
+    }
+    void ClearError(){lastError=null;copyDiagnostics.Visible=false;SetText(browse,"Browse...");}
+    void ShowError(Exception ex,bool folderError){lastError=SetupDiagnostics.Redact(ex.Message);SetMessage(status,ex.Message);copyDiagnostics.Visible=true;if(folderError)SetText(browse,"Choose another folder");}
     internal async Task SelectRoot(string selected) {
         string root=SafePaths.Root(selected);Client.AssertClosed(root);string pending=Transaction.Pending(root);
         plan=null;recoveryOnly=pending!=null;
@@ -231,25 +290,25 @@ public sealed class SetupForm:Form {
             SetText(download,"Restore is available even if the game executable is missing.");
             SetText(status,"Click Restore previous install to recover your game files.");return;
         }
-        client=await Task.Run(()=>Client.Inspect(root,catalog));UpdateClientDisplay();refreshing=true;cons.Checked=false;spells.Checked=false;refreshing=false;
+        client=await Task.Run(()=>Client.Inspect(root,catalog));UpdateClientDisplay();refreshing=true;spells.Checked=false;refreshing=false;
         SetText(status,"Ready. A verified backup is created before any game files change.");
     }
     void UpdateClientDisplay(){
         SetText(baseDescription,client.Hd?"Your client has HD models active. The appropriate Patch-Y HD version will be installed.":"Your client does not have HD models active. The appropriate Patch-Y Non-HD version will be installed.");
-        folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map Upgrade — already installed, kept":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=false;maps.Checked=client.MapsInstalled;refreshing=false;
+        folder.Text=client.Root;SetText(basePatch,client.Hd?"Patch-Y HD":"Patch-Y Non-HD");SetText(maps,client.MapsInstalled?"Map upgrade detected — update or repair included":"Upgrade maps and minimap  ·  optional extra download");refreshing=true;spells.Checked=false;maps.Checked=client.MapsInstalled;refreshing=false;
         SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language(client.Locale),client.Hd?Phrase("HD models detected"):Phrase("Original models detected"));
     }
-    void UpdatePlanDisplay(){SetText(install,"Install upgrade");if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));}
+    void UpdatePlanDisplay(){string state=SetupDiagnostics.ReleaseState(plan);SetText(install,state==Ui.T("Repair")?"Repair installation":state==Ui.T("Update or repair")?"Update or repair":"Install upgrade");if(plan.Operations.Count==0)SetText(download,"Your selected release {0} is already installed.",catalog.Version);else SetText(download,"Download up to {0}  ·  {1}",FormatSize(plan.DownloadBytes),plan.Maps?Phrase("Upgraded maps included"):Phrase("Existing maps kept"));UpdateReview();}
     async void RefreshPlan(object sender,EventArgs args) {await PreparePlan();}
     async Task PreparePlan() {
         if(refreshing||busy||client==null||recoveryOnly)return;SetBusy(true);progress.Visible=true;progress.Style=ProgressBarStyle.Marquee;SetText(status,"Checking installed files…");
         try {
-            bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=executable.Checked;
-            plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));
-            choicesDirty=false;UpdatePlanDisplay();
+            bool newSpells=spells.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=executable.Checked;
+            plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,true,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));
+            choicesDirty=false;ClearError();UpdatePlanDisplay();
             SetText(status,Transaction.Pending(client.Root)!=null?"An interrupted install was found. Restore it before continuing.":(!newSpells?"Patch-S becomes .mpq.disabled. Any older disabled copy is preserved separately. Restore previous install reverses the change.":"Ready. A verified backup is created before any game files change."));
             if(Transaction.Pending(client.Root)==null&&plan.Operations.Any(o=>o.ExtraPatch))SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",plan.Operations.Count(o=>o.ExtraPatch));
-        }catch(Exception ex){plan=null;SetMessage(status,ex.Message);}finally{progress.Style=ProgressBarStyle.Continuous;progress.Visible=false;SetBusy(false);}
+        }catch(Exception ex){plan=null;ShowError(ex,false);}finally{progress.Style=ProgressBarStyle.Continuous;progress.Visible=false;SetBusy(false);}
     }
     async void Install(object sender,EventArgs args) {
         if(plan==null||client==null||busy||step!=2)return;SetBusy(true);cancellation=new CancellationTokenSource();cancel.Visible=true;progress.Visible=true;progress.Value=0;
@@ -277,23 +336,23 @@ public sealed class SetupForm:Form {
             progress.Value=1000;SetText(status,"Installed and verified. Start WoW, run /pyversion, and test your chosen effects.\nYou can restore the previous install here at any time.");
             plan=null;SetText(download,"Your backup is saved in the selected client’s LauSetupBackups folder.");ShowStep(3);
         }catch(OperationCanceledException){SetText(status,"Cancelled. Completed downloads are kept for your next attempt.");}
-        catch(Exception ex){SetMessage(status,ex.Message);}
+        catch(Exception ex){ShowError(ex,false);}
         finally{cancellation.Dispose();cancellation=null;cancel.Visible=false;SetBusy(false);}
     }
     async void Restore(object sender,EventArgs args) {
         if(client==null||busy)return;
-        string record;try{record=Transaction.Pending(client.Root)??Transaction.Journals(client.Root).FirstOrDefault(f=>Transaction.Status(f)=="INSTALLED");}catch(Exception ex){SetMessage(status,ex.Message);return;}
+        string record;try{record=Transaction.Pending(client.Root)??Transaction.Journals(client.Root).FirstOrDefault(f=>Transaction.Status(f)=="INSTALLED");}catch(Exception ex){ShowError(ex,false);return;}
         if(record==null){SetText(status,"There is no previous install to restore.");return;}
         if(MessageBox.Show(this,Ui.T("Restore the game files from the most recent Lau Setup backup? Your addons and saved settings are preserved."),Ui.T("Restore previous install"),MessageBoxButtons.YesNo,MessageBoxIcon.Question)!=DialogResult.Yes)return;
         await RestoreRecord(record);
     }
     internal async Task RestoreRecord(string record){
         SetBusy(true);plan=null;SetText(status,"Restoring your previous install…");
-        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();ShowStep(0);SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,consecration=cons.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=executable.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,consecration,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));UpdatePlanDisplay();ShowStep(0);}
-        catch(Exception ex){SetMessage(status,ex.Message);}finally{SetBusy(false);}
+        try{await Task.Run(()=>new Transaction(catalog,null,null).Restore(record));client=await Task.Run(()=>Client.Inspect(client.Root,catalog));recoveryOnly=false;UpdateClientDisplay();ShowStep(0);SetText(status,"Previous install restored and verified.");bool newSpells=spells.Checked,includeMaps=maps.Checked,includeExecutable=executable.Checked,includeArtwork=executable.Checked;plan=await Task.Run(()=>InstallPlan.Build(client,catalog,newSpells,true,includeMaps,default(CancellationToken),includeExecutable,includeArtwork));ClearError();UpdatePlanDisplay();ShowStep(0);}
+        catch(Exception ex){ShowError(ex,false);}finally{SetBusy(false);}
     }
     void SetBusy(bool value) {
-        busy=value;executable.Enabled=!value&&!recoveryOnly;language.Enabled=true;browse.Enabled=!value;cons.Enabled=!value&&!recoveryOnly;spells.Enabled=!value&&!recoveryOnly&&client!=null&&client.Hd;maps.Enabled=!value&&!recoveryOnly&&client!=null&&!client.MapsInstalled;restore.Enabled=false;navigationBlocked=false;
+        busy=value;executable.Enabled=!value&&!recoveryOnly;language.Enabled=true;browse.Enabled=!value;spells.Enabled=!value&&!recoveryOnly&&client!=null&&client.Hd;maps.Enabled=!value&&!recoveryOnly&&client!=null&&!client.MapsInstalled;restore.Enabled=false;navigationBlocked=false;
         if(!value&&client!=null)try{restore.Enabled=Transaction.Journals(client.Root).Any(f=>new[]{"STAGING","COMMITTING","RESTORING","RECOVERY_REQUIRED","INSTALLED"}.Contains(Transaction.Status(f)));navigationBlocked=Transaction.Pending(client.Root)!=null;}catch(Exception ex){navigationBlocked=true;SetMessage(status,ex.Message);}
         UpdateReview();UpdateNavigation();
     }
@@ -304,13 +363,21 @@ public sealed class SetupForm:Form {
             SetText(basePatch,"Patch-Y HD");SetText(baseDescription,"Your client has HD models active. The appropriate Patch-Y HD version will be installed.");folder.Text=@"D:\Games\World of Warcraft";SetText(detected,"{0}  ·  {1}  ·  Build 12340",Language("enUS"),Phrase("HD models detected"));spells.Checked=state!="options";spells.Enabled=true;
             SetText(download,"Download up to {0}  ·  {1}","472.4 MB",Phrase("Existing maps kept"));SetText(status,"Ready. A verified backup is created before any game files change.");install.Enabled=true;
         }
+        if(state.StartsWith("review-",StringComparison.Ordinal)){
+            client=new ClientInfo{Root=folder.Text,Locale="enUS",Hd=true};
+            plan=new InstallPlan{Root=client.Root,Locale=client.Locale,DownloadBytes=472400000};
+            if(state=="review-repair")plan.Operations.Add(new Operation{Relative=@"Data\patch-y.mpq",AssetId="Y-HD-NewSpells-On-Consecration-On",Existed=true});
+            if(state=="review-update")foreach(string relative in new[]{@"Data\patch-y.mpq",@"Data\enUS\patch-enUS-Y.MPQ"})plan.Operations.Add(new Operation{Relative=relative,AssetId="Y-HD-NewSpells-On-Consecration-On",Existed=true});
+            UpdatePlanDisplay();
+        }
         if(state=="busy"){SetBusy(true);cancel.Visible=true;progress.Visible=true;progress.Value=420;SetText(status,"Downloading {0}  ·  {1} / {2}",Phrase("spell visuals"),"84.0 MB","200.0 MB");}
         if(state=="recovery"){SetText(detected,"{0}  ·  Interrupted installation found",Language("enUS"));SetText(status,"Click Restore previous install to recover your game files.");install.Enabled=false;restore.Enabled=true;}
         if(state=="error")SetMessage(status,@"Cannot safely check patch: Data\patch-test.mpq. No game files changed. Check this archive before retrying. Unsupported MPQ table layout.");
+        if(state=="folder-error"){SetText(detected,"Client could not be prepared.");ShowError(new IOException("Choose the folder containing WoW.exe."),true);}
         if(state=="conflicts")SetText(status,"{0} extra upgrade patches will be backed up automatically in LauSetupBackups. Click Install upgrade to continue.",3);
         if(state=="patch-v")plan=new InstallPlan{Warnings=new List<string>{@"Data\patch-v.mpq"}};
-        ShowStep(state=="initial"||state=="recovery"||state=="error"?0:state=="options"?1:state=="finished"?3:2);
-        if(state!="initial"){next.Enabled=state!="busy"&&state!="recovery";install.Enabled=step==2&&state!="busy";restore.Enabled=state=="recovery"||state=="finished";}
+        ShowStep(state=="initial"||state=="recovery"||state=="error"||state=="folder-error"?0:state=="options"?1:state=="finished"?3:2);
+        if(state!="initial"){next.Enabled=state!="busy"&&state!="recovery"&&state!="folder-error";install.Enabled=step==2&&state!="busy"&&plan!=null&&plan.Operations.Count>0;restore.Enabled=state=="recovery"||state=="finished";}
         CreateControl();ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;Location=WineHost.Active?Point.Empty:new Point(-32000,-32000);Show();PerformLayout();Refresh();Application.DoEvents();
         // Mono's DrawToBitmap omits custom controls. Capture the real Wine window
         // on the isolated test display so visual evidence includes every control.

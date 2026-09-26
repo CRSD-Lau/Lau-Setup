@@ -1,3 +1,18 @@
+# Unreleased candidate — Setup 1.5.0 · Patch-Y 3.1.0
+
+<!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+- Carries Neil's raid-tested Patch-Y visuals into HD with new spells, HD without new spells, and SD: Consecration, Marrowgar Coldflame, BQL Swarming Shadows, Halion Meteor Strike trails, Gormok Fire Bomb, Jaraxxus Legion Flame, and the worms' Slime Pool. Consecration is standard; its separate toggle is removed.
+- Restores the Halion tank-positioning material batches supplied by Andre, preserving the model and breath cone. In-game validation of the restored marks remains pending.
+- Corrects the Caverns of Time map packaging conflict while preserving Lau's existing map rows. Includes known older map packs in upgrade/repair selection.
+- Explains rejected client folders, offers another folder selection and copies a redacted diagnostics report only when requested. Review shows which selected components are current or need installation, update or repair.
+- Links to contributor visual examples in the HD Discord and explicitly credits Neil Mitchell / Lausudo for his edits and integration alongside the original contributors.
+- **DBC edits are included.** See [DBC-CHANGELOG.md](DBC-CHANGELOG.md) and the candidate's hash-backed per-edition evidence. Archive checks and installer tests do not replace the remaining in-game checks.
+
+This candidate is not a published release. [Scope, credits and validation gates](docs/RAID-VISUAL-RELEASE.md).
+
+---
+
 # Setup 1.4.2 Wine launcher compatibility hotfix · Game 3.0.9
 
 - Resolves [#36](https://github.com/CRSD-Lau/Lau-Setup/issues/36): the Linux launcher now accepts any parseable Wine and Wine Mono version rather than hard-blocking every version other than the exact tested pair.

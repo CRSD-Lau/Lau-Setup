@@ -153,7 +153,9 @@ Game payloads are distributed through GitHub Releases. The repository includes a
 
 ## Built on community work
 
-**Andre** — Patch-Y baselines · **Loriendal & Trimitor** — HD client foundation · **Project Reforged contributors** — HD artwork · **Blizzard** — original game, artwork and localized text · **Lau** — ground indicators, compatibility, adaptations, testing and release tooling.
+**Andre** — Patch-Y baselines · **Loriendal & Trimitor** — HD client foundation · **Project Reforged contributors** — HD artwork · **Blizzard** — original game, artwork and localized text · **Lau / Lausudo (Neil Mitchell)** — ground indicators, visual edits, compatibility, adaptations, testing and release tooling.
+
+The [raid visual release candidate](docs/RAID-VISUAL-RELEASE.md) adopts visual sources from **Suppository and the contributors credited in his patch**, with **Neil Mitchell / Lausudo** credited for the Lau edits, HD/SD integration and installer work. Original contributor credits remain intact. [Visual examples in the HD Discord](https://discord.com/channels/858041817043042364/1352616642491842580) require Discord access.
 
 [Full credits](https://wrath-multilingual-hd.vercel.app/credits) · [Screenshots and installation help](https://wrath-multilingual-hd.vercel.app/)
 

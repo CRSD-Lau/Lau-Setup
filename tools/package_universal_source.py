@@ -6,6 +6,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 META = b'Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell'
+RELEASE_VERSION = '1.5.0'
+DEFAULT_OUTPUT = Path('dist') / f'release-{RELEASE_VERSION}' / f'LauSetup-source-{RELEASE_VERSION}.zip'
 ADDITIONS = [
     'tools/verify_wizard_polish.py',
     'tools/compact_mpqs.py', 'docs/COMPACTION.md', 'docs/compaction-3.0.9.json',
@@ -17,6 +19,10 @@ ADDITIONS = [
     'docs/dbc/map-pack-1.4.0.json', 'docs/MAP-PACK.md', 'docs/UNIVERSAL-INSTALLER.md', 'docs/RELEASE-1.2.0.md', 'docs/RELEASE-1.2.1.md', 'docs/RELEASE-1.3.0.md', 'docs/RELEASE-1.4.0.md', 'docs/RELEASE-1.4.1.md', 'docs/RELEASE-1.4.2.md', 'docs/ANNOUNCEMENT-1.4.1.md', 'docs/VALIDATION-1.4.1.json', 'docs/VALIDATION-1.4.2.json', 'wine/LauSetup.sh', 'wine/lau_wine.py', 'wine/README.txt', 'CHANGELOG.md',
     'MPQ-EDIT-BREAKDOWN.md', 'docs/PATCH-Y-DEVELOPMENT.md', 'docs/PATCH-Y-QUICKSTART-WINDOWS.md',
     'tools/patch_y.py', 'tools/patch-y.ps1', 'tools/Patch-Y-Start.cmd', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
+    'tools/build_caverns_release.py', 'tools/build_raid_visual_release.py', 'tools/mpq.py', 'tools/prepare_raid_candidate.py',
+    'tests/MapReleaseTests.cs', 'tests/RaidReleaseTests.cs',
+    'docs/RAID-VISUAL-RELEASE.md', 'docs/RELEASE-1.5.0-CANDIDATE.md', 'docs/VALIDATION-1.5.0-CANDIDATE.json',
+    'docs/dbc/caverns-3.1.0-candidate.json', 'docs/dbc/raid-visuals-3.1.0-candidate.json',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]
 
@@ -32,7 +38,7 @@ def build(root=ROOT,output=None):
     names=sorted(set(json.loads((root/'build/wine-public-allowlist.json').read_text(encoding='utf-8-sig'))+ADDITIONS+patch_y_names))
     # Keep this manifest in the source bundle so it can reproduce its own archive.
     names.append('build/wine-public-allowlist.json')
-    output=Path(output).resolve() if output else root/'dist/release-1.4.1/LauSetup-source-1.4.1.zip'
+    output=Path(output).resolve() if output else root/DEFAULT_OUTPUT
     output.parent.mkdir(parents=True,exist_ok=True)
     expected={}
     for name in names:

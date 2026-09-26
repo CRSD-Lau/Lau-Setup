@@ -1,5 +1,12 @@
 dist/
 *.user
+payload/
+reports/
+build/*.exe
+build/source-index.json
+build/raid-*-fixture-*/
+build/raid-map-fixture/
+build/ui-preview/
 
 __pycache__/
 

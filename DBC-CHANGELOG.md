@@ -6,6 +6,37 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Candidate Setup 1.5.0 / Patch-Y 3.1.0 — raid visuals and Caverns maps
+
+**Not published. DBC edits are included.** [All six old editions compared with the three standard candidates](docs/dbc/raid-visuals-3.1.0-candidate.json) records archive/table SHA-256 values, every changed field and all added records. Field indices below are zero-based, including record ID at index 0. Existing strings and unrelated records are preserved in each edition.
+
+| Table | Record | Field / index | Old → new | Reason |
+| --- | --- | --- | --- | --- |
+| Spell | 66882 | SpellVisualID[0] / 131 | 118 → 20021 | Acidmaw/Dreadscale Slime Pool uses its own visual; other users of 118 stay unchanged |
+| SpellVisual | 14111 | MissileTargetingKit / 22 | 6754 → 20219 | Gormok Fire Bomb targeting effect |
+| SpellVisualKit | 12226 | WorldEffect / 14 | 3085 → 8155 | Gormok Fire Bomb fire |
+| SpellVisualKit | 13037 | WorldEffect / 14 | 9058 → 8156 | Jaraxxus Legion Flame |
+| SpellVisualKit | 9174 | WorldEffect / 14 | 3031 → 8169 | Worms' Slime Pool ground effect |
+| SpellVisualKit | 13448 | WorldEffect / 14 | 9172 → 8151 | Marrowgar blue Coldflame |
+| SpellVisualKit | 13942 | WorldEffect / 14 | 6337 → 8153 | BQL purple Swarming Shadows |
+| SpellVisualKit | 90049 | BaseEffect / 5 | 9173 → 8154 | Halion Meteor Strike trails; shared kit 12716 and landing kit 90050 stay unchanged |
+| SpellVisualEffectName | 2542 | FileName / 2 | Flamezone (old On) or consecration_impact_base (old Off) → `Spells\LauPersonalConsecration\Consecration.mdx` | New Consecration is standard |
+| SpellVisualEffectName | 2542 | Scale / 4 | 2.5 → 1.0 for old On; old Off already 1.0 | Accepted Consecration scale |
+
+The changes apply to HD new-spells On, HD new-spells Off and Non-HD/SD. Both legacy Consecration choices upgrade to these standard candidates; the installer no longer offers a Consecration toggle. The effect paths retain their names from the raid-tested integration and contain no personal data.
+
+New records:
+
+- **SpellVisual 20021:** clone of 118 with ID 20021 and InstantAreaKit / field 23 set to 9174. Original 118 remains unchanged.
+- **SpellVisualKit 20219:** supplied targeting kit, WorldEffect 8146. All raw fields are recorded in the linked evidence.
+- **SpellVisualEffectName 8146, 8151, 8153, 8154, 8155, 8156, 8169:** supplied effect settings for targeting, Coldflame, Swarming Shadows, Halion, Gormok, Jaraxxus and Slime Pool. Their full numeric records and decoded name/model strings are recorded in the evidence. Scales respectively: 6, 1.25, 1.35, 1.2, 0.9, 1.2 and 1.0.
+
+The optional Caverns package merges 53 cave records into the root map archive's WorldMapArea table, preserving all 159 existing Lau records. Competing copies are removed from the nine locale-T archives. [Final map hashes and all 53 added records](docs/dbc/caverns-3.1.0-candidate.json) accompany the map build proof. No other map table is intended to change.
+
+**Halion positioning marks:** no DBC edits for the mark restoration itself. The supplied model and texture match the baseline; three bytes in the SKIN file restore material batches. Existing breath-cone geometry is unchanged. These archive checks do not establish in-game placement.
+
+Visual sources retain Suppository's listed contributor credits and Andre's Halion source credit. **Neil Mitchell / Lau / Lausudo** is credited for the Lau edits and integration. See [release scope and credits](docs/RAID-VISUAL-RELEASE.md).
+
 ## Installer 1.4.1 hotfix — no DBC edits
 
 The installer recognizes `enGB`, `ptBR`, and `itIT` as catalog-declared visual-compatibility client locales. Each maps to existing verified English visual assets while retaining the client’s active locale and target filenames. The change does not modify a Patch-Y MPQ, DBC table, record, field, string block, game version, or `/pyversion` result.

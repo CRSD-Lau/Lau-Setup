@@ -1,12 +1,13 @@
-LAU SETUP 1.4.2 — WINE LAUNCHER COMPATIBILITY HOTFIX
+LAU SETUP 1.5.0 — LOCAL RAID VISUAL CANDIDATE
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-1. Close World of Warcraft.
-2. Download LauSetup.zip and extract the WHOLE ZIP. Keep its files together.
+1. Use an isolated copy of your WoW client for this candidate. Close World of Warcraft.
+2. Extract the WHOLE LauSetup-1.5.0-candidate-offline.zip. Keep its files together,
+   including the payload folder beside LauSetup.exe.
 3. Windows: open LauSetup.exe. Linux/Wine: use the supplied launcher as
-   explained in wine/README.txt. Both platforms use the same ZIP.
+   explained in README.txt inside the packaged LauSetup folder. Both platforms use the same ZIP.
    Wine 11.0 / Wine Mono 10.4.1 remains the tested baseline; older or newer
    installed runtimes warn instead of being blocked.
 4. Choose your existing WoW 3.3.5a folder — the folder containing WoW.exe.
@@ -16,8 +17,8 @@ Last Modified By: Neil Mitchell
    not install a language pack or translated game text.
    Use Interface language at any time if its automatic choice is wrong.
 5. Choose your extras. Patch-Y is included for your detected client.
-   All extras are optional:
-   - Enhanced Consecration: Lau's custom ground effect.
+   Enhanced Consecration is included as standard; there is no separate toggle.
+   Optional extras:
    - New spell visuals: upgraded spell effects; requires existing HD models.
    - Maps/minimaps: Lau's maps plus Trimitor dungeon, raid and cave maps.
      Includes the WDM support addons. Cave maps are upstream beta.
@@ -38,7 +39,13 @@ a warning. Personal settings and unrelated addons are not changed.
 The maps option may replace WDM/!Astrolabe support files and the active
 language's Patch-T; their old files are backed up too.
 
-The installer version appears at the bottom. Patch-Y/game release is 3.0.9;
+The installer version appears at the bottom. Patch-Y/game release is 3.1.0;
 the installer has its own version. A full HD model pack is not included.
 
 Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.
+
+CANDIDATE STATUS
+Not published. Use an isolated test client for the new Halion marks, Caverns maps and SD visual checks.
+The offline payload folder must remain beside LauSetup.exe while new assets are unpublished.
+Credits: Neil Mitchell / Lau / Lausudo for Lau edits and integration; Suppository and the listed source contributors for adopted visuals; Andre for the Halion restoration.
+Author / Creator / Last Modified By: Neil Mitchell

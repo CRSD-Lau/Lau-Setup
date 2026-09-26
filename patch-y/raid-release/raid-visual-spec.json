@@ -1,0 +1,367 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "schema_version": 1,
+  "provenance": {
+    "approved_lau_edits": "Consecration and boss visual routes approved after raid",
+    "original_suppository": "Original visual source attribution retained by package; see README",
+    "halion_issue": "https://github.com/CRSD-Lau/Lau-Setup/issues/39#issuecomment-5681283458",
+    "halion_zip_sha256": "1807d7713c15b3176326ea239877549219523263fd22e75f508547df02a50beb"
+  },
+  "assets": [
+    {
+      "path": "Spells/LauPersonalBossVisuals/Coldflame.m2",
+      "sha256": "ab3faa94f2bd3b49bb361e831ddcf18696836844f81a94c833499463bcfc66f5",
+      "bytes": 6920,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/Coldflame00.skin",
+      "sha256": "84200078cce5605621daefbb2abe2fe1f79448ef4c4a9f0d142715432422c13b",
+      "bytes": 176,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZB_A.BLP",
+      "sha256": "8fef6c3cfa6d01e59673ec40b431e3493ff481af7c450e74b1991ce30e090fc3",
+      "bytes": 88580,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZB_F.BLP",
+      "sha256": "2ecf9eebf17c3bcb0133c735e2f7fa99d727ea1abc0b074f5a63d29864091aec",
+      "bytes": 23060,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZB_R.BLP",
+      "sha256": "16f6f90ef0095f731a84d8e42ce07222eb7d85b425225539051b21d09c68a100",
+      "bytes": 44876,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZP_A.BLP",
+      "sha256": "eccafbbaeb5cd394c0ffc2f78c54b4c0f8a3adb56789fce5c3df7f9445add2a0",
+      "bytes": 88580,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZP_F.BLP",
+      "sha256": "fc47d6f6a9e65f7833da49056843bb451335b76824a76ae71efb9cd936b59b64",
+      "bytes": 23060,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/FZP_R.BLP",
+      "sha256": "4ef1c7e3d1f730391eff25352d02b0145b657a3b09f32a538a0830b20b2fa24c",
+      "bytes": 44876,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/SlimePool.m2",
+      "sha256": "06bb7df193edb04e2b3a45fdf29a54e27bcd62f8064a3923290ce6cbcfadf6f2",
+      "bytes": 6912,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/SlimePool00.skin",
+      "sha256": "a39927ce90d2b5d201e458918d35b86b0c6685b93902aa9f6442060c84aa17c1",
+      "bytes": 176,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/SwarmingShadows.m2",
+      "sha256": "84543e67bf4a00fdc343eb65bac79c5e57627e558f0ecc67866f0277210fb5e8",
+      "bytes": 6920,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalBossVisuals/SwarmingShadows00.skin",
+      "sha256": "84200078cce5605621daefbb2abe2fe1f79448ef4c4a9f0d142715432422c13b",
+      "bytes": 176,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalConsecration/Consecration.m2",
+      "sha256": "f158444edb6b0358c94ca1d956a0a22bd58a296484578eb238817aa136884e03",
+      "bytes": 846,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalConsecration/Consecration00.skin",
+      "sha256": "8fcfbd6e53c0793c47e3bed35d28bd4a5a7056ab93ee758ceb01294a3eb8c993",
+      "bytes": 176,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    },
+    {
+      "path": "Spells/LauPersonalConsecration/HolyGround.blp",
+      "sha256": "167848bb36cc9889e707d15e3b45afdc167e57c98b7bd106bb977a12d3085571",
+      "bytes": 88580,
+      "provenance": "Lau approved boss/Consecration asset extracted once from accepted September visual donor"
+    }
+  ],
+  "dbc": {
+    "Spell": {
+      "fields": 234,
+      "reference_before_string_bytes": 21802041,
+      "append_strings": [],
+      "changes": [
+        {
+          "id": 66882,
+          "field": 131,
+          "old": 118,
+          "new": 20021
+        }
+      ],
+      "added_rows": {}
+    },
+    "SpellVisual": {
+      "fields": 32,
+      "reference_before_string_bytes": 1,
+      "append_strings": [],
+      "changes": [
+        {
+          "id": 14111,
+          "field": 22,
+          "old": 6754,
+          "new": 20219
+        }
+      ],
+      "added_rows": {
+        "20021": [
+          20021,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4294967295,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          9174,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "SpellVisualKit": {
+      "fields": 38,
+      "reference_before_string_bytes": 1,
+      "append_strings": [],
+      "changes": [
+        {
+          "id": 9174,
+          "field": 14,
+          "old": 3031,
+          "new": 8169
+        },
+        {
+          "id": 12226,
+          "field": 14,
+          "old": 3085,
+          "new": 8155
+        },
+        {
+          "id": 13037,
+          "field": 14,
+          "old": 9058,
+          "new": 8156
+        },
+        {
+          "id": 13448,
+          "field": 14,
+          "old": 9172,
+          "new": 8151
+        },
+        {
+          "id": 13942,
+          "field": 14,
+          "old": 6337,
+          "new": 8153
+        },
+        {
+          "id": 90049,
+          "field": 5,
+          "old": 9173,
+          "new": 8154
+        }
+      ],
+      "added_rows": {
+        "20219": [
+          20219,
+          4294967295,
+          4294967295,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8146,
+          0,
+          0,
+          4294967295,
+          4294967295,
+          4294967295,
+          4294967295,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "SpellVisualEffectName": {
+      "fields": 7,
+      "reference_before_string_bytes": 171951,
+      "append_strings": [
+        "Spells\\LauPersonalConsecration\\Consecration.mdx",
+        "Dark Ritual PreCast Base - PP + Gormok",
+        "Spells\\DarkRitual_PreCast_Base.mdx",
+        "Void Zone (blue) - Marrowgar",
+        "Spells\\LauPersonalBossVisuals\\Coldflame.mdx",
+        "Void Zone (purple) - BQL",
+        "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx",
+        "Void Zone (Flame) - Halion + Mimiron",
+        "Spells\\FlameZone.mdx",
+        "Void Zone (Flame) - Gormok",
+        "Spells\\FlameZone.mdx",
+        "Void Zone (Nature) - Jaraxxus",
+        "Spells\\NatureZone.mdx",
+        "Void Zone (Nature) - Acidmaw + Dreadscale",
+        "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+      ],
+      "changes": [
+        {
+          "id": 2542,
+          "field": 2,
+          "old": 171596,
+          "new": 171951,
+          "old_string": "spells\\Flamezone.mdx",
+          "new_string": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+        },
+        {
+          "id": 2542,
+          "field": 4,
+          "old": 1075838976,
+          "new": 1065353216
+        }
+      ],
+      "added_rows": {
+        "8146": [
+          8146,
+          171999,
+          172038,
+          1065353216,
+          1086324736,
+          1008981770,
+          1120403456
+        ],
+        "8151": [
+          8151,
+          172073,
+          172102,
+          1065353216,
+          1067450368,
+          1036831949,
+          1120403456
+        ],
+        "8153": [
+          8153,
+          172146,
+          172171,
+          1065353216,
+          1068289229,
+          1036831949,
+          1120403456
+        ],
+        "8154": [
+          8154,
+          172221,
+          172258,
+          1065353216,
+          1067030938,
+          1036831949,
+          1120403456
+        ],
+        "8155": [
+          8155,
+          172279,
+          172306,
+          1065353216,
+          1063675494,
+          1036831949,
+          1120403456
+        ],
+        "8156": [
+          8156,
+          172327,
+          172357,
+          1065353216,
+          1067030938,
+          1036831949,
+          1120403456
+        ],
+        "8169": [
+          8169,
+          172379,
+          172421,
+          1065353216,
+          1065353216,
+          1008981770,
+          1120403456
+        ]
+      }
+    }
+  },
+  "halion": {
+    "path": "Creature/TwighlightDragon/twighlightdragon00.skin",
+    "sha256": "8b1037718a76c27389af7c6f8a82da3b537cc08599f7fcc0bc03c39f514c79f0",
+    "bytes": 38544,
+    "expected_changed_offsets": [
+      36,
+      38476,
+      38478
+    ],
+    "provenance": "Andre #39 supplied Creature.zip"
+  }
+}

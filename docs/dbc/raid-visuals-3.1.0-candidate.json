@@ -1,0 +1,1648 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "baseline": "Public3.0.9",
+  "candidate": "3.1.0",
+  "field_indexing": "Zero-based, including ID at0",
+  "editions": [
+    {
+      "previous_edition": "Y-HD-NewSpells-Off-Consecration-On",
+      "candidate_edition": "Y-HD-NewSpells-Off-Consecration-On",
+      "before_sha256": "ad173fb9cdbcd5f54135aa48a8e443c7c756a80062e8498f21a0613a2908fbc0",
+      "after_sha256": "6c556c32df440007ca65769d3ca9c98979becc4899757a483d252415c437f4bc",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "5a101bdc7e090ff81285bee3173acc5f75e00879f37fd3edbf24bcd9662826de",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after_sha256": "5a45cd5bdb16a2188df83492552eb51d9b0dd73e1e1142a8a2809e2cddbbf4d1",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "3e48ac693588cce058754a562f5681c3b72a1ff5062ff0c63cadff1d1e75d23c",
+          "after_sha256": "585e6adb2cd0abf7c748aaea503d70137e4f324fd48d8da52892e479f359c23c",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\Flamezone.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            },
+            {
+              "id": 2542,
+              "field": 4,
+              "old": 1075838976,
+              "new": 1065353216
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                155868,
+                155907,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                155942,
+                155971,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                156015,
+                156040,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                156090,
+                156127,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                156148,
+                156175,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                156196,
+                156226,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                156248,
+                156290,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after_sha256": "1719dbcef95dd775bd9910e3084176af7d37975a1662ea7bd38e2be8dd323615",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    },
+    {
+      "previous_edition": "Y-HD-NewSpells-Off-Consecration-Off",
+      "candidate_edition": "Y-HD-NewSpells-Off-Consecration-On",
+      "before_sha256": "6bb65df07ed1f18b832785755b0e08586dd2dee2594de8da82548e3b8f4241bf",
+      "after_sha256": "6c556c32df440007ca65769d3ca9c98979becc4899757a483d252415c437f4bc",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "5a101bdc7e090ff81285bee3173acc5f75e00879f37fd3edbf24bcd9662826de",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "b347de3e848d5abcae32b1f98a0caf6b9e733294b514ce2aff2f3f65e75aaee8",
+          "after_sha256": "5a45cd5bdb16a2188df83492552eb51d9b0dd73e1e1142a8a2809e2cddbbf4d1",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "e721c563cd0c6283f8b9091cba7c7bcd1a35b70527d537a1bba30271ec1a3f0f",
+          "after_sha256": "585e6adb2cd0abf7c748aaea503d70137e4f324fd48d8da52892e479f359c23c",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\consecration_impact_base.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                155868,
+                155907,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                155942,
+                155971,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                156015,
+                156040,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                156090,
+                156127,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                156148,
+                156175,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                156196,
+                156226,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                156248,
+                156290,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "3d29c55eaadae9cf4c0e42db1fed865e97eaaddbfc2e138a243fcd5d2e6b6b71",
+          "after_sha256": "1719dbcef95dd775bd9910e3084176af7d37975a1662ea7bd38e2be8dd323615",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    },
+    {
+      "previous_edition": "Y-HD-NewSpells-On-Consecration-On",
+      "candidate_edition": "Y-HD-NewSpells-On-Consecration-On",
+      "before_sha256": "4dca75ba695a2a8efecdc5fb3ee289763485efc9cd2d608d5c1a1a873b45703e",
+      "after_sha256": "0332b2238d141e2744b9dc9b28fb2f1d2df35058b3acf56f8b21b3df427101b8",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after_sha256": "bcccb33ac78efbd152860f1cc7c623459260a931cf5f9d8a0d5f15c03f25c8c4",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after_sha256": "6ec43ec818e1ca7b5692267c117f96fc296d750a83459997c832c6ef072ca99a",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "d130ea47602eb6d17e2d676dad0e0dece477fdb6ffc7c79e184ec038769d094b",
+          "after_sha256": "fdb29f01b5552da43a3ea0b6c4b021002d68932b0f6229ea61aa64e84cfc356e",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\Flamezone.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            },
+            {
+              "id": 2542,
+              "field": 4,
+              "old": 1075838976,
+              "new": 1065353216
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                171999,
+                172038,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                172073,
+                172102,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                172146,
+                172171,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                172221,
+                172258,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                172279,
+                172306,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                172327,
+                172357,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                172379,
+                172421,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after_sha256": "28a7eb9df81e188dc294b9daf92e6f0dc360c46f19534153803e1b9a02970a29",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    },
+    {
+      "previous_edition": "Y-HD-NewSpells-On-Consecration-Off",
+      "candidate_edition": "Y-HD-NewSpells-On-Consecration-On",
+      "before_sha256": "f3d9ffcd56456977f63668c68ea992eb5369a938b9fe52d2af78b02e0e267dc3",
+      "after_sha256": "0332b2238d141e2744b9dc9b28fb2f1d2df35058b3acf56f8b21b3df427101b8",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "9580b7fede77586c26da1083557808061805b782beadee06b651c8f3c72f6a11",
+          "after_sha256": "bcccb33ac78efbd152860f1cc7c623459260a931cf5f9d8a0d5f15c03f25c8c4",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "4914fac2eec4ff43f66821efacbb81719c872cf58bffdfa99a7d7a3abd7096d4",
+          "after_sha256": "6ec43ec818e1ca7b5692267c117f96fc296d750a83459997c832c6ef072ca99a",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "8964ecb47f85bd873abfe54c971d58722c3467de3f6084b945c2bf8e2250e4fa",
+          "after_sha256": "fdb29f01b5552da43a3ea0b6c4b021002d68932b0f6229ea61aa64e84cfc356e",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\consecration_impact_base.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                171999,
+                172038,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                172073,
+                172102,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                172146,
+                172171,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                172221,
+                172258,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                172279,
+                172306,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                172327,
+                172357,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                172379,
+                172421,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "6e2c83cbeb73e139d3c8a7284140c25466d84947a2c2dfb1255612ce01210c91",
+          "after_sha256": "28a7eb9df81e188dc294b9daf92e6f0dc360c46f19534153803e1b9a02970a29",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    },
+    {
+      "previous_edition": "Y-Non-HD-Consecration-On",
+      "candidate_edition": "Y-Non-HD-Consecration-On",
+      "before_sha256": "80f2e74cc5a0100f22e941e8a4d3350b6d3655a5ebfd3000b74494e9116409f5",
+      "after_sha256": "6efe038086868a89b719d984505606242f0eff35ea3cbb275d8b633a4ab14e3e",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "5a101bdc7e090ff81285bee3173acc5f75e00879f37fd3edbf24bcd9662826de",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after_sha256": "265c0c07a2525ac3bec192a8bd301423a92a593fc7bbb9c04376f9b152301787",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "738892c59e16e99afee3656d6a72f80da9753a5e43dca497fe9b31218a6fd7c5",
+          "after_sha256": "1974583e35de3abdc70e591ca5d79a0f1b0691ef03902b7d25902e13264ec106",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\Flamezone.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            },
+            {
+              "id": 2542,
+              "field": 4,
+              "old": 1075838976,
+              "new": 1065353216
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                155867,
+                155906,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                155941,
+                155970,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                156014,
+                156039,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                156089,
+                156126,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                156147,
+                156174,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                156195,
+                156225,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                156247,
+                156289,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after_sha256": "b5a27ef1ad50c9ece91f6153a479f9ddaf89fb94bf1efa873708176db8033104",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    },
+    {
+      "previous_edition": "Y-Non-HD-Consecration-Off",
+      "candidate_edition": "Y-Non-HD-Consecration-On",
+      "before_sha256": "8009d97a8ab204ecbfc0d4353df606c339dfddd94cdbb4f6d4df7b83073a9c42",
+      "after_sha256": "6efe038086868a89b719d984505606242f0eff35ea3cbb275d8b633a4ab14e3e",
+      "tables": [
+        {
+          "table": "spell.dbc",
+          "before_sha256": "a4461f995967a45f3f8a73ecf576d9534685a3a775b0342828fa5c19fb369a21",
+          "after_sha256": "5a101bdc7e090ff81285bee3173acc5f75e00879f37fd3edbf24bcd9662826de",
+          "changed_fields": [
+            {
+              "id": 66882,
+              "field": 131,
+              "old": 118,
+              "new": 20021
+            }
+          ],
+          "added_records": {},
+          "removed_records": []
+        },
+        {
+          "table": "spellvisual.dbc",
+          "before_sha256": "371fb949d76a38445ee6fe34d113c5c6e248c4d780a4f8e1d8cb3c79bbf814d8",
+          "after_sha256": "265c0c07a2525ac3bec192a8bd301423a92a593fc7bbb9c04376f9b152301787",
+          "changed_fields": [
+            {
+              "id": 14111,
+              "field": 22,
+              "old": 6754,
+              "new": 20219
+            }
+          ],
+          "added_records": {
+            "20021": {
+              "raw_fields": [
+                20021,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9174,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualeffectname.dbc",
+          "before_sha256": "611608dd4c605970bf5b9ecfc4ea99037d56620607fd32449234c5036b953b30",
+          "after_sha256": "1974583e35de3abdc70e591ca5d79a0f1b0691ef03902b7d25902e13264ec106",
+          "changed_fields": [
+            {
+              "id": 2542,
+              "field": 2,
+              "old": "spells\\consecration_impact_base.mdx",
+              "new": "Spells\\LauPersonalConsecration\\Consecration.mdx"
+            }
+          ],
+          "added_records": {
+            "8146": {
+              "raw_fields": [
+                8146,
+                155867,
+                155906,
+                1065353216,
+                1086324736,
+                1008981770,
+                1120403456
+              ],
+              "name": "Dark Ritual PreCast Base - PP + Gormok",
+              "model": "Spells\\DarkRitual_PreCast_Base.mdx"
+            },
+            "8151": {
+              "raw_fields": [
+                8151,
+                155941,
+                155970,
+                1065353216,
+                1067450368,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (blue) - Marrowgar",
+              "model": "Spells\\LauPersonalBossVisuals\\Coldflame.mdx"
+            },
+            "8153": {
+              "raw_fields": [
+                8153,
+                156014,
+                156039,
+                1065353216,
+                1068289229,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (purple) - BQL",
+              "model": "Spells\\LauPersonalBossVisuals\\SwarmingShadows.mdx"
+            },
+            "8154": {
+              "raw_fields": [
+                8154,
+                156089,
+                156126,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Halion + Mimiron",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8155": {
+              "raw_fields": [
+                8155,
+                156147,
+                156174,
+                1065353216,
+                1063675494,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Flame) - Gormok",
+              "model": "Spells\\FlameZone.mdx"
+            },
+            "8156": {
+              "raw_fields": [
+                8156,
+                156195,
+                156225,
+                1065353216,
+                1067030938,
+                1036831949,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Jaraxxus",
+              "model": "Spells\\NatureZone.mdx"
+            },
+            "8169": {
+              "raw_fields": [
+                8169,
+                156247,
+                156289,
+                1065353216,
+                1065353216,
+                1008981770,
+                1120403456
+              ],
+              "name": "Void Zone (Nature) - Acidmaw + Dreadscale",
+              "model": "Spells\\LauPersonalBossVisuals\\SlimePool.mdx"
+            }
+          },
+          "removed_records": []
+        },
+        {
+          "table": "spellvisualkit.dbc",
+          "before_sha256": "eda6ef622b65c21827ab3f77364f68291841d436f55dd01d815c6543e2932a37",
+          "after_sha256": "b5a27ef1ad50c9ece91f6153a479f9ddaf89fb94bf1efa873708176db8033104",
+          "changed_fields": [
+            {
+              "id": 9174,
+              "field": 14,
+              "old": 3031,
+              "new": 8169
+            },
+            {
+              "id": 12226,
+              "field": 14,
+              "old": 3085,
+              "new": 8155
+            },
+            {
+              "id": 13037,
+              "field": 14,
+              "old": 9058,
+              "new": 8156
+            },
+            {
+              "id": 13448,
+              "field": 14,
+              "old": 9172,
+              "new": 8151
+            },
+            {
+              "id": 13942,
+              "field": 14,
+              "old": 6337,
+              "new": 8153
+            },
+            {
+              "id": 90049,
+              "field": 5,
+              "old": 9173,
+              "new": 8154
+            }
+          ],
+          "added_records": {
+            "20219": {
+              "raw_fields": [
+                20219,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                8146,
+                0,
+                0,
+                4294967295,
+                4294967295,
+                4294967295,
+                4294967295,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "removed_records": []
+        }
+      ]
+    }
+  ]
+}

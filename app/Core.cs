@@ -61,6 +61,7 @@ public static class WineHost {
 }
 public sealed class Part { public string Sha256; public long Bytes; public string Url; public string FileName; }
 public sealed class Asset { public string Id; public string Sha256; public long Bytes; public List<Part> Parts; }
+public sealed class FileIdentity { public string Sha256; public long Bytes; }
 public sealed class Catalog {
     public string Author, Creator, LastModifiedBy, Version, InstallerVersion, MapPackVersion;
     public bool PublicReady;
@@ -71,6 +72,7 @@ public sealed class Catalog {
     public List<string> ClientLocales;
     public Dictionary<string,string> VisualAssetLocales;
     public Dictionary<string,Asset> Assets;
+    public List<FileIdentity> PreviousMapRoots;
     public static Catalog Load(string json) {
         var c=Json.Parse<Catalog>(json); c.Validate(); return c;
     }
@@ -79,7 +81,8 @@ public sealed class Catalog {
         using(var r=new StreamReader(s)) return Load(r.ReadToEnd());
     }
     public void Validate() {
-        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8" && Version!="3.0.9") || Locales==null || Assets==null || Assets.Count>512 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
+        if((Version!="3.0.4" && Version!="3.0.5" && Version!="3.0.6" && Version!="3.0.7" && Version!="3.0.8" && Version!="3.0.9" && Version!="3.1.0") || Locales==null || Assets==null || Assets.Count>512 || Locales.Count!=9 || Locales.Distinct().Count()!=9) throw new InvalidDataException("Invalid release catalog.");
+        if(PreviousMapRoots!=null && (PreviousMapRoots.Count>8 || PreviousMapRoots.Any(x=>x==null || !Hash.Valid(x.Sha256) || x.Bytes<=0 || x.Bytes>8L*1024*1024*1024) || PreviousMapRoots.Select(x=>x.Sha256).Distinct().Count()!=PreviousMapRoots.Count))throw new InvalidDataException("Invalid release catalog.");
         foreach(string locale in Locales) if(!Regex.IsMatch(locale,@"^(enUS|deDE|frFR|esES|esMX|koKR|ruRU|zhCN|zhTW)$")) throw new InvalidDataException("Unsupported language.");
         if(ClientLocales==null) {
             ClientLocales=new List<string>(Locales);
@@ -110,7 +113,7 @@ public sealed class Catalog {
         foreach(var loc in Locales) { Get("LoadingQ-"+loc); Get("MapsQ-"+loc); }
         foreach(var mode in new[]{"Non-HD","HD-NewSpells-On","HD-NewSpells-Off"}) foreach(var cons in new[]{"On","Off"}) Get("Y-"+mode+"-Consecration-"+cons);
     }
-    internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0","payload-3.0.9"};
+    internal static readonly string[] DownloadTags={"payload-3.0.4","payload-3.0.5","payload-3.0.6","payload-3.0.7","payload-3.0.8","payload-maps-1.4.0","payload-3.0.9","payload-3.1.0"};
     public static bool ValidDownloadUrl(Part part) { return DownloadTags.Any(tag=>part.Url=="https://github.com/CRSD-Lau/Lau-Setup/releases/download/"+tag+"/"+part.Sha256+".bin"); }
     public Asset Get(string id) { Asset a; if(!Assets.TryGetValue(id,out a)) throw new InvalidDataException("Missing release component: "+id); return a; }
     public string VisualAssetLocale(string clientLocale) { string locale;if(ClientLocales==null || VisualAssetLocales==null || !ClientLocales.Contains(clientLocale) || !VisualAssetLocales.TryGetValue(clientLocale,out locale)) throw new InvalidDataException("Unsupported client language.");return locale; }
@@ -216,7 +219,20 @@ public static class Client {
         bool rootF=File.Exists(SafePaths.Under(root,@"Data\patch-f.mpq")),localeF=File.Exists(SafePaths.Under(root,@"Data\"+locale+@"\patch-"+locale+"-F.MPQ"));
         if(rootF!=localeF) throw new IOException("The HD model patches are incomplete. Enable the matching model pack in your client before installing.");
         bool s=File.Exists(SafePaths.Under(root,@"Data\patch-s.mpq"));
-        return new ClientInfo{Root=root,Locale=locale,Hd=rootF,NewSpells=rootF&&s,MapsInstalled=MapsComplete(root,locale,catalog)};
+        return new ClientInfo{Root=root,Locale=locale,Hd=rootF,NewSpells=rootF&&s,MapsInstalled=MapsRecognized(root,locale,catalog)};
+    }
+    // Recognize owned map packs separately from exact current completeness.
+    // An older root or missing locale/support file should remain selected for
+    // upgrade/repair. A foreign archive with the same filename is not evidence.
+    public static bool MapsRecognized(string root,string locale,Catalog catalog){
+        string path=SafePaths.Target(root,@"Data\patch-m.mpq",locale);
+        if(!File.Exists(path))return false;
+        long size=new FileInfo(path).Length;var current=catalog.Get("Maps");
+        var known=new List<FileIdentity>{new FileIdentity{Sha256=current.Sha256,Bytes=current.Bytes}};
+        if(catalog.PreviousMapRoots!=null)known.AddRange(catalog.PreviousMapRoots);
+        var candidates=known.Where(x=>x.Bytes==size).ToArray();
+        if(candidates.Length==0)return false;
+        string hash=Hash.FileHash(path);return candidates.Any(x=>x.Sha256==hash);
     }
     public static bool MapsComplete(string root,string locale,Catalog catalog){
         Func<string,string,bool> matches=(path,id)=>{var a=catalog.Get(id);return Hash.Matches(SafePaths.Target(root,path,locale),a.Sha256,a.Bytes);};
