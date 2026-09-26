@@ -5,7 +5,7 @@ Patch-Y 3.1.0 includes the approved raid effects and standard Consecration; opti
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
 The offline candidate also includes a payload folder for the new, unpublished assets. Keep it beside LauSetup.exe.
-This is a local candidate, not the public stable release. New Halion marks, Caverns maps and SD rendering still require in-game checks; Wine runtime validation for this candidate is pending.
+This is a local candidate, not the public stable release. New Halion marks, Caverns maps, HD original-spells and SD rendering still require in-game checks. Automated Docker checks passed on Ubuntu 24.04 with Wine 9.0 and 11.0 / Mono 10.4.1: 94 Linux tests, 60 interface renders and six real-payload install/repair/restore cases. These used disposable fixtures and did not launch the game. See docs/DOCKER-VALIDATION-1.5.0-CANDIDATE.json.
 
 ## Start here on Windows
 

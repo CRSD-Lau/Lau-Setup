@@ -21,7 +21,7 @@ ADDITIONS = [
     'tools/patch_y.py', 'tools/patch-y.ps1', 'tools/Patch-Y-Start.cmd', 'tools/generate_patch_y_baseline.py', 'tests/test_patch_y_source.py', 'tests/test_patch_y_archive_integration.py',
     'tools/build_caverns_release.py', 'tools/build_raid_visual_release.py', 'tools/mpq.py', 'tools/prepare_raid_candidate.py',
     'tests/MapReleaseTests.cs', 'tests/RaidReleaseTests.cs',
-    'docs/RAID-VISUAL-RELEASE.md', 'docs/RELEASE-1.5.0-CANDIDATE.md', 'docs/VALIDATION-1.5.0-CANDIDATE.json',
+    'docs/RAID-VISUAL-RELEASE.md', 'docs/RELEASE-1.5.0-CANDIDATE.md', 'docs/VALIDATION-1.5.0-CANDIDATE.json', 'docs/DOCKER-VALIDATION-1.5.0-CANDIDATE.json',
     'docs/dbc/caverns-3.1.0-candidate.json', 'docs/dbc/raid-visuals-3.1.0-candidate.json',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]

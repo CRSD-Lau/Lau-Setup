@@ -22,4 +22,4 @@ The root map WorldMapArea table gains 53 cave records while all 159 existing rec
 
 **Neil Mitchell / Lau / Lausudo**: Lau edits, integration, HD/SD adaptations, installer improvements, packaging and validation. **Suppository and his listed contributors**: imported visual sources. **Andre**: the supplied Halion mark restoration. Existing community credits remain intact.
 
-This candidate is not the published stable download. Publication awaits the recorded in-game and platform validation gates. [Full scope, credits and remaining checks](RAID-VISUAL-RELEASE.md).
+This candidate is not the published stable download. Windows and isolated Docker/Wine automated validation passed. Docker covered 94 Linux tests, 60 interface renders, and six real-payload install/repair/restore cases on Wine 9.0 and 11.0 with Mono 10.4.1. Publication still awaits the recorded in-game checks; Discord examples also remain uninspected. [Docker validation](DOCKER-VALIDATION-1.5.0-CANDIDATE.json) · [Full scope, credits and remaining checks](RAID-VISUAL-RELEASE.md).

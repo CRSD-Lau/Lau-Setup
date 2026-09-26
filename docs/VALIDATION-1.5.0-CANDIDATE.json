@@ -2,7 +2,7 @@
   "Author": "Neil Mitchell",
   "Creator": "Neil Mitchell",
   "LastModifiedBy": "Neil Mitchell",
-  "status": "LOCAL_CANDIDATE_STATIC_AND_WINDOWS_VALIDATION_PASS_RUNTIME_GATES_OPEN",
+  "status": "LOCAL_CANDIDATE_WINDOWS_AND_DOCKER_VALIDATION_PASS_IN_GAME_GATES_OPEN",
   "installer": "1.5.0",
   "game": "3.1.0",
   "published": false,
@@ -22,12 +22,12 @@
     "In-game Caverns of Time map selection",
     "In-game restored Halion positioning marks",
     "HD original-spells and SD visual acceptance",
-    "Wine runtime regression (Docker Linux engine unavailable)",
     "Discord example images not independently inspected; link supplied by user"
   ],
   "proofs": {
     "visuals": "dbc/raid-visuals-3.1.0-candidate.json",
-    "maps": "dbc/caverns-3.1.0-candidate.json"
+    "maps": "dbc/caverns-3.1.0-candidate.json",
+    "docker": "DOCKER-VALIDATION-1.5.0-CANDIDATE.json"
   },
   "offline_payload": {
     "Author": "Neil Mitchell",
@@ -47,5 +47,22 @@
       "MapsQ-zhCN",
       "MapsQ-zhTW"
     ]
+  },
+  "docker": {
+    "status": "PASS",
+    "linux_python_tests": 94,
+    "linux_python_skipped": 0,
+    "wine_versions": [
+      "9.0",
+      "11.0"
+    ],
+    "wine_mono": "10.4.1",
+    "distribution": "Ubuntu 24.04",
+    "ui_renders": 60,
+    "real_payload_install_repair_restore_cases": 6,
+    "candidate_executable_sha256": "450222dee4c66d37cba3fe92f75b0668c09c5e450c993951fb6176aac852d9ed",
+    "personal_client_mounted": false,
+    "disposable_containers_removed": true,
+    "scope": "Shipped launcher and interface; real payload transaction core through the Linux safety bridge on disposable client fixtures. No game process was run."
   }
 }

@@ -2,7 +2,7 @@
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
-Status: local candidate built and validated on Windows, not published. Candidate versions: Lau Setup 1.5.0 / Patch-Y 3.1.0.
+Status: local candidate built and validated on Windows and in isolated Docker/Wine environments, not published. Candidate versions: Lau Setup 1.5.0 / Patch-Y 3.1.0.
 
 ## Agreed scope
 
@@ -28,7 +28,7 @@ Existing credits for the HD foundation, Project Reforged and Blizzard remain in 
 - Three staged editions have exact archive-member and DBC comparisons against the hash-pinned public 3.0.9 baseline. Their HD new-spells edition matches the accepted personal archive apart from the supplied Halion skin and the new version label.
 - Independent review confirmed the three-byte Halion skin change selects bounded material batches, with unchanged model geometry, texture and breath-cone files.
 - Windows validation passed 80 installer cases, 72 real Patch-Y upgrade/restore cases, both-placement byte-repair checks in all three editions, and the full-size enGB map upgrade/restore test. The Python suite ran 74 cases with one archive-integration case skipped; the separate real archive builds and comparisons passed. [Validation record](VALIDATION-1.5.0-CANDIDATE.json).
-- Wine runtime validation for this candidate remains pending because the Docker Linux engine was unavailable. The prior release's Wine baseline is not claimed as a new candidate pass.
+- Docker validation passed the full Linux Python suite (94 tests, no skips, including real StormLib integration). Wine 9.0 and 11.0 on Ubuntu 24.04 with Wine Mono 10.4.1 passed launcher startup/normal close, 60 interface renders across ten languages, and six real-payload install/no-op/repair/restore cases including enGB with full maps. The cases exercised the transaction core through the shipped Linux safety bridge on disposable client fixtures; they did not launch a game or inspect a real interactive client. The personal client was not mounted. Both test containers were removed. [Docker validation record](DOCKER-VALIDATION-1.5.0-CANDIDATE.json).
 - Caverns of Time map selection and Halion marks still require targeted in-game checks. HD spells-off and SD visual acceptance remain separate checks.
 - Neil supplied the [Lady Deathwhisper forum ID in the HD Discord](https://discord.com/channels/858041817043042364/1352616642491842580) for Suppository's images. Setup links to that source directly. Discord access is required; the images have not been independently inspected from the currently logged-out browser session and are not presented as screenshots of every Lau-specific change.
 - Publication follows the validated candidate, complete DBC change history, final credits, download guidance and release announcement.
