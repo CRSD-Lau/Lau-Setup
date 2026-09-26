@@ -23,6 +23,10 @@ ADDITIONS = [
     'tests/MapReleaseTests.cs', 'tests/RaidReleaseTests.cs',
     'docs/RAID-VISUAL-RELEASE.md', 'docs/RELEASE-1.5.0-CANDIDATE.md', 'docs/VALIDATION-1.5.0-CANDIDATE.json', 'docs/DOCKER-VALIDATION-1.5.0-CANDIDATE.json',
     'docs/dbc/caverns-3.1.0-candidate.json', 'docs/dbc/raid-visuals-3.1.0-candidate.json',
+    'tools/build_loading_hd16x9_executable.py',
+    'tools/build_loading_release.py', 'tools/loading_release_codec.py', 'tools/stage_loading_catalog.py',
+    'docs/LOADING-HD16X9-PACK.md', 'docs/RELEASE-1.5.0.md', 'docs/DISCORD-1.5.0.md',
+    'docs/dbc/loading-3.1.0.json', 'docs/VALIDATION-1.5.0.json',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]
 

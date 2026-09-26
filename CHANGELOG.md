@@ -1,15 +1,16 @@
-# Unreleased candidate — Setup 1.5.0 · Patch-Y 3.1.0
+# Lau Setup 1.5.0 · Patch-Y 3.1.0
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 - Carries Neil's raid-tested Patch-Y visuals into HD with new spells, HD without new spells, and SD: Consecration, Marrowgar Coldflame, BQL Swarming Shadows, Halion Meteor Strike trails, Gormok Fire Bomb, Jaraxxus Legion Flame, and the worms' Slime Pool. Consecration is standard; its separate toggle is removed.
+- Adds the accepted HD 16:9 loading pack: 77 new 1672×940/941 backgrounds. Eight catalog backgrounds retain their original artwork. Neil confirmed the 77 new screens display correctly in game; the eight original exceptions can still show side bars. This is native 16:9 artwork, not 4K source art.
 - Restores the Halion tank-positioning material batches supplied by Andre, preserving the model and breath cone. In-game validation of the restored marks remains pending.
 - Corrects the Caverns of Time map packaging conflict while preserving Lau's existing map rows. Includes known older map packs in upgrade/repair selection.
 - Explains rejected client folders, offers another folder selection and copies a redacted diagnostics report only when requested. Review shows which selected components are current or need installation, update or repair.
 - Links to contributor visual examples in the HD Discord and explicitly credits Neil Mitchell / Lausudo for his edits and integration alongside the original contributors.
-- **DBC edits are included.** See [DBC-CHANGELOG.md](DBC-CHANGELOG.md) and the candidate's hash-backed per-edition evidence. Archive checks and installer tests do not replace the remaining in-game checks.
+- **DBC edits are included** in Patch-Y, the optional maps, and the HD loading pack. See [DBC-CHANGELOG.md](DBC-CHANGELOG.md) and its hash-backed evidence. The accepted loading-screen check does not establish every raid visual in every edition.
 
-This candidate is not a published release. [Scope, credits and validation gates](docs/RAID-VISUAL-RELEASE.md).
+[Full 1.5.0 notes](docs/RELEASE-1.5.0.md) · [Scope, credits and validation](docs/RAID-VISUAL-RELEASE.md). Download the current release from [GitHub Releases](https://github.com/CRSD-Lau/Lau-Setup/releases/latest).
 
 ---
 

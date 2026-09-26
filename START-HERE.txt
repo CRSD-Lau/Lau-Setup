@@ -1,11 +1,11 @@
-LAU SETUP 1.5.0 — LOCAL RAID VISUAL CANDIDATE
+LAU SETUP 1.5.0 — GAME PATCH-Y 3.1.0
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
 
-1. Use an isolated copy of your WoW client for this candidate. Close World of Warcraft.
-2. Extract the WHOLE LauSetup-1.5.0-candidate-offline.zip. Keep its files together,
-   including the payload folder beside LauSetup.exe.
+1. Close World of Warcraft completely.
+2. Download LauSetup.zip from the latest GitHub release and extract the WHOLE ZIP.
+   Keep the LauSetup folder and its files together. Game assets download during setup.
 3. Windows: open LauSetup.exe. Linux/Wine: use the supplied launcher as
    explained in README.txt inside the packaged LauSetup folder. Both platforms use the same ZIP.
    Wine 11.0 / Wine Mono 10.4.1 remains the tested baseline; older or newer
@@ -23,11 +23,16 @@ Last Modified By: Neil Mitchell
    - Maps/minimaps: Lau's maps plus Trimitor dungeon, raid and cave maps.
      Includes the WDM support addons. Cave maps are upstream beta.
    - Compatible WoW.exe + loading screens: install both together.
-     Off keeps both unchanged. Maps remain independent.
-6. Click Next. Read Your choices, the folder and download size.
+     On adds 77 new HD 16:9 loading backgrounds accepted in game. Eight original
+     backgrounds remain and can retain side bars. Off keeps both unchanged.
+     Maps remain independent.
+6. Click Next. Read Your choices, the folder, each component's current/install/
+   update/repair status and the download size. If a folder is rejected, choose
+   another folder. Copy diagnostics only if you want a redacted support report.
 7. Click Install upgrade. Wait for Installed and verified.
-8. Open WoW. Test the selected visuals. Installer tests alone do not prove
-   in-game map compatibility, navigation or patch loading order.
+8. Open WoW and type /pyversion; it should show 3.1.0 Lau. Test the visuals
+   selected for your edition. Installer tests alone do not prove every raid
+   effect or client combination in game.
 
 YOUR FILES
 Files Setup replaces are backed up in LauSetupBackups. Keep that folder.
@@ -44,8 +49,11 @@ the installer has its own version. A full HD model pack is not included.
 
 Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.
 
-CANDIDATE STATUS
-Not published. Use an isolated test client for the new Halion marks, Caverns maps and SD visual checks.
-The offline payload folder must remain beside LauSetup.exe while new assets are unpublished.
+RELEASE NOTES
+Neil accepted the 77 new loading backgrounds at 16:9 and confirmed the Caverns
+map correction. Targeted in-game confirmation remains for restored Halion marks,
+HD without new spells and SD visuals. The eight original loading backgrounds
+were intentionally retained. The new art is 1672x940 or 1672x941, not native 4K.
+See docs/RELEASE-1.5.0.md and DBC-CHANGELOG.md for exact changes and evidence.
 Credits: Neil Mitchell / Lau / Lausudo for Lau edits and integration; Suppository and the listed source contributors for adopted visuals; Andre for the Halion restoration.
 Author / Creator / Last Modified By: Neil Mitchell

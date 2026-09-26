@@ -1,0 +1,33 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "installerVersion": "1.5.0",
+  "gameVersion": "3.1.0",
+  "status": "FINAL_RELEASE_VALIDATION_IN_PROGRESS",
+  "loading": {
+    "archiveReadback": "PASS: nine locales, all members and DBC rows",
+    "newBackgrounds": 77,
+    "originalBackgrounds": 8,
+    "inGameAcceptance": "Neil approved the installed 77-image pack after representative in-game testing on the English HD client at 16:9; every scene and locale was not individually tested.",
+    "evidence": "dbc/loading-3.1.0.json"
+  },
+  "caverns": {
+    "inGameAcceptance": "Neil confirmed the map correction works.",
+    "evidence": "dbc/caverns-3.1.0-candidate.json"
+  },
+  "raidVisuals": {
+    "inGameAcceptance": "Neil accepted the HD new-spell visuals after raiding. Targeted restored Halion mark and other-edition acceptance remain unrecorded.",
+    "evidence": "dbc/raid-visuals-3.1.0-candidate.json"
+  },
+  "priorCandidateValidation": [
+    "VALIDATION-1.5.0-CANDIDATE.json",
+    "DOCKER-VALIDATION-1.5.0-CANDIDATE.json"
+  ],
+  "limits": [
+    "Eight original loading backgrounds may retain side bars.",
+    "Other display ratios and every locale have not been visually accepted in game.",
+    "Docker and fixture checks do not certify every Wine distribution or real game behavior.",
+    "No personal client, accounts, addons or settings are included."
+  ]
+}

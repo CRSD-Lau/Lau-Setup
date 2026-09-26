@@ -1,39 +1,35 @@
-# Loading-screen framing test fix
+# Loading-screen framing — v2 staged correction
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
-This separate test fix addresses [issue #34](https://github.com/CRSD-Lau/Lau-Setup/issues/34). It is not yet incorporated in the packaged Setup 1.5.0 candidate. The previously recorded Docker results refer to that earlier package, not to an in-game run of this executable.
+This supersedes the first broad native-framing test for [issue #34](https://github.com/CRSD-Lau/Lau-Setup/issues/34). Neil rejected that approach in-game because its 16:9 framing produced black sidebars on ICC and other HD loading screens.
 
-The supplied compatible executable contains a custom `.ldwide` modification which selects full-screen loading geometry near a 16:9 aspect ratio and substitutes UV coordinates. The full Icecrown artwork is present in Patch-Q; its `LoadingScreens.dbc` record uses the same non-wide flag as the stock record. Replacing images or changing that DBC is unnecessary for this executable repair.
+The v2 candidate restores the pack's pre-test 16:9 fullscreen behavior for every loading screen except ICC. It adds a scoped full-UV path only when all of these are true:
 
-`tools/fix_loading_screen_framing.py` accepts only the exact input SHA-256 `6993049f1338b32a0423612093a8c7c6895b112504b83d6826d4c2174692cd37`. It restores two five-byte instruction sites, changing eight bytes in total:
+- the display is exactly 16:9;
+- the current `LoadingScreens.dbc` ID is `250` (Icecrown Citadel); and
+- ICC's Wide asset loaded successfully.
 
-| File offset | Before | After | Purpose |
-| --- | --- | --- | --- |
-| `0x9a02` | `e8f9299f00` | `e899dfffff` | Call the native loading-background routine at `0x4085a0` |
-| `0x7a15` | `e8e64a9f00` | `680064ab00` | Push the native UV-coordinate table at `0xab6400` |
+If the Wide asset is missing, ICC retains the earlier route. At other aspects, and for every other loading ID, the candidate retains the established behavior. This is a staged local candidate, not an installed client change or a published release.
 
-The second instruction is a **push**, not a call into a data table. All other executable bytes, including the archive-list reserve-floor fix in the same added section, are retained. The resulting 7,705,600-byte executable has SHA-256 `a6767f7ed4d1f7c67c144eed7bf9707cd270d95af200f4accd0c6fc66ca14889`.
+## Candidate and static evidence
 
-**No DBC or artwork edits are part of this loading-screen fix.** The separately installed Caverns candidate still makes the documented WorldMapArea changes.
-
-## Validation and reproduction
-
-[Isolated instruction validation](LOADING-FRAMING-VALIDATION.json) passed 32 executions of the original and repaired x86 paths across 4:3, 16:10, 16:9 and 21:9, with both texture flags and both background-presence states as applicable. The tests verify native UV-table selection, stack balance and retained registers. They stub the native draw/get/set functions and do not render the game. Exact input rejection and byte preservation also passed.
-
-The standalone validator requires Python with `pefile` and `unicorn` (validation used Unicorn 2.1.4). It is separate from the installer and does not run or inject into a game process:
+`tools/build_icc_widescreen_executable.py` builds only from the compatible prior executable hashes and writes a fresh staged output. The candidate executable is 7,705,600 bytes with SHA-256:
 
 ```text
-python tools/fix_loading_screen_framing.py --source original-WoW.exe --output test-WoW.exe --proof framing-proof.json
-python tools/validate_loading_framing.py original-WoW.exe test-WoW.exe validation.json
+3038275f00c30aea568cb2517b21a289b1a8a58e241e7ff8e69b62116b507fb3
 ```
 
-A backed-up local test installation changes exactly the executable and the two Caverns M/T archives. Restore was tested on an isolated three-file fixture, including refusal before any write when a destination has changed. In-game acceptance and integration into a newly packaged release candidate remain pending.
+The companion Patch-Q candidate is SHA-256:
 
-## In-game acceptance
+```text
+146707c7040043311ab4ce07eaf3988d76008d3a1c5ec03d4ba65ba37665326c
+```
 
-Cold-start the test client at its usual 16:9 resolution. Enter ICC and check that the complete loading image remains visible at the intended proportions, with no clipped logo, missing edges or displaced loading bar. Black side bars are expected where a 4:3 image is fitted. Check another previously affected loading screen as well. Representative 4:3, 16:10 and ultrawide checks remain part of broader release acceptance.
+The executable proof permits the restored two five-byte detours plus the scoped helper range, preserves the archive-reserve fix, and reports all other bytes identical. The MPQ proof records the one ICC DBC flag change and the added ICC Wide texture. See [ICC widescreen test plan](ICC-WIDESCREEN-TEST.md) for the precise scope and acceptance checks.
 
-For the Caverns fix, open the map inside Caverns of Time and check the cave floors and entrances rather than only the outdoor Tanaris map. It should no longer fall back to Kalimdor. Check one other cave map for regression.
+## Staged test boundary
 
-Issue #34 and the Caverns issue #32 remain open until their in-game checks pass. The release catalog and public downloads must not be marked verified from instruction emulation or archive checks alone.
+The v2 restore is intended to replace only the staged executable, root Patch-Q, and active-locale Patch-Q. It does not change maps, Caverns artifacts, Patch-Y, or other client assets. A fresh three-file restore fixture has not yet been created for v2.
+
+The release ZIP is unchanged and unpublished; `PublicReady=false`. The current live WoW process was not touched. Static archive, byte, and texture-decode checks do not establish in-game rendering or release readiness.

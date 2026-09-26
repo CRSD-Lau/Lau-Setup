@@ -1,8 +1,8 @@
-# Raid visual release candidate
+# Raid visual release — Patch-Y 3.1.0
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
-Status: local candidate built and validated on Windows and in isolated Docker/Wine environments, not published. Candidate versions: Lau Setup 1.5.0 / Patch-Y 3.1.0.
+Release scope for Lau Setup 1.5.0 / Patch-Y 3.1.0. The archive and installer candidates passed Windows and isolated Docker/Wine validation; published asset status is tracked by the GitHub release.
 
 ## Agreed scope
 
@@ -10,11 +10,11 @@ Neil clarified on 26 September 2026 that this release should carry his complete 
 
 Consecration is standard. The installer offers HD with or without the new-spell pack and Non-HD/SD, retaining edition-specific data. Legacy Consecration-On/Off catalog identifiers remain readable and both select the standard visuals in this release.
 
-Also included in the candidate work: Caverns of Time map packaging correction, actionable client-folder errors, user-initiated redacted diagnostics, clearer current/upgrade/repair status, restoration of Halion tank-positioning marks, and a link to actual visual examples.
+Also included: Caverns of Time map packaging correction, actionable client-folder errors, user-initiated redacted diagnostics, clearer current/upgrade/repair status, restoration of Halion tank-positioning marks, a link to actual visual examples, and the optional [HD 16:9 loading pack](LOADING-HD16X9-PACK.md). The loading pack contains 77 new backgrounds accepted by Neil in game and eight retained originals.
 
 ## Credits
 
-**Lau / Lausudo — Neil Mitchell:** Lau-specific visual edits and integration, preservation of unrelated spell routes, HD/SD adaptations, release packaging, installer changes, map packaging correction and validation. The raid-tested configuration and release selection are Neil's.
+**Lau / Lausudo — Neil Mitchell:** Lau-specific visual edits and integration, preservation of unrelated spell routes, HD/SD adaptations, 16:9 loading-art adaptation, release packaging, installer changes, map packaging correction and validation. The raid-tested configuration and release selection are Neil's.
 
 **Suppository and the contributors listed in the supplied patch:** the imported visual source. The original description credits Suppository, Kupi, Thiesant, Rorifer, Loriendal, Sl1msh, Rexbe, Andre, Merfin, palms, Lau and an anonymous contributor. This release preserves those credits; it does not attribute every source asset to one person without evidence.
 
@@ -25,12 +25,13 @@ Existing credits for the HD foundation, Project Reforged and Blizzard remain in 
 ## Validation and release gates
 
 - Neil reported successful raiding with the personal HD build on 26 September. This validates that configuration; it does not certify newly restored Halion marks or the other editions.
+- Neil approved the 77-image pack after representative in-game testing at 16:9; every background and locale was not individually tested. The eight retained originals can keep their original side bars; acceptance of the new set does not turn those into generated widescreen artwork.
 - Three staged editions have exact archive-member and DBC comparisons against the hash-pinned public 3.0.9 baseline. Their HD new-spells edition matches the accepted personal archive apart from the supplied Halion skin and the new version label.
 - Independent review confirmed the three-byte Halion skin change selects bounded material batches, with unchanged model geometry, texture and breath-cone files.
 - Windows validation passed 80 installer cases, 72 real Patch-Y upgrade/restore cases, both-placement byte-repair checks in all three editions, and the full-size enGB map upgrade/restore test. The Python suite ran 74 cases with one archive-integration case skipped; the separate real archive builds and comparisons passed. [Validation record](VALIDATION-1.5.0-CANDIDATE.json).
 - Docker validation passed the full Linux Python suite (94 tests, no skips, including real StormLib integration). Wine 9.0 and 11.0 on Ubuntu 24.04 with Wine Mono 10.4.1 passed launcher startup/normal close, 60 interface renders across ten languages, and six real-payload install/no-op/repair/restore cases including enGB with full maps. The cases exercised the transaction core through the shipped Linux safety bridge on disposable client fixtures; they did not launch a game or inspect a real interactive client. The personal client was not mounted. Both test containers were removed. [Docker validation record](DOCKER-VALIDATION-1.5.0-CANDIDATE.json).
-- Caverns of Time map selection and Halion marks still require targeted in-game checks. HD spells-off and SD visual acceptance remain separate checks.
+- Neil confirmed the Caverns of Time map correction in game. The restored Halion marks still require targeted in-game confirmation. HD spells-off and SD visual acceptance remain separate checks.
 - Neil supplied the [Lady Deathwhisper forum ID in the HD Discord](https://discord.com/channels/858041817043042364/1352616642491842580) for Suppository's images. Setup links to that source directly. Discord access is required; the images have not been independently inspected from the currently logged-out browser session and are not presented as screenshots of every Lau-specific change.
-- Publication follows the validated candidate, complete DBC change history, final credits, download guidance and release announcement.
+- The [1.5.0 release notes](RELEASE-1.5.0.md), [DBC history](../DBC-CHANGELOG.md), [MPQ breakdown](../MPQ-EDIT-BREAKDOWN.md) and [draft Discord post](DISCORD-1.5.0.md) carry the public explanation and credits.
 
 No personal client, addon profiles, account data or settings are included in the release.

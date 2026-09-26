@@ -1,19 +1,19 @@
-Lau Setup 1.5.0 local candidate / Game 3.1.0 Lau
+Lau Setup 1.5.0 / Game 3.1.0 Lau
 Author / Creator / Last Modified By: Neil Mitchell
 
 Patch-Y 3.1.0 includes the approved raid effects and standard Consecration; optional maps correct the Caverns table conflict. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
-The offline candidate also includes a payload folder for the new, unpublished assets. Keep it beside LauSetup.exe.
-This is a local candidate, not the public stable release. New Halion marks, Caverns maps, HD original-spells and SD rendering still require in-game checks. Automated Docker checks passed on Ubuntu 24.04 with Wine 9.0 and 11.0 / Mono 10.4.1: 94 Linux tests, 60 interface renders and six real-payload install/repair/restore cases. These used disposable fixtures and did not launch the game. See docs/DOCKER-VALIDATION-1.5.0-CANDIDATE.json.
+The small shared installer downloads only the selected game assets and verifies their hashes.
+This release includes raid-tested Patch-Y visuals, the confirmed Caverns of Time map correction, and 77 new HD 16:9 loading backgrounds. Eight loading scenes retain their original artwork and may show side bars. Restored Halion tank marks and every HD original-spells/SD encounter combination still need targeted in-game checks. Automated installer tests use disposable fixtures and do not replace gameplay validation. See the published release notes and VALIDATION.json for the exact tested environments.
 
 ## Start here on Windows
 
 You need Windows 10/11 and your existing WoW 3.3.5a game (build 12340).
 This ZIP is an upgrade, not the complete game.
 
-1. Use an isolated copy of your client for this candidate. Close WoW completely.
-2. If you have not already done so, right-click LauSetup-1.5.0-candidate-offline.zip, choose Extract
+1. Close WoW completely.
+2. If you have not already done so, right-click LauSetup.zip, choose Extract
    All, and open the extracted LauSetup folder.
 3. Double-click LauSetup.exe. Its File Explorer type is Application.
 4. Click Browse... and select the game folder containing WoW.exe,

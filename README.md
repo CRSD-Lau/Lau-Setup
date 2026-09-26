@@ -21,11 +21,11 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.4.1 installer-only hotfix · Game release 3.0.9 Lau · Ten interface languages · Nine localized game locales + three visual-compatibility locales**
+**Installer 1.5.0 · Game release 3.1.0 Lau · Ten interface languages · Nine localized game locales + three visual-compatibility locales**
 
 ## Download and start here
 
-**[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)**. This is the one installer download for Windows and Linux/Wine.
+**[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)**. This is the one small online installer download for Windows and Linux/Wine; game files come from the separate [3.1.0 payload release](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0) during setup.
 
 ### Windows
 
@@ -33,9 +33,9 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 2. Download **LauSetup.zip**, right-click it, choose **Extract All**, and open the extracted `LauSetup` folder.
 3. Double-click `LauSetup.exe` (its File Explorer type is **Application**).
 4. **Game folder:** select **Browse...**, choose the folder directly containing `WoW.exe`, then click **Next**.
-5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Extras start off: choose **Enhanced Consecration** for Lau’s ground effect, **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. **Compatible WoW.exe + loading screens** is one optional checkbox, off by default; leave it off to keep both unchanged. Click **Next**.
-6. **Review:** check **Your choices**—for example, **Patch-Y (Lau’s version) + Enhanced Consecration + New Spells + Map Upgrade**. The screen explicitly says **Install** or **Keep existing** for **WoW.exe** and **Patch-Q** artwork, and lists matching language patches, download size and automatic backups. Use **Back** to change choices.
-7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.0.9 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
+5. **Your visuals:** the fixed **Patch-Y HD** or **Patch-Y Non-HD** selection matches your detected client. Lau's Enhanced Consecration is now standard. Optional extras start off: choose **New spell visuals** for upgraded spells (existing HD models required), and **Upgrade maps and minimap** for sharper maps. Existing map upgrades are kept. **Compatible WoW.exe + loading screens** is one optional checkbox, off by default; turn it on for the accepted 16:9 HD loading pack. Click **Next**.
+6. **Review:** check **Your choices** and the status of each selected component: current, install, update or repair. The screen shows the selected **WoW.exe** and **Patch-Q** artwork, matching language patches, download size and automatic backups. Use **Back** to change choices. If a folder is rejected, choose another folder; use **Copy diagnostics** only when you want to share a redacted support report.
+7. Click **Install upgrade**, wait for **Finished**, then click **Finish**. Start WoW and type `/pyversion`; it should show **3.1.0 Lau**. If your selection is already installed, **Finish** closes setup without changing game files.
 
 **Wrong interface language?** Use **Interface language** at the top of any step. The manual choice is remembered; **Automatic** follows your system again. It changes setup text only. **Next** does not download or change game files.
 
@@ -51,7 +51,7 @@ Never start `LauSetup.exe` directly under Wine. When setup opens, use the same *
 
 ## Common setup messages
 
-Setup 1.4.1 accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. It also accepts installed `enGB`, `ptBR`, and `itIT` clients for the visual upgrade. Those three compatibility paths preserve the selected client locale and use the verified English visual layer; they do **not** translate game text into English, Portuguese, or Italian. The window shows both the installer version and game release.
+Setup accepts game-language codes regardless of letter case (`enus`, `ENUS` and `enUS` all select enUS), without changing Config.wtf. It also accepts installed `enGB`, `ptBR`, and `itIT` clients for the visual upgrade. Those three compatibility paths preserve the selected client locale and use the verified English visual layer; they do **not** translate game text into English, Portuguese, or Italian. The window shows both the installer version and game release.
 
 **Patch-V:** Empty `Data\patch-v.mpq` files (any letter case) are backed up automatically. An unidentified nonempty Patch-V stays in place with a compatibility warning; installation continues, even if the scanner cannot parse it. A filename alone cannot identify the unstable HD building patch because unrelated mods can also use V. **Restore previous install** returns backed-up files.
 
@@ -77,7 +77,7 @@ For prior hotfix behavior and historical indicator changes, see the [changelog](
 | Open `LauSetup.exe` · Windows 10 / 11 · .NET Framework 4.8 | Run `LauSetup.sh` · Wine 11.0 · Wine Mono 10.4.1 · 64-bit prefix · Python 3.9+ |
 | [Windows guide](START-HERE.txt) | [Wine guide and prerequisites](wine/README.txt) |
 
-Game files download during setup. An English core installation is about **472 MB** with HD models and new spell visuals, or **259 MB** with original models. Optional maps add a larger download; setup shows the total before you install.
+Game files download during setup. The amount depends on the detected client and your selected components; setup shows the exact total before installation. The ZIP is the small online installer, not a bundled game payload.
 
 [SHA-256 checksums](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/SHA256SUMS.txt) · [Release notes](https://github.com/CRSD-Lau/Lau-Setup/releases/latest) · [Validation report](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/VALIDATION.json)
 
@@ -87,10 +87,10 @@ Game files download during setup. An English core installation is about **472 MB
 
 | Choose your visuals | Keep control of your installation |
 | :--- | :--- |
-| Enhanced or stock Consecration | Client language and model detection |
+| Standard Lau Consecration in every Patch-Y edition | Client language and model detection |
 | New spell visuals for compatible HD clients | Only the required files downloaded |
 | Optional HD maps and minimap textures | SHA-256 verification before installation |
-| Regional widescreen loading artwork | Automatic backups and resumable downloads |
+| 77 new HD 16:9 loading backgrounds; eight original exceptions | Automatic backups and resumable downloads |
 | Localized spell names, ranks and tooltips | Restore and interrupted-operation recovery |
 
 <p align="center"><img src="docs/assets/installer-windows.png" alt="Lau Setup on Windows: choose a WoW folder, select visuals, install or restore" width="836" /></p>
@@ -129,7 +129,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.4.1 passed **74 isolated Windows regression groups**, including configured-locale checks for `enGB`, `ptBR` and `itIT`, repeat-install detection and exact restore. See [release scope and validation](docs/RELEASE-1.4.1.md). Production feedback covers real edge-case client combinations.
+Setup 1.5.0 passed **80 Windows installer cases** and **72 real Patch-Y upgrade/restore cases**. Isolated Docker/Wine checks passed the Linux suite, interface rendering and real-payload install/repair/restore cases. Neil accepted the 77-image HD 16:9 pack after representative in-game testing. See [release scope and validation](docs/RAID-VISUAL-RELEASE.md). The eight original loading backgrounds can retain side bars, and visual acceptance for every raid effect in every edition has not been claimed.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage through the supplied launcher. Installer tests do not certify every Linux distribution, custom patch combination or in-game encounter. Cave maps remain upstream beta. Website animations and older gallery screenshots retain their original illustrative context.
 
@@ -155,7 +155,7 @@ Game payloads are distributed through GitHub Releases. The repository includes a
 
 **Andre** — Patch-Y baselines · **Loriendal & Trimitor** — HD client foundation · **Project Reforged contributors** — HD artwork · **Blizzard** — original game, artwork and localized text · **Lau / Lausudo (Neil Mitchell)** — ground indicators, visual edits, compatibility, adaptations, testing and release tooling.
 
-The [raid visual release candidate](docs/RAID-VISUAL-RELEASE.md) adopts visual sources from **Suppository and the contributors credited in his patch**, with **Neil Mitchell / Lausudo** credited for the Lau edits, HD/SD integration and installer work. Original contributor credits remain intact. [Visual examples in the HD Discord](https://discord.com/channels/858041817043042364/1352616642491842580) require Discord access.
+The [3.1.0 raid visual release](docs/RAID-VISUAL-RELEASE.md) adopts visual sources from **Suppository and the contributors credited in his patch**, with **Neil Mitchell / Lausudo** credited for the Lau edits, HD/SD integration, loading artwork and installer work. Original contributor credits remain intact. [Visual examples in the HD Discord](https://discord.com/channels/858041817043042364/1352616642491842580) require Discord access.
 
 [Full credits](https://wrath-multilingual-hd.vercel.app/credits) · [Screenshots and installation help](https://wrath-multilingual-hd.vercel.app/)
 

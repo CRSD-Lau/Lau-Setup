@@ -6,13 +6,23 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
-## Local loading-screen framing test — no DBC edits
+## Setup 1.5.0 — accepted HD 16:9 loading pack
 
-The separately staged [loading-screen test fix](docs/LOADING-FRAMING-TEST.md) restores a native draw call and UV-table argument in the compatible executable. It changes eight executable bytes, with no changes to LoadingScreens.dbc, Patch-Q artwork, Patch-Y, or any other DBC table. It is not yet part of the packaged candidate. The separately installed Caverns fix retains its WorldMapArea changes documented below.
+The [loading pack](docs/LOADING-HD16X9-PACK.md) covers the 85-background catalog with 77 new HD 16:9 images and eight retained originals. Across 92 `LoadingScreens` records, 61 rows change `HasWideScreen` (zero-based field 3) from 0 to 1. The remaining rows, every record ID, path, string and other field are preserved. The eight original backgrounds are Black Temple (index 11), Eastern Kingdoms (27), Kalimdor (40), Outland (55), PvP Battleground (57), generic Raid (59), Ruined City (63) and Sunwell (70). They keep their original routes; some can retain side bars. [Exact changed row IDs and per-locale archive hashes](docs/dbc/loading-3.1.0.json) are recorded in the build evidence. The shared Q archive SHA-256 is `aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534`; zhCN and zhTW retain their own base aliases and have distinct Q hashes in the linked proof. The companion executable SHA-256 is `4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505`. Neil accepted the 77 new screens in game on a 16:9 display. The generated images are 1672×940 or 1672×941, not native 4K.
 
-## Candidate Setup 1.5.0 / Patch-Y 3.1.0 — raid visuals and Caverns maps
+## Superseded ICC widescreen framing test v2 — one DBC field edit
 
-**Not published. DBC edits are included.** [All six old editions compared with the three standard candidates](docs/dbc/raid-visuals-3.1.0-candidate.json) records archive/table SHA-256 values, every changed field and all added records. Field indices below are zero-based, including record ID at index 0. Existing strings and unrelated records are preserved in each edition.
+**Historical staged experiment only; superseded and never installed, published, or included in the release ZIP. Do not package this candidate.** It tested the scoped 16:9 ICC approach documented in [the v2 test plan](docs/ICC-WIDESCREEN-TEST.md). Its companion Patch-Q changed `LoadingScreens.dbc` only as follows; field indices are zero-based.
+
+| Table | Record | Field / index | Old → new | Variants | Reason |
+| --- | --- | --- | --- | --- | --- |
+| LoadingScreens | 250 | HasWideScreen / 3 | 0 → 1 | staged root and active-locale Q candidate | Enable the ICC-only Wide-asset route used by the scoped full-UV renderer on exact 16:9 |
+
+The candidate Q SHA-256 is `146707c7040043311ab4ce07eaf3988d76008d3a1c5ec03d4ba65ba37665326c`. Its proof records one added member, `Interface\Glues\LoadingScreens\loadscreenicecrowncitadelWide.blp`, and all 97 other original MPQ members as identical. It also records all other DBC rows preserved. This change must be paired with the compatible staged executable SHA-256 `3038275f00c30aea568cb2517b21a289b1a8a58e241e7ff8e69b62116b507fb3`; the executable restores the pack's prior 16:9 fullscreen behavior for every other screen and selects ICC full UV only after the Wide asset loads. Archive and decode checks are static evidence only; in-game acceptance remains pending.
+
+## Setup 1.5.0 / Patch-Y 3.1.0 — raid visuals and Caverns maps
+
+**DBC edits are included.** [All six 3.0.9 editions compared with the three 3.1.0 editions](docs/dbc/raid-visuals-3.1.0-candidate.json) records archive/table SHA-256 values, every changed field and all added records. Field indices below are zero-based, including record ID at index 0. Existing strings and unrelated records are preserved in each edition.
 
 | Table | Record | Field / index | Old → new | Reason |
 | --- | --- | --- | --- | --- |
