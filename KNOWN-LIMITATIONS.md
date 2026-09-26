@@ -24,6 +24,10 @@ The compatible `WoW.exe` supplied by setup has a specific role in the approved l
 
 ## Indicators are visual guidance
 
+Setup 1.5.0 includes the 77 new HD 16:9 loading backgrounds Neil accepted in game. Eight catalog backgrounds retain original artwork and can still show side bars: Black Temple, Eastern Kingdoms, Kalimdor, Outland, PvP Battleground, generic Raid, Ruined City and Sunwell. The generated art is 1672×940 or 1672×941 source resolution; MPQ texture storage dimensions do not make it native 4K. Other monitor ratios have separate visual behavior. [Loading-pack evidence](docs/LOADING-HD16X9-PACK.md).
+
+The restored Halion tank marks have archive and material-batch proof, but their placement still needs targeted in-game confirmation. Neil's personal HD raid check does not establish every effect in the HD original-spells or SD editions. The Caverns map correction was confirmed in game; cave-map coverage remains upstream beta.
+
 - **Warmane is the runtime reference for Warmane reports.** AzerothCore and isolated clients help check file integrity and behavior in those environments. They cannot prove Warmane's custom hit detection, timing or encounter behavior.
 - **A drawn edge is not a guaranteed safe boundary.** The supported breaths and Slime Spray use 90° total cones following tester feedback. Halion meteor-fire uses the accepted test-v2 enlargement. These are visual warnings based on observations, not measurements from Warmane's server source.
 - **Terrain can clip flat indicators.** A flat ground mesh can intersect slopes, steps and uneven surfaces. Enlarging or raising it does not guarantee terrain-following projection everywhere.

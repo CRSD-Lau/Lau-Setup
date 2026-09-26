@@ -1,9 +1,11 @@
-Lau Setup 1.4.0 stable / Game 3.0.9 Lau
+Lau Setup 1.5.0 / Game 3.1.0 Lau
 Author / Creator / Last Modified By: Neil Mitchell
 
-Patch-Y remains Lau 3.0.9; optional maps add upstream map tables. This package contains one LauSetup folder with
+Patch-Y 3.1.0 includes the approved raid effects and standard Consecration; optional maps correct the Caverns table conflict. This package contains one LauSetup folder with
 exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and this
 README.txt. Keep those five files together after extraction.
+The small shared installer downloads only the selected game assets and verifies their hashes.
+This release includes raid-tested Patch-Y visuals, the confirmed Caverns of Time map correction, and 77 new HD 16:9 loading backgrounds. Eight loading scenes retain their original artwork and may show side bars. Restored Halion tank marks and every HD original-spells/SD encounter combination still need targeted in-game checks. Automated installer tests use disposable fixtures and do not replace gameplay validation. See the published release notes and VALIDATION.json for the exact tested environments.
 
 ## Start here on Windows
 
@@ -17,18 +19,17 @@ This ZIP is an upgrade, not the complete game.
 4. Click Browse... and select the game folder containing WoW.exe,
    then click Next. Do not select Data or a launcher folder.
 5. Your visuals shows a fixed Patch-Y HD or Patch-Y Non-HD selection based
-   on your client. Optional extras start off. Enable Enhanced Consecration
-   for Lau's ground effect, New spell visuals for upgraded spells (HD only),
+   on your client. Enhanced Consecration is included as standard. Optional extras start off. Choose New spell visuals for upgraded spells (HD only),
    or Upgrade maps and minimap for Lau maps plus Trimitor dungeon, raid and
    cave maps (cave expansion is upstream beta). WDM support addons are included.
    Compatible WoW.exe + loading screens is one checkbox, off by default.
-   Maps do not require this checkbox. Existing complete map packs are kept.
+   Maps do not require this checkbox. Recognized Lau map packs stay selected for update or repair.
    Click Next.
 6. Review Your choices: Patch-Y (Lau’s version), followed by each enabled
    extra. The review also lists WoW.exe, Patch-Q artwork, matching language
    patches, download size and automatic backups. Back lets you make changes.
 7. Click Install upgrade and wait for Finished, then click Finish. Start WoW
-   and type /pyversion to check 3.0.9 Lau. If your selection is already
+   and type /pyversion to check 3.1.0 Lau. If your selection is already
    installed, click Finish; no game-file changes are needed.
 
 Interface language stays at the top of every step. Choose your language if
@@ -156,3 +157,8 @@ YOUR CHOICE: Compatible WoW.exe + loading screens is one checkbox on Your visual
 
 Maps and loading screens are independent options. Maps include Lau’s maps/minimaps plus Trimitor WDM dungeon, raid and cave maps and their required support addons. Selected map-support files are backed up before replacement; personal settings and unrelated addons remain untouched.
 Release packaging compacts only new Patch-Y downloads. Setup does not compact your existing files or backups. LauSetupBackups keeps the exact original files for Restore previous install.
+
+RAID VISUAL CREDITS
+Lau / Lausudo (Neil Mitchell): Lau visual edits, integration, HD/SD adaptations, installer and release work.
+Source patch: Suppository and its credited contributors; Halion mark restoration: Andre. Existing contributors retain their credits.
+Examples (Discord access required): https://discord.com/channels/858041817043042364/1352616642491842580

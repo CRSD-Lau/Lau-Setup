@@ -1,0 +1,206 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "installerVersion": "1.5.0",
+  "gameVersion": "3.1.0",
+  "status": "PASS_WITH_DOCUMENTED_VISUAL_LIMITS",
+  "loading": {
+    "archiveReadback": "PASS: nine locales, all members and DBC rows",
+    "newBackgrounds": 77,
+    "originalBackgrounds": 8,
+    "inGameAcceptance": "Neil approved the installed 77-image pack after representative in-game testing on the English HD client at 16:9; every scene and locale was not individually tested.",
+    "evidence": "dbc/loading-3.1.0.json"
+  },
+  "caverns": {
+    "inGameAcceptance": "Neil confirmed the map correction works.",
+    "evidence": "dbc/caverns-3.1.0-candidate.json"
+  },
+  "raidVisuals": {
+    "inGameAcceptance": "Neil accepted the HD new-spell visuals after raiding. Targeted restored Halion mark and other-edition acceptance remain unrecorded.",
+    "evidence": "dbc/raid-visuals-3.1.0-candidate.json"
+  },
+  "priorCandidateValidation": [
+    "VALIDATION-1.5.0-CANDIDATE.json",
+    "DOCKER-VALIDATION-1.5.0-CANDIDATE.json"
+  ],
+  "limits": [
+    "Eight original loading backgrounds may retain side bars.",
+    "Other display ratios and every locale have not been visually accepted in game.",
+    "Docker and fixture checks do not certify every Wine distribution or real game behavior.",
+    "No personal client, accounts, addons or settings are included."
+  ],
+  "date": "2026-09-26",
+  "runtime": {
+    "executableSha256": "e2011823a75138f2addbbe056f631b688686cc0bd71be2926c30ae82ab385b12",
+    "executableBytes": 595456,
+    "zipSha256": "320cae06e0ff977aa571f460161cb29744ae084c17663ccf664612cf59fce2ab",
+    "zipBytes": 892321,
+    "catalogSha256": "d2afa4dad11aa6ddeefd465f50a41e4563531cf798006f2a81ce1f3b6d56f7c8",
+    "assemblyVersion": "1.5.0.0",
+    "metadataVerified": "Neil Mitchell"
+  },
+  "windows": {
+    "installerCases": 80,
+    "loadingTransactionCases": [
+      "enUS",
+      "zhCN",
+      "zhTW",
+      "enGB"
+    ],
+    "loadingTransactionStatus": "PASS: install, no-op, root-Q corruption repair, exact original-file restore, unrelated/inactive-locale preservation",
+    "scope": "Disposable real Transaction fixtures; fixture asset identities and app source match release. PublicReady and public URLs were finalized separately.",
+    "fixtureEvidenceSha256": "60cf2faa75bdac1c56cf49ac8c34fa27c5d7fda711375bc6009d8f177e9e9924"
+  },
+  "linux": {
+    "fullSuite": {
+      "Author": "Neil Mitchell",
+      "Creator": "Neil Mitchell",
+      "LastModifiedBy": "Neil Mitchell",
+      "status": "PASS",
+      "run": 94,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "real_stormlib_integration": true,
+      "platform": "linux",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    },
+    "sourceZipOnlySuite": {
+      "Author": "Neil Mitchell",
+      "Creator": "Neil Mitchell",
+      "LastModifiedBy": "Neil Mitchell",
+      "status": "PASS",
+      "run": 53,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "real_stormlib_integration": true,
+      "platform": "linux",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+    }
+  },
+  "wine": {
+    "status": "PASS",
+    "version": "wine-11.0",
+    "mono": "10.4.1",
+    "distribution": "Ubuntu 24.04",
+    "normalUser": true,
+    "uiRenders": 30,
+    "transactionCases": [
+      "hd-enUS-new-spells",
+      "hd-enGB-original-spells-maps"
+    ],
+    "executableSha256": "e2011823a75138f2addbbe056f631b688686cc0bd71be2926c30ae82ab385b12",
+    "scope": "Disposable Docker/Wine fixture only; no personal WoW client, accounts, network payload fetches, or in-game execution.",
+    "limits": "Does not prove live WoW rendering, raid effects, Caverns map selection, every Linux environment, or physical-client installation."
+  },
+  "publicDownloads": {
+    "status": "PUBLIC_DOWNLOAD_SHA256_PASS",
+    "method": "Unmodified LauSetup.Downloader, unauthenticated public URLs, no offline payload",
+    "uniqueAssets": 17,
+    "bytes": 5544053018,
+    "assets": [
+      {
+        "id": "Executable",
+        "sha256": "4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505",
+        "bytes": 7705600
+      },
+      {
+        "id": "Maps",
+        "sha256": "4cda73c9cc39ec0d2f4a4b3ad11c010c21360507ff7d9575ad66f3fe162fe018",
+        "bytes": 3349374966
+      },
+      {
+        "id": "LoadingQ-deDE",
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "bytes": 422012500
+      },
+      {
+        "id": "LoadingQ-zhCN",
+        "sha256": "6e1665fe5ae67dc3e76d780b1ecec13e40bf8e32d29ca3e16ffbed448a341427",
+        "bytes": 499406017
+      },
+      {
+        "id": "LoadingQ-zhTW",
+        "sha256": "0a3a8b83d15ade3b61a3e842043eb396f0379e40bc432f572c159fd4083c9828",
+        "bytes": 501097000
+      },
+      {
+        "id": "Y-HD-NewSpells-Off-Consecration-On",
+        "sha256": "6c556c32df440007ca65769d3ca9c98979becc4899757a483d252415c437f4bc",
+        "bytes": 47700485
+      },
+      {
+        "id": "Y-HD-NewSpells-On-Consecration-On",
+        "sha256": "0332b2238d141e2744b9dc9b28fb2f1d2df35058b3acf56f8b21b3df427101b8",
+        "bytes": 47609911
+      },
+      {
+        "id": "Y-Non-HD-Consecration-On",
+        "sha256": "6efe038086868a89b719d984505606242f0eff35ea3cbb275d8b633a4ab14e3e",
+        "bytes": 46747861
+      },
+      {
+        "id": "MapDetails-deDE",
+        "sha256": "8fd8712845c2ad3929994347be6f8d768e043f6c1451ad2ce3168e53c81a3341",
+        "bytes": 69144294
+      },
+      {
+        "id": "MapDetails-enUS",
+        "sha256": "078400898ce8c09dfa3c63b828e0b2201ac0648fa2beeb3a6330cb8ee61698e7",
+        "bytes": 69173734
+      },
+      {
+        "id": "MapDetails-esES",
+        "sha256": "dad0bea047ba59d4cd27052c5e1840d223fa441430f1b10c06d2a8dc99332190",
+        "bytes": 69172359
+      },
+      {
+        "id": "MapDetails-esMX",
+        "sha256": "bc929f3638aeec714d3badfcf9f0326968bce4588f362dadc6af019a45eb8d10",
+        "bytes": 69170556
+      },
+      {
+        "id": "MapDetails-frFR",
+        "sha256": "a5fab2a7a8a2fcee2470685530fd8665df0d925c6e5702f6f59e50c7a0179a48",
+        "bytes": 69147547
+      },
+      {
+        "id": "MapDetails-koKR",
+        "sha256": "a3770f8e535c012deea54bc161fa3bfec827e362b94204c515f7a00b5a471fdb",
+        "bytes": 69173445
+      },
+      {
+        "id": "MapDetails-ruRU",
+        "sha256": "f7168723e53a3bffae5df05147c15e6e266a82c26fcc584ab53723c74a00b0ab",
+        "bytes": 69093469
+      },
+      {
+        "id": "MapDetails-zhCN",
+        "sha256": "f218b55b7da45b7b72728d6a7c9dda6f3e4e1830a0ba31b6803fdbf6eb5efd72",
+        "bytes": 69163684
+      },
+      {
+        "id": "MapDetails-zhTW",
+        "sha256": "24d239e88964f2a14bc0bf07c8402edfccb52e0dab7a5e1b3c57c1ba6f5d7bf4",
+        "bytes": 69159590
+      }
+    ]
+  },
+  "sourcePackage": {
+    "manifest": "Explicit public allowlist; verified ZIP bytes and Neil Mitchell metadata",
+    "excluded": "Private source-index, caches, accounts, settings, personal client and addons",
+    "portableLoadingCodecIncluded": true
+  },
+  "review": {
+    "status": "PASS",
+    "scope": "One independent loading builder/catalog/source-package review; findings fixed and rechecked",
+    "negativeCheck": "Substituted executable refused by proof-bound catalog stager before catalog mutation"
+  },
+  "website": {
+    "sourceCommit": "23955c0e7cb034b821e438f09a767b2a446b7a00",
+    "tests": 26,
+    "status": "PASS: source tests; production checked separately after publication"
+  }
+}

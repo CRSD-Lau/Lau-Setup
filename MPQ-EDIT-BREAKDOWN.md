@@ -3,23 +3,56 @@
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
 This document separates the changes made for Lau Setup from the assets inherited
-from Andre, the HD client foundation, Project Reforged, Blizzard, and the optional
-Trimitor map component. It covers the current stable **Setup 1.4.0 / game 3.0.9
-Lau** payload and the retained Patch-Y history from the Andre handoff onward.
+from Andre, Suppository and his listed contributors, the HD client foundation,
+Project Reforged, Blizzard, and the optional Trimitor map component. It covers
+**Setup 1.5.0 / game 3.1.0 Lau** and retains the 3.0.9 history below.
 
-This is the short answer: Lau Setup does not replace every MPQ in a client. It
-installs one selected Patch-Y edition, and it can install optional Q, S, M, and T
-components. Lau's verified Patch-Y changes are DBC routing and localization,
-specific raid-warning geometry, two marker colors, a Halion radius increase, the
-version marker, and lossless release compaction. Most files inside Patch-Y are
-inherited assets and must not be described as newly authored by Lau.
+Lau Setup installs one selected Patch-Y edition and can install optional Q, S, M,
+and T components. Game 3.1.0 carries Lau's raid-tested integration in three
+standard Patch-Y editions: HD new spells, HD original spells, and Non-HD/SD.
+Consecration is included in each. Most Patch-Y members remain inherited assets;
+their presence does not establish new authorship by Lau.
+
+## Game 3.1.0 changes against 3.0.9
+
+- **Patch-Y:** DBC routes and new records for Marrowgar Coldflame, Blood Queen
+  Lana'thel Swarming Shadows, Halion Meteor Strike trails, Gormok Fire Bomb,
+  Jaraxxus Legion Flame and the worms' Slime Pool. Slime Pool gets a clone of
+  shared visual 118, leaving unrelated users of 118 alone. Consecration uses
+  `Spells\LauPersonalConsecration\Consecration.mdx` at scale 1.0. See the
+  [table, record, field and archive hashes](DBC-CHANGELOG.md) and the
+  [per-edition comparison](docs/dbc/raid-visuals-3.1.0-candidate.json).
+- **Halion:** Andre's supplied SKIN restores bounded material batches for
+  tank-positioning marks. Its model, texture and breath-cone geometry match
+  the baseline. This SKIN edit has no DBC change and its placement still needs
+  targeted in-game confirmation.
+- **Optional maps:** root `WorldMapArea.dbc` gains 53 Caverns cave rows while
+  preserving Lau's 159 existing rows. Competing copies are removed from the
+  nine locale-T archives. Neil confirmed the Caverns selection in game.
+  [Map hash and row evidence](docs/dbc/caverns-3.1.0-candidate.json).
+- **Optional loading screens:** Q carries 77 new native 16:9 background images
+  accepted in game; eight original catalog backgrounds retain their artwork.
+  `LoadingScreens.HasWideScreen` changes from 0 to 1 on 61 rows, with other
+  fields and rows preserved. The matching executable uses native 16:9 Wide
+  framing. These generated images are 1672×940 or 1672×941 source artwork,
+  not native 4K. [Loading details](docs/LOADING-HD16X9-PACK.md) and
+  [DBC/hash evidence](docs/dbc/loading-3.1.0.json).
+
+**Attribution:** Suppository and the contributors listed in his source patch
+provided adopted visual sources. Neil Mitchell / Lau / Lausudo made the Lau
+edits, HD/SD adaptations and integration. Andre supplied the Halion restoration.
+The [full credit list](docs/RAID-VISUAL-RELEASE.md) retains the other original
+authors. This breakdown does not assign every inherited model to a single
+person without source evidence.
+
+## Historical 3.0.9 payload and prior changes
 
 ## What Setup can place in the client
 
 | Installed path | When used | Contents and provenance |
 | --- | --- | --- |
 | `Data/patch-y.mpq` and `Data/<locale>/patch-<locale>-Y.MPQ` | Always; both destinations receive the same selected Y archive | Andre-based Patch-Y plus the verified Lau changes documented below |
-| `Data/patch-q.mpq` and `Data/<locale>/patch-<locale>-Q.MPQ` | Optional **Compatible WoW.exe + loading screens** | Matching loading screens and regional artwork; this component is not part of the Patch-Y authorship comparison |
+| `Data/patch-q.mpq` and `Data/<locale>/patch-<locale>-Q.MPQ` | Optional **Compatible WoW.exe + loading screens** | Matching 16:9 loading pack with 77 new accepted backgrounds and eight original exceptions; this component is separate from the Patch-Y authorship comparison |
 | `Data/patch-s.mpq` | Optional **New spell visuals** | Shared spell models, textures, and other visual assets from the supported HD spell component |
 | `Data/<locale>/patch-<locale>-S.MPQ` | Optional **New spell visuals** | Localized spell tables matching the root S assets; this is a different archive from root Patch-S |
 | `Data/patch-m.mpq` | Optional **Upgrade maps and minimap** | Shared world-map and minimap textures from the existing Lau map selection |
@@ -35,9 +68,10 @@ Root and locale S serve different roles and are not interchangeable.
 
 ## The six Patch-Y editions
 
-The player receives exactly one of these editions. HD detection fixes the HD or
-Non-HD family; **New spell visuals** and **Enhanced Consecration** select the
-available variant within that family.
+The table below records the **historical 3.0.9** editions and sizes. Setup 1.5.0
+selects one of three 3.1.0 editions. HD detection fixes the HD or Non-HD family;
+New spell visuals selects the HD variant. Enhanced Consecration is now standard,
+so there is no separate toggle.
 
 | Edition | Current members | Current archive size | Difference controlled by the option |
 | --- | ---: | ---: | --- |
@@ -48,14 +82,14 @@ available variant within that family.
 | Non-HD, Consecration Off | 500 | 46,608,600 bytes | Non-HD basis; stock Consecration appearance |
 | Non-HD, Consecration On | 500 | 46,608,605 bytes | Non-HD basis; Lau Consecration appearance |
 
-Each current Y archive contains seven DBC tables, one `!PYAndre` Lua file, one
+Each historical 3.0.9 Y archive contains seven DBC tables, one `!PYAndre` Lua file, one
 TOC, two text provenance/version files, and a large inherited collection of
 models, skins, and textures. Depending on the edition, the archive contains
 146–147 M2 models, 147 SKIN files, and 194–201 BLP textures. A member being
 present does not by itself mean Lau authored or edited it.
 
-The exact current archive hashes and download sizes are pinned in
-[`build/catalog.json`](build/catalog.json). The detailed DBC comparison is in
+The 3.0.9 archive hashes and download sizes are retained in the prior release
+assets. The 3.1.0 hashes belong to the release asset/catalog proof. The detailed DBC comparison is in
 the [DBC changelog](DBC-CHANGELOG.md) and the linked machine-readable evidence.
 
 ## Verified Lau Patch-Y changes

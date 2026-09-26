@@ -6,6 +6,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 def load(name,path):
     spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
 package=load('package_universal',ROOT/'tools/package_universal.py')
+source_package=load('package_universal_source',ROOT/'tools/package_universal_source.py')
 wine=load('lau_wine_universal',ROOT/'wine/lau_wine.py')
 
 LANGUAGES={'en-US','de-DE','fr-FR','es-ES','es-MX','pt-BR','ko-KR','ru-RU','zh-CN','zh-TW'}
@@ -50,6 +51,22 @@ class UniversalPackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'empty'):package._validate_catalog(json.dumps(value).encode())
         value=catalog();value['languages']['en-US']['Example']='Changed'
         with self.assertRaisesRegex(ValueError,'identity'):package._validate_catalog(json.dumps(value).encode())
+
+    def test_candidate_source_package_includes_reproducibility_inputs(self):
+        required={
+            'tools/build_caverns_release.py','tools/build_raid_visual_release.py','tools/mpq.py','tools/prepare_raid_candidate.py',
+            'tests/MapReleaseTests.cs','tests/RaidReleaseTests.cs',
+            'docs/RAID-VISUAL-RELEASE.md','docs/RELEASE-1.5.0-CANDIDATE.md','docs/VALIDATION-1.5.0-CANDIDATE.json',
+            'docs/dbc/caverns-3.1.0-candidate.json','docs/dbc/raid-visuals-3.1.0-candidate.json',
+        }
+        self.assertEqual(source_package.DEFAULT_OUTPUT.as_posix(),'dist/release-1.5.0/LauSetup-source-1.5.0.zip')
+        self.assertTrue(required.issubset(source_package.ADDITIONS))
+        with tempfile.TemporaryDirectory(prefix='lau-source-package-') as path:
+            output=source_package.build(ROOT,pathlib.Path(path)/'LauSetup-source-1.5.0.zip')
+            with zipfile.ZipFile(output) as archive:
+                self.assertTrue({'LauSetup-source/'+name for name in required}.issubset(archive.namelist()))
+                self.assertIn('LauSetup-source/patch-y/raid-release/raid-visual-spec.json',archive.namelist())
+                self.assertNotIn('LauSetup-source/payload/',archive.namelist())
 
 class WineLanguageTests(unittest.TestCase):
     def test_gnu_category_and_language_precedence(self):

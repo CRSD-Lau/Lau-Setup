@@ -1,0 +1,5308 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "gameVersion": "3.1.0",
+  "status": "MPQ_MEMBER_AND_DBC_READBACK_PASS",
+  "acceptedInGame": "77 new screens approved by user in English client",
+  "builder": "tools/build_loading_release.py",
+  "inputs": {
+    "approvedCandidate": "patch-q-loading-hd16x9.mpq",
+    "approvedCandidateSha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+    "approvedCandidateProof": "build-proof.json",
+    "approvedCandidateProofSha256": "d1d9c8a0a9f5dae149f26fe7589a30598a5ac2fe3aa85e0afcac7b4d3a26f5ee",
+    "approvedExecutable": "WoW.exe",
+    "approvedExecutableSha256": "4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505",
+    "approvedArtworkManifest": "reviewed-artwork77.json",
+    "approvedArtworkManifestSha256": "b20934cdf6aa2ee181f3c34881c85da6b000ad26731f434e9c7687cf00503f63",
+    "sourceMpqSha256": {
+      "deDE": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "enUS": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "esES": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "esMX": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "frFR": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "koKR": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "ruRU": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+      "zhCN": "6cc47ec31ac489149577d491aa3e2baa42d0894af6786616a40d4a5813720f4a",
+      "zhTW": "962577c0d1206222fb581a8bfe38077e2b7fdd9211ec9c810ef6560d0241360a"
+    }
+  },
+  "loadingScenes": {
+    "totalDistinct": 85,
+    "newWideApproved": 77,
+    "originalPreserved": [
+      11,
+      27,
+      40,
+      55,
+      57,
+      59,
+      63,
+      70
+    ],
+    "compatibilityPadded": [
+      27,
+      40,
+      55
+    ],
+    "missingNativeWide": [
+      57
+    ],
+    "newWideStorageDimensions": [
+      4096,
+      2048
+    ],
+    "nativeArtwork": [
+      {
+        "index": 0,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "0efc238c15a9614b855bc7cbc55dfbbf417596a51f849b81ba7d62232a7dc150"
+      },
+      {
+        "index": 1,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ff82d6ec6afd98810bc4df87f97dd64ffa48cdb524779afd292f6010f30dd935"
+      },
+      {
+        "index": 2,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "00381b2b0a4feb608f4d3f6688d578234c4fef5e621b8a3f7cadfbe80919e07d"
+      },
+      {
+        "index": 3,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "a9263632b2acee35557684ecf025417005ff06904f6f15a49d27046b83fea9c6"
+      },
+      {
+        "index": 4,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "be386c8d8d829e53cbc777ec59d6f94bb493c98410a635350266fc4bb6616a63"
+      },
+      {
+        "index": 5,
+        "nativeDimensions": [
+          1672,
+          940
+        ],
+        "approvedPngSha256": "32511509ea6b3df7c0e2057278c20631728a154bda2bfd616a2a82b1e8909c8d"
+      },
+      {
+        "index": 6,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "54bf261bb8825bf856491dc4c9673a27ad562f82dc3322d341b16b6cfd2bd869"
+      },
+      {
+        "index": 7,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "a6f1b36d42585e5e66cbd9a453e5eec28fabca4b85dd214502c0d7d8764b06e1"
+      },
+      {
+        "index": 8,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "796958e70b5c438f3fc80115419efbda838a6e6fb00566931c9b2df9c8f72b2b"
+      },
+      {
+        "index": 9,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "17a7011a377a54385609ec3e924a48892a0dec2c409d208d68a172a7d4f184d5"
+      },
+      {
+        "index": 10,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "72185899a3e7e3ddfc4d1c09679b044be8f0e6452bad552295ebc87be51b0bd9"
+      },
+      {
+        "index": 12,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "816c82a35c496ca3f6956117904813dc968a4dbf3ccbd19008146f7fe399b7d6"
+      },
+      {
+        "index": 13,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "552736ca92e2f6a1aaa4529bd911457068ec02a7b1094cc900f711172a44c506"
+      },
+      {
+        "index": 14,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ed20df9cf40be44328547bb450f3245c72c0036c0e1b805a511311e3f87dcb5d"
+      },
+      {
+        "index": 15,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "bc7d77692c1924fd055f7b303943ff5b4c30e6fbeef84abf6655113e94b32165"
+      },
+      {
+        "index": 16,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "57195799f0c36da6c323650fa368b13b22793c00860da4bdb3509f1a534579aa"
+      },
+      {
+        "index": 17,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "f1a1bdcd05ec05ccdde0aab75175d59e590d6e4716a5f382fdebb1d350b21103"
+      },
+      {
+        "index": 18,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ec706b102e5f50a8b796c5593a72ad961becccc1a9b9685df809e225a32f8a4a"
+      },
+      {
+        "index": 19,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "e13f31c426f382b37f5683564affcb68f398484e0dc430776e6b5c326e776b61"
+      },
+      {
+        "index": 20,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "1fc8af589ae52ed1607d74c02fc7e88400caf0503ed4aed6abb16c2cb47d4ce6"
+      },
+      {
+        "index": 21,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ffc5d2a2c39646edc85952ee08f8b45fda6430c7238eddd894ebe2079205d09d"
+      },
+      {
+        "index": 22,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "0e8547ada018b40f78ae3a8be018d09fb1ba0d11831fbd13594471eee10115fb"
+      },
+      {
+        "index": 23,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "0e58e7587ad6286cdd8adfac24992789f244a0693670fda24520d92a879fbc31"
+      },
+      {
+        "index": 24,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "1dc6f75a30aeb98f1f463eec6b9fc96bee075efc38e01ec3d002af86a3c65901"
+      },
+      {
+        "index": 25,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "f3a711a98f29bfc1b6688475aa06b6213f67aab679e73a2ad2eee62755a267d3"
+      },
+      {
+        "index": 26,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "b32e76c2dff8707a564b6556d6f9bf79bcaa32b9cd086920d0696378c34b6abd"
+      },
+      {
+        "index": 28,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "1575859f4f60e269f198e5062617c7898d60b9e7806b9dc926d51cd2d67e6b53"
+      },
+      {
+        "index": 29,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "cb1b840df51f52e80bb3d97a0867ed8e78466bb1e9d53c4522080580e079fd92"
+      },
+      {
+        "index": 30,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "86bf97acda745d66427379ae58cd8cf6c029ddaaad6f30390e223584d552684d"
+      },
+      {
+        "index": 31,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "56760e5e12c577721a69a1e779a50f34ea4357ed5309a83980fc803b5131831b"
+      },
+      {
+        "index": 32,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "67ac474358820544854c058e61ab71e2fc59f4bf2ab9e994b972c214f1cde112"
+      },
+      {
+        "index": 33,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "92dfa101146f85e8a17d2699f5d49cbbd2245acaaed5ca5519193359a1169557"
+      },
+      {
+        "index": 34,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "c00addc5f7c8b33c4dace9a3866456a3f7178b7bec5d373ca8cc833a6df1d4c9"
+      },
+      {
+        "index": 35,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "50ccf23d9869f133a49693e89ba64a2c82c0b43f9624abdebe0b6004c70fbd87"
+      },
+      {
+        "index": 36,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "e141f66bd3a4be5c463fc798c0463c79b31227595144bc3710bd9d243cbb5146"
+      },
+      {
+        "index": 37,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "d0901e35bebf50e0285f7ef053d7590498a8ca6e4acc7a2b89c5ba28e6a777f9"
+      },
+      {
+        "index": 38,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "2012c7a39186fcd1f462d93a650a7fb444ab64da61572852cc8de277cab97716"
+      },
+      {
+        "index": 39,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "17c44efbbbb91a33ddd3e37c8df61031a8f7b5dfca47be48eff290ec62028aa2"
+      },
+      {
+        "index": 41,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "42b5d68f63b77c3c5293440566814320b00a14b94784304b8a2a918f391c3902"
+      },
+      {
+        "index": 42,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "1308b1839d835dabe6af7316f013cf348c043e7dd35a1659d22d27090a8c78b4"
+      },
+      {
+        "index": 43,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "46c758602ed41b14b077fc66e8f57b2e968a256aa65f87b324c01b8f948ef519"
+      },
+      {
+        "index": 44,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "2a214a881ec50f023f2b4474fff209e53fcb7eb70e065b9676c3a23cf96ef86e"
+      },
+      {
+        "index": 45,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ed01257db9380905eee7094d04f8b81fc0f2b68977d732e4cf1f3b85b83a3d27"
+      },
+      {
+        "index": 46,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "6e4cd3a62d74d14fc9dfba1f92792cf7bfcfbf42e0a8c4dea0f3ead7c4e18a97"
+      },
+      {
+        "index": 47,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "9dc103dc94a3aafa7a94c0d571d644462e168e9e5a099e9cbae12ea187e09998"
+      },
+      {
+        "index": 48,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "a941e9ac71a0950d1e864f6ff99b640c856538d0074bbb8e1c8dfa202dff288f"
+      },
+      {
+        "index": 49,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "0674f95b92b1ae1786cb6675c14961daa25746b54fac28b644ae76e6f80056d7"
+      },
+      {
+        "index": 50,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "e6b5607e68e2b87c347dc6f5b39d2d403d89ede230ebaba924ba75a24bf9d516"
+      },
+      {
+        "index": 51,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "6b8d21c88f7e50121e2a3884f6de622010eb1073e7f77014405c6618e206b865"
+      },
+      {
+        "index": 52,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "84986f8e97509a76aa4bebeaecb8cc31fa6d1836f54619c453ce177e4ee8d2ac"
+      },
+      {
+        "index": 53,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "0ea521a295078a7eaf4e714c92d4df9c69e12bbe2b930a09fb4a2f8e99f1d8d4"
+      },
+      {
+        "index": 54,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "f95a1de11971c305d806cdbe3a1a92170d6163c965409792e854ae54759e1db9"
+      },
+      {
+        "index": 56,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "3aa22fd0417a9f4af50f1d61ccdfefbd1620e2e514d48745f5be00b0e01b59bf"
+      },
+      {
+        "index": 58,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "a9b52561fcbc010fce317f4fe4140d232fbac987ee1d42e7a12464f9914796bf"
+      },
+      {
+        "index": 60,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "04ed332e8e173958518552f9e5c1b47c42a843dd912909c7dc37eab00fc5e730"
+      },
+      {
+        "index": 61,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "259b3cbf8a01157140c6c6ecfe98a3858bd71cef665b691f58b58096ba5775b2"
+      },
+      {
+        "index": 62,
+        "nativeDimensions": [
+          1672,
+          940
+        ],
+        "approvedPngSha256": "370d1fa1525d6cc7f42403a874883428471c6023e4e904c5fa2ce5b00ef434f6"
+      },
+      {
+        "index": 64,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "e03b778aed30d5dc3c7b5051c5785001df5bbe701c8764ca5aac307a69303884"
+      },
+      {
+        "index": 65,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "3ce6fa95edcfca9104df9855f812a530aef56eb04fc11b685f3c82fda4743173"
+      },
+      {
+        "index": 66,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "f7f6c8091fd0ef3af393a9fa9be0dd0438a1a6b0205beeb20d0cdee3a4aef4e9"
+      },
+      {
+        "index": 67,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "e0e163d32a24d1f2aad7ed0a1aabcf5d4aa7b90d6bddfd80aa706ee431749d61"
+      },
+      {
+        "index": 68,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "5059841502af5faf3bbce3f2fe2fa8c8b613ab17b7dc440d796459b6e1eaee47"
+      },
+      {
+        "index": 69,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "a6987c9c671301e650c5e1b3f10c5b9df0fe536179a60f691479e972e9124052"
+      },
+      {
+        "index": 71,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "5d8bcab25b70471b300ff27a56b77261884a0b039ac6c61579e3150dbe61f22d"
+      },
+      {
+        "index": 72,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "950622851308ae8035ef628ff6fe7fc26a36b6ecf3c6060ce0dd128b6f01ae02"
+      },
+      {
+        "index": 73,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ce606b97f30a5b983f1841c707365d89ab991ee66bf5535ef68ae85780f275a0"
+      },
+      {
+        "index": 74,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "7d471e8dbc25922db232d2f913c3b97ac4847797f4e6659ed267cf1182c883bc"
+      },
+      {
+        "index": 75,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "5513b24afa0629395e725780ff3b531fa05ef91b58e729eda40be4baf97d5063"
+      },
+      {
+        "index": 76,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "4d7a70d76128609229d46c67f7b9447dc7d362d95613f7dd25b30c7b1f325ae0"
+      },
+      {
+        "index": 77,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "26dada94b7e306be53a6f5de4df931cb3e89a75c09a2c242572213336b89ee61"
+      },
+      {
+        "index": 78,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "b201df0c1bcddec433b3052776b35f4f7b6c8154fae47e9a558fa7ccdc8d22cf"
+      },
+      {
+        "index": 79,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "5bca20b9b579ba2918a41e122b8ee3ed5c7e61001d8130c4f1ff847ad29f6df2"
+      },
+      {
+        "index": 80,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "f6f444b7f7c364bb845c9e5492ec3c3b48c060b1703f08b5001df09759ebe070"
+      },
+      {
+        "index": 81,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "2289c083a88d3d6bf219adbf737fc44800d7a58fd06347f0f86d26916302395f"
+      },
+      {
+        "index": 82,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "ddbd8a10714fa4ca31978af3f1a9038910d13daa9f5097366fd31bec260bdfac"
+      },
+      {
+        "index": 83,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "873bc635bacb4a7732b13a2952f16799bb207df8cd7b0cbe5bd618cfea36dab7"
+      },
+      {
+        "index": 84,
+        "nativeDimensions": [
+          1672,
+          941
+        ],
+        "approvedPngSha256": "c82766e870933288f7f46a02e7a3a0ef4a949a77f29f8a18092b7743cb38e042"
+      }
+    ],
+    "storageDimensions": [
+      4096,
+      2048
+    ]
+  },
+  "dbc": {
+    "table": "LoadingScreens",
+    "field": "HasWideScreen",
+    "fieldIndex": 3,
+    "beforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+    "afterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+    "changedRows": [
+      {
+        "recordId": 21,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 23,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 25,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 81,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 82,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 101,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 102,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 103,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 141,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 142,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 143,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 145,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 146,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 161,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 181,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 182,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 184,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 185,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 186,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 187,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 188,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 189,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 190,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 191,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 192,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 193,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 194,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 195,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 196,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 197,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 201,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 202,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 203,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 204,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 205,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 206,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 207,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 208,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 209,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 210,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 212,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 213,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 214,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 217,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 218,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 220,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 221,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 222,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 223,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 224,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 226,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 227,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 231,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 232,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 234,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 235,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 244,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 246,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 249,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 250,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      },
+      {
+        "recordId": 300,
+        "field": "HasWideScreen",
+        "fieldIndex": 3,
+        "old": 0,
+        "new": 1
+      }
+    ],
+    "idsNamesPathsAndOtherFieldsUnchanged": true
+  },
+  "outputs": {
+    "executable": {
+      "file": "WoW.exe",
+      "bytes": 7705600,
+      "sha256": "4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505"
+    },
+    "locales": {
+      "deDE": {
+        "source": "core-deDE.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-deDE-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "enUS": {
+        "source": "core-enUS.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-enUS-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "esES": {
+        "source": "core-esES.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-esES-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "esMX": {
+        "source": "core-esMX.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-esMX-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "frFR": {
+        "source": "core-frFR.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-frFR-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "koKR": {
+        "source": "core-koKR.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-koKR-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "ruRU": {
+        "source": "core-ruRU.mpq",
+        "sourceSha256": "d477b60836c37ccfabefc8186b0745484cefdcee74b3c6ba768fdcba9c59312e",
+        "output": "patch-ruRU-q.mpq",
+        "bytes": 422012500,
+        "sha256": "aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534",
+        "sourceMembers": 98,
+        "outputMembers": 152,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 71,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {},
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {},
+        "index57NativeFallback": true
+      },
+      "zhCN": {
+        "source": "core-zhCN.mpq",
+        "sourceSha256": "6cc47ec31ac489149577d491aa3e2baa42d0894af6786616a40d4a5813720f4a",
+        "output": "patch-zhCN-q.mpq",
+        "bytes": 499406017,
+        "sha256": "6e1665fe5ae67dc3e76d780b1ecec13e40bf8e32d29ca3e16ffbed448a341427",
+        "sourceMembers": 115,
+        "outputMembers": 169,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 88,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {
+          "interface\\glues\\loadingscreens\\loadscreenargentdungeon.blp": "1d6e14bde0a82bb5bdb1ce0f2864ea3153efc28d4fa6807dd1ceaa1e8ce7418a",
+          "interface\\glues\\loadingscreens\\loadscreenazjoluppercity.blp": "15def1bcc5542d43d995c0e7cce6cecc3cbb4a8ac6062d63b84493cd312e425c",
+          "interface\\glues\\loadingscreens\\loadscreenchamberblack.blp": "3738607d78ab13531497582f963fd4aef52d91520fa1c26a2a743254d7ec350d",
+          "interface\\glues\\loadingscreens\\loadscreendalaransewersarena.blp": "5fe7e7a5d7dd154ab514305420b8f748bf0e34cce2061517a977f038d4978da6",
+          "interface\\glues\\loadingscreens\\loadscreendeathknight.blp": "c41058d0c3b53a23c6f71529ff8f7c84df7fa67c853c6bc73934013d4897504e",
+          "interface\\glues\\loadingscreens\\loadscreendraktharon.blp": "ede37a444cead3ce5b8ad873db8cf3f559e1fe44345c5ce16652ad9656b3eb16",
+          "interface\\glues\\loadingscreens\\loadscreengundrak.blp": "5fc8ed58764e9b76ff9413b953645d04d9a4aa0021ffe9e7825481017f584c88",
+          "interface\\glues\\loadingscreens\\loadscreenhallsofreflection.blp": "59430e3e366899086f9370a84de9100ee007cf28070f8947709d04f3b236e2aa",
+          "interface\\glues\\loadingscreens\\loadscreenhellfirecitadel.blp": "6d115134c4cfa9a878694fa7add2ec67816520ffe484eda3b5101f2e94e21dae",
+          "interface\\glues\\loadingscreens\\loadscreenisleofconquest.blp": "baf14d65cda9d7e2029aec0c4ce59c965ad634bc904126d6f04a7f94495a085e",
+          "interface\\glues\\loadingscreens\\loadscreenmalygos.blp": "a8fe1d0503297839f33bf31ac85c647aeaba99453c3312ababf48bebd0fd09a4",
+          "interface\\glues\\loadingscreens\\loadscreennorthrendbg.blp": "4cee63cf9aedc4dea1bd6fbe30a0b23d1704aeaaa1c72624147084c170e4df52",
+          "interface\\glues\\loadingscreens\\loadscreenorgrimmararena.blp": "a683bb0a26911b9700dcd96d71487483c5cff4c52d0921600a1fddf674fd667b",
+          "interface\\glues\\loadingscreens\\loadscreenpitofsaron.blp": "22a9279048a99c1c4f12cad427a59278f00eaca1167229439aabae015ca2659a",
+          "interface\\glues\\loadingscreens\\loadscreenrubysanctum.blp": "522f72f627e841850f6bdb012f691376dc3efe8674d04325373edfdbdc391118",
+          "interface\\glues\\loadingscreens\\loadscreenulduar77.blp": "6755aeec79f8d261e5ab1ecd5f8643df3d1a668d7f3431a35a4f4c0b1241cb03",
+          "interface\\glues\\loadingscreens\\loadscreenwintergrasp.blp": "2dd2a50dfaa7b7336049e675a3cccee1bce86b5f8d471c1e4374031a94801067"
+        },
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {
+          "27": {
+            "originalWideSha256": "ac6fe2481d39ffc21b9051d938d1d1bb1026d5ada624dc7daec154e5bd3c3d8b",
+            "originalStorageDimensions": [
+              4096,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "d001be173e072c7946915e3daac5830025af75714d50663069ebaac6037d806f",
+            "wideSha256": "c55cdc903f8f29eb12ea1b2917b02471845ca784c48f6eb130ecbf169e4336ef"
+          },
+          "40": {
+            "originalWideSha256": "c321f35ed592b7213a6548bef7b1a4423b8849925d7f0aedb5c0b8813f099732",
+            "originalStorageDimensions": [
+              4096,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "7cfe1037491f0a2fff3e71ebe5f0b2aed3e95535c741bd212ef81df9cafc4b4e",
+            "wideSha256": "e10f99e6e349f65e17203d8e5ac0d22e5ab3c04a2f991ce7c2bd04066b924435"
+          },
+          "55": {
+            "originalWideSha256": "965c9de0e957c5eff4b1e75fbee69df4618da18b26c862cd85cd0443546b5513",
+            "originalStorageDimensions": [
+              2048,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "97f2e0e13b31591725911f92425f588a48f2f34d6a759a17dc0c49e455256c7d",
+            "wideSha256": "f5421a76f2710c69bb6cc4e83a1b163926ee8ca234668ecd5d6e83ec72b50f18"
+          }
+        },
+        "index57NativeFallback": true
+      },
+      "zhTW": {
+        "source": "core-zhTW.mpq",
+        "sourceSha256": "962577c0d1206222fb581a8bfe38077e2b7fdd9211ec9c810ef6560d0241360a",
+        "output": "patch-zhTW-q.mpq",
+        "bytes": 501097000,
+        "sha256": "0a3a8b83d15ade3b61a3e842043eb396f0379e40bc432f572c159fd4083c9828",
+        "sourceMembers": 115,
+        "outputMembers": 169,
+        "addedWideMembers": 54,
+        "replacedWideMembers": 26,
+        "unchangedPriorMembers": 88,
+        "unchangedPriorMembersVerified": true,
+        "chineseBaseAliases": {
+          "interface\\glues\\loadingscreens\\loadscreenargentdungeon.blp": "3f60f0f6b1e0051dd145692f32ff3b9d5149dfd0fd2ccdc76a50db052f4672bc",
+          "interface\\glues\\loadingscreens\\loadscreenazjoluppercity.blp": "aa7ef01cb3e41426ae2f568b71593e62bbc11c1d9fd96db9d06ffa4436f46a2b",
+          "interface\\glues\\loadingscreens\\loadscreenchamberblack.blp": "7fe59a5828239c9a9799e43c9f2d1ae1f5df1245ac3b22eca547f60eb7571388",
+          "interface\\glues\\loadingscreens\\loadscreendalaransewersarena.blp": "83fed227599ffebfc5c60ae4fb2c6b9f40d49ed54287107d1d18732962fbdbf2",
+          "interface\\glues\\loadingscreens\\loadscreendeathknight.blp": "8ba9d414615435c51b652272aa750eb645770fd4cc398b8cbe8e7f7383b9ad00",
+          "interface\\glues\\loadingscreens\\loadscreendraktharon.blp": "f74fdaec8d6091558bd7f6ef29e9ff6cbc88e5d5cdd22b93311603fad1c0359a",
+          "interface\\glues\\loadingscreens\\loadscreengundrak.blp": "32713595ed2ba61a506f77892bf8cce136f7f55fcb771cf0e0d773491e496085",
+          "interface\\glues\\loadingscreens\\loadscreenhallsofreflection.blp": "de523accc3b2c26e5f6bf6b53c651238bab721820c1ec7885109bfd269c9ccf8",
+          "interface\\glues\\loadingscreens\\loadscreenhellfirecitadel.blp": "e26ccdc4356e05b614ced01752bb3a19ed3874bbdde6e297a3771543b2ac8fdb",
+          "interface\\glues\\loadingscreens\\loadscreenisleofconquest.blp": "cca36f1061dd6b0dffebe1ffde62b7440e2a118b887a6933fb3d59a116106262",
+          "interface\\glues\\loadingscreens\\loadscreenmalygos.blp": "bf2912b432c931211e6dfbf93a025ccd6f556c4407f38b6a7de4185aead61625",
+          "interface\\glues\\loadingscreens\\loadscreennorthrendbg.blp": "83a6d4cdb7ca72aa968ded8f565c71c64d1a2d2bd3544b6994c034b038ae7e50",
+          "interface\\glues\\loadingscreens\\loadscreenorgrimmararena.blp": "21d84c3285c17fa459d7abf5326d3742584ab277ccbd8ec8a12a5d9bab238b14",
+          "interface\\glues\\loadingscreens\\loadscreenpitofsaron.blp": "3644f294524d872b20f0e90c63772fb19e6a433c77c1afb2cca27e493d3c73b1",
+          "interface\\glues\\loadingscreens\\loadscreenrubysanctum.blp": "c2255dea64f98c3300cbfb527c53e7c5490ce87d6810d879e9d3fc340097d4bf",
+          "interface\\glues\\loadingscreens\\loadscreenulduar77.blp": "816bc42960a1b9a562b09796e939ceb8537672d79fa5f0fbfdec70b2f87557f5",
+          "interface\\glues\\loadingscreens\\loadscreenwintergrasp.blp": "cbf83cae83b6921b7f02ea6cf89ba503a638bb0ce5a4950f35edbeaeb502f7a6"
+        },
+        "chineseBaseAliasesByteIdentical": true,
+        "dbcBeforeSha256": "02c17c9d56db2c93dd9f89bf832543c424b3839c51f11532db673d6036a2c559",
+        "dbcAfterSha256": "d492463c1e9ba9027c6d2525b4bf9888af05892da372387388f235c1d4539f5b",
+        "dbcChangedRows": [
+          {
+            "recordId": 21,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 23,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 25,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 81,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 82,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 101,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 102,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 103,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 141,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 142,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 143,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 145,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 146,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 161,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 181,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 182,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 184,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 185,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 186,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 187,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 188,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 189,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 190,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 191,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 192,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 193,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 194,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 195,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 196,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 197,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 201,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 202,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 203,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 204,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 205,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 206,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 207,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 208,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 209,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 210,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 212,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 213,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 214,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 217,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 218,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 220,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 221,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 222,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 223,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 224,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 226,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 227,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 231,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 232,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 234,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 235,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 244,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 246,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 249,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 250,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          },
+          {
+            "recordId": 300,
+            "field": "HasWideScreen",
+            "fieldIndex": 3,
+            "old": 0,
+            "new": 1
+          }
+        ],
+        "compatibilityWide": {
+          "27": {
+            "originalWideSha256": "8d25a06536137f94d3c23c7994ad3108532dc3f044a2571a2dc4a29252214c9e",
+            "originalStorageDimensions": [
+              4096,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "61601796c0ac376deba5e1d42bb0fbb4aefa6a9ad2e142c1e7c94e11fcdc6fbe",
+            "wideSha256": "60291514dde495aa0099364c50ca7e28110e7b061b92a900175c2b6a35351713"
+          },
+          "40": {
+            "originalWideSha256": "eb7c7f10f8c79dba2d3ea40b194f52e2d9b984773870fe1191408aa9cd7c43f2",
+            "originalStorageDimensions": [
+              4096,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "6bd673489695bd30d6c59593797845d31e70dac88b8687d99fb849aa1c584d83",
+            "wideSha256": "b857f623fb3d730e76bc5c0079b36ad6b218ec4f149d813c9bb7431a80ef4071"
+          },
+          "55": {
+            "originalWideSha256": "470e2825a4f3e6827848c79bf4e3504d11653e499d869f7a3a5660f81f86982c",
+            "originalStorageDimensions": [
+              2048,
+              2048
+            ],
+            "canvasDimensions": [
+              2560,
+              1440
+            ],
+            "pictureBox": [
+              128,
+              0,
+              2432,
+              1440
+            ],
+            "canvasPngSha256": "00c7dec9d031c1499cbd15c0d87014cccf0190106046beeb5818089819895ca9",
+            "wideSha256": "686e9f8f50cfd82391714fd742773634ac9f94aa97dce2ae8bfde78fd12fbe32"
+          }
+        },
+        "index57NativeFallback": true
+      }
+    }
+  }
+}

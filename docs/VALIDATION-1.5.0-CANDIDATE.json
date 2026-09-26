@@ -1,0 +1,68 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "status": "LOCAL_CANDIDATE_WINDOWS_AND_DOCKER_VALIDATION_PASS_IN_GAME_GATES_OPEN",
+  "installer": "1.5.0",
+  "game": "3.1.0",
+  "published": false,
+  "source_baseline_commit": "78d931355bb1df49bb17b3e8ea4b9f44d0008343",
+  "windows_installer_cases": 80,
+  "real_y_upgrade_restore_cases": 72,
+  "both_placement_byte_repair_modes": 3,
+  "client_locales": 12,
+  "ui_languages": 10,
+  "ui_translation_keys": 229,
+  "python_tests_run": 74,
+  "python_tests_skipped": 1,
+  "large_maps_enGB_upgrade_restore": "PASS",
+  "independent_code_review": "No actionable findings",
+  "personal_client_modified": false,
+  "pending": [
+    "In-game Caverns of Time map selection",
+    "In-game restored Halion positioning marks",
+    "HD original-spells and SD visual acceptance",
+    "Discord example images not independently inspected; link supplied by user"
+  ],
+  "proofs": {
+    "visuals": "dbc/raid-visuals-3.1.0-candidate.json",
+    "maps": "dbc/caverns-3.1.0-candidate.json",
+    "docker": "DOCKER-VALIDATION-1.5.0-CANDIDATE.json"
+  },
+  "offline_payload": {
+    "Author": "Neil Mitchell",
+    "Creator": "Neil Mitchell",
+    "LastModifiedBy": "Neil Mitchell",
+    "status": "ALL_SELECTABLE_OFFLINE_PARTS_VERIFIED",
+    "parts": 165,
+    "bytes": 5088183818,
+    "excluded_legacy_assets": [
+      "MapsQ-deDE",
+      "MapsQ-enUS",
+      "MapsQ-esES",
+      "MapsQ-esMX",
+      "MapsQ-frFR",
+      "MapsQ-koKR",
+      "MapsQ-ruRU",
+      "MapsQ-zhCN",
+      "MapsQ-zhTW"
+    ]
+  },
+  "docker": {
+    "status": "PASS",
+    "linux_python_tests": 94,
+    "linux_python_skipped": 0,
+    "wine_versions": [
+      "9.0",
+      "11.0"
+    ],
+    "wine_mono": "10.4.1",
+    "distribution": "Ubuntu 24.04",
+    "ui_renders": 60,
+    "real_payload_install_repair_restore_cases": 6,
+    "candidate_executable_sha256": "450222dee4c66d37cba3fe92f75b0668c09c5e450c993951fb6176aac852d9ed",
+    "personal_client_mounted": false,
+    "disposable_containers_removed": true,
+    "scope": "Shipped launcher and interface; real payload transaction core through the Linux safety bridge on disposable client fixtures. No game process was run."
+  }
+}

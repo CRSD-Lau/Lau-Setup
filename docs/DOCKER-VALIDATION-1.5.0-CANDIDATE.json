@@ -1,0 +1,123 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "status": "AUTOMATED_DOCKER_VALIDATION_PASS_IN_GAME_GATES_OPEN",
+  "installerVersion": "1.5.0",
+  "gameVersion": "3.1.0",
+  "testedSourceCommit": "4917aa38ec9b6087234ac1294aae4df4a5bb71c7",
+  "candidateExecutableSha256": "450222dee4c66d37cba3fe92f75b0668c09c5e450c993951fb6176aac852d9ed",
+  "linuxPython": {
+    "Author": "Neil Mitchell",
+    "Creator": "Neil Mitchell",
+    "LastModifiedBy": "Neil Mitchell",
+    "status": "PASS",
+    "run": 94,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "real_stormlib_integration": true,
+    "platform": "linux",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "environments": [
+    {
+      "wine": "wine-9.0 (Ubuntu 9.0~repack-4build3)",
+      "wineMono": "10.4.1",
+      "distribution": "Ubuntu 24.04",
+      "normalUser": 1001,
+      "shippedLauncher": "PASS: visible form and normal close",
+      "interfaceRenders": 30,
+      "realPayloadCases": [
+        {
+          "case": "sd-enUS-original-spells",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enUS",
+          "maps": false,
+          "operations": 9
+        },
+        {
+          "case": "hd-enUS-new-spells",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enUS",
+          "maps": false,
+          "operations": 7
+        },
+        {
+          "case": "hd-enGB-original-spells-maps",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enGB",
+          "maps": true,
+          "operations": 126
+        }
+      ],
+      "evidence": "evidence/validation.json"
+    },
+    {
+      "wine": "wine-11.0",
+      "wineMono": "10.4.1",
+      "distribution": "Ubuntu 24.04",
+      "normalUser": 1001,
+      "shippedLauncher": "PASS: visible form and normal close",
+      "interfaceRenders": 30,
+      "realPayloadCases": [
+        {
+          "case": "sd-enUS-original-spells",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enUS",
+          "maps": false,
+          "operations": 9
+        },
+        {
+          "case": "hd-enUS-new-spells",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enUS",
+          "maps": false,
+          "operations": 7
+        },
+        {
+          "case": "hd-enGB-original-spells-maps",
+          "Author": "Neil Mitchell",
+          "Creator": "Neil Mitchell",
+          "LastModifiedBy": "Neil Mitchell",
+          "status": "REAL_PAYLOAD_INSTALL_REPAIR_GUARD_AND_RESTORE_PASS",
+          "locale": "enGB",
+          "maps": true,
+          "operations": 126
+        }
+      ],
+      "evidence": "evidence-wine11/validation.json"
+    }
+  ],
+  "totalInterfaceRenders": 60,
+  "totalRealPayloadTransactionCases": 6,
+  "isolation": "Normal uid 1001, no network or privileged capabilities; source/payload/harness read-only; no personal client mounted.",
+  "unchangedInstallerAndPayload": true,
+  "scope": "Real candidate payload bytes and transaction core through the shipped Linux safety bridge; UI rendering and launcher lifecycle. Client inspection/selection continues to rely on the separate Windows suite and Linux host tests.",
+  "remaining": [
+    "In-game Caverns of Time map selection",
+    "In-game Halion tank-mark placement and breath-cone acceptance",
+    "In-game HD original-spells and SD visual acceptance",
+    "Independent inspection of the linked Discord example images"
+  ],
+  "limits": [
+    "Wine 9.0 and Wine 11.0 on Ubuntu 24.04 with Wine Mono 10.4.1; not every Linux distribution/runtime.",
+    "Rendering and bounds checks are not fluent translation review.",
+    "No game process, account login, private profiles, or public publication was involved."
+  ]
+}

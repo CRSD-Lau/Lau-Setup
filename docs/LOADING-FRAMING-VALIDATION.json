@@ -1,0 +1,375 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "status": "UNICORN_ISOLATED_HOOK_VALIDATION_PASS_IN_GAME_ACCEPTANCE_PENDING",
+  "original_sha256": "6993049f1338b32a0423612093a8c7c6895b112504b83d6826d4c2174692cd37",
+  "fixed_sha256": "a6767f7ed4d1f7c67c144eed7bf9707cd270d95af200f4accd0c6fc66ca14889",
+  "changed_byte_offsets": [
+    "0x7a15",
+    "0x7a16",
+    "0x7a17",
+    "0x7a18",
+    "0x9a03",
+    "0x9a04",
+    "0x9a05",
+    "0x9a06"
+  ],
+  "only_eight_bytes_changed": true,
+  "ldwide_section_preserved": true,
+  "uv_old": [
+    {
+      "aspect": 1.3333333333333333,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.3333333333333333,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.6,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.6,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "texture_flag": 0,
+      "uv_pointer": "0xdfd200",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "texture_flag": 1,
+      "uv_pointer": "0xdfd220",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "21:9"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "21:9"
+    }
+  ],
+  "uv_fixed": [
+    {
+      "aspect": 1.3333333333333333,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.3333333333333333,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.6,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.6,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "texture_flag": 0,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "21:9"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "texture_flag": 1,
+      "uv_pointer": "0xab6400",
+      "stack_delta": -4,
+      "registers_preserved": true,
+      "mode": "21:9"
+    }
+  ],
+  "draw_old": [
+    {
+      "aspect": 1.3333333333333333,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.3333333333333333,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.6,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.6,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "background": 1,
+      "calls": [
+        [
+          "get",
+          null
+        ],
+        [
+          "set",
+          [
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          "native",
+          null
+        ],
+        [
+          "set",
+          [
+            0.20000000298023224,
+            0.800000011920929,
+            0.10000000149011612,
+            0.8999999761581421,
+            0.30000001192092896,
+            0.699999988079071
+          ]
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "21:9"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "21:9"
+    }
+  ],
+  "draw_fixed": [
+    {
+      "aspect": 1.3333333333333333,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.3333333333333333,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "4:3"
+    },
+    {
+      "aspect": 1.6,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.6,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:10"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "16:9-2560x1440"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "background": 0,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "21:9"
+    },
+    {
+      "aspect": 2.3333333333333335,
+      "background": 1,
+      "calls": [
+        [
+          "native",
+          null
+        ]
+      ],
+      "stack_balanced": true,
+      "mode": "21:9"
+    }
+  ],
+  "limitations": "Emulates only the two instruction paths with native draw/get/set calls stubbed; it does not render or launch WoW."
+}
