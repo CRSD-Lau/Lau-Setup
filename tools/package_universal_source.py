@@ -9,6 +9,11 @@ META = b'Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil M
 RELEASE_VERSION = '1.5.0'
 DEFAULT_OUTPUT = Path('dist') / f'release-{RELEASE_VERSION}' / f'LauSetup-source-{RELEASE_VERSION}.zip'
 ADDITIONS = [
+    'AGENTS.md', 'tools/package_patch_y_manual.py', 'tools/publish_patch_y_manual.py',
+    'tests/test_patch_y_manual.py', 'tests/test_publish_patch_y_manual.py',
+    'docs/PATCH-Y-MANUAL-INSTALL.md', 'docs/MANUAL-PATCH-Y-RELEASE.md',
+    '.github/workflows/patch-y-manual.yml',
+    'tools/resolve_manual_catalog.py', 'tests/test_resolve_manual_catalog.py',
     'tools/verify_wizard_polish.py',
     'tools/compact_mpqs.py', 'docs/COMPACTION.md', 'docs/compaction-3.0.9.json',
     'app/Localization.cs', 'app/translations.json', 'app/MpqScan.cs', 'app/MapAddons.cs', 'tools/build_wdm_catalog.py',

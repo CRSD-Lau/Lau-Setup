@@ -6,6 +6,10 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Manual downloads added - October 1, 2026
+
+No DBC edits. The three standalone Patch-Y ZIPs contain exactly the installer catalog's released MPQ bytes; HD new spells also includes the existing S pair. This packaging update keeps game 3.1.0 and installer 1.5.0. See [manual package verification and release requirements](docs/MANUAL-PATCH-Y-RELEASE.md).
+
 ## Setup 1.5.0 — accepted HD 16:9 loading pack
 
 The [loading pack](docs/LOADING-HD16X9-PACK.md) covers the 85-background catalog with 77 new HD 16:9 images and eight retained originals. Across 92 `LoadingScreens` records, 61 rows change `HasWideScreen` (zero-based field 3) from 0 to 1. The remaining rows, every record ID, path, string and other field are preserved. The eight original backgrounds are Black Temple (index 11), Eastern Kingdoms (27), Kalimdor (40), Outland (55), PvP Battleground (57), generic Raid (59), Ruined City (63) and Sunwell (70). They keep their original routes; some can retain side bars. [Exact changed row IDs and per-locale archive hashes](docs/dbc/loading-3.1.0.json) are recorded in the build evidence. The shared Q archive SHA-256 is `aec7d51c5f77ab34a87d705564c718a6bbd9426daf5252a885f93442a4095534`; zhCN and zhTW retain their own base aliases and have distinct Q hashes in the linked proof. The companion executable SHA-256 is `4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505`. Neil accepted the 77 new screens in game on a 16:9 display. The generated images are 1672×940 or 1672×941, not native 4K.

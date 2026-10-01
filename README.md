@@ -27,6 +27,8 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 **[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)**. This is the one small online installer download for Windows and Linux/Wine; game files come from the separate [3.1.0 payload release](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0) during setup.
 
+**Prefer manual installation?** Download one ready-to-copy Patch-Y 3.1.0 ZIP: [HD — New spell visuals](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-HD-New-Spells.zip), [HD — Original spell visuals](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-HD-Original-Spells.zip), or [Non-HD / SD](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-Non-HD.zip). New spell visuals includes the required Patch-S companions; HD editions require an existing HD model pack. Follow the [manual installation guide](docs/PATCH-Y-MANUAL-INSTALL.md) for backup and active-locale placement. [ZIP checksums](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/SHA256SUMS-Patch-Y.txt). These packages use the same released MPQ bytes and include no installer, executable, maps or loading screens.
+
 ### Windows
 
 1. **Close WoW completely.**
@@ -150,6 +152,8 @@ Read [Known limitations and assumptions](KNOWN-LIMITATIONS.md) before suggesting
 - [Platform scope and feasibility](PLATFORM-FEASIBILITY.md)
 
 Game payloads are distributed through GitHub Releases. The repository includes a hash-pinned Patch-Y member manifest, source overlays and reproducible contributor tooling; it does not duplicate the six generated MPQs in Git. You do not need to clone it to install the upgrade.
+
+Every future game-version release also ships the three manual Patch-Y ZIPs, checksums and a package manifest. The [standalone release contract](docs/MANUAL-PATCH-Y-RELEASE.md) covers automated publication, public hash verification and website updates. Installer-only releases reuse the existing game-version packages.
 
 ## Built on community work
 
