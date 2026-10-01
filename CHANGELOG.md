@@ -2,6 +2,12 @@
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
 
+## Manual downloads added — October 1, 2026
+
+Patch-Y 3.1.0 is also available as three manual-install ZIPs: HD new spells (with both required S companions), HD original spells and Non-HD/SD. Includes placement/restore guidance, catalog-matched MPQs and checksums. Every future game-version release must publish these packages alongside Lau Setup; an automated release workflow builds, verifies and publishes them. **No DBC edits or game-content changes from this packaging update.** Installer remains 1.5.0 and game version remains 3.1.0.
+
+## Original 1.5.0 / 3.1.0 release
+
 - Carries Neil's raid-tested Patch-Y visuals into HD with new spells, HD without new spells, and SD: Consecration, Marrowgar Coldflame, BQL Swarming Shadows, Halion Meteor Strike trails, Gormok Fire Bomb, Jaraxxus Legion Flame, and the worms' Slime Pool. Consecration is standard; its separate toggle is removed.
 - Adds the accepted HD 16:9 loading pack: 77 new 1672×940/941 backgrounds. Eight catalog backgrounds retain their original artwork. Neil confirmed the 77 new screens display correctly in game; the eight original exceptions can still show side bars. This is native 16:9 artwork, not 4K source art.
 - Restores the Halion tank-positioning material batches supplied by Andre, preserving the model and breath cone. In-game validation of the restored marks remains pending.

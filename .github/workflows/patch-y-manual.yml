@@ -1,0 +1,87 @@
+# Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell
+name: Standalone Patch-Y downloads
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Existing game release tag, for example payload-3.1.0'
+        required: true
+        type: string
+  pull_request:
+    paths:
+      - 'build/catalog.json'
+      - 'tools/package_patch_y_manual.py'
+      - 'tools/publish_patch_y_manual.py'
+      - 'tools/resolve_manual_catalog.py'
+      - 'tests/test_patch_y_manual.py'
+      - 'tests/test_publish_patch_y_manual.py'
+      - 'tests/test_resolve_manual_catalog.py'
+      - '.github/workflows/patch-y-manual.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'build/catalog.json'
+      - 'tools/package_patch_y_manual.py'
+      - 'tools/publish_patch_y_manual.py'
+      - 'tools/resolve_manual_catalog.py'
+      - 'tests/test_patch_y_manual.py'
+      - 'tests/test_publish_patch_y_manual.py'
+      - 'tests/test_resolve_manual_catalog.py'
+      - '.github/workflows/patch-y-manual.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: patch-y-manual-${{ inputs.release_tag || github.event.release.tag_name || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ (github.event_name == 'release' || github.event_name == 'workflow_dispatch') && github.event.repository.default_branch || github.ref }}
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s tests -p 'test_*patch_y_manual.py' -v
+      - run: python -m unittest discover -s tests -p test_resolve_manual_catalog.py -v
+
+  publish:
+    needs: test
+    concurrency:
+      group: patch-y-manual-release-assets
+      cancel-in-progress: false
+    if: >-
+      (github.event_name == 'release' && (startsWith(github.event.release.tag_name, 'payload-') || startsWith(github.event.release.tag_name, 'v'))) ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.release_tag || github.event.release.tag_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - name: Resolve the matching finalized release catalog
+        run: python tools/resolve_manual_catalog.py --repo "$GITHUB_REPOSITORY" --release-tag "$RELEASE_TAG" --output build/manual-release/catalog.json --github-env "$GITHUB_ENV"
+      - name: Build and verify all three manual packages
+        run: |
+          python tools/package_patch_y_manual.py build --catalog build/manual-release/catalog.json --output dist/manual --cache build/manual-cache --version "$RELEASE_GAME_VERSION"
+          python tools/package_patch_y_manual.py verify --catalog build/manual-release/catalog.json --output dist/manual --version "$RELEASE_GAME_VERSION"
+      - name: Publish missing downloads and verify public bytes
+        run: python tools/publish_patch_y_manual.py --catalog build/manual-release/catalog.json --output dist/manual --repo "$GITHUB_REPOSITORY" --tag "$RELEASE_GAME_TAG"
