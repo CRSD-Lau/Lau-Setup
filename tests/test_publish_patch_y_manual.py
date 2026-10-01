@@ -22,6 +22,7 @@ class PublishTests(unittest.TestCase):
         self.remote = {}
         self.body = '# Existing release\n\nOriginal credit and DBC history.'
         self.mutations = []
+        self.normalize_remote_crlf = False
 
     def tearDown(self):
         self.temporary.cleanup()
@@ -44,6 +45,8 @@ class PublishTests(unittest.TestCase):
         elif action == 'edit':
             self.mutations.append(('edit', args))
             self.body = Path(args[args.index('--notes-file') + 1]).read_text(encoding='utf-8')
+            if self.normalize_remote_crlf:
+                self.body = self.body.replace('\n', '\r\n')
         else:
             raise AssertionError(args)
         return ''
@@ -76,6 +79,12 @@ class PublishTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'tag'):
                 publish.publish(self.root / 'catalog.json', self.root, 'CRSD-Lau/Lau-Setup', '../bad')
             gh.assert_not_called()
+
+    def test_release_notes_readback_accepts_windows_newlines(self):
+        self.normalize_remote_crlf = True
+        self.run_publish()
+        self.assertIn('\r\n', self.body)
+        self.assertEqual(set(self.remote), set(self.names))
 
 
 if __name__ == '__main__':
