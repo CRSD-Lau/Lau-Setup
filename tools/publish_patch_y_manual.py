@@ -81,10 +81,10 @@ def publish(catalog, output, repo, tag):
         else:
             body = body.rstrip() + '\n\n' + block + '\n'
         notes = downloads / 'release-notes.md'
-        notes.write_text(body, encoding='utf-8')
+        notes.write_text(body, encoding='utf-8', newline='\n')
         gh('release', 'edit', tag, '--repo', repo, '--notes-file', str(notes))
         readback = json.loads(gh('release', 'view', tag, '--repo', repo, '--json', 'assets,body'))
-        if not set(names).issubset({a['name'] for a in readback['assets']}) or block not in readback['body']:
+        if not set(names).issubset({a['name'] for a in readback['assets']}) or block not in readback['body'].replace('\r\n', '\n'):
             raise ValueError('Release readback did not contain all manual artifacts and links.')
     print(json.dumps({'release': release['url'], 'sha256': expected, 'public_downloads_verified': True}, indent=2))
 
