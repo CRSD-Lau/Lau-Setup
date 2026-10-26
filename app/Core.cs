@@ -194,6 +194,10 @@ public static class SafePaths {
 }
 public sealed class ClientInfo { public string Root,Locale; public bool Hd,NewSpells,MapsInstalled; }
 public static class Client {
+    const uint ProcessQueryLimitedInformation=0x1000;
+    [DllImport("kernel32.dll",SetLastError=true)] static extern IntPtr OpenProcess(uint access,bool inheritHandle,int processId);
+    [DllImport("kernel32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool QueryFullProcessImageName(IntPtr process,uint flags,StringBuilder name,ref int size);
+    [DllImport("kernel32.dll",SetLastError=true)] static extern bool CloseHandle(IntPtr handle);
     public static ClientInfo Inspect(string input,Catalog catalog) {
         string root=SafePaths.Root(input);var exe=SafePaths.Under(root,"WoW.exe");
         if(!File.Exists(exe)) throw new IOException("Choose the folder containing WoW.exe.");
@@ -240,13 +244,26 @@ public static class Client {
         if(catalog.MapPackVersion==null)return true;
         return matches(@"Data\"+locale+@"\patch-"+locale+"-T.MPQ","MapDetails-"+catalog.VisualAssetLocale(locale))&&MapAddons.Paths.All(file=>matches(file.Key,file.Value));
     }
+    internal static string ProcessExecutable(Process process,Func<Process,string> primary=null) {
+        try{string path=(primary??(p=>p.MainModule.FileName))(process);if(!String.IsNullOrEmpty(path))return path;}
+        catch(InvalidOperationException){if(Exited(process))return null;}
+        catch(System.ComponentModel.Win32Exception){if(Exited(process))return null;}
+        catch(NotSupportedException){if(Exited(process))return null;}
+        int id;try{id=process.Id;}catch(InvalidOperationException){return null;}
+        IntPtr handle=OpenProcess(ProcessQueryLimitedInformation,false,id);
+        if(handle!=IntPtr.Zero)try{var path=new StringBuilder(32768);int size=path.Capacity;if(QueryFullProcessImageName(handle,0,path,ref size))return path.ToString();}
+        finally{CloseHandle(handle);}
+        if(Exited(process))return null;
+        throw new IOException("A WoW process could not be identified. Close WoW before installing.");
+    }
+    static bool Exited(Process process){try{return process.HasExited;}catch{return false;}}
     public static void AssertClosed(string root) {
         WineHost.Check(root);
         foreach(var p in Process.GetProcesses()) {
             using(p) {
                 string name;try{name=p.ProcessName;}catch{continue;}
                 if(!new[]{"wow","wow-64","wowclassic"}.Contains(name.ToLowerInvariant())) continue;
-                string exe;try{exe=p.MainModule.FileName;}catch{throw new IOException("A WoW process could not be identified. Close WoW before installing.");}
+                string exe=ProcessExecutable(p);if(exe==null)continue;
                 if(Path.GetDirectoryName(exe).Equals(root,StringComparison.OrdinalIgnoreCase)) throw new IOException("Close this WoW client, then try again.");
             }
         }
