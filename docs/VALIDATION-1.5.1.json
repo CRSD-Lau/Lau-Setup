@@ -36,14 +36,14 @@
   "candidatePackage": {
     "executable": {
       "bytes": 598528,
-      "sha256": "93467641d6e980bda48856427b91d4fcb7b1fc3baf9ee3290c642f6ddb0badf2",
+      "sha256": "95c2840015d5cb9991d18859ebe558ec4e5335f123cc0867b79553818e17d48d",
       "assemblyVersion": "1.5.1.0",
       "product": "Lau Setup",
       "creator": "Neil Mitchell"
     },
     "zip": {
       "bytes": 898016,
-      "sha256": "3a8a8eb2e66d79d75ba91389aa1597744a9f3c353de3c1a35d937beecbf840d5",
+      "sha256": "7264b8d466929747dbcbc049679f4298701904d9fa6e3a7484b9f35eeb3dfddc",
       "layout": "Exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and README.txt under LauSetup/; exact input-byte readback and Neil Mitchell ZIP metadata verified."
     },
     "translations": "PASS: 229 source keys across 10 complete languages"
