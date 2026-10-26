@@ -6,6 +6,10 @@ Track client DBC edits separately from model, texture and installer changes. Gam
 
 > **First time installing?** Use [Start here](START-HERE.txt); this changelog records data changes and evidence.
 
+## Setup 1.5.1 — Windows process detection hotfix
+
+No DBC, MPQ, model, texture, map, loading-screen or game-payload bytes changed. Setup 1.5.1 changes only installer process detection and retains game release 3.1.0 plus the existing manual Patch-Y packages.
+
 ## Manual downloads added - October 1, 2026
 
 No DBC edits. The three standalone Patch-Y ZIPs contain exactly the installer catalog's released MPQ bytes; HD new spells also includes the existing S pair. This packaging update keeps game 3.1.0 and installer 1.5.0. See [manual package verification and release requirements](docs/MANUAL-PATCH-Y-RELEASE.md).

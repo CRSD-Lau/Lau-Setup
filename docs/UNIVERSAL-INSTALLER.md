@@ -78,10 +78,10 @@ detect and preserve the nine supported 3.3.5a game locales: enUS, deDE, frFR,
 esES, esMX, koKR, ruRU, zhCN, and zhTW.
 
 Build a release only after placing the built input EXE at
-`dist/release-1.4.0/LauSetup.exe` and generating `app/translations.json`:
+`dist/release-1.5.1/LauSetup.exe` and generating `app/translations.json`:
 
 ```powershell
-python tools/package_universal.py --exe dist/release-1.4.0/LauSetup.exe --output dist/release-1.4.0/LauSetup.zip
+python tools/package_universal.py --exe dist/release-1.5.1/LauSetup.exe --output dist/release-1.5.1/LauSetup.zip
 ```
 
 For an isolated build, pass `--exe`, `--translations`, and
@@ -89,8 +89,8 @@ For an isolated build, pass `--exe`, `--translations`, and
 listed files, stamps ZIP metadata as Neil Mitchell, and gives the shell launcher
 an executable Unix mode. It bundles no game payloads or Wine runtime.
 
-Release evidence is recorded in [1.4.0 release notes](RELEASE-1.4.0.md) and
+Release evidence is recorded in [1.5.1 release notes](RELEASE-1.5.1.md) and
 VALIDATION.json alongside the release downloads. Installer translations are
 bundled and work offline. Full translated-document refresh has a separate
 rate-limit follow-up; fluent human review remains the language-quality limit.
-Game release 3.0.9 compacts six Patch-Y editions without Patch-Y DBC edits. The optional map component adds documented upstream table overrides; see DBC-CHANGELOG.md. Nine game locales remain supported.
+Game release 3.1.0 remains separate from installer 1.5.1. The installer-only hotfix does not change Patch-Y, DBCs, maps, loading screens or manual packages; see DBC-CHANGELOG.md. Nine localized game locales and three visual-compatibility locales remain supported.

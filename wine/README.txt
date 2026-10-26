@@ -1,4 +1,4 @@
-Lau Setup 1.5.0 / Game 3.1.0 Lau
+Lau Setup 1.5.1 / Game 3.1.0 Lau
 Author / Creator / Last Modified By: Neil Mitchell
 
 Patch-Y 3.1.0 includes the approved raid effects and standard Consecration; optional maps correct the Caverns table conflict. This package contains one LauSetup folder with

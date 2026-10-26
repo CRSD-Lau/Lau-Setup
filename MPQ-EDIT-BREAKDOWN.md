@@ -5,7 +5,7 @@
 This document separates the changes made for Lau Setup from the assets inherited
 from Andre, Suppository and his listed contributors, the HD client foundation,
 Project Reforged, Blizzard, and the optional Trimitor map component. It covers
-**Setup 1.5.0 / game 3.1.0 Lau** and retains the 3.0.9 history below.
+**Setup 1.5.1 / game 3.1.0 Lau** and retains the 3.0.9 history below. Setup 1.5.1 changes only Windows process detection; every MPQ and game payload remains unchanged.
 
 Lau Setup installs one selected Patch-Y edition and can install optional Q, S, M,
 and T components. Game 3.1.0 carries Lau's raid-tested integration in three

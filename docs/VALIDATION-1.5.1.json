@@ -1,0 +1,88 @@
+{
+  "Author": "Neil Mitchell",
+  "Creator": "Neil Mitchell",
+  "LastModifiedBy": "Neil Mitchell",
+  "installerVersion": "1.5.1",
+  "gameVersion": "3.1.0",
+  "status": "CANDIDATE_AUTOMATED_VALIDATION_PASS_PUBLICATION_PENDING",
+  "date": "2026-10-26",
+  "scope": "Installer-only Windows process-detection hotfix; no game payload or DBC changes.",
+  "windows": {
+    "status": "PASS",
+    "installerCases": 81,
+    "fixture": {
+      "source": "Released catalog-pinned WoW 3.3.5a build 12340 executable",
+      "bytes": 7705600,
+      "sha256": "4218fef354f875d1d27aae9cc6a93c75aaadaa1f0beea1204172793cd39e0505"
+    },
+    "processRegression": [
+      "Primary Process.MainModule query forced to fail; limited-information fallback resolved the isolated running client.",
+      "A process confirmed to have exited during enumeration was ignored.",
+      "An unidentified live WoW process remains fail-closed."
+    ],
+    "clientData": "Disposable fixtures only; no live game files, settings, accounts, addons or backups were changed."
+  },
+  "python": {
+    "platformNeutral": {
+      "status": "PASS",
+      "run": 93,
+      "passed": 92,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "linuxNative": "Not rerun on Windows; the unchanged Wine host retains the 1.5.0 Linux/Wine evidence."
+  },
+  "candidatePackage": {
+    "executable": {
+      "bytes": 598528,
+      "sha256": "95c2840015d5cb9991d18859ebe558ec4e5335f123cc0867b79553818e17d48d",
+      "assemblyVersion": "1.5.1.0",
+      "product": "Lau Setup",
+      "creator": "Neil Mitchell"
+    },
+    "zip": {
+      "bytes": 898016,
+      "sha256": "7264b8d466929747dbcbc049679f4298701904d9fa6e3a7484b9f35eeb3dfddc",
+      "layout": "Exactly LauSetup.exe, LauSetup.sh, lau_wine.py, lau-languages.json and README.txt under LauSetup/; exact input-byte readback and Neil Mitchell ZIP metadata verified."
+    },
+    "translations": "PASS: 229 source keys across 10 complete languages"
+  },
+  "unchangedManualPatchY": {
+    "release": "https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0",
+    "status": "PUBLIC_GITHUB_DIGEST_AND_MANIFEST_MATCH",
+    "packages": [
+      {
+        "name": "Patch-Y-3.1.0-HD-New-Spells.zip",
+        "bytes": 248388219,
+        "sha256": "2dae6b36a955feaaca1c98f8e47624dca5d0200c8e2f00dc8eb34b38ec588324"
+      },
+      {
+        "name": "Patch-Y-3.1.0-HD-Original-Spells.zip",
+        "bytes": 47706833,
+        "sha256": "1fb85b53bfaf2cc09c591498b1477a9edb59ae688c9b5d69fc089378c072ef08"
+      },
+      {
+        "name": "Patch-Y-3.1.0-Non-HD.zip",
+        "bytes": 46754119,
+        "sha256": "915e073b50a2cfab41fd587f5a36df1e98b809cc82346c48da71a331d57729e7"
+      }
+    ],
+    "manifestSha256": "b201eeef105e799ece0f17541446a6e5fdec2f5d400bc081b566003f4b26dba8",
+    "checksumsSha256": "a865e96800d8da817222aaa80ced44d76bb80f1088bb056afc20592591bbdead"
+  },
+  "publication": {
+    "status": "PENDING",
+    "requirements": [
+      "Merge the reviewed 1.5.1 version and release-documentation change.",
+      "Rebuild the final artifacts from the exact merged source revision.",
+      "Publish and read back the GitHub release assets and hashes."
+    ]
+  },
+  "limits": [
+    "The executable is unsigned.",
+    "Automated fixtures do not prove live installation, restore or in-game visuals.",
+    "Steam and Proton remain outside the supported integration target.",
+    "The OneDrive report remains unreproduced without affected diagnostics."
+  ]
+}
