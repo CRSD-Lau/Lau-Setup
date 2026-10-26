@@ -6,7 +6,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 META = b'Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell'
-RELEASE_VERSION = '1.5.0'
+RELEASE_VERSION = '1.5.1'
 DEFAULT_OUTPUT = Path('dist') / f'release-{RELEASE_VERSION}' / f'LauSetup-source-{RELEASE_VERSION}.zip'
 ADDITIONS = [
     'AGENTS.md', 'tools/package_patch_y_manual.py', 'tools/publish_patch_y_manual.py',
@@ -31,7 +31,7 @@ ADDITIONS = [
     'tools/build_loading_hd16x9_executable.py',
     'tools/build_loading_release.py', 'tools/loading_release_codec.py', 'tools/stage_loading_catalog.py',
     'docs/LOADING-HD16X9-PACK.md', 'docs/RELEASE-1.5.0.md', 'docs/DISCORD-1.5.0.md',
-    'docs/dbc/loading-3.1.0.json', 'docs/VALIDATION-1.5.0.json',
+    'docs/dbc/loading-3.1.0.json', 'docs/VALIDATION-1.5.0.json', 'docs/RELEASE-1.5.1.md', 'docs/VALIDATION-1.5.1.json',
     '.github/PULL_REQUEST_TEMPLATE.md', '.github/workflows/patch-y-source.yml',
 ]
 

@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Creator: Neil Mitchell  
 Last Modified By: Neil Mitchell
 
-Download one manual ZIP from the [Patch-Y 3.1.0 release](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0). No installer is required. These are the same MPQ bytes used by Lau Setup 1.5.0.
+Download one manual ZIP from the [Patch-Y 3.1.0 release](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0). No installer is required. These are the same MPQ bytes used by Lau Setup 1.5.1.
 
 | Your existing client | Download |
 | --- | --- |

@@ -21,7 +21,7 @@
 
 Multilingual spell text, widescreen loading artwork, custom ground indicators and optional HD maps for **WoW 3.3.5a, build 12340**. Choose your existing client and visuals; Lau Setup downloads the required files, verifies them, places the patches and backs up the originals.
 
-**Installer 1.5.0 · Game release 3.1.0 Lau · Ten interface languages · Nine localized game locales + three visual-compatibility locales**
+**Installer 1.5.1 · Game release 3.1.0 Lau · Ten interface languages · Nine localized game locales + three visual-compatibility locales**
 
 ## Download and start here
 
@@ -131,7 +131,7 @@ An interrupted install or restore can be recovered even if `WoW.exe` is temporar
 
 ## Tested, with clear limits
 
-Setup 1.5.0 passed **80 Windows installer cases** and **72 real Patch-Y upgrade/restore cases**. Isolated Docker/Wine checks passed the Linux suite, interface rendering and real-payload install/repair/restore cases. Neil accepted the 77-image HD 16:9 pack after representative in-game testing. See [release scope and validation](docs/RAID-VISUAL-RELEASE.md). The eight original loading backgrounds can retain side bars, and visual acceptance for every raid effect in every edition has not been claimed.
+Setup 1.5.1 passed **81 Windows installer cases**, including the process-query fallback and an exited-process race, using the released hash-pinned 3.3.5a executable in isolated fixtures. The unchanged game 3.1.0 payload retains its earlier **72 real Patch-Y upgrade/restore cases** and Docker/Wine validation. Neil accepted the 77-image HD 16:9 pack after representative in-game testing. See [1.5.1 release evidence](docs/RELEASE-1.5.1.md) and the [game-release scope](docs/RAID-VISUAL-RELEASE.md). The eight original loading backgrounds can retain side bars, and visual acceptance for every raid effect in every edition has not been claimed.
 
 Wine was tested with **Wine 11.0 / Wine Mono 10.4.1** on local Linux storage through the supplied launcher. Installer tests do not certify every Linux distribution, custom patch combination or in-game encounter. Cave maps remain upstream beta. Website animations and older gallery screenshots retain their original illustrative context.
 

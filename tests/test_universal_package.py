@@ -59,10 +59,10 @@ class UniversalPackageTests(unittest.TestCase):
             'docs/RAID-VISUAL-RELEASE.md','docs/RELEASE-1.5.0-CANDIDATE.md','docs/VALIDATION-1.5.0-CANDIDATE.json',
             'docs/dbc/caverns-3.1.0-candidate.json','docs/dbc/raid-visuals-3.1.0-candidate.json',
         }
-        self.assertEqual(source_package.DEFAULT_OUTPUT.as_posix(),'dist/release-1.5.0/LauSetup-source-1.5.0.zip')
+        self.assertEqual(source_package.DEFAULT_OUTPUT.as_posix(),'dist/release-1.5.1/LauSetup-source-1.5.1.zip')
         self.assertTrue(required.issubset(source_package.ADDITIONS))
         with tempfile.TemporaryDirectory(prefix='lau-source-package-') as path:
-            output=source_package.build(ROOT,pathlib.Path(path)/'LauSetup-source-1.5.0.zip')
+            output=source_package.build(ROOT,pathlib.Path(path)/'LauSetup-source-1.5.1.zip')
             with zipfile.ZipFile(output) as archive:
                 self.assertTrue({'LauSetup-source/'+name for name in required}.issubset(archive.namelist()))
                 self.assertIn('LauSetup-source/patch-y/raid-release/raid-visual-spec.json',archive.namelist())

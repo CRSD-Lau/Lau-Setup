@@ -24,7 +24,7 @@ The compatible `WoW.exe` supplied by setup has a specific role in the approved l
 
 ## Indicators are visual guidance
 
-Setup 1.5.0 includes the 77 new HD 16:9 loading backgrounds Neil accepted in game. Eight catalog backgrounds retain original artwork and can still show side bars: Black Temple, Eastern Kingdoms, Kalimdor, Outland, PvP Battleground, generic Raid, Ruined City and Sunwell. The generated art is 1672×940 or 1672×941 source resolution; MPQ texture storage dimensions do not make it native 4K. Other monitor ratios have separate visual behavior. [Loading-pack evidence](docs/LOADING-HD16X9-PACK.md).
+Setup 1.5.1 includes the unchanged 77 new HD 16:9 loading backgrounds Neil accepted in game. Eight catalog backgrounds retain original artwork and can still show side bars: Black Temple, Eastern Kingdoms, Kalimdor, Outland, PvP Battleground, generic Raid, Ruined City and Sunwell. The generated art is 1672×940 or 1672×941 source resolution; MPQ texture storage dimensions do not make it native 4K. Other monitor ratios have separate visual behavior. [Loading-pack evidence](docs/LOADING-HD16X9-PACK.md).
 
 The restored Halion tank marks have archive and material-batch proof, but their placement still needs targeted in-game confirmation. Neil's personal HD raid check does not establish every effect in the HD original-spells or SD editions. The Caverns map correction was confirmed in game; cave-map coverage remains upstream beta.
 

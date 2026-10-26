@@ -1,6 +1,14 @@
-# Lau Setup 1.5.0 · Patch-Y 3.1.0
+# Lau Setup 1.5.1 · Game 3.1.0
 
 <!-- Author: Neil Mitchell; Creator: Neil Mitchell; Last Modified By: Neil Mitchell -->
+
+- Fixes a Windows folder-check false block when .NET cannot read a WoW-named process through `Process.MainModule`. Setup retries with Windows limited-information process access, ignores only a process confirmed to have exited during enumeration, and still refuses installation when a live WoW process cannot be identified safely.
+- Installer-only release. Game 3.1.0, every catalog payload, DBC, MPQ, map, loading screen and the three standalone Patch-Y packages are unchanged.
+- The isolated Windows suite passes 81/81 using the released hash-pinned 3.3.5a executable payload. See [1.5.1 release notes and evidence](docs/RELEASE-1.5.1.md).
+
+---
+
+# Lau Setup 1.5.0 · Patch-Y 3.1.0
 
 ## Manual downloads added — October 1, 2026
 

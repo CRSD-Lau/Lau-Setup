@@ -1,4 +1,4 @@
-LAU SETUP 1.5.0 — GAME PATCH-Y 3.1.0
+LAU SETUP 1.5.1 — GAME PATCH-Y 3.1.0
 Author: Neil Mitchell
 Creator: Neil Mitchell
 Last Modified By: Neil Mitchell
@@ -54,6 +54,6 @@ Neil accepted the 77 new loading backgrounds at 16:9 and confirmed the Caverns
 map correction. Targeted in-game confirmation remains for restored Halion marks,
 HD without new spells and SD visuals. The eight original loading backgrounds
 were intentionally retained. The new art is 1672x940 or 1672x941, not native 4K.
-See docs/RELEASE-1.5.0.md and DBC-CHANGELOG.md for exact changes and evidence.
+See docs/RELEASE-1.5.1.md and DBC-CHANGELOG.md for exact changes and evidence.
 Credits: Neil Mitchell / Lau / Lausudo for Lau edits and integration; Suppository and the listed source contributors for adopted visuals; Andre for the Halion restoration.
 Author / Creator / Last Modified By: Neil Mitchell
