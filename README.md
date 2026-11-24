@@ -27,6 +27,9 @@ Multilingual spell text, widescreen loading artwork, custom ground indicators an
 
 **[Download LauSetup.zip](https://github.com/CRSD-Lau/Lau-Setup/releases/latest/download/LauSetup.zip)**. This is the one small online installer download for Windows and Linux/Wine; game files come from the separate [3.1.0 payload release](https://github.com/CRSD-Lau/Lau-Setup/releases/tag/payload-3.1.0) during setup.
 
+> [!WARNING]
+> **Microsoft Defender may flag the optional packed `WoW.exe`.** Lau suspects a false positive related to the Direct3D-to-Vulkan wrapper in the game executable. Leave **Compatible WoW.exe + loading screens** unchecked to keep your existing executable and install Patch-Y. Keep Defender enabled. [See the Defender notice and SHA-256 verification steps](docs/WINDOWS-DEFENDER-NOTICE.md).
+
 **Prefer manual installation?** Download one ready-to-copy Patch-Y 3.1.0 ZIP: [HD — New spell visuals](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-HD-New-Spells.zip), [HD — Original spell visuals](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-HD-Original-Spells.zip), or [Non-HD / SD](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/Patch-Y-3.1.0-Non-HD.zip). New spell visuals includes the required Patch-S companions; HD editions require an existing HD model pack. Follow the [manual installation guide](docs/PATCH-Y-MANUAL-INSTALL.md) for backup and active-locale placement. [ZIP checksums](https://github.com/CRSD-Lau/Lau-Setup/releases/download/payload-3.1.0/SHA256SUMS-Patch-Y.txt). These packages use the same released MPQ bytes and include no installer, executable, maps or loading screens.
 
 ### Windows
